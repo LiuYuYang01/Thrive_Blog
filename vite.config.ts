@@ -26,5 +26,15 @@ export default defineConfig({
     alias: {
       "@": resolve(__dirname, "./src")
     }
-  }
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        /**如果引入多个文件，可以使用
+       * '@import "@/assets/sass/globalVariable1.sass"; @import"@/assets/sass/globalVariable2.sass";'
+      **/
+        additionalData: '@import "@/styles/global.scss";',
+      }
+    }
+  },
 })
