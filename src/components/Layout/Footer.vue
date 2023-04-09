@@ -1,8 +1,11 @@
 <script setup lang='ts'>
+
 </script>
 
 <template>
-  <RouterView />
+  <div>底部</div>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>

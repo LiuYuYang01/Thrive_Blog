@@ -3,10 +3,9 @@
 </script>
 
 <template>
-  <div>Hello</div>
-  <HeaderNav></HeaderNav>
+  <HeaderNav />
+  <RouterView />
+  <Footer />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

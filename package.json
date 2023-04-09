@@ -14,7 +14,8 @@
     "compass": "^0.1.1",
     "path": "^0.12.7",
     "sass": "^1.61.0",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
