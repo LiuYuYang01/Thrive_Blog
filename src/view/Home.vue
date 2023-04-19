@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div>首页</div>
+  <Swiper></Swiper>
 </template>
 
 <style scoped>
