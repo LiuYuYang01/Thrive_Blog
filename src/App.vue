@@ -12,8 +12,6 @@ Info：互联网从不缺乏天才，而努力才是最终的入场券！
 
 <template>
   <RouterView />
-
-  <iconpark-icon name="home"></iconpark-icon>
 </template>
 
 <style scoped lang="scss">

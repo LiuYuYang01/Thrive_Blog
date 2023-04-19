@@ -23,7 +23,7 @@
 </template>
 
 <style scoped lang="scss">
-@import url("./ripple.scss");
+@import './ripple.scss';
 
 .swiper {
     height: 500px;
