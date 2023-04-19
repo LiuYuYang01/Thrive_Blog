@@ -7,7 +7,14 @@ import { resolve } from "path";
 
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      template: {
+        // 不解析iconpark-开头的自定义组件
+        compilerOptions: {
+          isCustomElement: tag => tag.startsWith('iconpark-')
+        }
+      }
+    }),
     // 配置组件自动导入
     Components({
       // 使这两个目录下的文件不需要引入组件就能直接使用
