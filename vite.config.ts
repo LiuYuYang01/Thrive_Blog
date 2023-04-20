@@ -25,7 +25,7 @@ export default defineConfig({
       extensions: ["vue"],
       // 配置自动导入组件的文件生成的位置
       dts: "components.d.ts"
-    })
+    }),
   ],
   // ↓解析配置
   resolve: {
