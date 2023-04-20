@@ -17,7 +17,6 @@ export default class Request {
     static interface: any;
 
     // private 设置为受保护的只能在该类中使用，不能被直接new Request实例化
-
     private constructor() {
         // 配置请求URL
         this.request = axios.create({ baseURL: Request.baseURL })
