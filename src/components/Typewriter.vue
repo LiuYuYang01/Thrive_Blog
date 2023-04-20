@@ -15,11 +15,9 @@ onMounted(() => {
 </script>
 
 <template>
-    <span id="typed"></span>
+    <slot></slot>
 </template>
 
 <style scoped lang="scss">
-#typed {
-    font-family: Alimama ShuHeiTi, -apple-system, BlinkMacSystemFont;
-}
+
 </style>
