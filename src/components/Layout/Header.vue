@@ -1,17 +1,16 @@
 <script setup lang='ts'>
-import { ref, reactive, onMounted } from 'vue'
+import { ref } from 'vue'
 
 // 导入Scss主题变量
 import global from '@/styles/global.module.scss';
 
 // 导入相关API
-import { getCateListAPI } from '@/api/cate'
+import { getCateListAPI } from '@/api/Cate'
 
 // 获取页面滚动的距离
 import useScroll from '@/util/useScroll';
 const top = useScroll()
 
-// let cateList = reactive([])
 let cateList = ref([])
 
 const getCateList = async () => {
@@ -19,9 +18,7 @@ const getCateList = async () => {
 
   const { status, data, message } = await getCateListAPI()
 
-  // cateList = data
   cateList.value = data
-  // console.log(cateList, 333);
 }
 
 getCateList()
