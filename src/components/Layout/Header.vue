@@ -1,6 +1,9 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
 
+// 导入分类数据的类型
+import { Cate } from '@/types/Cate'
+
 // 导入Scss主题变量
 import global from '@/styles/global.module.scss';
 
@@ -11,11 +14,10 @@ import { getCateListAPI } from '@/api/Cate'
 import useScroll from '@/util/useScroll';
 const top = useScroll()
 
-let cateList = ref([])
+
+let cateList = ref<Cate[]>([])
 
 const getCateList = async () => {
-  console.log(await getCateListAPI());
-
   const { status, data, message } = await getCateListAPI()
 
   cateList.value = data
