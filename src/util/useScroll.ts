@@ -15,6 +15,5 @@ export default () => {
         window.removeEventListener('scroll', scroll)
     })
 
-
     return top
 }

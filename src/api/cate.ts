@@ -7,7 +7,7 @@ export const getCate = (id: string) => {
     }))
 }
 
-export const getCateList = () => {
+export const getCateListAPI = () => {
     return Request.instance.request(({
         url: "/api/cate"
     }))

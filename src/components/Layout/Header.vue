@@ -1,48 +1,37 @@
 <script setup lang='ts'>
+import { ref, reactive, onMounted } from 'vue'
+
 // 导入Scss主题变量
 import global from '@/styles/global.module.scss';
-import { getCateList } from '@/api/cate'
 
+// 导入相关API
+import { getCateListAPI } from '@/api/cate'
+
+// 获取页面滚动的距离
 import useScroll from '@/util/useScroll';
 const top = useScroll()
 
-getCateList().then(res => {
+// let cateList = reactive([])
+let cateList = ref([])
 
-})
+const getCateList = async () => {
+  console.log(await getCateListAPI());
 
-const data = [
-  {
-    id: 1,
-    name: "开发笔记",
-    icon: "📒",
-    url: "",
-  },
-  {
-    id: 2,
-    name: "大前端",
-    icon: "🎉",
-    url: "",
-  },
-  {
-    id: 3,
-    name: "前端框架",
-    icon: "🛠️",
-    url: "",
-  },
-  {
-    id: 4,
-    name: "随笔闲谈",
-    icon: "✍️",
-    url: "",
-  }
-]
+  const { status, data, message } = await getCateListAPI()
+
+  // cateList = data
+  cateList.value = data
+  // console.log(cateList, 333);
+}
+
+getCateList()
 
 // 导出Scss指定的变量
-// const { color } = global
+// const { color } = global;
 </script>
 
 <template>
-  <div class="header" :style="{ backgroundColor: top > 100 ? '#fff' : '' }">
+  <div class="header" :style="{ backgroundColor: top > 100 ? '#fff' : '' }" :class="top > 100 ? 'gradient' : ''">
     <div class="w">
       <!-- 一级导航 -->
       <ul class="one">
@@ -67,10 +56,10 @@ const data = [
         </li>
 
         <!-- 导航列表 -->
-        <li class="one_item" v-for="item in data" :key="item.id">
-          <a href="javascript:;" class="one_item_nav" :style="{ color: top > 100 ? '#333' : '#fff' }">{{ item.icon }} {{
-            item.name
-          }}</a>
+        <li class="one_item" v-for="item in cateList" :key="item.id">
+          <a href="javascript:;" class="one_item_nav" :style="{ color: top > 100 ? '#333' : '#fff' }">
+            {{ item.icon }} {{ item.name }}
+          </a>
         </li>
       </ul>
     </div>
@@ -84,8 +73,17 @@ const data = [
   position: fixed;
   top: 0;
   width: 100%;
+  height: 60px;
   transition: background-color $move;
   z-index: 999;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(#ffffff, transparent 70%);
+  }
 
   .w {
     width: $w;
@@ -154,6 +152,14 @@ const data = [
         }
       }
     }
+  }
+}
+
+.gradient {
+  &::after {
+    content: "";
+    height: 30px;
+    transition: height $move;
   }
 }
 </style>
