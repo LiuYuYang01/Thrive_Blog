@@ -15,11 +15,16 @@ import useScroll from '@/util/useScroll';
 const top = useScroll()
 
 
-let cateList = ref<Cate[]>([])
+// let cateList = ref<Cate[]>([])
+let cateList = ref([])
 
 const getCateList = async () => {
-  const { status, data, message } = await getCateListAPI()
-
+  console.log(await getCateListAPI());
+  
+  const { code, data, message } = await getCateListAPI()
+  console.log(message);
+  console.log(data);
+  
   cateList.value = data
 }
 

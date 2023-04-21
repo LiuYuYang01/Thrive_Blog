@@ -1,5 +1,7 @@
 import axios from 'axios'
 import type { AxiosInstance, AxiosResponse } from 'axios'
+import type { Response } from '@/types/Response'
+
 
 export default class Request {
     // private static 表示该属性是私有的，只能在当前类中使用并且是静态属性，类型为 Request 的实例对象
@@ -10,7 +12,7 @@ export default class Request {
     private static readonly baseURL: string = "http://127.0.0.1:4523/m1/2561526-0-default"
 
     // 获取store对象
-    static interface: any;
+    static interface: Request;
 
     // private 设置为受保护的只能在该类中使用，不能被直接new Request实例化
     private constructor() {
@@ -21,6 +23,8 @@ export default class Request {
         this.request.interceptors.response.use(
             // 成功响应
             (res: AxiosResponse) => {
+                console.log(res,111);
+                
                 return res.data
             })
     }
