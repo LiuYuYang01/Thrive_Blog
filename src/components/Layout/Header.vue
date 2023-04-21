@@ -1,9 +1,14 @@
 <script setup lang='ts'>
 // 导入Scss主题变量
 import global from '@/styles/global.module.scss';
+import { getCateList } from '@/api/cate'
 
 import useScroll from '@/util/useScroll';
 const top = useScroll()
+
+getCateList().then(res => {
+
+})
 
 const data = [
   {
@@ -33,7 +38,7 @@ const data = [
 ]
 
 // 导出Scss指定的变量
-const { color } = global
+// const { color } = global
 </script>
 
 <template>
@@ -42,7 +47,7 @@ const { color } = global
       <!-- 一级导航 -->
       <ul class="one">
         <!-- Logo模式 -->
-        <li class="one_item" v-if="true">
+        <li class="one_item" v-if="false">
           <a href="javascript:;" class="one_item_nav">
             <img src="@/assets/img/logo_dark.png" alt="" v-if="top > 100">
             <img src="@/assets/img/logo_light.png" alt="" v-else>
@@ -63,7 +68,8 @@ const { color } = global
 
         <!-- 导航列表 -->
         <li class="one_item" v-for="item in data" :key="item.id">
-          <a href="javascript:;" class="one_item_nav" :style="{ color: top > 100 ? '#333' : '#fff' }">{{item.icon}} {{ item.name
+          <a href="javascript:;" class="one_item_nav" :style="{ color: top > 100 ? '#333' : '#fff' }">{{ item.icon }} {{
+            item.name
           }}</a>
         </li>
       </ul>
@@ -106,6 +112,21 @@ const { color } = global
         &:hover img {
           transition: transform $move;
           transform: scale(0.9);
+        }
+
+        // 待办
+        // 待办
+        // 待办
+        // 待办
+        // 待办
+        // 待办
+        // 待办
+        // 待办
+        // 待办
+        // 待办
+        // 待办
+        &:hover .one_item_nav {
+          color: $color;
         }
 
         // 导航

@@ -4,12 +4,13 @@
 
 <template>
     <div class="swiper">
-        <!-- 引入打字机效果 -->
+        <!-- 引入打字机组件 -->
         <Typewriter>
             <span id="typed"></span>
         </Typewriter>
     </div>
 
+    <!-- 波浪 -->
     <div class="ripple">
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
