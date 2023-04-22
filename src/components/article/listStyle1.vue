@@ -30,7 +30,7 @@
         overflow: hidden;
         display: flex;
         height: 230px;
-        border-radius: 5px;
+        border-radius: $round;
         background-color: #fff;
 
         // 文章封面
@@ -52,18 +52,34 @@
         .info {
             width: 65%;
             padding: 20px 40px;
-            font-family: cursive, 黑体, Microsoft Yahei Font;
+            font-family: cursive, 宋体, 黑体, Microsoft Yahei Font;
 
             a {
                 display: block;
 
                 h3 {
+                    position: relative;
+                    width: 100%;
+                    height: 30px;
                     color: #333;
                     padding-top: 10px;
+                    padding-bottom: 15px;
                     transition: color $move;
 
-                    &:hover {
-                        color: $color;
+                    // 防止超长文本 溢出
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        bottom: 5px;
+                        width: 0%;
+                        height: 3px;
+                        background-color: $color;
+                        transition: width $move;
                     }
                 }
 
@@ -80,6 +96,14 @@
                     -webkit-line-clamp: 3;
                 }
             }
+        }
+
+        &:hover .info h3 {
+            color: $color;
+        }
+
+        &:hover .info h3::after {
+            width: 100%;
         }
     }
 }

@@ -27,20 +27,14 @@
     .left {
         width: 75%;
         height: 500px;
-        // background-color: #fff;
-        // border: 1px solid #f0f0f0;
-        // transition: all 0.3s;
-
-
-        // &:hover {
-        //     box-shadow: 0 2px 8px rgba(186, 186, 186, 0.15);
-        // }
     }
 
     .right {
+        overflow: hidden;
         width: 23%;
-        background-color: #fff;
+        border-radius: $round;
         border: 1px solid #f0f0f0;
+        background-color: #fff;
         transition: all 0.3s;
 
         &:hover {
