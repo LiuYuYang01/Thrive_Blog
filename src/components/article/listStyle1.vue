@@ -17,6 +17,12 @@
                     <h3>如何查看 Python 项目中所依赖的包</h3>
 
                     <p>如何查看 Python 项目中所依赖的包查看已安装的包可以使用 pip 命令来查看已安装的包，命令如下：pip list这个命令会列出所有已安装的包及其版本信息。查看包的详细信息如果想查看某个包</p>
+
+                    <div class="fun">
+                        <span>⏰ 2023/04/22</span>
+                        <span>🔥 浏览量：345</span>
+                        <span>🏷️ 开发记录</span>
+                    </div>
                 </a>
             </div>
         </div>
@@ -58,16 +64,19 @@
             font-family: cursive, 宋体, 黑体, Microsoft Yahei Font;
 
             a {
-                display: block;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
 
                 // 文章标题
                 h3 {
                     position: relative;
                     width: 100%;
-                    height: 30px;
+                    // height: 30px;
                     color: #333;
                     padding-top: 10px;
-                    padding-bottom: 15px;
+                    padding-bottom: 20px;
                     transition: color $move;
 
                     // 防止超长文本 溢出
@@ -90,7 +99,6 @@
 
                 // 文章简述
                 p {
-                    padding-top: 30px;
                     line-height: 30px;
 
                     // 多行文本溢出
@@ -100,6 +108,15 @@
                     text-overflow: ellipsis;
                     -webkit-box-orient: vertical;
                     -webkit-line-clamp: 3;
+                }
+
+                .fun {
+                    padding-top: 20px;
+                    text-align: end;
+
+                    span{
+                        padding-left: 30px;
+                    }
                 }
             }
         }
