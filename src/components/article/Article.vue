@@ -4,7 +4,10 @@
 
 <template>
     <div class="main">
-        <div class="left">文章列表</div>
+        <div class="left">
+            <listStyle />
+        </div>
+
         <div class="right">
             <Author></Author>
         </div>
