@@ -27,7 +27,6 @@ const qq = ref<number>(3311118881)
     background: url("@/assets/img/avatar_bg.jpg");
     background-size: cover;
     width: 100%;
-    height: 200px;
 
     // 作者头像
     .avatar {

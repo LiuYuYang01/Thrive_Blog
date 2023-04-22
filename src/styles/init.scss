@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+body {
+    height: 3000px;
+}
+
 li {
     list-style: none;
 }
@@ -12,8 +16,6 @@ a {
     text-decoration: none;
 }
 
-body {
-    height: 3000px;
-    // background-color: #f3f4f5;
-    background-color: #fff;
+div {
+    box-sizing: border-box;
 }

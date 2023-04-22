@@ -5,7 +5,7 @@
 <template>
     <div class="main">
         <div class="left">
-            <listStyle />
+            <listStyle1></listStyle1>
         </div>
 
         <div class="right">
@@ -27,14 +27,14 @@
     .left {
         width: 75%;
         height: 500px;
-        background-color: #fff;
-        border: 1px solid #f0f0f0;
-        transition: all 0.3s;
+        // background-color: #fff;
+        // border: 1px solid #f0f0f0;
+        // transition: all 0.3s;
 
 
-        &:hover {
-            box-shadow: 0 2px 8px rgba(186, 186, 186, 0.15);
-        }
+        // &:hover {
+        //     box-shadow: 0 2px 8px rgba(186, 186, 186, 0.15);
+        // }
     }
 
     .right {
