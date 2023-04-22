@@ -24,7 +24,10 @@
 </template>
 
 <style scoped lang="scss">
+// 文章风格一
 .listStyle1 {
+
+    // 文章列表
     .item {
         position: relative;
         overflow: hidden;
@@ -57,6 +60,7 @@
             a {
                 display: block;
 
+                // 文章标题
                 h3 {
                     position: relative;
                     width: 100%;
@@ -71,6 +75,7 @@
                     overflow: hidden;
                     text-overflow: ellipsis;
 
+                    // 下划线
                     &::after {
                         content: "";
                         position: absolute;
@@ -83,6 +88,7 @@
                     }
                 }
 
+                // 文章简述
                 p {
                     padding-top: 30px;
                     line-height: 30px;
@@ -98,12 +104,13 @@
             }
         }
 
+        // 鼠标经过文章样式
         &:hover .info h3 {
             color: $color;
-        }
 
-        &:hover .info h3::after {
-            width: 100%;
+            &::after {
+                width: 100%;
+            }
         }
     }
 }
