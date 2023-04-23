@@ -26,7 +26,6 @@
 
     .left {
         width: 75%;
-        height: 500px;
     }
 
     .right {
@@ -38,7 +37,7 @@
         transition: all 0.3s;
 
         &:hover {
-            box-shadow: 0 2px 8px rgba(186, 186, 186, 0.15);
+            box-shadow: $boxShadow;
         }
     }
 }

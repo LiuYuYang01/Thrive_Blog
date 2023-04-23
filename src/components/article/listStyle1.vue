@@ -20,32 +20,35 @@ getArticleList()
 <template>
     <div class="listStyle1">
         <!-- 文章列表 -->
-        <div class="item" v-for="item,index in articleList">
+        <div class="item" v-for="item, index in articleList">
             <!-- 文章封面 -->
-            <div class="cover" v-if="index % 2 === 0"></div>
+            <!-- <div class="cover" :style="backgroundImage: url(item.cover)" v-if="index % 2 === 0"></div> -->
+            <div class="cover" :style="{ backgroundImage: 'url(' + item.cover + ')' }" v-if="index % 2 === 0"></div>
 
             <!-- 文章信息 -->
             <div class="info">
                 <a href="javascript:;">
-                    <h3>如何查看 Python 项目中所依赖的包</h3>
+                    <!-- 文章标题 -->
+                    <h3>{{ item.title }}</h3>
 
-                    <p>如何查看 Python 项目中所依赖的包查看已安装的包可以使用 pip 命令来查看已安装的包，命令如下：pip list这个命令会列出所有已安装的包及其版本信息。查看包的详细信息如果想查看某个包</p>
+                    <!-- 文章内容 -->
+                    <p>{{ item.content }}</p>
 
                     <div class="fun" v-if="index % 2 === 0">
-                        <span>⏰ 2023/04/22</span>
-                        <span>🔥 浏览量：345</span>
-                        <span>🏷️ 开发记录</span>
+                        <span>⏰ {{ item.date }}</span>
+                        <span>🔥 浏览量：{{ item.flow }}</span>
+                        <span>🏷️ {{ item.cate }}</span>
                     </div>
 
                     <div class="fun" style="text-align: start;" v-else>
-                        <span style="padding-left: 0;">⏰ 2023/04/22</span>
-                        <span>🔥 浏览量：345</span>
-                        <span>🏷️ 开发记录</span>
+                        <span style="padding-left: 0;">⏰ {{ item.date }}</span>
+                        <span>🔥 浏览量：{{ item.flow }}</span>
+                        <span>🏷️ {{ item.cate }}</span>
                     </div>
                 </a>
             </div>
 
-            <div class="cover" style="clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);"  v-if="index % 2 !== 0"></div>
+            <div class="cover" style="clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);" v-if="index % 2 !== 0"></div>
         </div>
     </div>
 </template>
@@ -61,8 +64,14 @@ getArticleList()
         display: flex;
         height: 230px;
         margin-bottom: 15px;
-        border-radius: $round;
+        border: 1px solid #f0f0f0;
+        border-radius: 5px;
         background-color: #fff;
+        transition: all 0.3s;
+
+        &:hover {
+            box-shadow: $boxShadow;
+        }
 
         // 文章封面
         .cover {
@@ -151,6 +160,11 @@ getArticleList()
                 width: 100%;
             }
         }
+    }
+
+    // 最后一个文章取消下边距
+    & .item:last-of-type{
+        margin-bottom: 0;
     }
 }
 </style>
