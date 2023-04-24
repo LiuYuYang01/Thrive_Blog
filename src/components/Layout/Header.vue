@@ -15,17 +15,16 @@ import useScroll from '@/util/useScroll';
 const top = useScroll()
 
 
-// let cateList = ref<Cate[]>([])
-let cateList = ref([])
+let cateList = ref<Cate[]>()
 
 const getCateList = async () => {
-  console.log(await getCateListAPI());
-  
-  const { code, data, message } = await getCateListAPI()
-  console.log(message);
-  console.log(data);
-  
-  cateList.value = data
+  try {
+    const { data } = await getCateListAPI()
+
+    cateList.value = data
+  } catch (error) {
+    console.log("在分类导航中捕获到异常：",error);
+  }
 }
 
 getCateList()
@@ -63,6 +62,8 @@ getCateList()
         <li class="one_item" v-for="item in cateList" :key="item.id">
           <a href="javascript:;" class="one_item_nav" :style="{ color: top > 100 ? '#333' : '#fff' }">
             {{ item.icon }} {{ item.name }}
+
+            <iconpark-icon name="down" v-if="item.children.length"></iconpark-icon>
           </a>
         </li>
       </ul>
