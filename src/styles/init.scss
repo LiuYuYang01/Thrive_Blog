@@ -1,3 +1,5 @@
+@import "./global.scss";
+
 * {
     padding: 0;
     margin: 0;
@@ -18,4 +20,21 @@ a {
 
 div {
     box-sizing: border-box;
+}
+
+/* 网页滑动条样式 */
+::-webkit-scrollbar {
+    width: 7px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 7px;
+    background-color: $color;
+    transition: all $move;
+}
+
+::-webkit-scrollbar-track {
+    /* border-radius: 7px; */
+    background-color: #d3dce6;
 }

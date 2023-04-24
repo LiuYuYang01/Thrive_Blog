@@ -16,6 +16,7 @@ declare module '@vue/runtime-core' {
     Layout: typeof import('./src/components/Layout/Layout.vue')['default']
     ListStyle: typeof import('./src/components/article/listStyle.vue')['default']
     ListStyle1: typeof import('./src/components/article/listStyle1.vue')['default']
+    LoadMore: typeof import('./src/components/LoadMore/LoadMore.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Swiper: typeof import('./src/components/Swiper/Swiper.vue')['default']
