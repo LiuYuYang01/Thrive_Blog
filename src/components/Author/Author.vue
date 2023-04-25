@@ -15,6 +15,11 @@ const qq = ref<number>(3311118881)
             <h3>YuYang</h3>
             <p>不断进取，创造无限可能🎉</p>
         </div>
+
+        <!-- 社交账号 -->
+        <div class="socializing">
+            
+        </div>
     </div>
 </template>
 
@@ -75,5 +80,4 @@ const qq = ref<number>(3311118881)
             color: #666;
         }
     }
-}
-</style>
+}</style>

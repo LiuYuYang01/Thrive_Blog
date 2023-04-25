@@ -104,8 +104,6 @@ getCateList()
 
       // 导航列表
       .one_item {
-        padding: 0 20px;
-
         img {
           width: 145px;
           height: 40px;
@@ -125,6 +123,7 @@ getCateList()
         // 导航
         .one_item_nav {
           display: inline-block;
+          padding: 20px;
           color: #fff;
           font-size: 15px;
           transition: color $move;
