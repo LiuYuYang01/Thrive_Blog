@@ -17,6 +17,7 @@ const top = useScroll()
 
 let cateList = ref<Cate[]>()
 
+// 获取分类导航信息
 const getCateList = async () => {
   try {
     const { data } = await getCateListAPI()

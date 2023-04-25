@@ -104,7 +104,6 @@ getArticleList()
                 h3 {
                     position: relative;
                     width: 100%;
-                    // height: 30px;
                     color: #333;
                     padding-top: 10px;
                     padding-bottom: 20px;
@@ -120,9 +119,9 @@ getArticleList()
                         content: "";
                         position: absolute;
                         left: 0;
-                        bottom: 5px;
+                        bottom: 10px;
                         width: 0%;
-                        height: 3px;
+                        height: 2px;
                         background-color: $color;
                         transition: width $move;
                     }
