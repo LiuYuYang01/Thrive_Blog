@@ -118,19 +118,8 @@ getCateList()
           transform: scale(0.9);
         }
 
-        // 待办
-        // 待办
-        // 待办
-        // 待办
-        // 待办
-        // 待办
-        // 待办
-        // 待办
-        // 待办
-        // 待办
-        // 待办
         &:hover .one_item_nav {
-          color: $color;
+          color: $color !important;
         }
 
         // 导航
@@ -138,6 +127,7 @@ getCateList()
           display: inline-block;
           color: #fff;
           font-size: 15px;
+          transition: color $move;
 
           // 文字模式
           b {
