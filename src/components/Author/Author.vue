@@ -1,10 +1,9 @@
 <script setup lang='ts'>
-import { ref } from 'vue'
-const qq = ref<number>(3311118881)
 const userInfo = {
     author: "YuYang",
     qq: 3311118881,
     introduce: "不断进取，创造无限可能🎉",
+    background: "https://s1.ax1x.com/2023/04/26/p9KH6HJ.jpg",
     socializing: [
         {
             name: "GitHub",
@@ -24,23 +23,25 @@ const userInfo = {
         },
         {
             name: "QQ",
-            url: ""
+            url: "http://wpa.qq.com/msgrd?v=3&uin=3311118881&site=qq&menu=yes"
         }
     ]
 }
 </script>
 
 <template>
-    <div class="author">
+    <!-- 有背景就显示自己的背景，否则显示默认背景 -->
+    <div class="author"
+        :style="{ backgroundImage: `url(${userInfo.background ? userInfo.background : '/src/assets/img/avatar_bg.jpg'})` }">
         <!-- 作者头像 -->
         <div class="avatar">
-            <img :src="`http://q.qlogo.cn/headimg_dl?dst_uin=${qq}&spec=640&img_type=jpg`" alt="">
+            <img :src="`http://q.qlogo.cn/headimg_dl?dst_uin=${userInfo.qq}&spec=640&img_type=jpg`" alt="">
         </div>
 
         <!-- 作者介绍 -->
         <div class="info">
-            <h3>YuYang</h3>
-            <p>不断进取，创造无限可能🎉</p>
+            <h3>{{ userInfo.author }}</h3>
+            <p>{{ userInfo.introduce }}</p>
         </div>
 
         <!-- 社交账号 -->
@@ -59,7 +60,7 @@ const userInfo = {
     flex-direction: column;
     align-items: center;
     padding-top: 60px;
-    background: url(/src/assets/img/avatar_bg.jpg);
+    background: url("/src/assets/img/avatar_bg.jpg");
     background-size: cover;
     width: 100%;
     height: 300px;
