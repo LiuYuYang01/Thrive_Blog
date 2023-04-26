@@ -70,7 +70,7 @@ getCateList()
           <!-- 二级导航 -->
           <ul class="two">
             <li class="two_item" v-for="two in one.children" :key="two.id">
-              <a href="javascript:;" class="two_item_nav" >{{ two.name }}</a>
+              <a href="javascript:;" class="two_item_nav">{{ two.name }}</a>
             </li>
           </ul>
         </li>
@@ -156,19 +156,57 @@ getCateList()
         }
 
         // 二级导航
-        .two{
+        .two {
+          display: none;
+          overflow: hidden;
           position: absolute;
           top: 50px;
           width: 100%;
           border-radius: $round;
-          border-top-left-radius: 0;
-          border-top-right-radius: 0;
           background-color: #fff;
           box-shadow: $boxShadow;
 
-          .two_item{
-            padding: 10px;
+          .two_item {
+            .two_item_nav {
+              position: relative;
+              display: inline-block;
+              width: 100%;
+              padding: 10px;
+              padding-left: 10px;
+              font-size: 15px;
+              box-sizing: border-box;
+              transition: all $move;
+
+              // 鼠标经过的小横线
+              &::after {
+                content: "";
+                position: absolute;
+                left: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 0;
+                height: 3px;
+                background-color: $color;
+                transition: width $move;
+              }
+            }
+
+            // 鼠标经过二级导航的效果
+            &:hover .two_item_nav {
+              color: $color;
+              background-color: $bgc;
+              padding-left: 30px;
+
+              &:hover::after {
+                width: 10px;
+              }
+            }
           }
+        }
+
+        // 鼠标经过哪个，就让哪个二级导航显示
+        &:hover .two{
+          display: block;
         }
       }
     }
