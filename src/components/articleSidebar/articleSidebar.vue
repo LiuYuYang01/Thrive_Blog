@@ -121,6 +121,10 @@
                 text-overflow: ellipsis;
             }
         }
+
+        .item:last-of-type{
+            margin-bottom: 0;
+        }
     }
 }
 </style>

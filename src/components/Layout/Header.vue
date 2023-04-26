@@ -42,35 +42,35 @@ getCateList()
         <!-- LOGO -->
         <li class="one_item">
           <!-- 图片LOGO模式 -->
-          <a href="javascript:;" class="one_item_nav" v-if="false">
+          <RouterLink to="/" class="one_item_nav" v-if="false">
             <img src="@/assets/img/logo_dark.png" alt="" v-if="top > 100">
             <img src="@/assets/img/logo_light.png" alt="" v-else>
-          </a>
+          </RouterLink>
 
           <!-- 文字LOGO模式 -->
-          <a href="javascript:;" class="one_item_nav" :style="{ color: top > 100 ? '#333' : '#fff' }" v-else>
+          <RouterLink to="/" class="one_item_nav" :style="{ color: top > 100 ? '#333' : '#fff' }" v-else>
             <b>Blog</b>
-          </a>
+          </RouterLink>
         </li>
 
         <!-- 首页 -->
         <li class="one_item">
-          <a href="javascript:;" class="one_item_nav" :style="{ color: top > 100 ? '#333' : '#fff' }">💎 首页</a>
+          <RouterLink to="/" class="one_item_nav" :style="{ color: top > 100 ? '#333' : '#fff' }">💎 首页</RouterLink>
         </li>
 
         <!-- 导航列表 -->
         <li class="one_item" v-for="one in cateList" :key="one.id">
-          <a href="javascript:;" class="one_item_nav" :style="{ color: top > 100 ? '#333' : '#fff' }">
+          <RouterLink :to="one.url" class="one_item_nav" :style="{ color: top > 100 ? '#333' : '#fff' }">
             {{ one.icon }} {{ one.name }}
 
             <!-- 判断有没有二级分类，有就显示下拉箭头 -->
             <iconpark-icon name="down" v-if="one.children.length"></iconpark-icon>
-          </a>
+          </RouterLink>
 
           <!-- 二级导航 -->
           <ul class="two">
             <li class="two_item" v-for="two in one.children" :key="two.id">
-              <a href="javascript:;" class="two_item_nav">{{ two.name }}</a>
+              <RouterLink :to="two.url" class="two_item_nav">{{ two.name }}</RouterLink>
             </li>
           </ul>
         </li>
@@ -205,7 +205,7 @@ getCateList()
         }
 
         // 鼠标经过哪个，就让哪个二级导航显示
-        &:hover .two{
+        &:hover .two {
           display: block;
         }
       }

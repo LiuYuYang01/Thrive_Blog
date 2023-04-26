@@ -16,10 +16,11 @@
     border: 1px solid #f0f0f0;
     border-radius: $round;
     background-color: #fff;
-    cursor: pointer;
+    box-shadow: $boxShadow;
     transition: all $move;
+    cursor: pointer;
 
-    &:hover{
+    &:hover {
         color: #fff;
         background-color: $assistColor;
     }

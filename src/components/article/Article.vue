@@ -18,7 +18,11 @@ const btn = () => {
 
     <div class="main">
         <div class="left">
+            <!-- 文章列表风格一 -->
             <listStyle1></listStyle1>
+
+            <!-- 加载更多 -->
+            <LoadMore></LoadMore>
         </div>
 
         <div class="right">
@@ -27,8 +31,6 @@ const btn = () => {
                 <articleSidebar />
             </div>
         </div>
-
-        <LoadMore></LoadMore>
     </div>
 </template>
 
