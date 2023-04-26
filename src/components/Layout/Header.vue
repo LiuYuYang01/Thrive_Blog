@@ -59,12 +59,20 @@ getCateList()
         </li>
 
         <!-- 导航列表 -->
-        <li class="one_item" v-for="item in cateList" :key="item.id">
+        <li class="one_item" v-for="one in cateList" :key="one.id">
           <a href="javascript:;" class="one_item_nav" :style="{ color: top > 100 ? '#333' : '#fff' }">
-            {{ item.icon }} {{ item.name }}
+            {{ one.icon }} {{ one.name }}
 
-            <iconpark-icon name="down" v-if="item.children.length"></iconpark-icon>
+            <!-- 判断有没有二级分类，有就显示下拉箭头 -->
+            <iconpark-icon name="down" v-if="one.children.length"></iconpark-icon>
           </a>
+
+          <!-- 二级导航 -->
+          <ul class="two">
+            <li class="two_item" v-for="two in one.children" :key="two.id">
+              <a href="javascript:;" class="two_item_nav" >{{ two.name }}</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>
@@ -103,6 +111,8 @@ getCateList()
 
       // 导航列表
       .one_item {
+        position: relative;
+
         img {
           width: 145px;
           height: 40px;
@@ -142,6 +152,22 @@ getCateList()
           iconpark-icon {
             padding-right: 5px;
             font-size: 18px;
+          }
+        }
+
+        // 二级导航
+        .two{
+          position: absolute;
+          top: 50px;
+          width: 100%;
+          border-radius: $round;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+          background-color: #fff;
+          box-shadow: $boxShadow;
+
+          .two_item{
+            padding: 10px;
           }
         }
       }

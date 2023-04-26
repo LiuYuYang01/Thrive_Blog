@@ -3,7 +3,7 @@ import Typed from 'typed.js'
 import { onMounted } from 'vue'
 
 const options = {
-    strings: ['互联网从不缺乏天才, 而努力才是最终的入场券!', '路虽远, 行则将至, 事虽难, 做则必成!'],
+    strings: ['print("互联网从不缺乏天才, 而努力才是最终的入场券!")', 'console.log("路虽远, 行则将至, 事虽难, 做则必成!")'],
     typeSpeed: 50,
     backSpeed: 30,
     loop: true
@@ -18,6 +18,4 @@ onMounted(() => {
     <slot></slot>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>
