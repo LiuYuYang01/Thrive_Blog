@@ -1,6 +1,33 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
 const qq = ref<number>(3311118881)
+const userInfo = {
+    author: "YuYang",
+    qq: 3311118881,
+    introduce: "不断进取，创造无限可能🎉",
+    socializing: [
+        {
+            name: "GitHub",
+            url: "https://github.com/LiuYuYang01?tab=overview&from=2023-04-01&to=2023-04-26"
+        },
+        {
+            name: "Gitee",
+            url: "https://gitee.com/liu_yu_yang666"
+        },
+        {
+            name: "Juejin",
+            url: "https://juejin.cn/user/3083456627092078/posts"
+        },
+        {
+            name: "CSDN",
+            url: "https://blog.csdn.net/haodian666?type=blog"
+        },
+        {
+            name: "QQ",
+            url: ""
+        }
+    ]
+}
 </script>
 
 <template>
@@ -18,7 +45,9 @@ const qq = ref<number>(3311118881)
 
         <!-- 社交账号 -->
         <div class="socializing">
-            
+            <a :href="item.url" target="_blank" v-for="item, index in userInfo.socializing" :key="index">
+                <img :src="`/src/assets/svg/socializing/${item.name}.svg`">
+            </a>
         </div>
     </div>
 </template>
@@ -80,4 +109,20 @@ const qq = ref<number>(3311118881)
             color: #666;
         }
     }
-}</style>
+
+    // 社交账号
+    .socializing {
+        display: flex;
+        width: 70%;
+        justify-content: space-between;
+        padding-top: 20px;
+
+        a {
+            img {
+                width: 23px;
+                height: 23px;
+            }
+        }
+    }
+}
+</style>
