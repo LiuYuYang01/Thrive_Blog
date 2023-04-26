@@ -23,6 +23,7 @@ const btn = () => {
 
         <div class="right">
             <Author></Author>
+            <articleSidebar />
         </div>
 
         <LoadMore></LoadMore>
@@ -45,16 +46,12 @@ const btn = () => {
     }
 
     .right {
+        position: sticky;
+        top: 0;
+
         overflow: hidden;
         width: 23%;
         border-radius: $round;
-        // border: 1px solid #f0f0f0;
-        // background-color: #fff;
-        // transition: all 0.3s;
-
-        // &:hover {
-        //     box-shadow: $boxShadow;
-        // }
     }
 }
 </style>

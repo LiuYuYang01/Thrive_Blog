@@ -50,6 +50,68 @@ getArticleList()
 
             <div class="cover" style="clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);" v-if="index % 2 !== 0"></div>
         </div>
+
+        <div class="item" v-for="item, index in articleList">
+            <!-- 文章封面 -->
+            <!-- <div class="cover" :style="backgroundImage: url(item.cover)" v-if="index % 2 === 0"></div> -->
+            <div class="cover" :style="{ backgroundImage: 'url(' + item.cover + ')' }" v-if="index % 2 === 0"></div>
+
+            <!-- 文章信息 -->
+            <div class="info">
+                <a href="javascript:;">
+                    <!-- 文章标题 -->
+                    <h3>{{ item.title }}</h3>
+
+                    <!-- 文章内容 -->
+                    <p>{{ item.content }}</p>
+
+                    <div class="fun" v-if="index % 2 === 0">
+                        <span>⏰ {{ item.date }}</span>
+                        <span>🔥 浏览量：{{ item.flow }}</span>
+                        <span>🏷️ {{ item.cate }}</span>
+                    </div>
+
+                    <div class="fun" style="text-align: start;" v-else>
+                        <span style="padding-left: 0;">⏰ {{ item.date }}</span>
+                        <span>🔥 浏览量：{{ item.flow }}</span>
+                        <span>🏷️ {{ item.cate }}</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="cover" style="clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);" v-if="index % 2 !== 0"></div>
+        </div>
+
+        <div class="item" v-for="item, index in articleList">
+            <!-- 文章封面 -->
+            <!-- <div class="cover" :style="backgroundImage: url(item.cover)" v-if="index % 2 === 0"></div> -->
+            <div class="cover" :style="{ backgroundImage: 'url(' + item.cover + ')' }" v-if="index % 2 === 0"></div>
+
+            <!-- 文章信息 -->
+            <div class="info">
+                <a href="javascript:;">
+                    <!-- 文章标题 -->
+                    <h3>{{ item.title }}</h3>
+
+                    <!-- 文章内容 -->
+                    <p>{{ item.content }}</p>
+
+                    <div class="fun" v-if="index % 2 === 0">
+                        <span>⏰ {{ item.date }}</span>
+                        <span>🔥 浏览量：{{ item.flow }}</span>
+                        <span>🏷️ {{ item.cate }}</span>
+                    </div>
+
+                    <div class="fun" style="text-align: start;" v-else>
+                        <span style="padding-left: 0;">⏰ {{ item.date }}</span>
+                        <span>🔥 浏览量：{{ item.flow }}</span>
+                        <span>🏷️ {{ item.cate }}</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="cover" style="clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);" v-if="index % 2 !== 0"></div>
+        </div>
     </div>
 </template>
 
@@ -92,7 +154,7 @@ getArticleList()
         .info {
             width: 65%;
             padding: 20px 40px;
-            font-family: PingFang SC, 'Hiragino Sans GB', 'Microsoft JhengHei', 'Microsoft YaHei', sans-serif;
+            font-family: $fontStyA;
 
             a {
                 display: flex;

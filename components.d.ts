@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     Article: typeof import('./src/components/article/Article.vue')['default']
     Article_A: typeof import('./src/components/article/article_A/article_A.vue')['default']
     Article_B: typeof import('./src/components/article/article_B/article_B.vue')['default']
+    ArticleSidebar: typeof import('./src/components/articleSidebar/articleSidebar.vue')['default']
     Author: typeof import('./src/components/Author/Author.vue')['default']
     Footer: typeof import('./src/components/Layout/Footer.vue')['default']
     Header: typeof import('./src/components/Layout/Header.vue')['default']

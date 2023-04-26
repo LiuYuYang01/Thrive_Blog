@@ -47,7 +47,7 @@ const userInfo = {
         <!-- 社交账号 -->
         <div class="socializing">
             <a :href="item.url" target="_blank" v-for="item, index in userInfo.socializing" :key="index">
-                <img :src="`/src/assets/svg/socializing/${item.name}.svg`">
+                <img :src="`/src/assets/svg/socializing/${item.name}.svg`" :title="item.name">
             </a>
         </div>
     </div>

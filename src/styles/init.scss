@@ -22,6 +22,10 @@ div {
     box-sizing: border-box;
 }
 
+img{
+    vertical-align: middle;
+}
+
 /* 网页滑动条样式 */
 ::-webkit-scrollbar {
     width: 7px;
