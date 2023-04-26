@@ -92,7 +92,7 @@ getArticleList()
         .info {
             width: 65%;
             padding: 20px 40px;
-            font-family: cursive, 宋体, 黑体, Microsoft Yahei Font;
+            font-family: PingFang SC, 'Hiragino Sans GB', 'Microsoft JhengHei', 'Microsoft YaHei', sans-serif;
 
             a {
                 display: flex;
@@ -129,6 +129,8 @@ getArticleList()
 
                 // 文章简述
                 p {
+                    color: #666;
+                    font-size: 15px;
                     line-height: 30px;
 
                     // 多行文本溢出
@@ -162,7 +164,7 @@ getArticleList()
     }
 
     // 最后一个文章取消下边距
-    & .item:last-of-type{
+    & .item:last-of-type {
         margin-bottom: 0;
     }
 }
