@@ -24,7 +24,7 @@ const getCateList = async () => {
 
     cateList.value = data
   } catch (error) {
-    console.log("在分类导航中捕获到异常：",error);
+    console.log("在分类导航中捕获到异常：", error);
   }
 }
 
@@ -39,17 +39,16 @@ getCateList()
     <div class="w">
       <!-- 一级导航 -->
       <ul class="one">
-        <!-- Logo模式 -->
-        <li class="one_item" v-if="false">
-          <a href="javascript:;" class="one_item_nav">
+        <!-- LOGO -->
+        <li class="one_item">
+          <!-- 图片LOGO模式 -->
+          <a href="javascript:;" class="one_item_nav" v-if="false">
             <img src="@/assets/img/logo_dark.png" alt="" v-if="top > 100">
             <img src="@/assets/img/logo_light.png" alt="" v-else>
           </a>
-        </li>
 
-        <!-- 文字模式 -->
-        <li class="one_item" v-else>
-          <a href="javascript:;" class="one_item_nav" :style="{ color: top > 100 ? '#333' : '#fff' }">
+          <!-- 文字LOGO模式 -->
+          <a href="javascript:;" class="one_item_nav" :style="{ color: top > 100 ? '#333' : '#fff' }" v-else>
             <b>Blog</b>
           </a>
         </li>
