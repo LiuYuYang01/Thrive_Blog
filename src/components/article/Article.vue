@@ -22,8 +22,10 @@ const btn = () => {
         </div>
 
         <div class="right">
-            <Author></Author>
-            <articleSidebar />
+            <div class="sticky">
+                <Author></Author>
+                <articleSidebar />
+            </div>
         </div>
 
         <LoadMore></LoadMore>
@@ -46,12 +48,14 @@ const btn = () => {
     }
 
     .right {
-        position: sticky;
-        top: 0;
-
-        overflow: hidden;
         width: 23%;
         border-radius: $round;
+
+        // 粘性定位
+        .sticky {
+            position: sticky;
+            top: 70px;
+        }
     }
 }
 </style>

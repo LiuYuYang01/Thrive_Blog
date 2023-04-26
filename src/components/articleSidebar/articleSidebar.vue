@@ -27,12 +27,6 @@
                     <h4>20个你从未想过的 ChatGPT 有趣用途</h4>
                 </a>
             </div>
-
-            <div class="item">
-                <a href="javascript:;">
-                    <h4>20个你从未想过的 ChatGPT 有趣用途</h4>
-                </a>
-            </div>
         </div>
     </div>
 </template>
