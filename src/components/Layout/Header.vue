@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
 // 导入分类数据的类型
 import { Cate } from '@/types/Cate'
@@ -12,6 +12,7 @@ import { getCateListAPI } from '@/api/Cate'
 
 // 获取页面滚动的距离
 import useScroll from '@/util/useScroll';
+import { onBeforeRouteUpdate, useRoute, useRouter } from 'vue-router';
 const top = useScroll()
 
 
@@ -30,12 +31,23 @@ const getCateList = async () => {
 
 getCateList()
 
+const route = useRoute()
+// 在这个数组中的路由导航栏默认高亮效果, 否则默认透明效果
+const pages = ["/stats"]
+const is = ref<boolean>(false)
+// 监听整个route对象的变化
+watch(() => route, route => {
+  // 查询pages数组中是否包含对应路由的信息
+  pages.includes(route.fullPath) ? is.value = true : is.value = false
+}, { immediate: true, deep: true })
+
 // 导出Scss指定的变量
 // const { color } = global;
 </script>
 
 <template>
-  <div class="header" :style="{ backgroundColor: top > 100 ? '#fff' : '' }" :class="top > 100 ? 'gradient' : ''">
+  <div class="header" :style="{ backgroundColor: top > 100 || is ? '#fff' : '' }"
+    :class="top > 100 || is ? 'gradient' : ''">
     <div class="w">
       <!-- 一级导航 -->
       <ul class="one">
@@ -43,24 +55,24 @@ getCateList()
         <li class="one_item">
           <!-- 图片LOGO模式 -->
           <RouterLink to="/" class="one_item_nav" v-if="false">
-            <img src="@/assets/img/logo_dark.png" alt="" v-if="top > 100">
+            <img src="@/assets/img/logo_dark.png" alt="" v-if="top > 100 || is">
             <img src="@/assets/img/logo_light.png" alt="" v-else>
           </RouterLink>
 
           <!-- 文字LOGO模式 -->
-          <RouterLink to="/" class="one_item_nav" :style="{ color: top > 100 ? '#333' : '#fff' }" v-else>
+          <RouterLink to="/" class="one_item_nav" :style="{ color: top > 100 || is ? '#333' : '#fff' }" v-else>
             <b>Blog</b>
           </RouterLink>
         </li>
 
         <!-- 首页 -->
         <li class="one_item">
-          <RouterLink to="/" class="one_item_nav" :style="{ color: top > 100 ? '#333' : '#fff' }">💎 首页</RouterLink>
+          <RouterLink to="/" class="one_item_nav" :style="{ color: top > 100 || is ? '#333' : '#fff' }">💎 首页</RouterLink>
         </li>
 
         <!-- 导航列表 -->
         <li class="one_item" v-for="one in cateList" :key="one.id">
-          <RouterLink :to="one.url" class="one_item_nav" :style="{ color: top > 100 ? '#333' : '#fff' }">
+          <RouterLink :to="one.url" class="one_item_nav" :style="{ color: top > 100 || is ? '#333' : '#fff' }">
             {{ one.icon }} {{ one.name }}
 
             <!-- 判断有没有二级分类，有就显示下拉箭头 -->
