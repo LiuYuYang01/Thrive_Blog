@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { ref } from 'vue'
 import { ActivityCalendar } from 'vue-activity-calendar'
 import 'vue-activity-calendar/style.css'
 import type { Calendar } from '@/types/Stats'
 import { getCalendarAPI } from '@/api/Stats'
 
 // 动态日历数据
-let calendarList: Calendar[] = [];
+let calendarList = ref<Calendar[]>([]);
 
 // 获取动态日历的数据
 const getCalendar = async () => {
     try {
         const { data } = await getCalendarAPI()
 
-        calendarList = data
+        calendarList.value = data
 
         console.log(calendarList, 888);
 
@@ -39,7 +39,7 @@ const activeEvent = (e: Calendar & { index: number }) => {
         <h1 class="title">📆 动态日历</h1>
 
         <ActivityCalendar :data="calendarList" :width="40" :height="7" :cellLength="20" :cellInterval="10"
-            :cellBorderRadius="4" :fontSize="12" :colors="colorsList" endDate="2023-04-27" :clickEvent="activeEvent" v-if="calendarList.length"/>
+            :cellBorderRadius="4" :fontSize="12" :colors="colorsList" endDate="2023-04-27" :clickEvent="activeEvent" />
     </div>
 </template>
 
