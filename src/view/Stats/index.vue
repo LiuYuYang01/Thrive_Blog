@@ -7,6 +7,7 @@ import Calendar from './components/Calendar.vue'
 
   <div class="container">
     <Calendar />
+    <Stats/>
   </div>
 </template>
 
