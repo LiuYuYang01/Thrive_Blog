@@ -2,9 +2,11 @@
 @import "./global.scss";
 
 body {
+    height: 3000px;
     background-color: #f9f9f9;
 }
 
+// 封装CSS容器样式
 @mixin container {
     border-radius: $round;
     border: 1px solid #f0f0f0;
