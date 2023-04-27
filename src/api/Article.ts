@@ -1,7 +1,7 @@
 import Request from '@/util/request'
 
 // 获取文章
-export const getCate = (id: string) => {
+export const getCateAPI = (id: string) => {
     return Request.instance.request({
         url: `/api/article/${id}`,
         params: id

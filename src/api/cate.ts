@@ -3,7 +3,7 @@ import type { Response } from '@/types/Response'
 import type { Cate } from '@/types/Cate'
 
 // 获取分类信息
-export function getCate(id: string) {
+export function getCateAPI(id: string): Promise<Response<Cate>> {
     return Request.instance.request({
         url: `/api/cate/${id}`,
         params: id
@@ -16,4 +16,3 @@ export function getCateListAPI(): Promise<Response<Cate>> {
         url: "/api/cate"
     })
 }
-

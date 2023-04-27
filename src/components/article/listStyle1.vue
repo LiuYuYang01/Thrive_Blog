@@ -11,7 +11,7 @@ const getArticleList = async () => {
         const { data } = await getArticleListAPI()
         articleList.value = data
     } catch (error) {
-        console.log("在获取文章列表中捕获到错误：", error);
+        console.log("在 listStyle1 文件中捕获到错误：", error);
     }
 }
 getArticleList()
