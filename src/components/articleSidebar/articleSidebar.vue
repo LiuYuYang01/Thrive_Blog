@@ -32,18 +32,14 @@
 </template>
 
 <style scoped lang="scss">
+@import "@/styles/public.scss";
+
 .articleSidebar {
     padding: 10px;
     margin-top: 20px;
-    border: 1px solid #f0f0f0;
-    border-radius: $round;
     background-color: #fff;
-    transition: all $move;
     font-family: $fontStyA;
-
-    &:hover {
-        box-shadow: $boxShadow;
-    }
+    @include container;
 
     // 文章模块标题
     .title {

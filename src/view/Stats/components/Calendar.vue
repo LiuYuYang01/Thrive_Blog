@@ -45,17 +45,12 @@ const activeEvent = (e: Calendar & { index: number }) => {
 </template>
 
 <style scoped lang="scss">
+@import "@/styles/public.scss";
 .calendar {
     width: $w;
     margin: 0 auto;
-    border-radius: $round;
-    border: 1px solid #f0f0f0;
     background-color: #fff;
-    transition: all $move;
-
-    &:hover{
-        box-shadow: $boxShadow;
-    }
+    @include container;
 
     // 标题
     .title {

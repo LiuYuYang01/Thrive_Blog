@@ -54,6 +54,8 @@ const userInfo = {
 </template>
 
 <style scoped lang="scss">
+@import "@/styles/public.scss";
+
 .author {
     overflow: hidden;
     display: flex;
@@ -64,14 +66,8 @@ const userInfo = {
     background-size: cover;
     width: 100%;
     height: 300px;
-    border: 1px solid #f0f0f0;
-    border-radius: $round;
     background-color: #fff;
-    transition: all 0.3s;
-
-    &:hover {
-        box-shadow: $boxShadow;
-    }
+    @include container;
 
     // 作者头像
     .avatar {

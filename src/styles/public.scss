@@ -1,5 +1,16 @@
-@import './init.scss';
+@import "./init.scss";
+@import "./global.scss";
 
 body {
     background-color: #f9f9f9;
+}
+
+@mixin container {
+    border-radius: $round;
+    border: 1px solid #f0f0f0;
+    transition: all $move;
+
+    &:hover {
+        box-shadow: $boxShadow;
+    }
 }

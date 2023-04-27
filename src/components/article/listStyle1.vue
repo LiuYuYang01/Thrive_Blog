@@ -54,8 +54,11 @@ getArticleList()
 </template>
 
 <style scoped lang="scss">
+@import "@/styles/public.scss";
+
 // 文章风格一
 .listStyle1 {
+
     // 文章列表
     .item {
         position: relative;
@@ -63,14 +66,8 @@ getArticleList()
         display: flex;
         height: 230px;
         margin-bottom: 15px;
-        border: 1px solid #f0f0f0;
-        border-radius: 5px;
         background-color: #fff;
-        transition: all 0.3s;
-
-        &:hover {
-            box-shadow: $boxShadow;
-        }
+        @include container;
 
         // 文章封面
         .cover {
