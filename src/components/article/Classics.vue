@@ -51,8 +51,11 @@ getArticleList()
             <div class="cover" style="clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);" v-if="index % 2 !== 0"></div>
         </div>
 
+        <!-- 加载更多 -->
+        <LoadMore v-if="articleList.length"></LoadMore>
+
         <!-- 空状态 -->
-        <Empty info="暂无文章"></Empty>
+        <Empty info="暂无文章" v-else></Empty>
     </div>
 </template>
 

@@ -20,9 +20,6 @@ const btn = () => {
         <div class="left">
             <!-- 文章列表风格一 -->
             <Classics></Classics>
-
-            <!-- 加载更多 -->
-            <LoadMore></LoadMore>
         </div>
 
         <div class="right">
