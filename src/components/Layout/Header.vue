@@ -46,8 +46,7 @@ watch(() => route, route => {
 </script>
 
 <template>
-  <div class="header" :style="{ backgroundColor: top > 100 || is ? '#fff' : '' }"
-    :class="top > 100 || is ? 'gradient' : ''">
+  <div :class="top > 100 || is ? 'header bottomBorder gradient' : 'header'">
     <div class="w">
       <!-- 一级导航 -->
       <ul class="one">
@@ -225,6 +224,13 @@ watch(() => route, route => {
   }
 }
 
+// 下边框
+.bottomBorder {
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+}
+
+// 渐变
 .gradient {
   &::after {
     content: "";
