@@ -18,7 +18,7 @@ const btn = () => {
 
     <div class="main">
         <div class="left">
-            <!-- 文章列表风格一 -->
+            <!-- 文章列表经典风格 -->
             <Classics></Classics>
         </div>
 
