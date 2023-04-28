@@ -52,10 +52,7 @@ getArticleList()
         </div>
 
         <!-- 空状态 -->
-        <div class="empty">
-            <img src="@/assets/svg/other/empty.svg" alt="">
-            <div class="info">空空如也</div>
-        </div>
+        <Empty info="暂无文章"></Empty>
     </div>
 </template>
 
@@ -168,18 +165,6 @@ getArticleList()
     // 最后一个文章取消下边距
     & .item:last-of-type {
         margin-bottom: 0;
-    }
-
-    // 空状态
-    .empty {
-        width: 200px;
-        margin: 0 auto;
-
-        .info {
-            padding-top: 20px;
-            text-align: center;
-            color: #333;
-        }
     }
 }
 </style>
