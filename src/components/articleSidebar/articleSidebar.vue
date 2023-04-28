@@ -35,7 +35,7 @@
 @import "@/styles/public.scss";
 
 .articleSidebar {
-    padding: 10px;
+    padding: 15px;
     margin-top: 20px;
     background-color: #fff;
     font-family: $fontStyA;
@@ -65,7 +65,7 @@
         .item {
             overflow: hidden;
             position: relative;
-            height: 140px;
+            height: 130px;
             margin-bottom: 10px;
             border-radius: $round;
             background: url("https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1ab6d654bb3747a2af609d15b8fb387e~tplv-k3u1fbpfcp-zoom-crop-mark:1512:1512:1512:851.awebp") no-repeat;
