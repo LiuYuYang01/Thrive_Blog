@@ -11,14 +11,14 @@ const getArticleList = async () => {
         const { data } = await getArticleListAPI()
         articleList.value = data
     } catch (error) {
-        console.log("在 listStyle1 文件中捕获到错误：", error);
+        console.log("在 Classics 文件中捕获到错误：", error);
     }
 }
 getArticleList()
 </script>
 
 <template>
-    <div class="listStyle1">
+    <div class="classics">
         <!-- 文章列表 -->
         <div class="item" v-for="item, index in articleList">
             <!-- 文章封面 -->
@@ -60,7 +60,7 @@ getArticleList()
 @import "@/styles/public.scss";
 
 // 文章风格一
-.listStyle1 {
+.classics {
 
     // 文章列表
     .item {
