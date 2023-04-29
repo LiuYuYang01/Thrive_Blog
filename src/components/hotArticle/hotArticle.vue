@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 
+const list = ref()
 </script>
 
 <template>
@@ -14,18 +16,24 @@
                 <a href="javascript:;">
                     <h4>20个你从未想过的 ChatGPT 有趣用途</h4>
                 </a>
+
+                <span>1</span>
             </div>
 
             <div class="item">
                 <a href="javascript:;">
                     <h4>20个你从未想过的 ChatGPT 有趣用途</h4>
                 </a>
+
+                <span>2</span>
             </div>
 
             <div class="item">
                 <a href="javascript:;">
                     <h4>20个你从未想过的 ChatGPT 有趣用途</h4>
                 </a>
+
+                <span>3</span>
             </div>
         </div>
     </div>
@@ -63,7 +71,6 @@
         padding-top: 10px;
 
         .item {
-            overflow: hidden;
             position: relative;
             height: 130px;
             margin-bottom: 10px;
@@ -78,6 +85,7 @@
                 content: "";
                 position: absolute;
                 bottom: 0;
+                left: 0;
                 width: 100%;
                 height: 50px;
                 background-image: linear-gradient(transparent, #000);
@@ -116,9 +124,52 @@
                 overflow: hidden;
                 text-overflow: ellipsis;
             }
+
+            // 排名
+            span {
+                position: absolute;
+                top: 10px;
+                left: -20px;
+                width: 30px;
+                height: 25px;
+                padding-left: 7px;
+                color: #fff;
+                font-weight: 900;
+                border-top-right-radius: 50%;
+                border-bottom-right-radius: 50%;
+                background-color: #f83356;
+                box-sizing: border-box;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -5px;
+                    left: 0px;
+                    width: 0;
+                    height: 0;
+                    border: 5px solid;
+                    border-color: transparent transparent transparent #f83356;
+                }
+            }
         }
 
-        .item:last-of-type{
+        .item:nth-of-type(2) span {
+            background-color: #faa527;
+
+            &::after {
+                border-color: transparent transparent transparent #faa527;
+            }
+        }
+
+        .item:nth-of-type(3) span {
+            background-color: #3c83fd;
+
+            &::after {
+                border-color: transparent transparent transparent #3c83fd;
+            }
+        }
+
+        .item:last-of-type {
             margin-bottom: 0;
         }
     }
