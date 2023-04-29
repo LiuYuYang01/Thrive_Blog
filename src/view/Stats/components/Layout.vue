@@ -1,16 +1,11 @@
 <script setup lang="ts">
-
 </script>
 
 <template>
     <div class="layout">
         <h1 class="title">
-            <!-- <img src="@/assets/svg/other/Stats.svg" alt=""> -->
-            <img src="@/assets/svg/other/active.svg" alt="">
-            <span> 作者活跃度</span>
+            <slot></slot>
         </h1>
-        
-        <slot></slot>
     </div>
 </template>
 
@@ -20,6 +15,7 @@
 .layout {
     width: $w;
     margin: 0 auto;
+    margin-bottom: 20px;
     background-color: #fff;
     @include container;
 
