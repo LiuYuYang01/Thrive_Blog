@@ -94,7 +94,6 @@ getArticleList()
         .info {
             width: 65%;
             padding: 20px 40px;
-            font-family: $fontStyA;
 
             a {
                 display: flex;
@@ -110,6 +109,8 @@ getArticleList()
                     padding-top: 10px;
                     padding-bottom: 20px;
                     transition: color $move;
+                    font-family: LongZhuTi;
+                    font-weight: 100;
 
                     // 防止超长文本 溢出
                     white-space: nowrap;

@@ -46,7 +46,6 @@ const list = ref()
     padding: 15px;
     margin-top: 20px;
     background-color: #fff;
-    font-family: $fontStyA;
     @include container;
 
     // 文章模块标题
@@ -116,7 +115,8 @@ const list = ref()
                 padding: 0 10px;
                 color: #fff;
                 font-size: 15px;
-                font-weight: 400;
+                font-weight: 100;
+                font-family: LongZhuTi;
                 z-index: 1;
 
                 // 文本溢出隐藏

@@ -34,34 +34,12 @@ const activeEvent = (e: Calendar & { index: number }) => {
 </script>
 
 <template>
-    <!-- 动态日历 -->
-    <div class="calendar">
-        <h1 class="title">📆 动态日历</h1>
-
-        <!-- 动态日历组件 -->
-        <ActivityCalendar :data="calendarList" :width="40" :height="7" :cellLength="20" :cellInterval="10"
-            :cellBorderRadius="4" :fontSize="12" :colors="colorsList" endDate="2023-04-27" :showWeekDayFlag="false" :clickEvent="activeEvent" />
-    </div>
+    <!-- 动态日历组件 -->
+    <ActivityCalendar :data="calendarList" :width="40" :height="7" :cellLength="20" :cellInterval="10"
+            :cellBorderRadius="4" :fontSize="12" :colors="colorsList" endDate="2023-04-27" :showWeekDayFlag="false"
+            :clickEvent="activeEvent" />
 </template>
 
 <style scoped lang="scss">
-@import "@/styles/public.scss";
-.calendar {
-    width: $w;
-    margin: 0 auto;
-    background-color: #fff;
-    @include container;
 
-    // 标题
-    .title {
-        padding: 30px 0;
-        text-align: center;
-        color: $color;
-    }
-
-    // 日历居中
-    .activityCalendar {
-        margin: 0 auto;
-    }
-}
 </style>

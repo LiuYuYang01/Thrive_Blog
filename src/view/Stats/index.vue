@@ -1,12 +1,18 @@
 <script setup lang="ts">
 import Calendar from './components/Calendar.vue'
 import Stats from './components/Stats.vue'
+import Layout from './components/Layout.vue'
 </script>
 
 <template>
   <div class="container">
-    <Calendar />
-    <Stats/>
+    <Layout>
+      <Calendar />
+    </Layout>
+
+    <!-- <Layout>
+      <Calendar />
+    </Layout> -->
   </div>
 </template>
 
