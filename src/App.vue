@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <Nprogress :color="'#ff0000'"/>
+  <Nprogress/>
   <RouterView />
 </template>
 
