@@ -25,7 +25,7 @@ const btn = () => {
         <div class="right">
             <div class="sticky">
                 <Author></Author>
-                <hotArticle />
+                <HotArticle />
             </div>
         </div>
     </div>
