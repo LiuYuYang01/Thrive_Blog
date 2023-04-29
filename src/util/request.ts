@@ -23,8 +23,6 @@ export default class Request {
         this.request.interceptors.response.use(
             // 成功响应
             (res: AxiosResponse) => {
-                console.log(res,111);
-                
                 return res.data
             })
     }
