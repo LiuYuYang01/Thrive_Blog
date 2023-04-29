@@ -31,17 +31,48 @@ const activeEvent = (e: Calendar & { index: number }) => {
     // 点击哪个单元格就获取哪个的时间
     console.log(e);
 }
+
+const year = ref<number>(2023)
 </script>
 
 <template>
     <!-- 站点活跃图组件 -->
-    <ActivityCalendar :data="calendarList" :width="40" :height="7" :cellLength="20" :cellInterval="10" :cellBorderRadius="4"
-        :fontSize="12" :colors="colorsList" :showWeekDayFlag="false" :clickEvent="activeEvent" />
+    <div class="active">
+        <ActivityCalendar :data="calendarList" :width="55" :height="7" :cellLength="15" :cellInterval="10"
+            :cellBorderRadius="4" :fontSize="12" :colors="colorsList" :showWeekDayFlag="false" :clickEvent="activeEvent"
+            endDate="2022-12-30" />
+
+        <!-- 选项 -->
+        <div class="options">
+            <a href="javascript:;" :class="year === 2021 ? 'active' : ''" @click="year = 2021">2021</a>
+            <a href="javascript:;" :class="year === 2022 ? 'active' : ''" @click="year = 2022">2022</a>
+            <a href="javascript:;" :class="year === 2023 ? 'active' : ''" @click="year = 2023">2023</a>
+        </div>
+    </div>
+
+    <!-- endDate：截止日期有个BUG，截止在2023相当于2022 -->
 </template>
 
 <style scoped lang="scss">
-.activityCalendar {
-    margin: 0 auto;
-    margin-top: 20px;
+.active {
+    .activityCalendar {
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
+    .options {
+        a {
+            font-size: 16px;
+            color: #333;
+            padding: 5px 10px;
+            margin: 0 5px;
+            border-radius: 20px;
+        }
+
+        .active {
+            color: #fff;
+            background-color: $color;
+        }
+    }
 }
 </style>
