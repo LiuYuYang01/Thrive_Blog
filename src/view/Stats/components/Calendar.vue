@@ -2,25 +2,27 @@
 import { ref } from 'vue'
 import { ActivityCalendar } from 'vue-activity-calendar'
 import 'vue-activity-calendar/style.css'
-import type { Calendar } from '@/types/Stats'
+import type { Calendar, Active } from '@/types/Stats'
 import { getCalendarAPI } from '@/api/Stats'
 
 // 动态日历数据
-let calendarList = ref<Calendar[]>([]);
+let calendarList = ref<Active>({});
 
-// 选择的年份
-const year = ref<number>(2023)
 // 当前年份
 const thisYear = new Date().getFullYear()
+
+// 选择的年份
+const year = ref<number>(thisYear)
 
 // 获取当前年份活跃图的数据
 const getCalendar = async (n: number) => {
     try {
         const { data } = await getCalendarAPI()
-        console.log(data[n], 678);
 
         year.value = n
-        calendarList.value = data[n]
+
+        // 点击哪个就返回哪个年份的数据
+        calendarList.value[n] = data[n]
     } catch (error) {
         console.log("在 Stats 文件中捕获到错误：", error);
     }
@@ -40,7 +42,7 @@ const activeEvent = (e: Calendar & { index: number }) => {
 <template>
     <!-- 站点活跃图组件 -->
     <div class="active">
-        <ActivityCalendar :data="calendarList" :width="55" :height="7" :cellLength="15" :cellInterval="10"
+        <ActivityCalendar :data="calendarList[year]" :width="55" :height="7" :cellLength="15" :cellInterval="10"
             :cellBorderRadius="4" :fontSize="12" :colors="colorsList" :showWeekDayFlag="false" :clickEvent="activeEvent"
             endDate="2022-12-30" />
 

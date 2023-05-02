@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <Nprogress/>
+  <Nprogress />
   <RouterView />
 </template>
 
