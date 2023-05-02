@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Layout from './components/Layout.vue'
-import Calendar from './components/Calendar.vue'
+import Active from './components/Active.vue'
 </script>
 
 <template>
@@ -11,7 +11,7 @@ import Calendar from './components/Calendar.vue'
       <span> 作者活跃度</span>
 
       <!-- 活跃图 -->
-      <Calendar/>
+      <Active/>
     </Layout>
 
     <Layout>
