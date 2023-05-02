@@ -5,24 +5,30 @@ import 'vue-activity-calendar/style.css'
 import type { Calendar, Active } from '@/types/Stats'
 import { getCalendarAPI } from '@/api/Stats'
 
-// 动态日历数据
-let calendarList = ref<Active>({});
+// 动态活跃度数据
+let ActiveList = ref<Active>({});
 
 // 当前年份
-const thisYear = new Date().getFullYear()
+const thisYear = new Date().getFullYear() + ""
 
 // 选择的年份
-const year = ref<number>(thisYear)
+const year = ref<string>(thisYear)
+
+// 获取所有年份
+const yearList = ref<string[]>([])
 
 // 获取当前年份活跃图的数据
-const getCalendar = async (n: number) => {
+const getCalendar = async (n: string) => {
     try {
         const { data } = await getCalendarAPI()
 
         year.value = n
 
         // 点击哪个就返回哪个年份的数据
-        calendarList.value[n] = data[n]
+        ActiveList.value[n] = data[n]
+
+        // 获取所有年份
+        yearList.value = Object.keys(data)
     } catch (error) {
         console.log("在 Stats 文件中捕获到错误：", error);
     }
@@ -42,19 +48,16 @@ const activeEvent = (e: Calendar & { index: number }) => {
 <template>
     <!-- 站点活跃图组件 -->
     <div class="active">
-        <ActivityCalendar :data="calendarList[year]" :width="55" :height="7" :cellLength="15" :cellInterval="10"
+        <ActivityCalendar :data="ActiveList[year]" :width="55" :height="7" :cellLength="15" :cellInterval="10"
             :cellBorderRadius="4" :fontSize="12" :colors="colorsList" :showWeekDayFlag="false" :clickEvent="activeEvent"
             endDate="2022-12-30" />
 
         <!-- 选项 -->
         <div class="options">
-            <a href="javascript:;" :class="year === 2021 ? 'active' : ''" @click="getCalendar(2021)">2021</a>
-            <a href="javascript:;" :class="year === 2022 ? 'active' : ''" @click="getCalendar(2022)">2022</a>
-            <a href="javascript:;" :class="year === 2023 ? 'active' : ''" @click="getCalendar(2023)">2023</a>
+            <a href="javascript:;" :class="year === item ? 'active' : ''" @click="getCalendar(item)"
+                v-for="item, index in yearList">{{ item }}</a>
         </div>
     </div>
-
-    <!-- endDate：截止日期有个BUG，截止在2023相当于2022 -->
 </template>
 
 <style scoped lang="scss">
