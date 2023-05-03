@@ -8,7 +8,7 @@ function init() {
     var myChart = echarts.init(radar.value);
 
     var data = [80, 70, 30, 85, 25];
-    var indicatorname = ['政治品德修养', '社会发展能力', '美劳素质拓展', '身心健康发展', '学业发展能力'];
+    var indicatorname = ['HTML', 'CSS', 'JavaScript', 'Vue.js', 'React.js'];
     var maxdata = [100, 100, 100, 100, 100];
 
     function contains(arrays, obj) {
@@ -186,5 +186,12 @@ onMounted(() => {
     width: 100%;
     height: 100%;
     margin: 40px auto;
+
+    &::before {
+        content: "分类统计";
+        position: relative;
+        top: -30px;
+        color: $color;
+    }
 }
 </style>
