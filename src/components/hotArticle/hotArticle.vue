@@ -56,7 +56,7 @@ const list = ref()
         padding-bottom: 10px;
         border-bottom: 1px solid #eee;
         font-size: 17px;
-        font-weight: 700;
+        font-weight: 400;
         color: #333;
 
         img{
