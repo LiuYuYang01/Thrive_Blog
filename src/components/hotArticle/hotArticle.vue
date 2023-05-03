@@ -7,7 +7,7 @@ const list = ref()
 <template>
     <div class="articleSidebar">
         <h3 class="title">
-            <iconpark-icon name="like" class="like"></iconpark-icon> 随机推荐
+            <img src="@/assets/svg/other/fire.svg" alt=""> 热门文章
         </h3>
 
         <!-- 文章列表 -->
@@ -59,9 +59,9 @@ const list = ref()
         font-weight: 700;
         color: #333;
 
-        .like {
-            font-size: 18px;
-            padding-right: 5px;
+        img{
+            width: 30px;
+            height: 20px;
         }
     }
 
