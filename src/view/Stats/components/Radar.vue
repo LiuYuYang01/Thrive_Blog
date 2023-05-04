@@ -183,6 +183,7 @@ onMounted(() => {
 
 <style scoped lang="scss">
 #radar {
+    width: 45%;
     height: 500px;
 
     &::before {

@@ -9,23 +9,23 @@ function init() {
 
     let color = ['#6d9de0', '#49d896', '#f5d03a', '#f5853a', '#f5503a'];
     let chartData = [{
-        name: "20岁以下",
+        name: "HTML",
         value: 20
     },
     {
-        name: "20-40岁",
+        name: "CSS",
         value: 30
     },
     {
-        name: "40-60岁",
+        name: "JavaScript",
         value: 30
     },
     {
-        name: "60-80岁",
+        name: "Vue.js",
         value: 10
     },
     {
-        name: "80岁以上",
+        name: "React.js",
         value: 10
     }
     ];
@@ -194,6 +194,7 @@ onMounted(() => {
 
 <style scoped lang="scss">
 #pie {
+    width: 55%;
     height: 500px;
 
     &::before {

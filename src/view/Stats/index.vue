@@ -4,6 +4,7 @@ import Active from './components/Active.vue'
 import Radar from './components/Radar.vue'
 import Line from './components/Line.vue'
 import Pie from './components/Pie.vue'
+import Bar from './components/Bar.vue'
 </script>
 
 <template>
@@ -27,6 +28,7 @@ import Pie from './components/Pie.vue'
         <Pie />
         <Radar />
         <Line />
+        <Bar />
       </div>
     </Layout>
   </div>
