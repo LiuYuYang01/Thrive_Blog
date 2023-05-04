@@ -101,7 +101,9 @@ function init() {
             }
             ]
         });
+
         v.percent = (v.value / sum * 100).toFixed(0) + "%";
+        
         lineYAxis.push({
             value: i,
             textStyle: {

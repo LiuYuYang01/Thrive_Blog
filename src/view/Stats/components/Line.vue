@@ -16,7 +16,10 @@ function init() {
                 label: {
                     backgroundColor: '#6a7985'
                 }
-            }
+            },
+            formatter: function (data) {
+                return `年份：<span style="color:#666;font-weight:900">${data[0].axisValue}</span><br/> 字数：<span style="color:#7ea7f7;font-weight:900">${data[0].value}W</span>`;
+            },
         },
         grid: {
             left: '3%',
@@ -39,7 +42,7 @@ function init() {
                         color: "#8c8c8c"
                     }
                 },
-                data: ['HTML', 'CSS', 'JavaScript', 'Vue.js', 'React.js']
+                data: [2019, 2020, 2021, 2022, 2023]
             }
         ],
         yAxis: [
@@ -67,7 +70,7 @@ function init() {
         ],
         series: [
             {
-                name: '文章',
+                name: '字数：',
                 type: 'line',
                 //  showAllSymbol: false,
                 showSymbol: false, // 鼠标移入才显示圆点
@@ -88,7 +91,7 @@ function init() {
                         shadowBlur: 20 // shadowBlur设图形阴影的模糊大小。配合shadowColor,shadowOffsetX/Y, 设置图形的阴影效果。
                     }
                 },
-                data: [40, 34, 30, 3, 24]
+                data: [4.2, 3.4, 2.1, 3.6, 2.4]
             }
         ]
     }
@@ -116,7 +119,7 @@ onMounted(() => {
     top: 150px;
 
     &::before {
-        content: "标签统计";
+        content: "创作统计";
         position: relative;
         top: -30px;
         left: -30%;

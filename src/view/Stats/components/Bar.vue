@@ -71,7 +71,7 @@ function init() {
             label: {
                 normal: lableNormal
             },
-            'data': [1.0]
+            'data': [10]
         }, {
             'type': 'bar',
             name: 'CSS',
@@ -84,7 +84,7 @@ function init() {
             label: {
                 normal: lableNormal
             },
-            'data': [2.0]
+            'data': [5]
         }, {
             'type': 'bar',
             name: 'JavaScript',
@@ -97,7 +97,7 @@ function init() {
             label: {
                 normal: lableNormal
             },
-            'data': [3.0]
+            'data': [7]
         }, {
             'type': 'bar',
             name: 'Vue.js',
@@ -137,7 +137,7 @@ function init() {
             label: {
                 normal: lableNormal
             },
-            'data': [6.0]
+            'data': [8]
         }]
     }
 
