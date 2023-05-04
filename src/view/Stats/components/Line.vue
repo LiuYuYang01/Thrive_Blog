@@ -112,13 +112,13 @@ onMounted(() => {
 
 <style scoped lang="scss">
 #line {
-    width: 70%;
-    height: 50%;
+    height: 250px;
 
     &::before {
         content: "标签统计";
         position: relative;
         top: -30px;
+        left: -30%;
         color: $color;
     }
 }

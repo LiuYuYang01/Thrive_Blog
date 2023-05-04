@@ -3,6 +3,7 @@ import Layout from './components/Layout.vue'
 import Active from './components/Active.vue'
 import Radar from './components/Radar.vue'
 import Line from './components/Line.vue'
+import Pie from './components/Pie.vue'
 </script>
 
 <template>
@@ -23,6 +24,7 @@ import Line from './components/Line.vue'
 
       <!-- 统计 -->
       <div class="stats" style="margin-top: 30px">
+        <Pie />
         <Radar />
         <Line />
       </div>
@@ -36,9 +38,13 @@ import Line from './components/Line.vue'
   
   .stats{
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
-    height: 500px;
     padding: 30px;
+
+    div{
+      width: 50% !important;
+    }
   }
 
   img {

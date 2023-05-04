@@ -183,13 +183,13 @@ onMounted(() => {
 
 <style scoped lang="scss">
 #radar {
-    width: 100%;
-    height: 100%;
+    height: 500px;
 
     &::before {
         content: "分类统计";
         position: relative;
         top: -30px;
+        left: 30%;
         color: $color;
     }
 }
