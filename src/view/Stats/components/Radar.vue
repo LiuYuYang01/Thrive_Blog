@@ -185,7 +185,6 @@ onMounted(() => {
 #radar {
     width: 100%;
     height: 100%;
-    margin: 40px auto;
 
     &::before {
         content: "分类统计";

@@ -114,7 +114,6 @@ onMounted(() => {
 #line {
     width: 70%;
     height: 50%;
-    margin: 40px auto;
 
     &::before {
         content: "标签统计";

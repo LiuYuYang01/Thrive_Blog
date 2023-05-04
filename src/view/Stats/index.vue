@@ -22,7 +22,7 @@ import Line from './components/Line.vue'
       <span> 数据统计</span>
 
       <!-- 统计 -->
-      <div class="stats">
+      <div class="stats" style="margin-top: 30px">
         <Radar />
         <Line />
       </div>
