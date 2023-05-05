@@ -1,21 +1,9 @@
 <script setup lang='ts'>
 // 引入五彩纸屑
-import confetti from 'canvas-confetti';
-
-const btn = () => {
-    confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 }
-    });
-}
+// import confetti from 'canvas-confetti';
 </script>
 
 <template>
-    <canvas width="100px" height="100px"></canvas>
-
-    <button @click="btn">按钮</button>
-
     <div class="main">
         <div class="left">
             <!-- 文章列表经典风格 -->
@@ -24,8 +12,12 @@ const btn = () => {
 
         <div class="right">
             <div class="sticky">
-                <Author></Author>
+                <!-- 作者信息 -->
+                <Author />
+                <!-- 热门文章 -->
                 <HotArticle />
+                <!-- 随机文章 -->
+                <RandomArticle />
             </div>
         </div>
     </div>
