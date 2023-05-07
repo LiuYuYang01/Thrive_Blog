@@ -35,15 +35,15 @@ getArticleList()
                     <p>{{ item.content }}</p>
 
                     <div class="fun" v-if="index % 2 === 0">
-                        <span>⏰ {{ item.date }}</span>
-                        <span>🔥 浏览量：{{ item.flow }}</span>
-                        <span>🏷️ {{ item.cate }}</span>
+                        <span><iconpark-icon name="alarm-clock" /> {{ item.date }}</span>
+                        <span><iconpark-icon name="fire" /> {{ item.flow }}</span>
+                        <span><iconpark-icon name="tag-one"/> {{ item.cate }}</span>
                     </div>
 
                     <div class="fun" style="text-align: start;" v-else>
-                        <span style="padding-left: 0;">⏰ {{ item.date }}</span>
-                        <span>🔥 浏览量：{{ item.flow }}</span>
-                        <span>🏷️ {{ item.cate }}</span>
+                        <span style="padding-left: 0;"><iconpark-icon name="alarm-clock" /> {{ item.date }}</span>
+                        <span><iconpark-icon name="fire" /> {{ item.flow }}</span>
+                        <span><iconpark-icon name="tag-one"/> {{ item.cate }}</span>
                     </div>
                 </a>
             </div>
@@ -151,6 +151,29 @@ getArticleList()
 
                     span {
                         padding-left: 30px;
+                        font-size: 12px;
+                        color: #333;
+
+                        iconpark-icon {
+                            padding: 4px;
+                            margin-top: -2px;
+                            margin-right: 3px;
+                            color: #fff;
+                            border-radius: 50%;
+                            vertical-align: middle;
+                        }
+
+                        &:nth-child(1) iconpark-icon {
+                            background-color: #539dfd;
+                        }
+
+                        &:nth-child(2) iconpark-icon {
+                            background-color: #eb373a;
+                        }
+
+                        &:nth-child(3) iconpark-icon {
+                            background-color: #f5a630;
+                        }
                     }
                 }
             }
