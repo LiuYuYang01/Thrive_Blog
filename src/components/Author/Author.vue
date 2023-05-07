@@ -46,9 +46,13 @@ const userInfo = {
 
         <!-- 社交账号 -->
         <div class="socializing">
-            <a :href="item.url" target="_blank" v-for="item, index in userInfo.socializing" :key="index">
-                <img :src="`/src/assets/svg/socializing/${item.name}.svg`" :title="item.name">
-            </a>
+            <div class="title"></div>
+
+            <div class="list">
+                <a :href="item.url" target="_blank" v-for="item, index in userInfo.socializing" :key="index">
+                    <img :src="`/src/assets/svg/socializing/${item.name}.svg`" :title="item.name">
+                </a>
+            </div>
         </div>
     </div>
 </template>
@@ -65,7 +69,7 @@ const userInfo = {
     background: url("/src/assets/img/avatar_bg.jpg");
     background-size: cover;
     width: 100%;
-    height: 300px;
+    height: 325px;
     background-color: #fff;
     @include container;
 
@@ -109,15 +113,45 @@ const userInfo = {
 
     // 社交账号
     .socializing {
-        display: flex;
-        width: 70%;
-        justify-content: space-between;
-        padding-top: 20px;
+        width: 100%;
+        padding-top: 30px;
 
-        a {
-            img {
-                width: 23px;
-                height: 23px;
+        .title {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #eee;
+
+            &::after {
+                content: "社交账号";
+                // display: flex;
+                // justify-content: center;
+                position: absolute;
+                top: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 110px;
+                color: #666;
+                background-color: #fff;
+                text-align: center;
+                font-size: 14px;
+            }
+        }
+
+        .list {
+            display: flex;
+            justify-content: space-between;
+            width: 70%;
+            padding-top: 25px;
+            margin: 0 auto;
+
+            a {
+                img {
+                    width: 23px;
+                    height: 23px;
+                }
             }
         }
     }
