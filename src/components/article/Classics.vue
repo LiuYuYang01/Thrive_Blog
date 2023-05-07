@@ -109,8 +109,6 @@ getArticleList()
                     padding-top: 10px;
                     padding-bottom: 20px;
                     transition: color $move;
-                    font-family: LongZhuTi;
-                    font-weight: 100;
 
                     // 防止超长文本 溢出
                     white-space: nowrap;
@@ -168,6 +166,7 @@ getArticleList()
                         }
 
                         &:nth-child(2) iconpark-icon {
+                            margin-right: 0;
                             background-color: #eb373a;
                         }
 

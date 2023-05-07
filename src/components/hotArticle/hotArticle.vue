@@ -5,7 +5,7 @@ const list = ref()
 </script>
 
 <template>
-    <div class="articleSidebar">
+    <div class="HotArticle">
         <h3 class="title">
             <img src="@/assets/svg/other/fire.svg" alt=""> 热门文章
         </h3>
@@ -42,7 +42,7 @@ const list = ref()
 <style scoped lang="scss">
 @import "@/styles/public.scss";
 
-.articleSidebar {
+.HotArticle {
     padding: 15px;
     margin-top: 20px;
     background-color: #fff;
@@ -115,8 +115,7 @@ const list = ref()
                 padding: 0 10px;
                 color: #fff;
                 font-size: 15px;
-                font-weight: 100;
-                font-family: LongZhuTi;
+                font-weight: 400;
                 z-index: 1;
 
                 // 文本溢出隐藏
