@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <Frame>
+  <Frame :modules="['Author']">
     <Article />
   </Frame>
 </template>

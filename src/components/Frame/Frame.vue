@@ -1,6 +1,9 @@
 <script setup lang='ts'>
 // 引入五彩纸屑
 // import confetti from 'canvas-confetti';
+
+// 默认显示所有侧边栏模块，可以指定选择哪些显示
+const { modules = ["Author", "HotArticle", "RandomArticle", "NewComments"] } = defineProps<{ modules?: string[] }>()
 </script>
 
 <template>
@@ -13,13 +16,13 @@
         <div class="right">
             <div class="sticky">
                 <!-- 作者信息 -->
-                <Author />
+                <Author v-if="modules.includes('Author')" />
                 <!-- 热门文章 -->
-                <HotArticle />
+                <HotArticle  v-if="modules.includes('HotArticle')"/>
                 <!-- 随机文章 -->
-                <RandomArticle />
+                <RandomArticle  v-if="modules.includes('RandomArticle')"/>
                 <!-- 最新评论 -->
-                <newComments />
+                <NewComments  v-if="modules.includes('NewComments')"/>
             </div>
         </div>
     </div>

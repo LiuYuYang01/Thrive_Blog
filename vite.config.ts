@@ -8,6 +8,7 @@ import { resolve } from "path";
 export default defineConfig({
   plugins: [
     vue({
+      reactivityTransform: true,
       template: {
         // 不解析iconpark-开头的自定义组件
         compilerOptions: {
