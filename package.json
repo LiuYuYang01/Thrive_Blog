@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@highlightjs/vue-plugin": "^2.1.0",
     "@types/canvas-confetti": "^1.6.0",
     "@types/node": "^18.15.11",
     "@vitejs/plugin-vue-jsx": "^3.0.1",
@@ -16,6 +17,7 @@
     "canvas-confetti": "^1.6.0",
     "compass": "^0.1.1",
     "echarts": "^5.4.2",
+    "highlight.js": "^11.8.0",
     "nprogress": "^0.2.0",
     "path": "^0.12.7",
     "pinia": "^2.0.34",
