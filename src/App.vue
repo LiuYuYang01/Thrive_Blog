@@ -5,6 +5,8 @@
 <template>
   <Nprogress />
   <RouterView />
+
+  <Editor />
 </template>
 
 <style scoped></style>
