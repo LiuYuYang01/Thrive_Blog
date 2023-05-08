@@ -48,7 +48,7 @@ watch(() => route, route => {
 </script>
 
 <template>
-  <div :class="top > 100 || is ? 'header bottomBorder gradient' : 'header'">
+  <div :class="top > 100 || is ? 'Header bottomBorder gradient' : 'Header'">
     <div class="w">
       <!-- 一级导航 -->
       <ul class="one">
