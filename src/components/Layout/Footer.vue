@@ -18,6 +18,7 @@
 
   .info {
     width: 600px;
+    line-height: 25px;
     padding-left: 300px;
     color: #333;
     font-size: 14px;

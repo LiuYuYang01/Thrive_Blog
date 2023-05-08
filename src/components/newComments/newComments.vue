@@ -98,6 +98,12 @@
         .item {
             display: flex;
             padding: 10px 0;
+            border-bottom: 1px solid #fbfafa;
+
+            // 最后一个评论取消下边框
+            &:last-of-type{
+                border-bottom: none;
+            }
 
             // 评论者头像
             .avatar {
@@ -136,6 +142,7 @@
 
             // 鼠标经过评论列表样式
             &:hover {
+
                 // 颜色高亮
                 .info {
                     color: $color;
@@ -145,7 +152,7 @@
                 .avatar {
                     transform: scale(1.1);
                 }
-            } 
+            }
         }
     }
 }
