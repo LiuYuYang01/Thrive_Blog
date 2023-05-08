@@ -17,6 +17,25 @@ body {
     }
 }
 
+// 封装右侧模块标题样式
+@mixin titleRight {
+    .title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+        font-size: 17px;
+        font-weight: 400;
+        color: #333;
+
+        img{
+            width: 30px;
+            height: 20px;
+        }
+    }
+}
+
 // 引入标小智龙珠体 [免费可商用]
 @font-face {
     font-family: LongZhuTi;

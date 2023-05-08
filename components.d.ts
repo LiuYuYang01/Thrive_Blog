@@ -16,6 +16,7 @@ declare module '@vue/runtime-core' {
     HotArticle: typeof import('./src/components/HotArticle/HotArticle.vue')['default']
     Layout: typeof import('./src/components/Layout/Layout.vue')['default']
     LoadMore: typeof import('./src/components/LoadMore/LoadMore.vue')['default']
+    NewComments: typeof import('./src/components/newComments/newComments.vue')['default']
     Nprogress: typeof import('./src/components/Nprogress/Nprogress.vue')['default']
     RandomArticle: typeof import('./src/components/RandomArticle/RandomArticle.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

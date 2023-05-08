@@ -49,21 +49,7 @@ const list = ref()
     @include container;
 
     // 文章模块标题
-    .title {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #eee;
-        font-size: 17px;
-        font-weight: 400;
-        color: #333;
-
-        img{
-            width: 30px;
-            height: 20px;
-        }
-    }
+    @include titleRight;
 
     // 文章列表
     .list {

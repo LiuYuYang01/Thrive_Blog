@@ -18,6 +18,8 @@
                 <HotArticle />
                 <!-- 随机文章 -->
                 <RandomArticle />
+                <!-- 最新评论 -->
+                <newComments />
             </div>
         </div>
     </div>
