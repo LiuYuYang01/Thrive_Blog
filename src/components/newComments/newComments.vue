@@ -16,7 +16,7 @@
                 <!-- 内容 -->
                 <div class="content">
                     <!-- 评论信息 -->
-                    <div class="info">测试评论内容测试评论内容</div>
+                    <div class="info">真的很喜欢这个网站的风格</div>
                     <!-- 评论时间 -->
                     <div class="time">2023-05-08</div>
                 </div>
@@ -28,7 +28,7 @@
                 <!-- 内容 -->
                 <div class="content">
                     <!-- 评论信息 -->
-                    <div class="info">测试评论内容测试评论内容</div>
+                    <div class="info">你好，该网站开源吗</div>
                     <!-- 评论时间 -->
                     <div class="time">2023-05-08</div>
                 </div>
@@ -40,7 +40,7 @@
                 <!-- 内容 -->
                 <div class="content">
                     <!-- 评论信息 -->
-                    <div class="info">测试评论内容测试评论内容</div>
+                    <div class="info">加油</div>
                     <!-- 评论时间 -->
                     <div class="time">2023-05-08</div>
                 </div>
@@ -52,7 +52,7 @@
                 <!-- 内容 -->
                 <div class="content">
                     <!-- 评论信息 -->
-                    <div class="info">测试评论内容测试评论内容</div>
+                    <div class="info">网站的设计非常精美，很喜欢</div>
                     <!-- 评论时间 -->
                     <div class="time">2023-05-08</div>
                 </div>
@@ -64,7 +64,7 @@
                 <!-- 内容 -->
                 <div class="content">
                     <!-- 评论信息 -->
-                    <div class="info">测试评论内容测试评论内容</div>
+                    <div class="info">非常Nice！</div>
                     <!-- 评论时间 -->
                     <div class="time">2023-05-08</div>
                 </div>
@@ -105,6 +105,7 @@
                 height: 45px;
                 border-radius: 50%;
                 margin-right: 10px;
+                transition: all $move;
             }
 
             .content {
@@ -133,9 +134,18 @@
                 }
             }
 
-            &:hover .info {
-                color: $color;
-            }
+            // 鼠标经过评论列表样式
+            &:hover {
+                // 颜色高亮
+                .info {
+                    color: $color;
+                }
+
+                // 头像缩放
+                .avatar {
+                    transform: scale(1.1);
+                }
+            } 
         }
     }
 }
