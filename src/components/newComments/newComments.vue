@@ -8,6 +8,7 @@
             <img src="@/assets/svg/other/comments.svg" alt=""> 最新评论
         </div>
 
+        <!-- 评论列表 -->
         <div class="list">
             <a href="javascript:;" class="item">
                 <!-- 头像 -->
