@@ -7,7 +7,7 @@
     <div class="main">
         <div class="left">
             <!-- 文章列表经典风格 -->
-            <Classics></Classics>
+            <slot />
         </div>
 
         <div class="right">

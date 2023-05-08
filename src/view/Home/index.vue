@@ -3,7 +3,10 @@
 
 <template>
   <Swiper></Swiper>
-  <Article></Article>
+  
+  <Article>
+    <Classics />
+  </Article>
 </template>
 
 <style scoped></style>

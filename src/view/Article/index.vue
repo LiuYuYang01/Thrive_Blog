@@ -3,8 +3,9 @@
 </script>
 
 <template>
-  <div>Hello</div>
+  <Article>
+    <Classics />
+  </Article>
 </template>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

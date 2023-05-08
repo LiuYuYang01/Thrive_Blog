@@ -8,15 +8,15 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Article: typeof import('./src/components/Article/Article.vue')['default']
-    Author: typeof import('./src/components/Author/Author.vue')['default']
+    Author: typeof import('./src/components/Sideways/Author.vue')['default']
     Classics: typeof import('./src/components/Article/Classics.vue')['default']
     Empty: typeof import('./src/components/Empty/Empty.vue')['default']
     Footer: typeof import('./src/components/Layout/Footer.vue')['default']
     Header: typeof import('./src/components/Layout/Header.vue')['default']
-    HotArticle: typeof import('./src/components/HotArticle/HotArticle.vue')['default']
+    HotArticle: typeof import('./src/components/Sideways/HotArticle.vue')['default']
     Layout: typeof import('./src/components/Layout/Layout.vue')['default']
     LoadMore: typeof import('./src/components/LoadMore/LoadMore.vue')['default']
-    NewComments: typeof import('./src/components/newComments/newComments.vue')['default']
+    NewComments: typeof import('./src/components/Sideways/NewComments.vue')['default']
     Nprogress: typeof import('./src/components/Nprogress/Nprogress.vue')['default']
     RandomArticle: typeof import('./src/components/RandomArticle/RandomArticle.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
