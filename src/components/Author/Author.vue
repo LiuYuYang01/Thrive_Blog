@@ -126,8 +126,6 @@ const userInfo = {
 
             &::after {
                 content: "社交账号";
-                // display: flex;
-                // justify-content: center;
                 position: absolute;
                 top: -10px;
                 left: 50%;
