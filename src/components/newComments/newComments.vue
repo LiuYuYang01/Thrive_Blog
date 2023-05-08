@@ -22,5 +22,12 @@
 
     // 文章模块标题
     @include titleRight;
+
+    .title {
+        img {
+            width: 33px;
+            height: 23px;
+        }
+    }
 }
 </style>
