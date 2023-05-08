@@ -3,9 +3,13 @@
 </script>
 
 <template>
-  <Article>
-    <Classics />
-  </Article>
+  <Frame>
+    <Article />
+  </Frame>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.main {
+  margin-top: 60px;
+}
+</style>

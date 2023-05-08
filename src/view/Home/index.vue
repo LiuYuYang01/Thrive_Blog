@@ -4,9 +4,9 @@
 <template>
   <Swiper></Swiper>
   
-  <Article>
+  <Frame>
     <Classics />
-  </Article>
+  </Frame>
 </template>
 
 <style scoped></style>

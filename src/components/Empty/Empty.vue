@@ -4,14 +4,14 @@ defineProps<{ info: string }>()
 
 <template>
     <!-- 空状态 -->
-    <div class="empty">
+    <div class="Empty">
         <img src="@/assets/svg/other/empty.svg" alt="">
         <div class="info">{{ info }}</div>
     </div>
 </template>
 
 <style scoped lang="scss">
-.empty {
+.Empty {
     width: 200px;
     margin: 0 auto;
 

@@ -95,7 +95,7 @@ watch(() => route, route => {
 <style scoped lang="scss">
 @import '@/styles/global.scss';
 
-.header {
+.Header {
   position: fixed;
   top: 0;
   width: 100%;

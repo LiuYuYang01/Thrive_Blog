@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="swiper">
+    <div class="Swiper">
         <!-- 引入打字机组件 -->
         <Typewriter>
             <span id="typed"></span>
@@ -31,7 +31,7 @@
 <style scoped lang="scss">
 @import './ripple.scss';
 
-.swiper {
+.Swiper {
     position: relative;
     height: 500px;
     background: url("/src/assets/img/t01d6f5fd3610da0a08.jpg") center;

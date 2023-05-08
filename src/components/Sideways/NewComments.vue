@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="newComments">
+    <div class="NewComments">
         <div class="title">
             <img src="@/assets/svg/other/comments.svg" alt=""> 最新评论
         </div>
@@ -76,7 +76,7 @@
 <style scoped lang="scss">
 @import "@/styles/public.scss";
 
-.newComments {
+.NewComments {
     padding: 15px;
     margin-top: 20px;
     background-color: #fff;

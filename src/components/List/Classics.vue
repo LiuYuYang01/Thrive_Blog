@@ -18,7 +18,7 @@ getArticleList()
 </script>
 
 <template>
-    <div class="classics">
+    <div class="Classics">
         <!-- 文章列表 -->
         <div class="item" v-for="item, index in articleList">
             <!-- 文章封面 -->
@@ -62,7 +62,7 @@ getArticleList()
 @import "@/styles/public.scss";
 
 // 文章风格一
-.classics {
+.Classics {
 
     // 文章列表
     .item {

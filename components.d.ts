@@ -9,9 +9,10 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Article: typeof import('./src/components/Article/Article.vue')['default']
     Author: typeof import('./src/components/Sideways/Author.vue')['default']
-    Classics: typeof import('./src/components/Article/Classics.vue')['default']
+    Classics: typeof import('./src/components/List/Classics.vue')['default']
     Empty: typeof import('./src/components/Empty/Empty.vue')['default']
     Footer: typeof import('./src/components/Layout/Footer.vue')['default']
+    Frame: typeof import('./src/components/Frame/Frame.vue')['default']
     Header: typeof import('./src/components/Layout/Header.vue')['default']
     HotArticle: typeof import('./src/components/Sideways/HotArticle.vue')['default']
     Layout: typeof import('./src/components/Layout/Layout.vue')['default']
