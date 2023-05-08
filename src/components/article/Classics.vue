@@ -22,12 +22,11 @@ getArticleList()
         <!-- 文章列表 -->
         <div class="item" v-for="item, index in articleList">
             <!-- 文章封面 -->
-            <!-- <div class="cover" :style="backgroundImage: url(item.cover)" v-if="index % 2 === 0"></div> -->
             <div class="cover" :style="{ backgroundImage: 'url(' + item.cover + ')' }" v-if="index % 2 === 0"></div>
 
             <!-- 文章信息 -->
             <div class="info">
-                <a href="javascript:;">
+                <RouterLink to="article/100">
                     <!-- 文章标题 -->
                     <h3>{{ item.title }}</h3>
 
@@ -45,7 +44,7 @@ getArticleList()
                         <span><iconpark-icon name="fire" /> {{ item.flow }}</span>
                         <span><iconpark-icon name="tag-one"/> {{ item.cate }}</span>
                     </div>
-                </a>
+                </RouterLink>
             </div>
 
             <div class="cover" style="clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);" v-if="index % 2 !== 0"></div>

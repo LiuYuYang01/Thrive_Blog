@@ -33,10 +33,12 @@ getCateList()
 
 const route = useRoute()
 // 在这个数组中的路由导航栏默认高亮效果, 否则默认透明效果
-const pages = ["/stats"]
+const pages = ["/stats", "/article/100"]
 const is = ref<boolean>(false)
 // 监听整个route对象的变化
 watch(() => route, route => {
+  console.log(route.fullPath);
+
   // 查询pages数组中是否包含对应路由的信息
   pages.includes(route.fullPath) ? is.value = true : is.value = false
 }, { immediate: true, deep: true })

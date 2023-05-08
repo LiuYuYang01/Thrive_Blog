@@ -12,35 +12,35 @@
         <!-- 文章列表 -->
         <div class="list">
             <div class="item">
-                <RouterLink to="path">
+                <RouterLink to="">
                     <iconpark-icon name="right" />
                     2022年的 React 生态
                 </RouterLink>
             </div>
 
             <div class="item">
-                <RouterLink to="path">
+                <RouterLink to="">
                     <iconpark-icon name="right" />
                     2022年的 React 生态
                 </RouterLink>
             </div>
 
             <div class="item">
-                <RouterLink to="path">
+                <RouterLink to="">
                     <iconpark-icon name="right" />
                     2022年的 React 生态
                 </RouterLink>
             </div>
 
             <div class="item">
-                <RouterLink to="path">
+                <RouterLink to="">
                     <iconpark-icon name="right" />
                     2022年的 React 生态
                 </RouterLink>
             </div>
 
             <div class="item">
-                <RouterLink to="path">
+                <RouterLink to="">
                     <iconpark-icon name="right" />
                     2022年的 React 生态
                 </RouterLink>
