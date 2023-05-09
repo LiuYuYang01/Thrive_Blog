@@ -62,12 +62,13 @@ getContent()
 
     // 专注模式按钮样式
     .focus {
-        position: absolute;
-        top: 10px;
-        right: 13px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: absolute;
+        top: -18px;
+        right: -18px;
+        padding: 30px;
         cursor: pointer;
         z-index: 2;
 

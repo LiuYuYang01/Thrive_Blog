@@ -3,26 +3,26 @@
 // import confetti from 'canvas-confetti';
 
 // 默认显示所有侧边栏模块，可以指定选择哪些显示
-const { modules = ["Author", "HotArticle", "RandomArticle", "NewComments"] } = defineProps<{ modules?: string[] }>()
+const { modules = ["Author", "HotArticle", "RandomArticle", "NewComments"], isModules = true } = defineProps<{ modules?: string[], isModules: boolean }>()
 </script>
 
 <template>
     <div class="main">
-        <div class="left">
+        <div class="left" :style="{ width: isModules ? '75%' : '100%' }">
             <!-- 文章列表经典风格 -->
             <slot />
         </div>
 
-        <div class="right">
+        <div class="right" :style="{ display: isModules ? 'block' : 'none' }">
             <div class="sticky">
                 <!-- 作者信息 -->
                 <Author v-if="modules.includes('Author')" />
                 <!-- 热门文章 -->
-                <HotArticle  v-if="modules.includes('HotArticle')"/>
+                <HotArticle v-if="modules.includes('HotArticle')" />
                 <!-- 随机文章 -->
-                <RandomArticle  v-if="modules.includes('RandomArticle')"/>
+                <RandomArticle v-if="modules.includes('RandomArticle')" />
                 <!-- 最新评论 -->
-                <NewComments  v-if="modules.includes('NewComments')"/>
+                <NewComments v-if="modules.includes('NewComments')" />
             </div>
         </div>
     </div>
