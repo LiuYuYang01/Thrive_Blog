@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <Swiper></Swiper>
+  <Swiper src="http://rtr1mvoid.bkt.clouddn.com/images/t01d6f5fd3610da0a08.jpg"></Swiper>
   
   <Frame>
     <Classics />

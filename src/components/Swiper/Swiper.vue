@@ -1,9 +1,9 @@
 <script setup lang='ts'>
-const { isRipple = false } = defineProps<{ isRipple?: boolean }>()
+const { isRipple = false } = defineProps<{ src: string, isRipple?: boolean }>()
 </script>
 
 <template>
-    <div class="Swiper">
+    <div class="Swiper" :style="{ backgroundImage: `url(${src})` }">
         <!-- 引入打字机组件 -->
         <Typewriter>
             <span id="typed"></span>
@@ -34,8 +34,8 @@ const { isRipple = false } = defineProps<{ isRipple?: boolean }>()
 .Swiper {
     position: relative;
     height: 500px;
-    // background: url("@/assets/img/t01d6f5fd3610da0a08.jpg") center;
-    background: url("@/assets/img/63adb5eb87f9b.jpg") center;
+    background: url("@/assets/img/t01d6f5fd3610da0a08.jpg") center;
+    // background: url("@/assets/img/63adb5eb87f9b.jpg") center;
     background-size: cover;
 
     // 背景渐变

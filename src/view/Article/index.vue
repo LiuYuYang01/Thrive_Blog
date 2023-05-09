@@ -8,7 +8,7 @@ const update = () => {
 </script>
 
 <template>
-  <Swiper :isRipple="true"></Swiper>
+  <Swiper src="http://rtr1mvoid.bkt.clouddn.com/images/63adb5eb87f9b.jpg" :isRipple="true"></Swiper>
 
   <!-- :modules="['Author']" 设置只显示哪些模块 -->
   <!-- :isModules="false" 是否开启沉浸模式 -->
