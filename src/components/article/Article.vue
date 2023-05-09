@@ -28,7 +28,7 @@ getContent()
         <!-- 专注模式按钮 -->
         <div class="focus" @click="emit('updateImmerse')">
             <iconpark-icon name="book-open"></iconpark-icon>
-            <span>沉浸</span>
+            <span>沉浸式</span>
         </div>
 
         <h1 class="title">Go 中 Buffer 到底有什么用？</h1>
@@ -69,8 +69,8 @@ getContent()
         flex-direction: column;
         align-items: center;
         position: absolute;
-        top: -18px;
-        right: -18px;
+        top: -22px;
+        right: -23px;
         padding: 30px;
         cursor: pointer;
         z-index: 2;
