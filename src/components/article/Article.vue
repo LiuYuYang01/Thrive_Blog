@@ -25,8 +25,7 @@ getContent()
 
 <template>
     <!-- 数据加载动画 -->
-    {{ !!content }}
-    <Loading v-if="!content" style="margin-top: 110px;"/>
+    <Loading v-if="!content" style="margin-top: 110px;" />
 
     <div class="Article" v-else>
         <!-- 专注模式按钮 -->
@@ -105,7 +104,7 @@ getContent()
     .content {
 
         // 设置代码框样式
-        ::v-deep pre {
+        :deep(pre) {
             margin: 10px 0;
             border-radius: 5px;
             overflow: hidden;
@@ -113,7 +112,7 @@ getContent()
         }
 
         // 行内代码样式
-        ::v-deep p code {
+        :deep(p code) {
             padding: 2px 5px;
             border-radius: 3px;
             color: $color;
@@ -122,22 +121,22 @@ getContent()
         }
 
         // 设置代码字体
-        ::v-deep .hljs {
+        :deep(.hljs) {
             font-family: 'Consolas';
         }
 
         // 设置标题样式
-        ::v-deep h1,
-        ::v-deep h2,
-        ::v-deep h3,
-        ::v-deep h4,
-        ::v-deep h5,
-        ::v-deep h6 {
+        :deep(h1),
+        :deep(h2),
+        :deep(h3),
+        :deep(h4),
+        :deep(h5),
+        :deep(h6) {
             font-family: "";
             margin: 20px 0 10px;
         }
 
-        ::v-deep h1 {
+        :deep(h1) {
             margin-bottom: 20px;
             font-size: 28px;
         }

@@ -48,7 +48,7 @@ onMounted(() => {
     z-index: 9999;
 }
 
-::v-deep #nprogress .bar {
+:deep(#nprogress .bar) {
     background-color: $color;
 }
 </style>
