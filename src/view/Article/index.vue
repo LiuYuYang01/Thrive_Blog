@@ -8,6 +8,8 @@ const update = () => {
 </script>
 
 <template>
+  <Swiper :isRipple="true"></Swiper>
+
   <!-- :modules="['Author']" 设置只显示哪些模块 -->
   <!-- :isModules="false" 是否开启沉浸模式 -->
   <Frame :modules="['Author']" :isImmerse="isImmerse">
@@ -17,6 +19,6 @@ const update = () => {
 
 <style scoped lang="scss">
 .main {
-  margin-top: 60px;
+  margin-top: -130px;
 }
 </style>

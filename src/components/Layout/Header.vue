@@ -33,7 +33,7 @@ getCateList()
 
 const route = useRoute()
 // 在这个数组中的路由导航栏默认高亮效果, 否则默认透明效果
-const pages = ["/stats", "/article/100"]
+const pages = ["/stats"]
 const is = ref<boolean>(false)
 // 监听整个route对象的变化
 watch(() => route, route => {
