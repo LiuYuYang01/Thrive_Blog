@@ -52,6 +52,7 @@ getContent()
         line-height: normal;
     }
 
+    // 行内代码样式
     ::v-deep p code {
         padding: 2px 5px;
         border-radius: 3px;
