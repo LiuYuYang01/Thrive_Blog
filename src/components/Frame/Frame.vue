@@ -3,17 +3,17 @@
 // import confetti from 'canvas-confetti';
 
 // 默认显示所有侧边栏模块，可以指定选择哪些显示
-const { modules = ["Author", "HotArticle", "RandomArticle", "NewComments"], isModules = true } = defineProps<{ modules?: string[], isModules: boolean }>()
+const { modules = ["Author", "HotArticle", "RandomArticle", "NewComments"], isImmerse = false } = defineProps<{ modules?: string[], isImmerse: boolean }>()
 </script>
 
 <template>
     <div class="main">
-        <div class="left" :style="{ width: isModules ? '75%' : '100%' }">
+        <div class="left" :style="{ width: isImmerse ? '100%' : '75%' }">
             <!-- 文章列表经典风格 -->
             <slot />
         </div>
 
-        <div class="right" :style="{ display: isModules ? 'block' : 'none' }">
+        <div class="right" :style="{ display: isImmerse ? 'none' : 'block' }">
             <div class="sticky">
                 <!-- 作者信息 -->
                 <Author v-if="modules.includes('Author')" />
@@ -41,11 +41,13 @@ const { modules = ["Author", "HotArticle", "RandomArticle", "NewComments"], isMo
 
     .left {
         width: 75%;
+        transition: width $move;
     }
 
     .right {
         width: 23%;
         border-radius: $round;
+        transition: width $move;
 
         // 粘性定位
         .sticky {

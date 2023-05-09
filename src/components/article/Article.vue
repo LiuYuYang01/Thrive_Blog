@@ -5,6 +5,9 @@ import '@wangeditor/editor/dist/css/style.css' // 引入 css
 import { ref } from 'vue';
 import axios from 'axios';
 
+const emit = defineEmits<{ (e: "updateImmerse"): () => void }>()
+
+// 文章内容
 const content = ref("")
 
 // 获取文章的数据
@@ -23,7 +26,7 @@ getContent()
 <template>
     <div class="Article">
         <!-- 专注模式按钮 -->
-        <div class="focus">
+        <div class="focus" @click="emit('updateImmerse')">
             <iconpark-icon name="book-open"></iconpark-icon>
             <span>沉浸</span>
         </div>
