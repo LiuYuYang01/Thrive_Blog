@@ -3,6 +3,8 @@
 </script>
 
 <template>
+  <button>沉浸式阅读</button>
+  
   <Frame :modules="['Author']">
     <Article />
   </Frame>

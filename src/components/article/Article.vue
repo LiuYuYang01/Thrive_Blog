@@ -21,63 +21,118 @@ getContent()
 </script>
 
 <template>
-    <div class="Article" v-html="content"></div>
+    <div class="Article">
+        <!-- 专注模式按钮 -->
+        <div class="focus">
+            <iconpark-icon name="book-open"></iconpark-icon>
+            <span>沉浸</span>
+        </div>
+
+        <h1 class="title">Go 中 Buffer 到底有什么用？</h1>
+
+        <!-- 文章内容 -->
+        <div class="content" v-html="content"></div>
+    </div>
 </template>
 
 <style scoped lang="scss">
 @import "@/styles/public.scss";
 
 .Article {
+    overflow: hidden;
+    position: relative;
     padding: 30px;
+    padding-top: 0;
     line-height: 2.3;
     background-color: #fff;
     font-family: "宋体";
     @include container;
 
+    // 右侧背景
+    &::after {
+        content: "";
+        width: 110px;
+        height: 210px;
+        background-color: $color;
+        position: absolute;
+        top: -110px;
+        right: -20px;
+        transform: rotate(135deg);
+    }
+
+    // 专注模式按钮样式
+    .focus {
+        position: absolute;
+        top: 10px;
+        right: 13px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        z-index: 2;
+
+        iconpark-icon {
+            font-size: 30px;
+            color: #fff;
+        }
+
+        span {
+            color: #fff;
+            font-size: 12px;
+        }
+    }
+
     // 文章标题
     .title {
+        padding: 20px 0;
+        margin-bottom: 20px;
         color: #333;
-        padding-bottom: 20px;
         border-bottom: 1px solid #f3f3f3;
-        font-size: 25px;
         font-weight: 700;
+        font-family: "";
         text-align: center;
     }
 
-    // 设置代码框样式
-    ::v-deep pre {
-        margin: 10px 0;
-        border-radius: 5px;
-        overflow: hidden;
-        line-height: normal;
-    }
+    // 文章内容
+    .content {
 
-    // 行内代码样式
-    ::v-deep p code {
-        padding: 2px 5px;
-        border-radius: 3px;
-        color: $color;
-        font-family: "Consolas";
-        background-color: #fafafa;
-    }
+        // 设置代码框样式
+        ::v-deep pre {
+            margin: 10px 0;
+            border-radius: 5px;
+            overflow: hidden;
+            line-height: normal;
+        }
 
-    // 设置代码字体
-    ::v-deep .hljs {
-        font-family: 'Consolas';
-    }
+        // 行内代码样式
+        ::v-deep p code {
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: $color;
+            font-family: "Consolas";
+            background-color: #fafafa;
+        }
 
-    // 设置标题样式
-    ::v-deep h1,
-    ::v-deep h2,
-    ::v-deep h3,
-    ::v-deep h4,
-    ::v-deep h5,
-    ::v-deep h6 {
-        font-family: "";
-        margin: 20px 0 10px;
-    }
+        // 设置代码字体
+        ::v-deep .hljs {
+            font-family: 'Consolas';
+        }
 
-    ::v-deep h1 {
-        margin-bottom: 20px;
+        // 设置标题样式
+        ::v-deep h1,
+        ::v-deep h2,
+        ::v-deep h3,
+        ::v-deep h4,
+        ::v-deep h5,
+        ::v-deep h6 {
+            font-family: "";
+            margin: 20px 0 10px;
+        }
+
+        ::v-deep h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
     }
-}</style>
+}
+</style>
