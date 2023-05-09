@@ -24,7 +24,11 @@ getContent()
 </script>
 
 <template>
-    <div class="Article">
+    <!-- 数据加载动画 -->
+    {{ !!content }}
+    <Loading v-if="!content" style="margin-top: 110px;"/>
+
+    <div class="Article" v-else>
         <!-- 专注模式按钮 -->
         <div class="focus" @click="emit('updateImmerse')">
             <iconpark-icon name="book-open"></iconpark-icon>

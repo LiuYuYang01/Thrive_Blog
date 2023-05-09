@@ -19,6 +19,9 @@ getArticleList()
 
 <template>
     <div class="Classics">
+        <!-- 数据加载动画 -->
+        <Loading v-if="!articleList.length"/>
+
         <!-- 文章列表 -->
         <div class="item" v-for="item, index in articleList">
             <!-- 文章封面 -->
@@ -36,13 +39,13 @@ getArticleList()
                     <div class="fun" v-if="index % 2 === 0">
                         <span><iconpark-icon name="alarm-clock" /> {{ item.date }}</span>
                         <span><iconpark-icon name="fire" /> {{ item.flow }}</span>
-                        <span><iconpark-icon name="tag-one"/> {{ item.cate }}</span>
+                        <span><iconpark-icon name="tag-one" /> {{ item.cate }}</span>
                     </div>
 
                     <div class="fun" style="text-align: start;" v-else>
                         <span style="padding-left: 0;"><iconpark-icon name="alarm-clock" /> {{ item.date }}</span>
                         <span><iconpark-icon name="fire" /> {{ item.flow }}</span>
-                        <span><iconpark-icon name="tag-one"/> {{ item.cate }}</span>
+                        <span><iconpark-icon name="tag-one" /> {{ item.cate }}</span>
                     </div>
                 </RouterLink>
             </div>
