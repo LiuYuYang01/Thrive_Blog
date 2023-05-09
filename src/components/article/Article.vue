@@ -29,8 +29,9 @@ getContent()
 
 .Article {
     padding: 30px;
-    line-height: 35px;
+    line-height: 2.3;
     background-color: #fff;
+    font-family: "宋体";
     @include container;
 
     // 文章标题
@@ -43,29 +44,39 @@ getContent()
         text-align: center;
     }
 
-    // 文章内容
-    .content {
-        color: #555;
-
-        p {
-            margin: 10px 0;
-        }
-
-        h2 {
-            font-size: 20px;
-            margin: 20px 0 10px;
-            color: #333;
-        }
+    // 设置代码框样式
+    ::v-deep pre {
+        margin: 10px 0;
+        border-radius: 5px;
+        overflow: hidden;
+        line-height: normal;
     }
-}
 
-.pre {
-    border-radius: 5px;
-    overflow: hidden;
-}
+    ::v-deep p code {
+        padding: 2px 5px;
+        border-radius: 3px;
+        color: $color;
+        font-family: "Consolas";
+        background-color: #fafafa;
+    }
 
-.hljs,
-.language-javascript .hljs {
-    font-family: 'Consolas';
-}
-</style>
+    // 设置代码字体
+    ::v-deep .hljs {
+        font-family: 'Consolas';
+    }
+
+    // 设置标题样式
+    ::v-deep h1,
+    ::v-deep h2,
+    ::v-deep h3,
+    ::v-deep h4,
+    ::v-deep h5,
+    ::v-deep h6 {
+        font-family: "";
+        margin: 20px 0 10px;
+    }
+
+    ::v-deep h1 {
+        margin-bottom: 20px;
+    }
+}</style>
