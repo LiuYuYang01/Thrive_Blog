@@ -34,7 +34,8 @@
 .Swiper {
     position: relative;
     height: 500px;
-    background: url("/src/assets/img/t01d6f5fd3610da0a08.jpg") center;
+    // background: url("@/assets/img/t01d6f5fd3610da0a08.jpg") center;
+    background: url("@/assets/img/63adb5eb87f9b.jpg") center;
     background-size: cover;
 }
 

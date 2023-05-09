@@ -6,7 +6,7 @@
   <Nprogress />
   <RouterView />
 
-  <Editor />
+  <!-- <Editor /> -->
 </template>
 
 <style scoped></style>
