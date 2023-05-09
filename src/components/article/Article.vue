@@ -1,18 +1,23 @@
 <script setup lang="ts">
-import 'highlight.js/styles/atom-one-dark.css'
-import 'highlight.js/lib/common'
-import { onMounted, ref } from 'vue';
+import hljs from 'highlight.js'
+import "highlight.js/styles/vs2015.css"
+import '@wangeditor/editor/dist/css/style.css' // 引入 css
+import { ref } from 'vue';
 import axios from 'axios';
 
-const code = ref("const buf bytes.Buffer;\nbuf.WriteString('Hello, World!')\nfmt.Println(buf.String())")
 const content = ref("")
 
-axios({
-    url: "https://mock.apifox.cn/m1/2561526-0-default/api/code"
-}).then(res=>{
-    console.log(res);
-    content.value = res.data.content
-})
+// 获取文章的数据
+const getContent = async () => {
+    const { data } = await axios("https://mock.apifox.cn/m1/2561526-0-default/api/code")
+
+    content.value = data.content
+
+    // 代码高亮
+    hljs.highlightAll()
+}
+getContent()
+getContent()
 </script>
 
 <template>
@@ -57,9 +62,10 @@ axios({
 .pre {
     border-radius: 5px;
     overflow: hidden;
+}
 
-    ::v-deep .hljs {
-        font-family: 'Consolas';
-    }
+.hljs,
+.language-javascript .hljs {
+    font-family: 'Consolas';
 }
 </style>

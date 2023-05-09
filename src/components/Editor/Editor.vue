@@ -1,24 +1,12 @@
 <script setup lang='ts'>
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
 
-import WangEditor from 'wangeditor'
-import hljs from 'highlight.js'
 import { onBeforeUnmount, ref, shallowRef, onMounted } from 'vue'
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
 
 
 // 编辑器实例，必须用 shallowRef
 const editorRef = shallowRef()
-
-onMounted(() => {
-    const editor = new WangEditor('#editor')
-    editor.config.highlight = {
-        // 配置highlight.js的参数
-        hljs,
-        style: 'monokai-sublime'
-    }
-    editor.create()
-})
 
 // 内容 HTML
 const valueHtml = ref('<p>hello</p>')
