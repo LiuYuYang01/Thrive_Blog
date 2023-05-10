@@ -1,0 +1,104 @@
+<script setup lang="ts">
+
+</script>
+
+<template>
+    <div class="Directory">
+        <div class="title">
+            <img src="@/assets/svg/other/Directory.svg" alt="">
+            <span>文章目录</span>
+        </div>
+
+        <!-- 文章目录 -->
+        <div class="list">
+            <ul class="one">
+                <li>
+                    <a href="javascript:;">更新日志</a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">支持功能</a>
+
+                    <ul class="two">
+                        <li>
+                            <a href="javascript:;">输出优化</a>
+                        </li>
+
+                        <li>
+                            <a href="javascript:;">函数禁用</a>
+                        </li>
+
+                        <li>
+                            <a href="javascript:;">功能开关</a>
+                        </li>
+
+                        <li>
+                            <a href="javascript:;">优化加速</a>
+                        </li>
+
+                        <li>
+                            <a href="javascript:;">功能增强</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript:;">使用说明</a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">下载地址</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</template>
+
+<style scoped lang="scss">
+@import "@/styles/public.scss";
+
+.Directory {
+    padding: 20px 0;
+    margin-top: 20px;
+    background-color: #fff;
+    @include container;
+
+    // 文章模块标题
+    @include titleRight;
+
+    .title {
+        img {
+            width: 40px;
+            height: 30px;
+        }
+    }
+
+    // 目录
+    .list {
+        margin-top: 10px;
+
+        li {
+            padding: 0 10px;
+
+            a {
+                display: inline-block;
+                width: 88%;
+                padding: 10px;
+                padding-left: 20px;
+                transition: all $move;
+
+                &:hover {
+                    color: $color;
+                    background-color: #f7f9fa;
+                }
+            }
+        }
+
+        // 二级目录
+        .two>li a {
+            font-size: 15px;
+            padding-left: 30px;
+        }
+    }
+}
+</style>
