@@ -12,7 +12,7 @@ const update = () => {
 
   <!-- :modules="['Author']" 设置只显示哪些模块 -->
   <!-- :isModules="false" 是否开启沉浸模式 -->
-  <Frame :modules="['Author']" :isImmerse="isImmerse">
+  <Frame :modules="['Author','Directory']" :isImmerse="isImmerse">
     <Article @updateImmerse="update" />
   </Frame>
 </template>

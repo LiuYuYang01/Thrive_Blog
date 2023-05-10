@@ -3,7 +3,7 @@
 // import confetti from 'canvas-confetti';
 
 // 默认显示所有侧边栏模块，可以指定选择哪些显示
-const { modules = ["Author", "HotArticle", "RandomArticle", "NewComments"], isImmerse = false } = defineProps<{ modules?: string[], isImmerse?: boolean }>()
+const { modules = ["Author", "HotArticle", "RandomArticle", "NewComments", "Directory"], isImmerse = false } = defineProps<{ modules?: string[], isImmerse?: boolean }>()
 </script>
 
 <template>
@@ -23,6 +23,8 @@ const { modules = ["Author", "HotArticle", "RandomArticle", "NewComments"], isIm
                 <RandomArticle v-if="modules.includes('RandomArticle')" />
                 <!-- 最新评论 -->
                 <NewComments v-if="modules.includes('NewComments')" />
+                <!-- 文章目录 -->
+                <Directory v-if="modules.includes('Directory')" />
             </div>
         </div>
     </div>
