@@ -1,5 +1,9 @@
 <script setup lang="ts">
+// import { onMounted } from 'vue';
 
+// onMounted(() => {
+//     console.log(document.querySelectorAll("p"));
+// })
 </script>
 
 <template>
@@ -13,23 +17,23 @@
         <div class="list">
             <ul class="one">
                 <li>
-                    <a href="javascript:;">更新日志</a>
+                    <a href="#h2-0">更新日志</a>
                 </li>
 
                 <li>
-                    <a href="javascript:;">支持功能</a>
+                    <a href="#h2-1">支持功能</a>
 
                     <ul class="two">
                         <li>
-                            <a href="javascript:;">输出优化</a>
+                            <a href="#h2-1-2">输出优化</a>
                         </li>
 
                         <li>
-                            <a href="javascript:;">函数禁用</a>
+                            <a href="#h2-1-3">函数禁用</a>
                         </li>
 
                         <li>
-                            <a href="javascript:;">功能开关</a>
+                            <a href="#h2-1-4">功能开关</a>
                         </li>
 
                         <li>
@@ -43,7 +47,7 @@
                 </li>
 
                 <li>
-                    <a href="javascript:;">使用说明</a>
+                    <a href="#h2-4">使用说明</a>
                 </li>
 
                 <li>

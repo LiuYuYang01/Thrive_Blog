@@ -2,7 +2,7 @@
 import hljs from 'highlight.js'
 import "highlight.js/styles/vs2015.css"
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import axios from 'axios';
 
 const emit = defineEmits<{ (e: "updateImmerse"): () => void }>()
@@ -18,9 +18,60 @@ const getContent = async () => {
 
     // 代码高亮
     hljs.highlightAll()
+
+    createDirectory()
 }
 getContent()
 getContent()
+
+// 生成目录
+function createDirectory() {
+    const Directory: any = []
+
+    // 获取content下的所有标签
+    let doms: any = document.querySelector(".content")?.children!
+
+    if (doms) {
+        // 转换为真数组
+        doms = Array.from(doms)
+
+        doms.forEach((item: HTMLElement) => {
+            // 获取当前标签的名称
+            const name: string = item.tagName
+
+            // 拿到标题标签
+            if (name === "H2" || name === "H3") {
+                // 必须有内容
+                if (item.innerHTML) {
+                    Directory.push(item)
+                }
+            }
+        });
+    }
+
+    if (Directory.length) {
+        for (let i = 0; i < Directory.length; i++) {
+            // console.log(Directory[i]);
+
+            if (Directory[i].tagName === "H2") {
+                (<HTMLElement>Directory[i]).setAttribute("id", `h2-${i}`)
+            }
+
+            if (Directory[i].tagName === "H3") {
+                // const k = i === Directory.length - 1 ? i : i + 1
+                // console.log(Directory[k]);
+
+                if (Directory[i - 1].getAttribute("id")) {
+                    const h2id = Directory[i - 1].getAttribute("id")
+                    Directory[i].setAttribute("id", `${h2id}-${i}`)
+                }
+            }
+        }
+    }
+
+    console.log(Directory);
+    
+}
 </script>
 
 <template>
