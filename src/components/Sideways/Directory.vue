@@ -11,7 +11,11 @@ const getContent = async () => {
         const { data } = await axios("https://mock.apifox.cn/m1/2561526-0-default/api/code")
         content.value = data.content
 
-        doms.value = document.querySelectorAll(".content h1,.content h2,.content h3")
+        // 转换为真数组
+        doms.value = Array.from(document.querySelectorAll(".content h1,.content h2,.content h3"))
+
+        // 去除为空的标题
+        doms.value = doms.value.filter((item:HTMLElement) => { if (item.innerHTML) return item })
     } catch (error) {
         console.log(error);
     }

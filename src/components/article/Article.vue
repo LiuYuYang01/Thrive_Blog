@@ -74,8 +74,8 @@ function createDirectory() {
         <h1 class="title">Go 中 Buffer 到底有什么用？</h1>
 
         <!-- 文章内容 -->
-        <!-- <div class="content" v-html="content"></div> -->
-        <div class="content">
+        <div class="content" v-html="content"></div>
+        <!-- <div class="content">
             <h2>测试一级标题1</h2>
             <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
             <h3>测试二级标题1</h3>
@@ -95,7 +95,7 @@ function createDirectory() {
             <h3>测试二级标题3</h3>
             <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
             <h2>测试一级标题4</h2>
-        </div>
+        </div> -->
     </div>
 </template>
 
