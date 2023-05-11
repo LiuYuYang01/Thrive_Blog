@@ -71,31 +71,11 @@ function createDirectory() {
             <span>沉浸式</span>
         </div>
 
+        <!-- 文章标题 -->
         <h1 class="title">Go 中 Buffer 到底有什么用？</h1>
 
         <!-- 文章内容 -->
         <div class="content" v-html="content"></div>
-        <!-- <div class="content">
-            <h2>测试一级标题1</h2>
-            <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-            <h3>测试二级标题1</h3>
-            <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-            <h3>测试二级标题2</h3>
-            <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-            <h3>测试二级标题3</h3>
-            <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-            <h2>测试一级标题2</h2>
-            <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-            <h2>测试一级标题3</h2>
-            <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-            <h3>测试二级标题1</h3>
-            <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-            <h3>测试二级标题2</h3>
-            <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-            <h3>测试二级标题3</h3>
-            <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-            <h2>测试一级标题4</h2>
-        </div> -->
     </div>
 </template>
 

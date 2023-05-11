@@ -15,7 +15,7 @@ const getContent = async () => {
         doms.value = Array.from(document.querySelectorAll(".content h1,.content h2,.content h3"))
 
         // 去除为空的标题
-        doms.value = doms.value.filter((item:HTMLElement) => { if (item.innerHTML) return item })
+        doms.value = doms.value.filter((item: HTMLElement) => { if (item.innerHTML) return item })
     } catch (error) {
         console.log(error);
     }
@@ -35,7 +35,7 @@ getContent()
         <div class="list">
             <ul class="one">
                 <li v-for="item in doms" :key="item">
-                    <a :href="`#${item.id}`" :style="{ paddingLeft: item.getAttribute('two') ? '50px' : '' }">{{
+                    <a :href="`#${item.id}`" :style="{ paddingLeft: item.getAttribute('two') ? '30px' : '' }">{{
                         item.innerHTML }}</a>
                 </li>
             </ul>
@@ -71,10 +71,15 @@ getContent()
 
             a {
                 display: inline-block;
-                width: 88%;
+                width: 100%;
                 padding: 10px;
-                padding-left: 20px;
-                transition: all $move;
+                padding-left: 10px;
+                transition: all 0.3s;
+
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                box-sizing: border-box;
 
                 &:hover {
                     color: $color;
@@ -86,7 +91,6 @@ getContent()
         // 二级目录
         .two>li a {
             font-size: 15px;
-            padding-left: 30px;
         }
     }
 }
