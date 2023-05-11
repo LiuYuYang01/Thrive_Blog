@@ -3,7 +3,7 @@
 // import confetti from 'canvas-confetti';
 
 // 默认显示所有侧边栏模块，可以指定选择哪些显示
-const { modules = ["Author", "HotArticle", "RandomArticle", "NewComments", "Directory"], isImmerse = false } = defineProps<{ modules?: string[], isImmerse?: boolean }>()
+const { modules = ["Author", "HotArticle", "RandomArticle", "NewComments"], isImmerse = false } = defineProps<{ modules?: string[], isImmerse?: boolean }>()
 </script>
 
 <template>

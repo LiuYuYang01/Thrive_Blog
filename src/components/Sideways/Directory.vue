@@ -35,8 +35,8 @@ getContent()
             <ul class="one">
                 <li v-for="item in doms" :key="item">
                     <!-- 查看有没有item.getAttribute('two')，有就是二级目录，没有就是一级目录 -->
-                    <a :href="`#${item.id}`"
-                        :style="{ paddingLeft: item.getAttribute('two') ? '30px' : '' }">{{ item.innerHTML }}</a>
+                    <a :href="`#${item.id}`" :style="{ paddingLeft: item.getAttribute('two') ? '30px' : '' }">{{
+                        item.innerHTML }}</a>
                 </li>
             </ul>
         </div>

@@ -38,12 +38,12 @@ const getContent = async () => {
 getContent()
 getContent()
 
-// 生成目录
+// 生成文章目录
 function createDirectory() {
     let index = 0;
 
     // 获取content下的所有标签
-    let doms: any = document.querySelectorAll(".content h1,.content h2,.content h3,.content h4")
+    let doms: any = document.querySelectorAll(".content h1,.content h2,.content h3")
 
     if (doms) {
         // 转换为真数组
@@ -55,7 +55,7 @@ function createDirectory() {
                 item.setAttribute("id", String(++index))
             }
 
-            // 如果为h3就设置二级目录的标识
+            // 如果是H3就设置二级目录的标识
             if (item.tagName === "H3") {
                 item.setAttribute("two", "yes")
             }
