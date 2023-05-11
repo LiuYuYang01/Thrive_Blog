@@ -1,11 +1,11 @@
 <script setup lang='ts'>
-const { isRipple = false } = defineProps<{ src: string, isRipple?: boolean }>()
+const { isRipple = false, isTyping = false } = defineProps<{ src: string, isRipple?: boolean, isTyping?: boolean }>()
 </script>
 
 <template>
     <div class="Swiper" :style="{ backgroundImage: `url(${src})` }">
         <!-- 引入打字机组件 -->
-        <Typewriter>
+        <Typewriter v-if="!isTyping">
             <span id="typed"></span>
         </Typewriter>
     </div>
