@@ -1,9 +1,23 @@
 <script setup lang="ts">
-// import { onMounted } from 'vue';
+import axios from 'axios'
+import { ref } from 'vue'
 
-// onMounted(() => {
-//     console.log(document.querySelectorAll("p"));
-// })
+const doms = ref<any>([]);
+const content = ref("")
+
+// 获取文章的数据
+const getContent = async () => {
+    try {
+        const { data } = await axios("https://mock.apifox.cn/m1/2561526-0-default/api/code")
+        content.value = data.content
+
+        doms.value = document.querySelectorAll(".content h1,.content h2,.content h3")
+    } catch (error) {
+        console.log(error);
+    }
+}
+getContent()
+getContent()
 </script>
 
 <template>
@@ -16,42 +30,9 @@
         <!-- 文章目录 -->
         <div class="list">
             <ul class="one">
-                <li>
-                    <a href="#h2-0">更新日志</a>
-                </li>
-
-                <li>
-                    <a href="#h2-1">支持功能</a>
-
-                    <ul class="two">
-                        <li>
-                            <a href="#h2-1-2">输出优化</a>
-                        </li>
-
-                        <li>
-                            <a href="#h2-1-3">函数禁用</a>
-                        </li>
-
-                        <li>
-                            <a href="#h2-1-4">功能开关</a>
-                        </li>
-
-                        <li>
-                            <a href="javascript:;">优化加速</a>
-                        </li>
-
-                        <li>
-                            <a href="javascript:;">功能增强</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="#h2-4">使用说明</a>
-                </li>
-
-                <li>
-                    <a href="javascript:;">下载地址</a>
+                <li v-for="item in doms" :key="item">
+                    <a :href="`#${item.id}`" :style="{ paddingLeft: item.getAttribute('two') ? '50px' : '' }">{{
+                        item.innerHTML }}</a>
                 </li>
             </ul>
         </div>

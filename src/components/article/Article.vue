@@ -38,67 +38,31 @@ getContent()
 
 // 生成目录
 function createDirectory() {
-    const Directory: any = []
+    let index = 0;
 
     // 获取content下的所有标签
-    let doms: any = document.querySelector(".content")?.children!
+    let doms: any = document.querySelectorAll(".content h1,.content h2,.content h3,.content h4")
 
     if (doms) {
         // 转换为真数组
         doms = Array.from(doms)
 
         doms.forEach((item: HTMLElement) => {
-            // 获取当前标签的名称
-            const name: string = item.tagName
+            if (item.innerHTML) {
+                item.setAttribute("id", String(++index))
+            }
 
-            // 拿到标题标签
-            if (name === "H2" || name === "H3") {
-                // 必须有内容
-                if (item.innerHTML) {
-                    Directory.push(item)
-                }
+            if (item.tagName === "H3") {
+                item.setAttribute("two", "yes")
             }
         });
     }
-
-    if (Directory.length) {
-        for (let i = 0; i < Directory.length; i++) {
-            // console.log(Directory[i]);
-
-            if (Directory[i].tagName === "H2") {
-                (<HTMLElement>Directory[i]).setAttribute("id", `h2-${i + 1}`)
-            }
-
-            if (Directory[i].tagName === "H3") {
-                // const k = i === Directory.length - 1 ? i : i + 1
-                // console.log(Directory[k]);
-
-                if (Directory[i - 1].tagName === "H2") {
-                    const h2id = Directory[i - 1].getAttribute("id")
-                    Directory[i].setAttribute("id", `${h2id}-${i + 1}`)
-                } else {
-                    const h3id = Directory[i - 1].getAttribute("id")
-                    if (h3id) {
-                        //    h3id =  h3id[h3id.length-1]
-                        const arr = h3id.split("-")
-                        arr[2]++
-
-                        Directory[i].setAttribute("id", arr.join("-"))
-                    }
-
-                }
-            }
-        }
-    }
-
-    console.log(Directory);
-
 }
 </script>
 
 <template>
     <!-- 数据加载动画 -->
-    <Loading v-if="loading === 'loading'" style =" margin-top: 110px;" />
+    <Loading v-if="loading === 'loading'" style=" margin-top: 110px;" />
 
     <div class="Article" v-else>
         <!-- 专注模式按钮 -->
@@ -120,9 +84,9 @@ function createDirectory() {
             <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
             <h3>测试二级标题3</h3>
             <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-            <h1>测试一级标题2</h1>
+            <h2>测试一级标题2</h2>
             <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-            <h1>测试一级标题3</h1>
+            <h2>测试一级标题3</h2>
             <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
             <h3>测试二级标题1</h3>
             <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
@@ -130,7 +94,7 @@ function createDirectory() {
             <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
             <h3>测试二级标题3</h3>
             <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-            <h1>测试一级标题4</h1>
+            <h2>测试一级标题4</h2>
         </div>
     </div>
 </template>
