@@ -1,25 +1,37 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+import axios from 'axios';
+import Status from '@/types/Status';
+
 import hljs from 'highlight.js'
 import "highlight.js/styles/vs2015.css"
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
-import { ref, onMounted } from 'vue';
-import axios from 'axios';
 
 const emit = defineEmits<{ (e: "updateImmerse"): () => void }>()
 
 // 文章内容
 const content = ref("")
 
+const loading = ref<Status>("idle")
+
 // 获取文章的数据
 const getContent = async () => {
-    const { data } = await axios("https://mock.apifox.cn/m1/2561526-0-default/api/code")
+    try {
+        loading.value = "loading"
 
-    content.value = data.content
+        const { data } = await axios("https://mock.apifox.cn/m1/2561526-0-default/api/code")
+        content.value = data.content
 
-    // 代码高亮
-    hljs.highlightAll()
+        loading.value = "success"
 
-    createDirectory()
+        // 代码高亮
+        hljs.highlightAll()
+
+        createDirectory()
+    } catch (error) {
+        loading.value = "error"
+        console.log(error);
+    }
 }
 getContent()
 getContent()
@@ -54,29 +66,39 @@ function createDirectory() {
             // console.log(Directory[i]);
 
             if (Directory[i].tagName === "H2") {
-                (<HTMLElement>Directory[i]).setAttribute("id", `h2-${i}`)
+                (<HTMLElement>Directory[i]).setAttribute("id", `h2-${i + 1}`)
             }
 
             if (Directory[i].tagName === "H3") {
                 // const k = i === Directory.length - 1 ? i : i + 1
                 // console.log(Directory[k]);
 
-                if (Directory[i - 1].getAttribute("id")) {
+                if (Directory[i - 1].tagName === "H2") {
                     const h2id = Directory[i - 1].getAttribute("id")
-                    Directory[i].setAttribute("id", `${h2id}-${i}`)
+                    Directory[i].setAttribute("id", `${h2id}-${i + 1}`)
+                } else {
+                    const h3id = Directory[i - 1].getAttribute("id")
+                    if (h3id) {
+                        //    h3id =  h3id[h3id.length-1]
+                        const arr = h3id.split("-")
+                        arr[2]++
+
+                        Directory[i].setAttribute("id", arr.join("-"))
+                    }
+
                 }
             }
         }
     }
 
     console.log(Directory);
-    
+
 }
 </script>
 
 <template>
     <!-- 数据加载动画 -->
-    <Loading v-if="!content" style="margin-top: 110px;" />
+    <Loading v-if="loading === 'loading'" style =" margin-top: 110px;" />
 
     <div class="Article" v-else>
         <!-- 专注模式按钮 -->
@@ -88,7 +110,28 @@ function createDirectory() {
         <h1 class="title">Go 中 Buffer 到底有什么用？</h1>
 
         <!-- 文章内容 -->
-        <div class="content" v-html="content"></div>
+        <!-- <div class="content" v-html="content"></div> -->
+        <div class="content">
+            <h2>测试一级标题1</h2>
+            <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+            <h3>测试二级标题1</h3>
+            <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+            <h3>测试二级标题2</h3>
+            <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+            <h3>测试二级标题3</h3>
+            <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+            <h1>测试一级标题2</h1>
+            <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+            <h1>测试一级标题3</h1>
+            <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+            <h3>测试二级标题1</h3>
+            <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+            <h3>测试二级标题2</h3>
+            <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+            <h3>测试二级标题3</h3>
+            <p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+            <h1>测试一级标题4</h1>
+        </div>
     </div>
 </template>
 

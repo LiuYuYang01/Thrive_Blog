@@ -2,15 +2,22 @@
 import { ref } from 'vue'
 import { Article } from '@/types/Article'
 import { getArticleListAPI } from '@/api/Article'
+import Status from '@/types/Status'
 
 const articleList = ref<Article[]>([])
+const loading = ref<Status>("idle")
 
 // 获取文章列表
 const getArticleList = async () => {
     try {
+        loading.value = "loading"
+
         const { data } = await getArticleListAPI()
         articleList.value = data
+
+        loading.value = "success"
     } catch (error) {
+        loading.value = "error"
         console.log("在 Classics 文件中捕获到错误：", error);
     }
 }
@@ -20,7 +27,7 @@ getArticleList()
 <template>
     <div class="Classics">
         <!-- 数据加载动画 -->
-        <Loading v-if="!articleList.length"/>
+        <Loading v-if="loading === 'loading'" />
 
         <!-- 文章列表 -->
         <div class="item" v-for="item, index in articleList">
