@@ -50,10 +50,12 @@ function createDirectory() {
         doms = Array.from(doms)
 
         doms.forEach((item: HTMLElement) => {
+            // 给所有有内容的值设置自定义属性
             if (item.innerHTML) {
                 item.setAttribute("id", String(++index))
             }
 
+            // 如果为h3就设置二级目录的标识
             if (item.tagName === "H3") {
                 item.setAttribute("two", "yes")
             }
@@ -174,6 +176,8 @@ function createDirectory() {
         :deep(h6) {
             font-family: "";
             margin: 20px 0 10px;
+            // a标签锚点跳转距离顶部的距离
+            scroll-margin-top: 80px;
         }
 
         :deep(h1) {
