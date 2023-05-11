@@ -3,13 +3,12 @@ import axios from 'axios'
 import { ref } from 'vue'
 
 const doms = ref<any>([]);
-const content = ref("")
 
 // 获取文章的数据
 const getContent = async () => {
     try {
-        const { data } = await axios("https://mock.apifox.cn/m1/2561526-0-default/api/code")
-        content.value = data.content
+        // 等文章数据加载完之后...
+        await axios("https://mock.apifox.cn/m1/2561526-0-default/api/code")
 
         // 转换为真数组
         doms.value = Array.from(document.querySelectorAll(".content h1,.content h2,.content h3"))
@@ -20,7 +19,7 @@ const getContent = async () => {
         console.log(error);
     }
 }
-getContent()
+
 getContent()
 </script>
 
@@ -35,8 +34,9 @@ getContent()
         <div class="list">
             <ul class="one">
                 <li v-for="item in doms" :key="item">
-                    <a :href="`#${item.id}`" :style="{ paddingLeft: item.getAttribute('two') ? '30px' : '' }">{{
-                        item.innerHTML }}</a>
+                    <!-- 查看有没有item.getAttribute('two')，有就是二级目录，没有就是一级目录 -->
+                    <a :href="`#${item.id}`"
+                        :style="{ paddingLeft: item.getAttribute('two') ? '30px' : '' }">{{ item.innerHTML }}</a>
                 </li>
             </ul>
         </div>

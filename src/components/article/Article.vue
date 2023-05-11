@@ -33,6 +33,8 @@ const getContent = async () => {
         console.log(error);
     }
 }
+
+// 这里必须调用两次这个函数，不然代码不高亮，暂时只能这样解决
 getContent()
 getContent()
 
