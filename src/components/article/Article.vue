@@ -76,7 +76,34 @@ function createDirectory() {
         </div>
 
         <!-- 文章标题 -->
-        <h1 class="title">Go 中 Buffer 到底有什么用？</h1>
+        <!-- <h1 class="title">Go 中 Buffer 到底有什么用？</h1> -->
+        <div class="title">
+            <h1>Go 中 Buffer 到底有什么用？</h1>
+
+            <!-- 文章信息 -->
+            <div class="info">
+                <!-- 文章创建时间 -->
+                <span>
+                    <iconpark-icon name="alarm-clock" /> 2023年05月12日
+                </span>
+
+                <!-- 文章浏览量 -->
+                <span>
+                    <iconpark-icon name="fire" /> 13245
+                </span>
+
+                <!-- 文章所在的标签 -->
+                <span>
+                    <iconpark-icon name="tag-one" /> 开发笔记
+                </span>
+
+                <!-- 文章评论数量 -->
+                <span>
+                    <iconpark-icon name="comment" /> 评论：15
+                </span>
+            </div>
+
+        </div>
 
         <!-- 文章内容 -->
         <div class="content" v-html="content"></div>
@@ -140,6 +167,39 @@ function createDirectory() {
         font-weight: 700;
         font-family: "";
         text-align: center;
+
+        // 文章信息
+        .info {
+            font-size: 12px;
+            font-weight: 400;
+
+            span {
+                display: inline-block;
+                margin: 0 10px;
+
+                iconpark-icon {
+                    padding: 3px;
+                    border-radius: 50%;
+                    color: #fff;
+                }
+
+                &:nth-child(1) iconpark-icon {
+                    background-color: #539dfd;
+                }
+
+                &:nth-child(2) iconpark-icon {
+                    background-color: #eb373a;
+                }
+
+                &:nth-child(3) iconpark-icon {
+                    background-color: #f5a630;
+                }
+
+                &:nth-child(4) iconpark-icon {
+                    background-color: #b335ec;
+                }
+            }
+        }
     }
 
     // 文章内容

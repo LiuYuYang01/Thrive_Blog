@@ -21,6 +21,6 @@ const update = () => {
 
 <style scoped lang="scss">
 .main {
-  margin-top: -130px;
+  margin-top: -250px;
 }
 </style>
