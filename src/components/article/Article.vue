@@ -112,6 +112,9 @@ function createDirectory() {
 
         <!-- 版权信息 -->
         <Copyright />
+
+        <!-- 上下篇 -->
+        <UpAndDown />
     </div>
 </template>
 
@@ -125,7 +128,6 @@ function createDirectory() {
     padding-top: 0;
     line-height: 2.3;
     background-color: #fff;
-    font-family: "宋体";
     @include container;
 
     // 右侧背景
@@ -209,7 +211,6 @@ function createDirectory() {
     // 文章内容
     .content {
         font-size: 15px;
-        font-family: "";
         color: #333;
 
         // 设置代码框样式

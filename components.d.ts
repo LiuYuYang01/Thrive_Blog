@@ -30,5 +30,6 @@ declare module '@vue/runtime-core' {
     Swiper: typeof import('./src/components/Swiper/Swiper.vue')['default']
     Tag: typeof import('./src/components/Article/components/Tag.vue')['default']
     Typewriter: typeof import('./src/components/Typewriter/Typewriter.vue')['default']
+    UpAndDown: typeof import('./src/components/Article/components/UpAndDown.vue')['default']
   }
 }

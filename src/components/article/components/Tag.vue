@@ -21,7 +21,7 @@
 .Tag {
     display: flex;
     align-items: center;
-    margin-top: 30px;
+    margin: 30px 0;
 
     img {
         width: 20px;
@@ -32,7 +32,6 @@
     // 标签列表
     .list {
         font-size: 12px;
-        font-family: "";
 
         a {
             padding: 2px 6px;
