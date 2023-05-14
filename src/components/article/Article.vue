@@ -278,6 +278,13 @@ function createDirectory() {
             font-size: 25px;
             vertical-align: middle;
         }
+
+        // 文章摘要样式
+        :deep(blockquote) {
+            padding: 20px;
+            border-radius: $round;
+            background: #fafafa;
+        }
     }
 }
 </style>
