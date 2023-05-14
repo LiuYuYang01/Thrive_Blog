@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     Article: typeof import('./src/components/Article/Article.vue')['default']
     Author: typeof import('./src/components/Sideways/Author.vue')['default']
     Classics: typeof import('./src/components/List/Classics.vue')['default']
+    Copyright: typeof import('./src/components/Article/components/Copyright.vue')['default']
     Directory: typeof import('./src/components/Sideways/Directory.vue')['default']
     Editor: typeof import('./src/components/Editor/Editor.vue')['default']
     Empty: typeof import('./src/components/Empty/Empty.vue')['default']
@@ -27,6 +28,7 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Swiper: typeof import('./src/components/Swiper/Swiper.vue')['default']
+    Tag: typeof import('./src/components/Article/components/Tag.vue')['default']
     Typewriter: typeof import('./src/components/Typewriter/Typewriter.vue')['default']
   }
 }
