@@ -25,10 +25,13 @@
     a {
         width: 100%;
         padding: 10px 0;
+        margin: 0 10px;
+        border: 1px solid #eee;
         border-radius: $round;
-        transition: background-color $move;
+        transition: all $move;
 
         &:hover {
+            border: 1px solid $color;
             background-color: #f8fbff;
         }
 

@@ -32,6 +32,6 @@ const Store = defineStore<"Author", State, Getter, Actions>("Author", {
         },
     },
     // pinia状态是否持久化到本地存储
-    persist: true
+    // persist: true
 })
 export default Store

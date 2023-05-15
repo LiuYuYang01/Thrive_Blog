@@ -134,6 +134,9 @@ function createDirectory() {
 
         <!-- 上下篇 -->
         <UpAndDown />
+
+        <!-- 评论框 -->
+        <Comment />
     </div>
 </template>
 
@@ -286,6 +289,7 @@ function createDirectory() {
             bottom: 20px;
             width: 7%;
             height: 10px;
+            border-radius: $round;
             background-color: $color;
             opacity: 0.4;
         }
