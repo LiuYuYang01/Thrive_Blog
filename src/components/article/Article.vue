@@ -3,9 +3,15 @@ import { ref } from 'vue';
 import axios from 'axios';
 import Status from '@/types/Status';
 
+// highlight代码高亮
 import hljs from 'highlight.js'
 import "highlight.js/styles/vs2015.css"
-import '@wangeditor/editor/dist/css/style.css' // 引入 css
+
+// 引入编辑器样式
+import '@wangeditor/editor/dist/css/style.css'
+
+// 复制文本自动生成版权信息
+import "@/util/createCopyright"
 
 const emit = defineEmits<{ (e: "updateImmerse"): () => void }>()
 

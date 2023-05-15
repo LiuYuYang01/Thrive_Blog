@@ -5,7 +5,7 @@
 <template>
     <div class="Copyright">
         <p>作者：宇阳</p>
-        <p>版权：转载请注明文章出处~</p>
+        <p>版权：此文章版权归 宇阳 所有，如有转载，请注明出处!</p>
     </div>
 </template>
 
