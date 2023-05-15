@@ -1,10 +1,12 @@
 import Request from '@/util/request'
 
-// 获取文章
-export const getCateAPI = (id: string) => {
+// 获取文章数据
+export const getArticleAPI = (id: number) => {
+    console.log(id);
+
     return Request.instance.request({
         url: `/api/article/${id}`,
-        params: id
+        params: { id }
     })
 }
 

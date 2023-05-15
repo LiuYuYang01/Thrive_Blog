@@ -1,22 +1,37 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import axios from 'axios';
 import Status from '@/types/Status';
 
-// highlight代码高亮
+// Highlight代码高亮
 import hljs from 'highlight.js'
 import "highlight.js/styles/vs2015.css"
 
-// 引入编辑器样式
+// Wangeditor编辑器样式
 import '@wangeditor/editor/dist/css/style.css'
 
 // 复制文本自动生成版权信息
 import "@/util/createCopyright"
 
+// 引入文章API接口
+import { getArticleAPI } from "@/api/Article"
+import { Article } from '@/types/Article'
+
 const emit = defineEmits<{ (e: "updateImmerse"): () => void }>()
 
 // 文章内容
 const content = ref("")
+const getArticleData = ref<Article>({
+    title: "", //标题
+    sketch: "", //简述
+    content: "", //文章内容
+    view: 0, //浏览量
+    cate: "", //分类
+    commentCount: 0, //评论数量
+    tag: "", //标签
+    createTime: "", //创建时间
+    updateTime: "", //更改时间
+    cover: "", //封面
+})
 
 const loading = ref<Status>("idle")
 
@@ -25,8 +40,14 @@ const getContent = async () => {
     try {
         loading.value = "loading"
 
-        const { data } = await axios("https://mock.apifox.cn/m1/2561526-0-default/api/code")
+        // const { data } = await axios("https://mock.apifox.cn/m1/2561526-0-default/api/article/100")
+        // content.value = data.content
+
+        const { data } = await getArticleAPI(100)
+        getArticleData.value = data
+
         content.value = data.content
+
 
         loading.value = "success"
 
@@ -82,36 +103,35 @@ function createDirectory() {
         </div>
 
         <!-- 文章标题 -->
-        <!-- <h1 class="title">Go 中 Buffer 到底有什么用？</h1> -->
         <div class="title">
-            <h1>Go 中 Buffer 到底有什么用？</h1>
+            <h1>{{ getArticleData.title }}</h1>
 
             <!-- 文章信息 -->
             <div class="info">
                 <!-- 文章创建时间 -->
                 <span>
-                    <iconpark-icon name="alarm-clock" /> 2023年05月12日
+                    <iconpark-icon name="alarm-clock" /> {{ getArticleData.createTime }}
                 </span>
 
                 <!-- 文章浏览量 -->
                 <span>
-                    <iconpark-icon name="fire" /> 13245
+                    <iconpark-icon name="fire" /> {{ getArticleData.view }}
                 </span>
 
                 <!-- 文章所在的标签 -->
                 <span>
-                    <iconpark-icon name="tag-one" /> 开发笔记
+                    <iconpark-icon name="tag-one" /> {{ getArticleData.cate }}
                 </span>
 
                 <!-- 文章评论数量 -->
                 <span>
-                    <iconpark-icon name="comment" /> 评论：15
+                    <iconpark-icon name="comment" /> 评论：{{ getArticleData.commentCount }}
                 </span>
             </div>
         </div>
 
         <!-- 文章内容 -->
-        <div class="content" v-html="content"></div>
+        <div class="content" v-html="getArticleData.content"></div>
 
         <!-- 文章标签 -->
         <Tag />

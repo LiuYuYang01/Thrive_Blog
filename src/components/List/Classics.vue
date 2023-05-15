@@ -44,14 +44,14 @@ getArticleList()
                     <p>{{ item.content }}</p>
 
                     <div class="fun" v-if="index % 2 === 0">
-                        <span><iconpark-icon name="alarm-clock" /> {{ item.date }}</span>
-                        <span><iconpark-icon name="fire" /> {{ item.flow }}</span>
+                        <span><iconpark-icon name="alarm-clock" /> {{ item.createTime }}</span>
+                        <span><iconpark-icon name="fire" /> {{ item.view }}</span>
                         <span><iconpark-icon name="tag-one" /> {{ item.cate }}</span>
                     </div>
 
                     <div class="fun" style="text-align: start;" v-else>
-                        <span style="padding-left: 0;"><iconpark-icon name="alarm-clock" /> {{ item.date }}</span>
-                        <span><iconpark-icon name="fire" /> {{ item.flow }}</span>
+                        <span style="padding-left: 0;"><iconpark-icon name="alarm-clock" /> {{ item.createTime }}</span>
+                        <span><iconpark-icon name="fire" /> {{ item.view }}</span>
                         <span><iconpark-icon name="tag-one" /> {{ item.cate }}</span>
                     </div>
                 </RouterLink>

@@ -20,7 +20,7 @@ const getContent = async () => {
     }
 }
 
-getContent()
+// getContent()
 </script>
 
 <template>
