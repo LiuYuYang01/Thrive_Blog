@@ -1,6 +1,6 @@
 // 复制文本自动生成版权信息
 document.addEventListener('copy', function (event) {
-    const clipboardData = event.clipboardData || window.clipboardData;
+    const clipboardData = event.clipboardData || (<any>window).clipboardData;
     if (!clipboardData) return
 
     // 获取复制的内容
