@@ -1,4 +1,4 @@
-export interface User {
+export interface Author {
     author: string,
     qq: number,
     introduce: string,

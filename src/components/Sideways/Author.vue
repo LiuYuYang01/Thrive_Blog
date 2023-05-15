@@ -1,47 +1,37 @@
 <script setup lang='ts'>
-const userInfo = {
-    author: "YuYang",
-    qq: 3311118881,
-    introduce: "不断进取，创造无限可能🎉",
-    background: "https://s1.ax1x.com/2023/04/26/p9KH6HJ.jpg",
-    socializing: [
-        {
-            name: "GitHub",
-            url: "https://github.com/LiuYuYang01?tab=overview&from=2023-04-01&to=2023-04-26"
-        },
-        {
-            name: "Gitee",
-            url: "https://gitee.com/liu_yu_yang666"
-        },
-        {
-            name: "Juejin",
-            url: "https://juejin.cn/user/3083456627092078/posts"
-        },
-        {
-            name: "CSDN",
-            url: "https://blog.csdn.net/haodian666?type=blog"
-        },
-        {
-            name: "QQ",
-            url: "http://wpa.qq.com/msgrd?v=3&uin=3311118881&site=qq&menu=yes"
-        }
-    ]
+import { ref } from 'vue';
+import { getAuthorAPI } from '@/api/User'
+import { Author } from '@/types/User';
+
+const authorInfo = ref<Author>({
+    author: "",
+    qq: 0,
+    introduce: "",
+    background: "",
+    socializing: []
+})
+
+// 获取作者信息
+const getAuthor = async () => {
+    const { data } = await getAuthorAPI()
+    authorInfo.value = data
 }
+getAuthor()
 </script>
 
 <template>
     <!-- 有背景就显示自己的背景，否则显示默认背景 -->
     <div class="author"
-        :style="{ backgroundImage: `url(${userInfo.background ? userInfo.background : '/src/assets/img/avatar_bg.jpg'})` }">
+        :style="{ backgroundImage: `url(${authorInfo.background ? authorInfo.background : '/src/assets/img/avatar_bg.jpg'})` }">
         <!-- 作者头像 -->
         <div class="avatar">
-            <img :src="`http://q.qlogo.cn/headimg_dl?dst_uin=${userInfo.qq}&spec=640&img_type=jpg`" alt="">
+            <img :src="`http://q.qlogo.cn/headimg_dl?dst_uin=${authorInfo.qq}&spec=640&img_type=jpg`" alt="">
         </div>
 
         <!-- 作者介绍 -->
         <div class="info">
-            <h3>{{ userInfo.author }}</h3>
-            <p>{{ userInfo.introduce }}</p>
+            <h3>{{ authorInfo.author }}</h3>
+            <p>{{ authorInfo.introduce }}</p>
         </div>
 
         <!-- 社交账号 -->
@@ -49,7 +39,7 @@ const userInfo = {
             <div class="title"></div>
 
             <div class="list">
-                <a :href="item.url" target="_blank" v-for="item, index in userInfo.socializing" :key="index">
+                <a :href="item.url" target="_blank" v-for="item, index in authorInfo.socializing" :key="index">
                     <img :src="`/src/assets/svg/socializing/${item.name}.svg`" :title="item.name">
                 </a>
             </div>

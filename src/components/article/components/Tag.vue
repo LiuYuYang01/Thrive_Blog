@@ -13,12 +13,6 @@ const list = (str: string) => {
         <!-- 标签列表 -->
         <div class="list">
             <a href="javascript:;" v-for="item in list(tags)" :key="item">{{ item }}</a>
-
-            <!-- <a href="javascript:;">Golang</a>
-            <a href="javascript:;">Buffer</a>
-            <a href="javascript:;">开发笔记</a>
-            <a href="javascript:;">生活随笔</a>
-            <a href="javascript:;">学习</a> -->
         </div>
     </div>
 </template>
