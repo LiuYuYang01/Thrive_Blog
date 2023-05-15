@@ -5,14 +5,34 @@
 <template>
     <div class="Comment">
         <div class="title"></div>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
+
+        <!-- 评论框 -->
+        <textarea name="" id="" cols="30" rows="7" placeholder="不断进取，创造无限可能🎉" class="box"></textarea>
+
+        <input type="text" class="ipt" style="width: 200px;" placeholder="显示名称 *">
+        <input type="text" class="ipt" placeholder="电子邮箱 *">
+        <input type="text" class="ipt" style="width: 314px;" placeholder="你的站点（选填） *">
     </div>
 </template>
 
 <style scoped lang="scss">
+@mixin form {
+    border: 1px solid #eee;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: all $move;
+    outline: none;
+
+    &:focus {
+        border: 1px solid $color;
+        box-shadow: 0 10px 20px 1px rgb(83, 157, 253, .1);
+    }
+}
+
 .Comment {
     margin-top: 100px;
 
+    // 评论标题
     .title {
         position: relative;
         top: 0;
@@ -22,7 +42,7 @@
         background-color: #f7f7f7;
 
         &::after {
-            content: "评论区";
+            content: "一针见血 🎉";
             position: absolute;
             top: -30px;
             left: 50%;
@@ -34,14 +54,26 @@
         }
     }
 
-    textarea {
+    // 评论框
+    .box {
         width: 100%;
         padding: 20px;
         margin-top: 40px;
-        border: 1px solid #eee;
-        border-radius: 5px;
-        box-sizing: border-box;
-        outline: none;
+
+        @include form;
+    }
+
+    .ipt {
+        width: 250px;
+        height: 32px;
+        padding-left: 15px;
+        margin-right: 20px;
+
+        @include form;
+
+        &:last-child {
+            margin-right: 0;
+        }
     }
 }
 </style>
