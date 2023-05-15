@@ -20,7 +20,7 @@ const emit = defineEmits<{ (e: "updateImmerse"): () => void }>()
 
 // 文章内容
 const content = ref("")
-const getArticleData = ref<Article>({
+const articleData = ref<Article>({
     title: "", //标题
     sketch: "", //简述
     content: "", //文章内容
@@ -40,14 +40,8 @@ const getContent = async () => {
     try {
         loading.value = "loading"
 
-        // const { data } = await axios("https://mock.apifox.cn/m1/2561526-0-default/api/article/100")
-        // content.value = data.content
-
         const { data } = await getArticleAPI(100)
-        getArticleData.value = data
-
-        content.value = data.content
-
+        articleData.value = data
 
         loading.value = "success"
 
@@ -104,34 +98,34 @@ function createDirectory() {
 
         <!-- 文章标题 -->
         <div class="title">
-            <h1>{{ getArticleData.title }}</h1>
+            <h1>{{ articleData.title }}</h1>
 
             <!-- 文章信息 -->
             <div class="info">
                 <!-- 文章创建时间 -->
                 <span>
-                    <iconpark-icon name="alarm-clock" /> {{ getArticleData.createTime }}
+                    <iconpark-icon name="alarm-clock" /> {{ articleData.createTime }}
                 </span>
 
                 <!-- 文章浏览量 -->
                 <span>
-                    <iconpark-icon name="fire" /> {{ getArticleData.view }}
+                    <iconpark-icon name="fire" /> {{ articleData.view }}
                 </span>
 
                 <!-- 文章所在的标签 -->
                 <span>
-                    <iconpark-icon name="tag-one" /> {{ getArticleData.cate }}
+                    <iconpark-icon name="tag-one" /> {{ articleData.cate }}
                 </span>
 
                 <!-- 文章评论数量 -->
                 <span>
-                    <iconpark-icon name="comment" /> 评论：{{ getArticleData.commentCount }}
+                    <iconpark-icon name="comment" /> 评论：{{ articleData.commentCount }}
                 </span>
             </div>
         </div>
 
         <!-- 文章内容 -->
-        <div class="content" v-html="getArticleData.content"></div>
+        <div class="content" v-html="articleData.content"></div>
 
         <!-- 文章标签 -->
         <Tag />

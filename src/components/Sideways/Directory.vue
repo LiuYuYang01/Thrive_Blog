@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import axios from 'axios'
+import { getArticleAPI } from '@/api/Article';
 import { ref } from 'vue'
 
 const doms = ref<any>([]);
@@ -7,8 +7,7 @@ const doms = ref<any>([]);
 // 获取文章的数据
 const getContent = async () => {
     try {
-        // 等文章数据加载完之后...
-        await axios("https://mock.apifox.cn/m1/2561526-0-default/api/code")
+        await getArticleAPI(100)
 
         // 转换为真数组
         doms.value = Array.from(document.querySelectorAll(".content h1,.content h2,.content h3"))
@@ -20,7 +19,7 @@ const getContent = async () => {
     }
 }
 
-// getContent()
+getContent()
 </script>
 
 <template>
