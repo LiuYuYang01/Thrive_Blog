@@ -1,22 +1,35 @@
+import { getAuthorAPI } from '@/api/User'
+import { Author } from '@/types/User'
 import { defineStore } from "pinia"
 
 type State = {
-    profile: any
+    authorInfo: Author
 }
 
 type Getter = {}
-type Actions = {}
 
-const store = defineStore<"user", State, Getter, Actions>("user", {
-    state() {
-        return {
-            profile: {
-                token: "Bearer JsonWebToken"
-            }
+type Actions = {
+    getAuthor(): Promise<void>
+}
+
+const Store = defineStore<"User", State, Getter, Actions>("User", {
+    state: () => ({
+        authorInfo: {
+            author: "", //头像
+            qq: 0, //QQ
+            introduce: "", //介绍
+            background: "", //背景图
+            socializing: [] //社交账号
         }
+    }),
+    actions: {
+        async getAuthor() {
+            const { data } = await getAuthorAPI()
+
+            this.authorInfo = data  
+        },
     },
     // pinia状态是否持久化到本地存储
-    persist: true
+    // persist: true
 })
-
-export default store
+export default Store

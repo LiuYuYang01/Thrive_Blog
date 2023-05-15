@@ -1,22 +1,12 @@
 <script setup lang='ts'>
-import { ref } from 'vue';
-import { getAuthorAPI } from '@/api/User'
-import { Author } from '@/types/User';
+// 引入用户信息
+import useUserStore from '@/stores/User'
+import { storeToRefs } from 'pinia';
 
-const authorInfo = ref<Author>({
-    author: "",
-    qq: 0,
-    introduce: "",
-    background: "",
-    socializing: []
-})
+const Store = useUserStore()
+const { authorInfo } = storeToRefs(Store)
 
-// 获取作者信息
-const getAuthor = async () => {
-    const { data } = await getAuthorAPI()
-    authorInfo.value = data
-}
-getAuthor()
+Store.getAuthor()
 </script>
 
 <template>
