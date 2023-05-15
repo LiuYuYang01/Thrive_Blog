@@ -26,7 +26,7 @@ const Store = defineStore<"User", State, Getter, Actions>("User", {
         async getAuthor() {
             const { data } = await getAuthorAPI()
 
-            this.authorInfo = data  
+            this.authorInfo = data
         },
     },
     // pinia状态是否持久化到本地存储
