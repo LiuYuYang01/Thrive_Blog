@@ -19,7 +19,6 @@ import { Article } from '@/types/Article'
 const emit = defineEmits<{ (e: "updateImmerse"): () => void }>()
 
 // 文章内容
-const content = ref("")
 const articleData = ref<Article>({
     title: "", //标题
     sketch: "", //简述
@@ -128,10 +127,10 @@ function createDirectory() {
         <div class="content" v-html="articleData.content"></div>
 
         <!-- 文章标签 -->
-        <Tag :tags="articleData.tag"/>
+        <Tag :tags="articleData.tag" />
 
         <!-- 版权信息 -->
-        <Copyright/>
+        <Copyright />
 
         <!-- 上下篇 -->
         <UpAndDown />

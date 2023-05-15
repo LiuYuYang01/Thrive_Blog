@@ -2,6 +2,9 @@ import Request from '@/util/request'
 import type { Response } from '@/types/Response'
 import type { User } from '@/types/User'
 
-export function UserInfo(){
-    
+// 获取作者信息
+export function getAuthorAPI() {
+    return Request.instance.request({
+        url: "/api/author"
+    })
 }
