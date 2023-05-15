@@ -128,10 +128,10 @@ function createDirectory() {
         <div class="content" v-html="articleData.content"></div>
 
         <!-- 文章标签 -->
-        <Tag />
+        <Tag :tags="articleData.tag"/>
 
         <!-- 版权信息 -->
-        <Copyright />
+        <Copyright/>
 
         <!-- 上下篇 -->
         <UpAndDown />

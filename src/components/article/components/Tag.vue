@@ -1,5 +1,9 @@
 <script setup lang="ts">
+const props = defineProps<{ tags: string }>()
 
+const list = (str: string) => {
+    return str.split("、")
+}
 </script>
 
 <template>
@@ -8,11 +12,13 @@
 
         <!-- 标签列表 -->
         <div class="list">
-            <a href="javascript:;">Golang</a>
+            <a href="javascript:;" v-for="item in list(tags)" :key="item">{{ item }}</a>
+
+            <!-- <a href="javascript:;">Golang</a>
             <a href="javascript:;">Buffer</a>
             <a href="javascript:;">开发笔记</a>
             <a href="javascript:;">生活随笔</a>
-            <a href="javascript:;">学习</a>
+            <a href="javascript:;">学习</a> -->
         </div>
     </div>
 </template>
