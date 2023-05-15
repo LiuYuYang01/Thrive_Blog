@@ -12,7 +12,7 @@ type Actions = {
     getAuthor(): Promise<void>
 }
 
-const Store = defineStore<"User", State, Getter, Actions>("User", {
+const Store = defineStore<"Author", State, Getter, Actions>("Author", {
     state: () => ({
         // 作者信息
         authorInfo: {
@@ -32,6 +32,6 @@ const Store = defineStore<"User", State, Getter, Actions>("User", {
         },
     },
     // pinia状态是否持久化到本地存储
-    // persist: true
+    persist: true
 })
 export default Store

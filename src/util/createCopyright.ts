@@ -1,5 +1,5 @@
 // 引入用户信息
-import useUserStore from '@/stores/User'
+import useUserStore from '@/stores/Author'
 import { storeToRefs } from 'pinia';
 
 const Store = useUserStore()
