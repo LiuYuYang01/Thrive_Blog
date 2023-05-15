@@ -23,6 +23,7 @@
     "nprogress": "^0.2.0",
     "path": "^0.12.7",
     "pinia": "^2.0.36",
+    "pinia-plugin-persistedstate": "^1.6.1",
     "sass": "^1.61.0",
     "typed.js": "^2.0.15",
     "vue": "^3.2.45",

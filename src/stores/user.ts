@@ -14,6 +14,7 @@ type Actions = {
 
 const Store = defineStore<"User", State, Getter, Actions>("User", {
     state: () => ({
+        // 作者信息
         authorInfo: {
             author: "", //头像
             qq: 0, //QQ
@@ -23,6 +24,7 @@ const Store = defineStore<"User", State, Getter, Actions>("User", {
         }
     }),
     actions: {
+        // 获取作者信息
         async getAuthor() {
             const { data } = await getAuthorAPI()
 
