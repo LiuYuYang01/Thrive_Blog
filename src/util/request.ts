@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosRequestConfig } from 'axios'
 import type { AxiosInstance, AxiosResponse } from 'axios'
 import type { Response } from '@/types/Response'
 
@@ -22,6 +22,7 @@ export default class Request {
         // 响应拦截器
         this.request.interceptors.response.use(
             // 成功响应
+            // (res: AxiosResponse) => {
             (res: AxiosResponse) => {
                 return res.data
             })
