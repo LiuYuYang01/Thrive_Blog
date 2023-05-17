@@ -195,7 +195,6 @@ function createDirectory() {
         margin-bottom: 20px;
         border-bottom: 1px solid #f3f3f3;
         font-weight: 700;
-        font-family: "";
         text-align: center;
 
         // 文章信息
@@ -266,7 +265,6 @@ function createDirectory() {
         :deep(h4),
         :deep(h5),
         :deep(h6) {
-            font-family: "";
             margin: 20px 0 10px;
             // a标签锚点跳转距离顶部的距离
             scroll-margin-top: 80px;

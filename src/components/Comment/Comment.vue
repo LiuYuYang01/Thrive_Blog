@@ -8,7 +8,10 @@
 
         <!-- 评论框 -->
         <textarea name="" id="" cols="30" rows="7" placeholder="不断进取，创造无限可能🎉" class="box"></textarea>
+        <!-- 表情按钮 -->
+        <img src="@/assets/svg/other/emote.svg" class="emote" />
 
+        <!-- 表单项 -->
         <input type="text" class="ipt" style="width: 200px;" placeholder="显示名称 *">
         <input type="text" class="ipt" placeholder="电子邮箱 *">
         <input type="text" class="ipt" style="width: 314px;" placeholder="你的站点（选填） *">
@@ -36,6 +39,7 @@
 }
 
 .Comment {
+    position: relative;
     margin-top: 100px;
 
     // 评论标题
@@ -58,6 +62,17 @@
             text-align: center;
             font-size: 24px;
         }
+    }
+
+    // 表情按钮
+    .emote {
+        position: absolute;
+        bottom: 95px;
+        left: 0px;
+        width: 35px;
+        height: 35px;
+        padding: 15px;
+        cursor: pointer;
     }
 
     // 评论框
