@@ -32,6 +32,7 @@ const articleData = ref<Article>({
     cover: "", //封面
 })
 
+// 加载状态
 const loading = ref<Status>("idle")
 
 // 获取文章的数据
@@ -47,6 +48,7 @@ const getContent = async () => {
         // 代码高亮
         hljs.highlightAll()
 
+        // 生成目录
         createDirectory()
     } catch (error) {
         loading.value = "error"
