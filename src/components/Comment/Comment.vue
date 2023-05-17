@@ -1,5 +1,15 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 
+// http://rtr1mvoid.bkt.clouddn.com/emote/
+
+// 表情框是否显示
+const isEmote = ref<boolean>(false)
+
+// 表情框显示隐藏切换
+const toEmote = () => {
+    isEmote.value = !isEmote.value
+}
 </script>
 
 <template>
@@ -7,9 +17,18 @@
         <div class="title"></div>
 
         <!-- 评论框 -->
-        <textarea name="" id="" cols="30" rows="7" placeholder="不断进取，创造无限可能🎉" class="box"></textarea>
-        <!-- 表情按钮 -->
-        <img src="@/assets/svg/other/emote.svg" class="emote" />
+        <div class="frame">
+            <textarea name="" id="" cols="30" rows="7" placeholder="不断进取，创造无限可能🎉"></textarea>
+
+            <!-- 表情按钮 -->
+            <img src="@/assets/svg/other/emote.svg" class="btn" @click="toEmote" />
+        </div>
+
+        <!-- 表情框 -->
+        <div class="emote" v-show="isEmote">
+            <div class="list"></div>
+            <div class="tab"></div>
+        </div>
 
         <!-- 表单项 -->
         <input type="text" class="ipt" style="width: 200px;" placeholder="显示名称 *">
@@ -39,7 +58,6 @@
 }
 
 .Comment {
-    position: relative;
     margin-top: 100px;
 
     // 评论标题
@@ -64,24 +82,49 @@
         }
     }
 
-    // 表情按钮
-    .emote {
-        position: absolute;
-        bottom: 95px;
-        left: 0px;
-        width: 35px;
-        height: 35px;
-        padding: 15px;
-        cursor: pointer;
+    // 评论框
+    .frame {
+        position: relative;
+
+        // 内容框
+        textarea {
+            width: 100%;
+            padding: 20px;
+            margin-top: 40px;
+
+            @include form;
+        }
+
+        // 表情按钮
+        .btn {
+            position: absolute;
+            bottom: 10px;
+            left: 0px;
+            width: 35px;
+            height: 35px;
+            padding: 15px;
+            cursor: pointer;
+        }
     }
 
-    // 评论框
-    .box {
-        width: 100%;
-        padding: 20px;
-        margin-top: 40px;
+    // 表情框
+    .emote {
+        position: absolute;
+        width: 500px;
+        height: 220px;
+        border-radius: 5px;
+        border: 1px solid #f0f0f0;
+        background-color: #fff;
 
-        @include form;
+        // 表情列表
+        .list {
+            height: 80%;
+        }
+
+        .tab {
+            height: 20%;
+            background-color: #f7f9fe;
+        }
     }
 
     // 表单项
@@ -102,6 +145,7 @@
     .post {
         height: 35px;
         margin-top: 15px;
+        margin-bottom: 200px;
         border-radius: $round;
         background-color: $color;
         text-align: center;
