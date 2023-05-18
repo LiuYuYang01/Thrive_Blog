@@ -12,12 +12,7 @@ const show = computed<boolean>(() => props.isEmote)
 
 
 // 表情包列表
-const EmoteList = ref<Emote[]>({
-    id: 0,
-    name: "",
-    cove: "",
-    list: []
-})
+const EmoteList = ref<Emote[]>([])
 
 // 表情包切换
 const EmoteTab = ref<number>()
