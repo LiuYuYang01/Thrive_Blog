@@ -26,10 +26,10 @@ const EmoteList = ref<Emote[]>({
 const getEmoteList = async () => {
     const { data } = await getEmoteListAPI()
     console.log(data);
-    
+
     EmoteList.value = data
     console.log(EmoteList.value);
-    
+
 }
 getEmoteList()
 </script>
@@ -53,8 +53,8 @@ getEmoteList()
 
             <!-- 分组选项 -->
             <div class="tab">
-                <div v-for="item in EmoteList" :key="item.id">
-                    <img :src="item.cove" alt="">
+                <div v-for="item in EmoteList" :key="item.id" class="item">
+                    <img :src="item.cove" alt="" :title="item.name">
                 </div>
             </div>
         </div>
@@ -150,9 +150,26 @@ getEmoteList()
             height: 80%;
         }
 
+        // 表情包分组
         .tab {
+            display: flex;
             height: 20%;
             background-color: #f7f9fe;
+
+            .item {
+                transition: background-color $move;
+
+                &:hover {
+                    background-color: #f1f3f8;
+                }
+
+                img {
+                    width: 30px;
+                    height: 30px;
+                    padding: 5px 15px;
+                    cursor: pointer;
+                }
+            }
         }
     }
 
