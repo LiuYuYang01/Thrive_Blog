@@ -10,7 +10,6 @@ const url = "https://static.liuyuyang.net/emote"
 const props = defineProps<{ isEmote: boolean }>()
 const show = computed<boolean>(() => props.isEmote)
 
-
 // 表情包列表
 const EmoteList = ref<Emote[]>([])
 

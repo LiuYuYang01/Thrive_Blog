@@ -26,6 +26,7 @@
     "pinia-plugin-persistedstate": "^1.6.1",
     "sass": "^1.61.0",
     "typed.js": "^2.0.15",
+    "vee-validate": "^4.9.4",
     "vue": "^3.2.45",
     "vue-activity-calendar": "^1.2.2",
     "vue-router": "^4.1.6",
