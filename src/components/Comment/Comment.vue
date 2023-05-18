@@ -23,13 +23,14 @@ const EmoteList = ref<Emote[]>({
 })
 
 // 表情包切换
-const EmoteTab = ref<string>("")
+const EmoteTab = ref<number>()
 
 // 获取表情包列表
 const getEmoteList = async () => {
     const { data } = await getEmoteListAPI()
 
     EmoteList.value = data
+    EmoteTab.value = data[0].id
 }
 getEmoteList()
 </script>
@@ -50,15 +51,15 @@ getEmoteList()
         <div class="emote" v-show="isEmote">
             <!-- 表情列表 -->
             <div class="list">
-                <!-- <div class="item">
+                <div class="item">
                     <img :src="item.cove" alt="" :title="item.name">
-                </div> -->
+                </div>
             </div>
 
             <!-- 分组选项 -->
             <div class="tab">
-                <div v-for="item in EmoteList" :key="item.id" :class="{ item, active: EmoteTab === item.name }"
-                    @click="EmoteTab = item.name">
+                <div v-for="item in EmoteList" :key="item.id" :class="{ item, active: EmoteTab === item.id }"
+                    @click="EmoteTab = item.id">
                     <img :src="item.cove" alt="" :title="item.name">
                 </div>
             </div>
