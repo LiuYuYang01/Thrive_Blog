@@ -30,7 +30,8 @@
     "vue": "^3.2.45",
     "vue-activity-calendar": "^1.2.2",
     "vue-router": "^4.1.6",
-    "wangeditor": "^4.7.15"
+    "wangeditor": "^4.7.15",
+    "yup": "^1.1.1"
   },
   "devDependencies": {
     "@types/nprogress": "^0.2.0",
