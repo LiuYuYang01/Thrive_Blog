@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { getEmoteListAPI } from '@/api/Emote'
+import { Emote } from '@/types/Emote'
 
-// http://rtr1mvoid.bkt.clouddn.com/emote/
+// 表情包存放的地址
+const url = "https://static.liuyuyang.net/emote/"
 
 // 表情框是否显示
 const isEmote = ref<boolean>(false)
@@ -10,6 +13,25 @@ const isEmote = ref<boolean>(false)
 const toEmote = () => {
     isEmote.value = !isEmote.value
 }
+
+// 表情包列表
+const EmoteList = ref<Emote[]>({
+    id: 0,
+    name: "",
+    cove: "",
+    list: []
+})
+
+// 获取表情包列表
+const getEmoteList = async () => {
+    const { data } = await getEmoteListAPI()
+    console.log(data);
+    
+    EmoteList.value = data
+    console.log(EmoteList.value);
+    
+}
+getEmoteList()
 </script>
 
 <template>
@@ -26,8 +48,15 @@ const toEmote = () => {
 
         <!-- 表情框 -->
         <div class="emote" v-show="isEmote">
+            <!-- 表情列表 -->
             <div class="list"></div>
-            <div class="tab"></div>
+
+            <!-- 分组选项 -->
+            <div class="tab">
+                <div v-for="item in EmoteList" :key="item.id">
+                    <img :src="item.cove" alt="">
+                </div>
+            </div>
         </div>
 
         <!-- 表单项 -->
