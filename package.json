@@ -25,6 +25,7 @@
     "pinia": "^2.0.36",
     "pinia-plugin-persistedstate": "^1.6.1",
     "sass": "^1.61.0",
+    "tippy.js": "^6.3.7",
     "typed.js": "^2.0.15",
     "vee-validate": "^4.9.4",
     "vue": "^3.2.45",

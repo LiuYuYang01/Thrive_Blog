@@ -1,11 +1,46 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
+import { Form, Field, ErrorMessage } from 'vee-validate'
+import * as yup from 'yup'
+
+// 引入提示框
+import tippy from 'tippy.js';
+import 'tippy.js/dist/tippy.css';
 
 // 表情框是否显示
 const isEmote = ref<boolean>(false)
+
+// 评论区表单校验
+const CommentSchema = yup.object({
+    name: yup.string().required(),
+    email: yup.string().required().email(),
+    url: yup.string().required().url(),
+})
+
+// tippy实例
+let tooltip: any;
+
+const name = ref()
+const email = ref()
+const url = ref()
+
+onMounted(() => {
+    tooltip = tippy('#mouse', {
+        content: "I'm a Tippy tooltip!",
+        placement: "left"
+    })
+
+    // 调用show方法，默认显示提示框
+    // tooltip[0].show()
+
+    console.log(name.value,email,url);
+})
 </script>
 
 <template>
+    <!-- <button @click="tooltip.show()">按钮</button> -->
+    <div id="mouse">鼠标经过</div>
+
     <div class="Comment">
         <div class="title"></div>
 
@@ -18,12 +53,19 @@ const isEmote = ref<boolean>(false)
         </div>
 
         <!-- 表情框 -->
-        <Emote :isEmote="isEmote"/>
+        <Emote :isEmote="isEmote" />
 
-        <!-- 表单项 -->
-        <input type="text" class="ipt" style="width: 200px;" placeholder="显示名称 *">
-        <input type="text" class="ipt" placeholder="电子邮箱 *">
-        <input type="text" class="ipt" style="width: 314px;" placeholder="你的站点（选填） *">
+        <Form :validation-schema="CommentSchema">
+            <!-- 表单项 -->
+            <Field type="text" name="name" class="ipt" style="width: 200px;" placeholder="显示名称 *" />
+            <ErrorMessage name="name" ref="name" />
+
+            <Field type="text" name="email" class="ipt" placeholder="电子邮箱 *" />
+            <ErrorMessage name="email" ref="email" />
+
+            <Field type="text" name="url" class="ipt" style="width: 314px;" placeholder="你的站点（选填） *" />
+            <ErrorMessage name="url" ref="url" />
+        </Form>
 
         <!-- 发布评论 -->
         <div class="post">
