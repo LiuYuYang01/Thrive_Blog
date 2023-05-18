@@ -1,38 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { getEmoteListAPI } from '@/api/Emote'
-import { Emote } from '@/types/Emote'
-
-// 表情包存放的地址
-const url = "https://static.liuyuyang.net/emote"
 
 // 表情框是否显示
 const isEmote = ref<boolean>(false)
-
-// 表情框显示隐藏切换
-const toEmote = () => {
-    isEmote.value = !isEmote.value
-}
-
-// 表情包列表
-const EmoteList = ref<Emote[]>({
-    id: 0,
-    name: "",
-    cove: "",
-    list: []
-})
-
-// 表情包切换
-const EmoteTab = ref<number>()
-
-// 获取表情包列表
-const getEmoteList = async () => {
-    const { data } = await getEmoteListAPI()
-
-    EmoteList.value = data
-    EmoteTab.value = data[0].id
-}
-getEmoteList()
 </script>
 
 <template>
@@ -44,31 +14,11 @@ getEmoteList()
             <textarea name="" id="" cols="30" rows="7" placeholder="不断进取，创造无限可能🎉"></textarea>
 
             <!-- 表情按钮 -->
-            <img src="@/assets/svg/other/emote.svg" class="btn" @click="toEmote" />
+            <img src="@/assets/svg/other/emote.svg" class="btn" @click="isEmote = !isEmote" />
         </div>
 
         <!-- 表情框 -->
-        <div class="emote" v-show="isEmote">
-            <!-- 表情列表 -->
-            <div class="list">
-                <template v-for="item in EmoteList" :key="item.id">
-                    <!-- 根据条件进行渲染对应的表情包 -->
-                    <template v-if="item.id === EmoteTab">
-                        <div class="item" v-for="emote in item.list" :key="emote">
-                            <img :src="`${url}/${item.name}/${emote}`" :title="emote">
-                        </div>
-                    </template>
-                </template>
-            </div>
-
-            <!-- 分组选项 -->
-            <div class="tab">
-                <div v-for="item in EmoteList" :key="item.id" :class="{ item, active: EmoteTab === item.id }"
-                    @click="EmoteTab = item.id">
-                    <img :src="item.cove" :title="item.name">
-                </div>
-            </div>
-        </div>
+        <Emote :isEmote="isEmote"/>
 
         <!-- 表单项 -->
         <input type="text" class="ipt" style="width: 200px;" placeholder="显示名称 *">

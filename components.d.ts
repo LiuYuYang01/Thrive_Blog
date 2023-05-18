@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     Copyright: typeof import('./src/components/Article/components/Copyright.vue')['default']
     Directory: typeof import('./src/components/Sideways/Directory.vue')['default']
     Editor: typeof import('./src/components/Editor/Editor.vue')['default']
+    Emote: typeof import('./src/components/Emote/Emote.vue')['default']
     Empty: typeof import('./src/components/Empty/Empty.vue')['default']
     Footer: typeof import('./src/components/Layout/Footer.vue')['default']
     Frame: typeof import('./src/components/Frame/Frame.vue')['default']
