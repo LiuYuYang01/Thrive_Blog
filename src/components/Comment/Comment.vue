@@ -4,7 +4,7 @@ import { getEmoteListAPI } from '@/api/Emote'
 import { Emote } from '@/types/Emote'
 
 // 表情包存放的地址
-const url = "https://static.liuyuyang.net/emote/"
+const url = "https://static.liuyuyang.net/emote"
 
 // 表情框是否显示
 const isEmote = ref<boolean>(false)
@@ -51,16 +51,21 @@ getEmoteList()
         <div class="emote" v-show="isEmote">
             <!-- 表情列表 -->
             <div class="list">
-                <div class="item">
-                    <img :src="item.cove" alt="" :title="item.name">
-                </div>
+                <template v-for="item in EmoteList" :key="item.id">
+                    <!-- 根据条件进行渲染对应的表情包 -->
+                    <template v-if="item.id === EmoteTab">
+                        <div class="item" v-for="emote in item.list" :key="emote">
+                            <img :src="`${url}/${item.name}/${emote}`" :title="emote">
+                        </div>
+                    </template>
+                </template>
             </div>
 
             <!-- 分组选项 -->
             <div class="tab">
                 <div v-for="item in EmoteList" :key="item.id" :class="{ item, active: EmoteTab === item.id }"
                     @click="EmoteTab = item.id">
-                    <img :src="item.cove" alt="" :title="item.name">
+                    <img :src="item.cove" :title="item.name">
                 </div>
             </div>
         </div>
@@ -149,11 +154,31 @@ getEmoteList()
         height: 220px;
         border-radius: 5px;
         border: 1px solid #f0f0f0;
-        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.6);
+        backdrop-filter: saturate(180%) blur(10px);
 
         // 表情列表
         .list {
+            overflow: auto;
+            display: flex;
+            flex-wrap: wrap;
             height: 80%;
+
+            .item {
+                border-radius: $round;
+                transition: background-color $move;
+
+                img {
+                    width: 40px;
+                    height: 40px;
+                    padding: 10px;
+                    cursor: pointer;
+                }
+
+                &:hover {
+                    background-color: #f0f6fd;
+                }
+            }
         }
 
         // 表情包分组
