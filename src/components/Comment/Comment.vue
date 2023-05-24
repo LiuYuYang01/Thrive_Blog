@@ -12,14 +12,14 @@ const isEmote = ref<boolean>(false)
 
 // 评论区表单校验
 const CommentSchema = yup.object({
-    content: yup.string().required("评论内容不能为空").max(200, "评论内容不能超过200个字符"),
+    content: yup.string().required("评论内容不能为空").max(150, "评论内容不能超过150个字符"),
     name: yup.string().required("名称不能为空"),
     email: yup.string().required("邮箱不能为空").email("请输入正确的邮箱"),
     url: yup.string().url("请输入正确的网站地址"),
 })
 
 // tippy实例
-let tooltip: any;
+// let tooltip: any;
 
 // 消息
 onMounted(() => {
