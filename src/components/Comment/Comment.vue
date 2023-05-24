@@ -45,36 +45,18 @@ const post = () => {
     // 发布评论之前先校验一下
     CommentSchema.validate(commentInfo, { abortEarly: false }).then(value => {
         console.log(value);
-        alert("提交表单成功")
+
+        // 消息提示
+        window.$message.success("恭喜你发布评论成功!")
     }).catch(error => {
         console.log(error);
-        alert(error)
+
+        window.$message.error("请确保每一项不能为空!")
     })
 }
 </script>
 
 <template>
-    <n-space>
-        <n-button>Default</n-button>
-        <n-button type="tertiary">
-            Tertiary
-        </n-button>
-        <n-button type="primary">
-            Primary
-        </n-button>
-        <n-button type="info">
-            Info
-        </n-button>
-        <n-button type="success">
-            Success
-        </n-button>
-        <n-button type="warning">
-            Warning
-        </n-button>
-        <n-button type="error">
-            Error
-        </n-button>
-    </n-space>
     <div class="Comment">
         <div class="title"></div>
 
