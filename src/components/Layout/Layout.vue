@@ -7,7 +7,14 @@ import './confetti'
   <Header />
   <RouterView />
   <Footer />
+
+  <!-- 消息组件 -->
+  <n-message-provider>
+    <!-- 通知组件 -->
+    <n-notification-provider>
+      <Naive />
+    </n-notification-provider>
+  </n-message-provider>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
