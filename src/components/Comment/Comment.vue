@@ -41,17 +41,24 @@ const commentInfo = reactive({
 })
 
 // 发布评论
-const post = () => {
+const postComment = () => {
     // 发布评论之前先校验一下
     CommentSchema.validate(commentInfo, { abortEarly: false }).then(value => {
         console.log(value);
 
         // 消息提示
-        window.$message.success("恭喜你发布评论成功!")
+        window.$Message.success("恭喜你发布评论成功!")
     }).catch(error => {
         console.log(error);
+        
+        // window.$Message.error("请确保每一项不能为空!")
 
-        window.$message.error("请确保每一项不能为空!")
+        window.$Notification['error']({
+          content: '请确保每一项不能为空!',
+          meta: '警告信息',
+          duration: 2500,
+          keepAliveOnHover: true
+        })
     })
 }
 </script>
@@ -105,7 +112,7 @@ const post = () => {
         </Form>
 
         <!-- 发布评论 -->
-        <div class="post" @click="post">
+        <div class="post" @click="postComment">
             <a href="javascript:;">Publish</a>
         </div>
     </div>
