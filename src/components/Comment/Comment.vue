@@ -1,74 +1,94 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
 import { Form, Field, ErrorMessage } from 'vee-validate'
 import * as yup from 'yup'
 
 // 引入提示框
-import tippy from 'tippy.js';
-import 'tippy.js/dist/tippy.css';
+// import tippy from 'tippy.js';
+// import 'tippy.js/dist/tippy.css';
 
 // 表情框是否显示
 const isEmote = ref<boolean>(false)
 
 // 评论区表单校验
 const CommentSchema = yup.object({
-    name: yup.string().required(),
-    email: yup.string().required().email(),
-    url: yup.string().required().url(),
+    content: yup.string().required("评论内容不能为空"),
+    name: yup.string().required("名称不能为空"),
+    email: yup.string().required("邮箱不能为空").email("请输入正确的邮箱"),
+    url: yup.string().url("请输入正确的网站地址"),
 })
 
 // tippy实例
 let tooltip: any;
 
-const name = ref()
-const email = ref()
-const url = ref()
-
+// 消息
 onMounted(() => {
-    tooltip = tippy('#mouse', {
-        content: "I'm a Tippy tooltip!",
-        placement: "left"
-    })
+    // tooltip = tippy('#mouse', {
+    //     content: "I'm a Tippy tooltip!",
+    //     placement: "left"
+    // })
 
-    // 调用show方法，默认显示提示框
+    // // 调用show方法，默认显示提示框
     // tooltip[0].show()
-
-    console.log(name.value,email,url);
 })
+
+const commentInfo = reactive({
+
+})
+
+const post = () => {
+
+}
 </script>
 
 <template>
-    <!-- <button @click="tooltip.show()">按钮</button> -->
-    <div id="mouse">鼠标经过</div>
-
     <div class="Comment">
         <div class="title"></div>
 
         <!-- 评论框 -->
-        <div class="frame">
-            <textarea name="" id="" cols="30" rows="7" placeholder="不断进取，创造无限可能🎉"></textarea>
+        <Form :validation-schema="CommentSchema" as="div" class="frame">
+            <div style="position: relative;">
+                <Field type="textarea" as="textarea" name="content" placeholder="不断进取，创造无限可能🎉" class="ipt"
+                    style="height: 150px;" />
 
-            <!-- 表情按钮 -->
-            <img src="@/assets/svg/other/emote.svg" class="btn" @click="isEmote = !isEmote" />
-        </div>
+                <!-- 表情按钮 -->
+                <img src="@/assets/svg/other/emote.svg" class="btn" @click="isEmote = !isEmote" />
+            </div>
+
+            <div class="errInfo" style="margin-top: -10px;">
+                <ErrorMessage name="content" />
+            </div>
+        </Form>
 
         <!-- 表情框 -->
         <Emote :isEmote="isEmote" />
 
-        <Form :validation-schema="CommentSchema">
+        <Form :validation-schema="CommentSchema" as="div" class="form">
             <!-- 表单项 -->
-            <Field type="text" name="name" class="ipt" style="width: 200px;" placeholder="显示名称 *" />
-            <ErrorMessage name="name" ref="name" />
+            <div>
+                <Field type="text" name="name" class="ipt" style="width: 200px;" placeholder="显示名称 *" />
+                <div>
+                    <ErrorMessage name="name" class="errInfo" />
+                </div>
+            </div>
 
-            <Field type="text" name="email" class="ipt" placeholder="电子邮箱 *" />
-            <ErrorMessage name="email" ref="email" />
+            <div>
+                <Field type="text" name="email" class="ipt" placeholder="电子邮箱 *" />
+                <div>
+                    <ErrorMessage name="email" class="errInfo" />
+                </div>
+            </div>
 
-            <Field type="text" name="url" class="ipt" style="width: 314px;" placeholder="你的站点（选填） *" />
-            <ErrorMessage name="url" ref="url" />
+            <div>
+                <Field type="text" name="url" class="ipt" style="width: 314px;" placeholder="你的站点（选填） *" />
+                <div>
+                    <ErrorMessage name="url" class="errInfo" />
+                </div>
+            </div>
         </Form>
 
         <!-- 发布评论 -->
-        <div class="post">
+        <div class="post" @click="post">
             <a href="javascript:;">发布</a>
         </div>
     </div>
@@ -116,8 +136,6 @@ onMounted(() => {
 
     // 评论框
     .frame {
-        position: relative;
-
         // 内容框
         textarea {
             width: 100%;
@@ -137,6 +155,19 @@ onMounted(() => {
             padding: 15px;
             cursor: pointer;
         }
+    }
+
+    // 表单
+    .form {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // 错误信息
+    .errInfo {
+        color: #e15951;
+        font-size: 13px;
+        padding-left: 10px;
     }
 
     // 表情框
@@ -215,7 +246,6 @@ onMounted(() => {
     .post {
         height: 35px;
         margin-top: 15px;
-        margin-bottom: 200px;
         border-radius: $round;
         background-color: $color;
         text-align: center;

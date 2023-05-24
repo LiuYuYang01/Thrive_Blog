@@ -4,7 +4,7 @@ import { getEmoteListAPI } from '@/api/Emote'
 import { Emote } from '@/types/Emote'
 
 // 表情包存放的地址
-const url = "https://static.liuyuyang.net/emote"
+const url = "http://static.liuyuyang.net/emote"
 
 // 表情框是否显示
 const props = defineProps<{ isEmote: boolean }>()
