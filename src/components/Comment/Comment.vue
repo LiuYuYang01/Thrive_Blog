@@ -12,7 +12,7 @@ const isEmote = ref<boolean>(false)
 
 // 评论区表单校验
 const CommentSchema = yup.object({
-    content: yup.string().required("评论内容不能为空"),
+    content: yup.string().required("评论内容不能为空").max(200, "评论内容不能超过200个字符"),
     name: yup.string().required("名称不能为空"),
     email: yup.string().required("邮箱不能为空").email("请输入正确的邮箱"),
     url: yup.string().url("请输入正确的网站地址"),
@@ -32,12 +32,24 @@ onMounted(() => {
     // tooltip[0].show()
 })
 
+// 收集评论框的内容
 const commentInfo = reactive({
-
+    content: "",
+    name: "",
+    email: "",
+    url: ""
 })
 
+// 发布评论
 const post = () => {
-
+    // 发布评论之前先校验一下
+    CommentSchema.validate(commentInfo, { abortEarly: false }).then(value => {
+        console.log(value);
+        alert("提交表单成功")
+    }).catch(error => {
+        console.log(error);
+        alert(error)
+    })
 }
 </script>
 
@@ -49,7 +61,7 @@ const post = () => {
         <Form :validation-schema="CommentSchema" as="div" class="frame">
             <div style="position: relative;">
                 <Field type="textarea" as="textarea" name="content" placeholder="不断进取，创造无限可能🎉" class="ipt"
-                    style="height: 150px;" />
+                    style="height: 150px;" v-model="commentInfo.content" />
 
                 <!-- 表情按钮 -->
                 <img src="@/assets/svg/other/emote.svg" class="btn" @click="isEmote = !isEmote" />
@@ -66,21 +78,23 @@ const post = () => {
         <Form :validation-schema="CommentSchema" as="div" class="form">
             <!-- 表单项 -->
             <div>
-                <Field type="text" name="name" class="ipt" style="width: 200px;" placeholder="显示名称 *" />
+                <Field type="text" name="name" class="ipt" style="width: 200px;" placeholder="显示名称 *"
+                    v-model="commentInfo.name" />
                 <div>
                     <ErrorMessage name="name" class="errInfo" />
                 </div>
             </div>
 
             <div>
-                <Field type="text" name="email" class="ipt" placeholder="电子邮箱 *" />
+                <Field type="text" name="email" class="ipt" placeholder="电子邮箱 *" v-model="commentInfo.email" />
                 <div>
                     <ErrorMessage name="email" class="errInfo" />
                 </div>
             </div>
 
             <div>
-                <Field type="text" name="url" class="ipt" style="width: 314px;" placeholder="你的站点（选填） *" />
+                <Field type="text" name="url" class="ipt" style="width: 314px;" placeholder="你的站点（选填） *"
+                    v-model="commentInfo.url" />
                 <div>
                     <ErrorMessage name="url" class="errInfo" />
                 </div>
@@ -89,7 +103,7 @@ const post = () => {
 
         <!-- 发布评论 -->
         <div class="post" @click="post">
-            <a href="javascript:;">发布</a>
+            <a href="javascript:;">Publish</a>
         </div>
     </div>
 </template>
@@ -136,6 +150,7 @@ const post = () => {
 
     // 评论框
     .frame {
+
         // 内容框
         textarea {
             width: 100%;
