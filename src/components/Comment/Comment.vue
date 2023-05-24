@@ -54,6 +54,27 @@ const post = () => {
 </script>
 
 <template>
+    <n-space>
+        <n-button>Default</n-button>
+        <n-button type="tertiary">
+            Tertiary
+        </n-button>
+        <n-button type="primary">
+            Primary
+        </n-button>
+        <n-button type="info">
+            Info
+        </n-button>
+        <n-button type="success">
+            Success
+        </n-button>
+        <n-button type="warning">
+            Warning
+        </n-button>
+        <n-button type="error">
+            Error
+        </n-button>
+    </n-space>
     <div class="Comment">
         <div class="title"></div>
 
@@ -176,6 +197,7 @@ const post = () => {
     .form {
         display: flex;
         justify-content: space-between;
+        margin-top: 15px;
     }
 
     // 错误信息
