@@ -16,16 +16,22 @@ const router = createRouter({
                     component: () => import('@/view/Home/index.vue')
                 },
                 {
+                    // 文章页
+                    path: "article/:id",
+                    name: "article",
+                    component: () => import('@/view/Article/index.vue')
+                },
+                {
                     // 统计页
                     path: "stats",
                     name: "stats",
                     component: () => import('@/view/Stats/index.vue')
                 },
                 {
-                    // 文章页
-                    path: "article/:id",
-                    name: "article",
-                    component: () => import('@/view/Article/index.vue')
+                    // 在线聊天室
+                    path: "chat",
+                    name: "chat",
+                    component: () => import('@/view/Chat/index.vue')
                 }
             ]
         }
