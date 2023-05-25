@@ -37,7 +37,6 @@
 <style scoped lang="scss">
 .Left {
   width: 260px;
-  // padding: 20px;
   border-right: 1px solid #eee;
 
   // 用户信息

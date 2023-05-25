@@ -12,10 +12,11 @@ import Chat from './components/Chat.vue'
 
 <style scoped lang="scss">
 .ChatBox {
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
   width: 60%;
-  height: 600px;
+  height: 700px;
   margin: 100px auto;
   border-radius: 5px;
   border: 1px solid #eee;
