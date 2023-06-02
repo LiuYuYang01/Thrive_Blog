@@ -20,6 +20,11 @@ const Store = defineStore<"Author", State, Getter, Actions>("Author", {
             qq: 0, //QQ
             introduce: "", //介绍
             background: "", //背景图
+            avatar: "",
+            myInfo: {
+                row1: "",
+                row2: ""
+            },
             socializing: [] //社交账号
         }
     }),

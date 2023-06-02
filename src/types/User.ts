@@ -3,7 +3,11 @@ export interface Author {
     qq: number,
     avatar: string,
     introduce: string,
-    background: string
+    background: string,
+    myInfo: {
+        row1: string,
+        row2: string
+    },
     socializing: {
         name: string,
         url: string
