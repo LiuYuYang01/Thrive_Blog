@@ -15,7 +15,7 @@ Store.getAuthor()
         :style="{ backgroundImage: `url(${authorInfo.background ? authorInfo.background : '/src/assets/img/avatar_bg.jpg'})` }">
         <!-- 作者头像 -->
         <div class="avatar">
-            <img :src="`http://q.qlogo.cn/headimg_dl?dst_uin=${authorInfo.qq}&spec=640&img_type=jpg`" alt="">
+            <img :src="authorInfo.avatar" alt="">
         </div>
 
         <!-- 作者介绍 -->

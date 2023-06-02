@@ -26,6 +26,12 @@ const router = createRouter({
                     path: "stats",
                     name: "stats",
                     component: () => import('@/view/Stats/index.vue')
+                },
+                {
+                    // 我的页面
+                    path: "my",
+                    name: "my",
+                    component: () => import('@/view/My/index.vue')
                 }
             ]
         },
