@@ -33,19 +33,11 @@ const addEmote = (url: string) => {
 const postComment = () => {
     // 发布评论之前先校验一下
     CommentSchema.validate(commentInfo, { abortEarly: false }).then(value => {
-        console.log(value);
-
         // 消息提示
-        window.$Message.success("恭喜你发布评论成功!")
+        ElMessage({ message: "恭喜你发布评论成功!", type: 'success' })
     }).catch(error => {
         console.log(error);
-
-        window.$Notification['error']({
-            content: '请确保每一项不能为空!',
-            meta: '警告信息',
-            duration: 2500,
-            keepAliveOnHover: true
-        })
+        ElMessage({ message: '请确保每一项不能为空!', type: 'error' })
     })
 }
 </script>
