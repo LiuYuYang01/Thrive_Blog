@@ -1,4 +1,4 @@
-import Request from '@/util/request'
+import Request from '@/util/Request'
 import type { http } from '@/types/Response'
 import type { Active } from '@/types/Stats'
 

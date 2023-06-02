@@ -1,11 +1,7 @@
 <script setup lang="ts">
-import { onMounted, reactive, ref } from 'vue';
+import { reactive, ref } from 'vue';
 import { Form, Field, ErrorMessage } from 'vee-validate'
 import * as yup from 'yup'
-
-// 引入提示框
-// import tippy from 'tippy.js';
-// import 'tippy.js/dist/tippy.css';
 
 // 表情框是否显示
 const isEmote = ref<boolean>(false)
@@ -18,20 +14,6 @@ const CommentSchema = yup.object({
     url: yup.string().url("请输入正确的网站地址"),
 })
 
-// tippy实例
-// let tooltip: any;
-
-// 消息
-onMounted(() => {
-    // tooltip = tippy('#mouse', {
-    //     content: "I'm a Tippy tooltip!",
-    //     placement: "left"
-    // })
-
-    // // 调用show方法，默认显示提示框
-    // tooltip[0].show()
-})
-
 // 收集评论框的内容
 const commentInfo = reactive({
     content: "",
@@ -39,6 +21,13 @@ const commentInfo = reactive({
     email: "",
     url: ""
 })
+
+// 添加表情
+const addEmote = (url: string) => {
+    const img = `<img src="${url}">`
+    commentInfo.content += img
+    isEmote.value = false
+}
 
 // 发布评论
 const postComment = () => {
@@ -50,14 +39,12 @@ const postComment = () => {
         window.$Message.success("恭喜你发布评论成功!")
     }).catch(error => {
         console.log(error);
-        
-        // window.$Message.error("请确保每一项不能为空!")
 
         window.$Notification['error']({
-          content: '请确保每一项不能为空!',
-          meta: '警告信息',
-          duration: 2500,
-          keepAliveOnHover: true
+            content: '请确保每一项不能为空!',
+            meta: '警告信息',
+            duration: 2500,
+            keepAliveOnHover: true
         })
     })
 }
@@ -83,7 +70,7 @@ const postComment = () => {
         </Form>
 
         <!-- 表情框 -->
-        <Emote :isEmote="isEmote" />
+        <Emote :isEmote="isEmote" @addEmote="addEmote" />
 
         <Form :validation-schema="CommentSchema" as="div" class="form">
             <!-- 表单项 -->

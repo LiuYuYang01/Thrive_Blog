@@ -3,6 +3,8 @@ import { computed, ref } from 'vue';
 import { getEmoteListAPI } from '@/api/Emote'
 import { Emote } from '@/types/Emote'
 
+const emit = defineEmits<{ (e: "addEmote", url: string): () => void }>()
+
 // 表情包存放的地址
 const url = "http://static.liuyuyang.net/emote"
 
@@ -24,6 +26,11 @@ const getEmoteList = async () => {
     EmoteTab.value = data[0].id
 }
 getEmoteList()
+
+
+
+// 获取表情然后传递给父组件
+const getEmote = (url: string) => emit("addEmote", url)
 </script>
 
 <template>
@@ -33,7 +40,8 @@ getEmoteList()
             <template v-for="item in EmoteList" :key="item.id">
                 <!-- 根据条件进行渲染对应的表情包 -->
                 <template v-if="item.id === EmoteTab">
-                    <div class="item" v-for="emote in item.list" :key="emote">
+                    <div class="item" v-for="emote in item.list" :key="emote"
+                        @click="getEmote(`${url}/${item.name}/${emote}`)">
                         <img :src="`${url}/${item.name}/${emote}`" :title="emote">
                     </div>
                 </template>
