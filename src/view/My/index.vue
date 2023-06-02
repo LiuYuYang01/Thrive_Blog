@@ -11,7 +11,7 @@ Store.getAuthor()
 
 onMounted(() => {
   const introduce = document.querySelector(".introduce") as HTMLElement
-  
+
   setTimeout(() => {
     introduce.style.marginTop = "0"
   })
@@ -83,6 +83,7 @@ onMounted(() => {
       .row2 {
         color: #767676;
         font-family: "黑体";
+        line-height: 30px;
       }
     }
 
