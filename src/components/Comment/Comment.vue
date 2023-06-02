@@ -33,6 +33,8 @@ const addEmote = (url: string) => {
 const postComment = () => {
     // 发布评论之前先校验一下
     CommentSchema.validate(commentInfo, { abortEarly: false }).then(value => {
+        commentInfo.content = ""
+
         // 消息提示
         ElMessage({ message: "恭喜你发布评论成功!", type: 'success' })
     }).catch(error => {
