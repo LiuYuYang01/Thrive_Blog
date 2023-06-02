@@ -10,7 +10,8 @@ const { authorInfo } = storeToRefs(Store)
 Store.getAuthor()
 
 onMounted(() => {
-  const introduce = document.querySelector(".introduce")
+  const introduce = document.querySelector(".introduce") as HTMLElement
+  
   setTimeout(() => {
     introduce.style.marginTop = "0"
   })
