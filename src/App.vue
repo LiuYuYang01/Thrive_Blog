@@ -10,7 +10,7 @@
   <RouterView />
 
   <!-- 编辑器组件 -->
-  <Editor />
+  <!-- <Editor /> -->
 </template>
 
 <style scoped></style>

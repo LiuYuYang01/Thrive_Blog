@@ -97,6 +97,8 @@ const postComment = () => {
             <a href="javascript:;">Publish</a>
         </div>
     </div>
+
+    <List />
 </template>
 
 <style scoped lang="scss">
