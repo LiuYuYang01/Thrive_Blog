@@ -9,6 +9,7 @@ const { authorInfo } = storeToRefs(Store)
 
 Store.getAuthor()
 
+// 进入页面 文字下移动画效果
 onMounted(() => {
   const introduce = document.querySelector(".introduce") as HTMLElement
 
@@ -24,8 +25,7 @@ onMounted(() => {
       <div class="info">
         <!-- 介绍 -->
         <div class="introduce">
-          <!-- <div class="row1">I am <span class="name">{{ authorInfo.author }}</span></div> -->
-          <div class="row">I am <span class="name">张三</span></div>
+          <div class="row1">I am <span class="name">{{ authorInfo.author }}</span></div>
           <div class="row1">{{ authorInfo.myInfo.row1 }}</div>
           <div class="row2">{{ authorInfo.myInfo.row2 }}</div>
         </div>
