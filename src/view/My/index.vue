@@ -113,7 +113,7 @@ onMounted(() => {
 
     // 监听过渡结束事件
     technology.addEventListener("transitionend", () => {
-      technology.style.marginLeft = "-450px"
+      technology.style.marginLeft = "450px"
     })
   })
 })

@@ -4,6 +4,7 @@
 body {
     // height: 3000px;
     background-color: #f9f9f9;
+    transition: background-color $move;
 }
 
 // 封装CSS容器样式

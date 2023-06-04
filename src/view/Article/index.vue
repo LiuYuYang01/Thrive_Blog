@@ -5,6 +5,12 @@ import { ref } from 'vue';
 const isImmerse = ref(false)
 const update = () => {
   isImmerse.value = !isImmerse.value
+  
+  if(isImmerse.value){
+    document.body.style.background = "#fff"
+  }else{
+    document.body.style.background = "#f9f9f9"
+  }
 }
 </script>
 
