@@ -20,7 +20,6 @@ declare module '@vue/runtime-core' {
     Frame: typeof import('./src/components/Frame/Frame.vue')['default']
     Header: typeof import('./src/components/Layout/Header.vue')['default']
     HotArticle: typeof import('./src/components/Sideways/HotArticle.vue')['default']
-    Index: typeof import('./src/components/Comment/components/List/Index.vue')['default']
     Layout: typeof import('./src/components/Layout/Layout.vue')['default']
     List: typeof import('./src/components/Comment/components/List/index.vue')['default']
     Loading: typeof import('./src/components/Loading/Loading.vue')['default']
@@ -32,6 +31,7 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     Swiper: typeof import('./src/components/Swiper/Swiper.vue')['default']
     Tag: typeof import('./src/components/Article/components/Tag.vue')['default']
+    ToolBar: typeof import('./src/components/ToolBar/ToolBar.vue')['default']
     Typewriter: typeof import('./src/components/Typewriter/Typewriter.vue')['default']
     UpAndDown: typeof import('./src/components/Article/components/UpAndDown.vue')['default']
   }
