@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-import { ElMessageBox } from 'element-plus';
+import { ElNotification } from 'element-plus';
 
 // 白天黑夜切换
 const isSun = ref<boolean>(true)
 
 watch(isSun, n => {
-    console.log(n);
-
     if (n) {
         // 白天模式
         console.log("白天");
@@ -22,6 +20,20 @@ const topicDialog = ref(false)
 
 // 自定义主题颜色
 const color = ref("#539dfd")
+
+// 更新主题色
+const updateColor = () => {
+    topicDialog.value = false
+
+    // 更改css变量--color的值
+    document.documentElement.style.setProperty("--color", color.value)
+
+    ElNotification({
+        title: '通知',
+        message: '更改主题色成功',
+        type: 'success',
+    })
+}
 </script>
 
 <template>
@@ -48,18 +60,20 @@ const color = ref("#539dfd")
             <span>不止一种色彩！</span>
         </template>
 
+        <!-- 颜色列表 -->
         <div class="list">
-            <div class="item" style="backgroundColor: #727cf5;"></div>
-            <div class="item" style="backgroundColor: #42b983;"></div>
-            <div class="item" style="backgroundColor: #fa6946;"></div>
-            <div class="item" style="backgroundColor: #fab64f;"></div>
-            <div class="item" style="backgroundColor: #44b6a0;"></div>
-            <div class="item" style="backgroundColor: #30362f;"></div>
-            <div class="item" style="backgroundColor: #dc382f;"></div>
-            <div class="item" style="backgroundColor: #a18acd;"></div>
-            <div class="item" style="backgroundColor: #163164;"></div>
+            <div class="item" style="backgroundColor: #539DFD;" @click="color = '#539DFD'"></div>
+            <div class="item" style="backgroundColor: #42b983;" @click="color = '#42b983'"></div>
+            <div class="item" style="backgroundColor: #727cf5;" @click="color = '#727cf5'"></div>
+            <div class="item" style="backgroundColor: #fa6946;" @click="color = '#fa6946'"></div>
+            <div class="item" style="backgroundColor: #fab64f;" @click="color = '#fab64f'"></div>
+            <div class="item" style="backgroundColor: #44b6a0;" @click="color = '#44b6a0'"></div>
+            <div class="item" style="backgroundColor: #30362f;" @click="color = '#30362f'"></div>
+            <div class="item" style="backgroundColor: #dc382f;" @click="color = '#dc382f'"></div>
+            <div class="item" style="backgroundColor: #a18acd;" @click="color = '#a18acd'"></div>
         </div>
 
+        <!-- 自定义颜色 -->
         <div style="margin: 30px 10px -10px;">
             <span>自定义主题色：</span>
             <el-color-picker v-model="color" />
@@ -67,9 +81,9 @@ const color = ref("#539dfd")
 
         <template #footer>
             <span class="dialog-footer">
-                <el-button @click="topicDialog = false">取消</el-button>
-                
-                <el-button type="primary" @click="topicDialog = false">更改</el-button>
+                <el-button @click="topicDialog = false">取消更改</el-button>
+
+                <el-button type="primary" @click="updateColor">更改色彩</el-button>
             </span>
         </template>
     </el-dialog>
