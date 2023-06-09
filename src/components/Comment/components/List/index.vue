@@ -122,7 +122,7 @@ ul {
         /* 评论时间 */
         .time {
           color: #8599ab;
-          margin-top: 3px;
+          margin-top: -7px;
           font-size: 14px;
         }
       }
@@ -130,7 +130,7 @@ ul {
 
     /* 评论的内容 */
     .comment_main {
-      margin: 15px 0px 15px 50px;
+      margin: 5px 0px 5px 50px;
       font-size: 15px;
       transition: all 0.3s;
       word-break: break-word;
@@ -164,7 +164,7 @@ ul {
       }
 
       .comment_main {
-        margin: 10px 0px 10px 50px;
+        margin: 5px 0px 5px 50px;
 
         a {
           color: #007bff;
