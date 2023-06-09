@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     Copyright: typeof import('./src/components/Article/components/Copyright.vue')['default']
     Directory: typeof import('./src/components/Sideways/Directory.vue')['default']
     Editor: typeof import('./src/components/Editor/Editor.vue')['default']
+    ElBacktop: typeof import('element-plus/es')['ElBacktop']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElColorPicker: typeof import('element-plus/es')['ElColorPicker']
     ElDialog: typeof import('element-plus/es')['ElDialog']
