@@ -1,14 +1,78 @@
 <script setup lang="ts">
+import { ref, watch } from 'vue';
+import { ElMessageBox } from 'element-plus';
 
+// 白天黑夜切换
+const isSun = ref<boolean>(true)
+
+watch(isSun, n => {
+    console.log(n);
+
+    if (n) {
+        // 白天模式
+        console.log("白天");
+    } else {
+        // 黑夜模式
+        console.log("黑夜");
+    }
+})
+
+// 颜色弹出框
+const topicDialog = ref(false)
+
+// 自定义主题颜色
+const color = ref("#539dfd")
 </script>
 
 <template>
     <div class="ToolBar">
-        <iconpark-icon name="sun" class="item" style="color: #f5a630;" />
-        <iconpark-icon name="dark-mode-9dj2acj3" class="item" style="color: #62acf9;" />
-        <img src="@/assets/svg/other/custom.svg" alt="" class="item" />
-        <iconpark-icon name="to-top-one" class="item" />
+        <!-- 白天 -->
+        <iconpark-icon name="dark-mode-9dj2acj3" class="item" style="color: #62acf9;" v-if="!isSun"
+            @click="isSun = !isSun" />
+
+        <!-- 黑夜 -->
+        <iconpark-icon name="sun" class="item" style="color: #f5a630;" v-else @click="isSun = !isSun" />
+
+        <!-- 个性化 -->
+        <img src="@/assets/svg/other/custom.svg" alt="" class="item" @click="topicDialog = true" />
+
+        <!-- 返回顶部 -->
+        <img src="@/assets/svg/other/top.svg" alt="" class="item" />
     </div>
+
+    <!-- 弹出框：自定义颜色 -->
+    <el-dialog v-model="topicDialog" title="Tips" width="30%">
+        <!-- 自定义头部标题 -->
+        <template #header style="display: flex; align-items: center;">
+            <img src="@/assets/svg/other/custom.svg" style="width: 30px; margin-right: 10px;" />
+            <span>不止一种色彩！</span>
+        </template>
+
+        <div class="list">
+            <div class="item" style="backgroundColor: #727cf5;"></div>
+            <div class="item" style="backgroundColor: #42b983;"></div>
+            <div class="item" style="backgroundColor: #fa6946;"></div>
+            <div class="item" style="backgroundColor: #fab64f;"></div>
+            <div class="item" style="backgroundColor: #44b6a0;"></div>
+            <div class="item" style="backgroundColor: #30362f;"></div>
+            <div class="item" style="backgroundColor: #dc382f;"></div>
+            <div class="item" style="backgroundColor: #a18acd;"></div>
+            <div class="item" style="backgroundColor: #163164;"></div>
+        </div>
+
+        <div style="margin: 30px 10px -10px;">
+            <span>自定义主题色：</span>
+            <el-color-picker v-model="color" />
+        </div>
+
+        <template #footer>
+            <span class="dialog-footer">
+                <el-button @click="topicDialog = false">取消</el-button>
+                
+                <el-button type="primary" @click="topicDialog = false">更改</el-button>
+            </span>
+        </template>
+    </el-dialog>
 </template>
 
 <style scoped lang="scss">
@@ -22,11 +86,13 @@
     bottom: 150px;
     width: 50px;
     background-color: #fff;
+    user-select: none;
+    z-index: 999;
     @include container;
 
     .item {
         padding: 10px;
-        font-size: 25px;
+        font-size: 30px;
         border-bottom: 1px solid #f7f4f4;
         transition: background-color $move;
         cursor: pointer;
@@ -39,5 +105,32 @@
             border-bottom: none;
         }
     }
+}
+
+.list {
+    display: flex;
+    justify-content: center;
+
+    .item {
+        width: 30px;
+        height: 30px;
+        margin-right: 20px;
+        border-radius: $round;
+        cursor: pointer;
+    }
+}
+
+// 自定义element-plus 弹框样式
+.dialog-footer button:first-child {
+    margin-right: 10px;
+}
+
+.dialog-footer button {
+    padding: 10px;
+}
+
+// 自定义颜色的宽度
+:deep .el-color-picker__trigger {
+    width: 330px;
 }
 </style>
