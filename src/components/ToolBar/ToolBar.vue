@@ -19,14 +19,23 @@ watch(isSun, n => {
 const topicDialog = ref(false)
 
 // 自定义主题颜色
-const color = ref("#539dfd")
+const localColor = localStorage.getItem("topicColor")
+const color = ref(localColor || "#539dfd")
+
+// 简化写法
+const $css = document.documentElement.style
+
+$css.setProperty("--color", color.value)
 
 // 更新主题色
 const updateColor = () => {
     topicDialog.value = false
 
     // 更改css变量--color的值
-    document.documentElement.style.setProperty("--color", color.value)
+    $css.setProperty("--color", color.value)
+
+    // 将主题色存储在本地
+    localStorage.setItem("topicColor", color.value)
 
     ElNotification({
         title: '通知',
