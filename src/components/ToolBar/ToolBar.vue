@@ -11,10 +11,18 @@ const isEffect = ref<boolean>(false)
 // 双色主题效果
 const Theme = reactive({
     Light: {
-        BoxColor: "#fff"
+        bgColor: "#f9f9f9",
+        boxColor: "#fff",
+        textColor: "#333",
+        bottomBorder: "#eee",
+        wave: "rgba(249, 249, 249, 0.7)"
     },
     Dark: {
-        BoxColor: "#1d1f20"
+        bgColor: "#2b333e",
+        boxColor: "#1e232b",
+        textColor: "#fff",
+        bottomBorder: "#1e232b",
+        wave: "rgba(43, 51, 62, 0.7)"
     }
 })
 
@@ -22,11 +30,19 @@ watch(isEffect, n => {
     if (n) {
         // 黑夜模式
         console.log("黑夜");
-        $css.setProperty("--BoxColor", Theme.Dark.BoxColor)
+        $css.setProperty("--bgColor", Theme.Dark.bgColor)
+        $css.setProperty("--boxColor", Theme.Dark.boxColor)
+        $css.setProperty("--textColor", Theme.Dark.textColor)
+        $css.setProperty("--bottomBorder", Theme.Dark.bottomBorder)
+        $css.setProperty("--wave", Theme.Dark.wave)
     } else {
         // 白天模式
         console.log("白天");
-        $css.setProperty("--BoxColor", Theme.Light.BoxColor)
+        $css.setProperty("--bgColor", Theme.Light.bgColor)
+        $css.setProperty("--boxColor", Theme.Light.boxColor)
+        $css.setProperty("--textColor", Theme.Light.textColor)
+        $css.setProperty("--bottomBorder", Theme.Light.bottomBorder)
+        $css.setProperty("--wave", Theme.Light.wave)
     }
 })
 
@@ -68,7 +84,8 @@ const updateColor = () => {
         <iconpark-icon name="sun" class="item" style="color: #f5a630;" @click="isEffect = !isEffect" v-if="isEffect" />
 
         <!-- 白天 -->
-        <iconpark-icon name="dark-mode-9dj2acj3" class="item" style="color: #62acf9;" @click="isEffect = !isEffect" v-else />
+        <iconpark-icon name="dark-mode-9dj2acj3" class="item" style="color: #62acf9;" @click="isEffect = !isEffect"
+            v-else />
 
         <!-- 个性化 -->
         <img src="@/assets/svg/other/custom.svg" alt="" class="item" @click="topicDialog = true" />

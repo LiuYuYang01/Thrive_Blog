@@ -61,19 +61,22 @@ watch(() => route, route => {
           </RouterLink>
 
           <!-- 文字LOGO模式 -->
-          <RouterLink to="/" class="one_item_nav" :style="{ color: top > 100 || is ? '#333' : '#fff' }" v-else>
+          <RouterLink to="/" class="one_item_nav" :style="{ color: top > 100 || is ? 'var(--textColor, #333)' : '#fff' }"
+            v-else>
             <b>Blog</b>
           </RouterLink>
         </li>
 
         <!-- 首页 -->
         <li class="one_item">
-          <RouterLink to="/" class="one_item_nav" :style="{ color: top > 100 || is ? '#333' : '#fff' }">💎 首页</RouterLink>
+          <RouterLink to="/" class="one_item_nav" :style="{ color: top > 100 || is ? 'var(--textColor, #333)' : '#fff' }">
+            💎 首页</RouterLink>
         </li>
 
         <!-- 导航列表 -->
         <li class="one_item" v-for="one in cateList" :key="one.id">
-          <RouterLink :to="one.url" class="one_item_nav" :style="{ color: top > 100 || is ? '#333' : '#fff' }">
+          <RouterLink :to="one.url" class="one_item_nav"
+            :style="{ color: top > 100 || is ? 'var(--textColor, #333)' : '#fff' }">
             {{ one.icon }} {{ one.name }}
 
             <!-- 判断有没有二级分类，有就显示下拉箭头 -->
@@ -108,7 +111,8 @@ watch(() => route, route => {
     display: block;
     width: 100%;
     height: 0;
-    background: linear-gradient($BoxColor, transparent 70%);
+    background: linear-gradient($boxColor, transparent 70%);
+    transition: background $move;
   }
 
   .w {
@@ -228,8 +232,9 @@ watch(() => route, route => {
 
 // 下边框
 .bottomBorder {
-  border-bottom: 1px solid #eee;
-  background-color: $BoxColor;
+  border-bottom: 1px solid $bottomBorder;
+  background-color: $boxColor;
+  transition: all $move;
 }
 
 // 渐变
@@ -239,5 +244,4 @@ watch(() => route, route => {
     height: 30px;
     transition: height $move;
   }
-}
-</style>
+}</style>
