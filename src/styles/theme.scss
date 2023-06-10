@@ -9,4 +9,6 @@ $contentColor: var(--contentColor, #666);
 // 边框
 $borderColor: var(--borderColor, #eee);
 // 波浪
-$wave: var(--wave, rgba(249, 249, 249, 0.7));
+$waveColor: var(--waveColor, rgba(249, 249, 249, 0.7));
+// 阴影
+$shadeColor: var(--shadeColor, 0 2px 8px rgba(186, 186, 186, 0.15));

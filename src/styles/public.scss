@@ -14,7 +14,7 @@ body {
     transition: all $move;
 
     &:hover {
-        box-shadow: $boxShadow;
+        box-shadow: $shadeColor;
     }
 }
 
