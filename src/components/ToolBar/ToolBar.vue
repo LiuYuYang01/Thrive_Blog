@@ -1,19 +1,39 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { reactive, ref, watch } from 'vue';
 import { ElNotification } from 'element-plus';
 
-// 白天黑夜切换
-const isSun = ref<boolean>(true)
+// 简化写法
+const $css = document.documentElement.style
 
-watch(isSun, n => {
-    if (n) {
-        // 白天模式
-        console.log("白天");
-    } else {
-        // 黑夜模式
-        console.log("黑夜");
+// 白天黑夜切换
+const isEffect = ref<boolean>(false)
+
+// 双色主题效果
+const Theme = reactive({
+    Light: {
+        BoxColor: "#fff"
+    },
+    Dark: {
+        BoxColor: "#1d1f20"
     }
 })
+
+watch(isEffect, n => {
+    if (n) {
+        // 黑夜模式
+        console.log("黑夜");
+        $css.setProperty("--BoxColor", Theme.Dark.BoxColor)
+    } else {
+        // 白天模式
+        console.log("白天");
+        $css.setProperty("--BoxColor", Theme.Light.BoxColor)
+    }
+})
+
+
+
+
+
 
 // 颜色弹出框
 const topicDialog = ref(false)
@@ -21,9 +41,6 @@ const topicDialog = ref(false)
 // 自定义主题颜色
 const localColor = localStorage.getItem("topicColor")
 const color = ref(localColor || "#539dfd")
-
-// 简化写法
-const $css = document.documentElement.style
 
 $css.setProperty("--color", color.value)
 
@@ -47,12 +64,11 @@ const updateColor = () => {
 
 <template>
     <div class="ToolBar">
-        <!-- 白天 -->
-        <iconpark-icon name="dark-mode-9dj2acj3" class="item" style="color: #62acf9;" v-if="!isSun"
-            @click="isSun = !isSun" />
-
         <!-- 黑夜 -->
-        <iconpark-icon name="sun" class="item" style="color: #f5a630;" v-else @click="isSun = !isSun" />
+        <iconpark-icon name="sun" class="item" style="color: #f5a630;" @click="isEffect = !isEffect" v-if="isEffect" />
+
+        <!-- 白天 -->
+        <iconpark-icon name="dark-mode-9dj2acj3" class="item" style="color: #62acf9;" @click="isEffect = !isEffect" v-else />
 
         <!-- 个性化 -->
         <img src="@/assets/svg/other/custom.svg" alt="" class="item" @click="topicDialog = true" />

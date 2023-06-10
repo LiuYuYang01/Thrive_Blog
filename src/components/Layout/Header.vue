@@ -108,7 +108,7 @@ watch(() => route, route => {
     display: block;
     width: 100%;
     height: 0;
-    background: linear-gradient(#ffffff, transparent 70%);
+    background: linear-gradient($BoxColor, transparent 70%);
   }
 
   .w {
@@ -207,7 +207,7 @@ watch(() => route, route => {
             // 鼠标经过二级导航的效果
             &:hover .two_item_nav {
               color: $color;
-              background-color: $bgc;
+              background-color: #f5f7fc;
               padding-left: 30px;
 
               &:hover::after {
@@ -229,7 +229,7 @@ watch(() => route, route => {
 // 下边框
 .bottomBorder {
   border-bottom: 1px solid #eee;
-  background-color: #fff;
+  background-color: $BoxColor;
 }
 
 // 渐变

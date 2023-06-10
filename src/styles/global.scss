@@ -1,10 +1,11 @@
+@import "./theme.scss";
+
 // 版心
 $w: 1200px;
 
 // 色彩
 $color: var(--color, #539dfd); // 主色调
 $assistColor: var(--assistColor, #539dfd60); // 辅助色调
-$bgc: #f5f7fc; //背景色
 
 // 过渡效果
 $move: 0.3s;
