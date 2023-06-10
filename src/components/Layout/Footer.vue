@@ -13,14 +13,14 @@
   display: flex;
   align-items: center;
   height: 120px;
-  border: 1px solid #f0f0f0;
-  background-color: #fff;
+  border-top: 1px solid $bottomBorder;
+  background-color: $boxColor;
 
   .info {
     width: 600px;
     line-height: 25px;
     padding-left: 300px;
-    color: #333;
+    color: $textColor;
     font-size: 14px;
   }
 }
