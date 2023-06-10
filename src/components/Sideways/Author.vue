@@ -50,7 +50,7 @@ Store.getAuthor()
     background-size: cover;
     width: 100%;
     height: 325px;
-    background-color: #fff;
+    background-color: $boxColor;
     @include container;
 
     // 作者头像

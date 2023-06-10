@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-
-const list = ref()
 </script>
 
 <template>
@@ -45,7 +43,7 @@ const list = ref()
 .HotArticle {
     padding: 15px;
     margin-top: 20px;
-    background-color: #fff;
+    background-color: $boxColor;
     @include container;
 
     // 文章模块标题

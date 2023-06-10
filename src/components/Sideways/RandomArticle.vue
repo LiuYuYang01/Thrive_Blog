@@ -53,21 +53,16 @@
 @import "@/styles/public.scss";
 
 .RandomArticle {
-    @include container;
     padding: 15px;
     margin-top: 20px;
-    background-color: #fff;
+    background-color: $boxColor;
+    @include container;
+    // 文章模块标题
+    @include titleRight;
 
     // 文章模块标题
     .title {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         padding-bottom: 10px;
-        border-bottom: 1px solid #eee;
-        font-size: 17px;
-        font-weight: 400;
-        color: #333;
 
         img {
             width: 30px;
@@ -86,9 +81,9 @@
                 display: flex;
                 align-items: center;
                 padding: 10px 0;
-                color: #666;
+                color: $contentColor;
                 font-size: 14px;
-                transition: padding $move;
+                transition: all $move;
 
                 iconpark-icon {
                     font-size: 18px;

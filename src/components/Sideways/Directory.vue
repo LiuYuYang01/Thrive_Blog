@@ -48,13 +48,16 @@ getContent()
 .Directory {
     padding: 20px 0;
     margin-top: 20px;
-    background-color: #fff;
+    background-color: $boxColor;
     @include container;
 
     // 文章模块标题
     @include titleRight;
 
     .title {
+        color: $textColor;
+        transition: color $move;
+
         img {
             width: 40px;
             height: 30px;
@@ -73,7 +76,8 @@ getContent()
                 width: 100%;
                 padding: 10px;
                 padding-left: 10px;
-                transition: all 0.3s;
+                color: $textColor;
+                transition: all $move;
 
                 white-space: nowrap;
                 overflow: hidden;

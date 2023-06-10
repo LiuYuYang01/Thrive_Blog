@@ -23,6 +23,7 @@
     padding-left: 300px;
     color: $textColor;
     font-size: 14px;
+    transition: color $move;
   }
 }
 </style>

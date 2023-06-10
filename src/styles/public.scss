@@ -28,7 +28,8 @@ body {
         border-bottom: 1px solid $borderColor;
         font-size: 17px;
         font-weight: 400;
-        color: #333;
+        color: $textColor;
+        transition: all $move;
 
         img{
             width: 30px;

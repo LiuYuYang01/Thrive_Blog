@@ -79,7 +79,7 @@
 .NewComments {
     padding: 15px;
     margin-top: 20px;
-    background-color: #fff;
+    background-color: $boxColor;
     @include container;
 
     // 文章模块标题
@@ -123,7 +123,7 @@
                 .info {
                     width: 190px;
                     font-size: 15px;
-                    color: #333;
+                    color: $textColor;
                     transition: color $move;
 
                     // 文本溢出省略
@@ -136,7 +136,8 @@
                 .time {
                     padding-top: 10px;
                     font-size: 13px;
-                    color: #666;
+                    color: $contentColor;
+                    transition: color $move;
                 }
             }
 

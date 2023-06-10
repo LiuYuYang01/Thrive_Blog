@@ -31,7 +31,7 @@ declare module '@vue/runtime-core' {
     LoadMore: typeof import('./src/components/LoadMore/LoadMore.vue')['default']
     NewComments: typeof import('./src/components/Sideways/NewComments.vue')['default']
     Nprogress: typeof import('./src/components/Nprogress/Nprogress.vue')['default']
-    RandomArticle: typeof import('./src/components/RandomArticle/RandomArticle.vue')['default']
+    RandomArticle: typeof import('./src/components/Sideways/RandomArticle.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Swiper: typeof import('./src/components/Swiper/Swiper.vue')['default']
