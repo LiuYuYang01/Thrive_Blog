@@ -17,7 +17,8 @@ const Theme = reactive({
         contentColor: "#666",
         borderColor: "#eee",
         waveColor: "rgba(249, 249, 249, 0.7)",
-        shadeColor: "0 2px 8px rgba(186, 186, 186, 0.15)"
+        shadeColor: "0 2px 8px rgba(186, 186, 186, 0.15)",
+        underBorderColor: "#eee"
     },
     Dark: {
         bgColor: "#232931",
@@ -26,7 +27,8 @@ const Theme = reactive({
         contentColor: "#bbb",
         borderColor: "#2b333e",
         waveColor: "rgba(35, 41, 49, 0.7)",
-        shadeColor: "0 -2px 15px rgba(97, 156, 251, .5)"
+        shadeColor: "0 -2px 15px rgba(97, 156, 251, .5)",
+        underBorderColor: "#464646"
     }
 })
 
@@ -41,6 +43,7 @@ watch(isEffect, n => {
         $css.setProperty("--borderColor", Theme.Dark.borderColor)
         $css.setProperty("--waveColor", Theme.Dark.waveColor)
         $css.setProperty("--shadeColor", Theme.Dark.shadeColor)
+        $css.setProperty("--underBorderColor", Theme.Dark.underBorderColor)
     } else {
         // 白天模式
         console.log("白天");
@@ -51,6 +54,7 @@ watch(isEffect, n => {
         $css.setProperty("--borderColor", Theme.Light.borderColor)
         $css.setProperty("--waveColor", Theme.Light.waveColor)
         $css.setProperty("--shadeColor", Theme.Light.shadeColor)
+        $css.setProperty("--underBorderColor", Theme.Light.underBorderColor)
     }
 })
 

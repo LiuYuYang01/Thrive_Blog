@@ -87,7 +87,7 @@ getArticleList()
         // 文章封面
         .cover {
             width: 35%;
-            background: url(https://liuyuyang.net/usr/uploads/2023/04/1258239203.jpeg) no-repeat center;
+            background: url("https://liuyuyang.net/usr/uploads/2023/04/1258239203.jpeg") no-repeat center;
             background-size: cover;
             transition: all $move;
             transform: scale(1);

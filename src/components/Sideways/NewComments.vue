@@ -98,7 +98,8 @@
         .item {
             display: flex;
             padding: 10px 0;
-            border-bottom: 1px solid #fbfafa;
+            border-bottom: 1px solid $underBorderColor;
+            transition: border-bottom $move;
 
             // 最后一个评论取消下边框
             &:last-of-type{
