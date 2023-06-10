@@ -142,6 +142,7 @@ getArticleList()
                     color: $contentColor;
                     font-size: 15px;
                     line-height: 30px;
+                    transition: color $move;
 
                     // 多行文本溢出
                     display: -webkit-box !important;
@@ -160,6 +161,7 @@ getArticleList()
                         padding-left: 30px;
                         font-size: 12px;
                         color: $textColor;
+                        transition: color $move;
 
                         iconpark-icon {
                             padding: 4px;

@@ -15,6 +15,7 @@
   height: 120px;
   border-top: 1px solid $borderColor;
   background-color: $boxColor;
+  transition: all $move;
 
   .info {
     width: 600px;
