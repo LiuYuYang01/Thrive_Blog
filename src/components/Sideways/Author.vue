@@ -46,8 +46,8 @@ Store.getAuthor()
     flex-direction: column;
     align-items: center;
     padding-top: 60px;
-    background: url("/src/assets/img/avatar_bg.jpg");
-    background-size: cover;
+    background: url("/src/assets/img/avatar_bg.jpg") no-repeat;
+    background-size: 100% 35%;
     width: 100%;
     height: 325px;
     background-color: $boxColor;
@@ -82,12 +82,14 @@ Store.getAuthor()
     .info {
         h3 {
             margin: 15px;
-            color: #4c4948;
+            color: $textColor;
             text-align: center;
+            transition: color $move;
         }
 
         p {
-            color: #666;
+            color: $contentColor;
+            transition: color $move;
         }
     }
 
@@ -111,10 +113,11 @@ Store.getAuthor()
                 left: 50%;
                 transform: translateX(-50%);
                 width: 110px;
-                color: #666;
-                background-color: #fff;
+                color: $contentColor;
+                background-color: $boxColor;
                 text-align: center;
                 font-size: 14px;
+                transition: all $move;
             }
         }
 
