@@ -1,6 +1,12 @@
-// 白天模式
+// 页面背景
 $bgColor: var(--bgColor, #f9f9f9);
+// 模块背景
 $boxColor: var(--boxColor, #fff);
+// 文本标题
 $textColor: var(--textColor, #333);
-$bottomBorder: var(--bottomBorder, #eee);
+// 文本内容
+$contentColor: var(--contentColor, #666);
+// 边框
+$borderColor: var(--borderColor, #eee);
+// 波浪
 $wave: var(--wave, rgba(249, 249, 249, 0.7));

@@ -14,15 +14,17 @@ const Theme = reactive({
         bgColor: "#f9f9f9",
         boxColor: "#fff",
         textColor: "#333",
-        bottomBorder: "#eee",
-        wave: "rgba(249, 249, 249, 0.7)"
+        contentColor: "#666",
+        borderColor: "#eee",
+        wave: "rgba(249, 249, 249, 0.7)",
     },
     Dark: {
-        bgColor: "#2b333e",
-        boxColor: "#1e232b",
+        bgColor: "#232931",
+        boxColor: "#2b333e",
         textColor: "#fff",
-        bottomBorder: "#1e232b",
-        wave: "rgba(43, 51, 62, 0.7)"
+        contentColor: "#bbb",
+        borderColor: "#2b333e",
+        wave: "rgba(35, 41, 49, 0.7)",
     }
 })
 
@@ -33,7 +35,8 @@ watch(isEffect, n => {
         $css.setProperty("--bgColor", Theme.Dark.bgColor)
         $css.setProperty("--boxColor", Theme.Dark.boxColor)
         $css.setProperty("--textColor", Theme.Dark.textColor)
-        $css.setProperty("--bottomBorder", Theme.Dark.bottomBorder)
+        $css.setProperty("--contentColor", Theme.Dark.contentColor)
+        $css.setProperty("--borderColor", Theme.Dark.borderColor)
         $css.setProperty("--wave", Theme.Dark.wave)
     } else {
         // 白天模式
@@ -41,7 +44,8 @@ watch(isEffect, n => {
         $css.setProperty("--bgColor", Theme.Light.bgColor)
         $css.setProperty("--boxColor", Theme.Light.boxColor)
         $css.setProperty("--textColor", Theme.Light.textColor)
-        $css.setProperty("--bottomBorder", Theme.Light.bottomBorder)
+        $css.setProperty("--contentColor", Theme.Light.contentColor)
+        $css.setProperty("--borderColor", Theme.Light.borderColor)
         $css.setProperty("--wave", Theme.Light.wave)
     }
 })

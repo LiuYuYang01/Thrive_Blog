@@ -10,7 +10,7 @@ body {
 // 封装CSS容器样式
 @mixin container {
     border-radius: $round;
-    border: 1px solid $bottomBorder;
+    border: 1px solid $borderColor;
     transition: all $move;
 
     &:hover {
@@ -25,7 +25,7 @@ body {
         justify-content: center;
         align-items: center;
         padding-bottom: 15px;
-        border-bottom: 1px solid $bottomBorder;
+        border-bottom: 1px solid $borderColor;
         font-size: 17px;
         font-weight: 400;
         color: #333;

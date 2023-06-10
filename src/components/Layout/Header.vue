@@ -48,7 +48,7 @@ watch(() => route, route => {
 </script>
 
 <template>
-  <div :class="top > 100 || is ? 'Header bottomBorder gradient' : 'Header'">
+  <div :class="top > 100 || is ? 'Header borderColor gradient' : 'Header'">
     <div class="w">
       <!-- 一级导航 -->
       <ul class="one">
@@ -231,8 +231,8 @@ watch(() => route, route => {
 }
 
 // 下边框
-.bottomBorder {
-  border-bottom: 1px solid $bottomBorder;
+.borderColor {
+  border-bottom: 1px solid $borderColor;
   background-color: $boxColor;
   transition: all $move;
 }

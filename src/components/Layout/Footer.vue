@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   height: 120px;
-  border-top: 1px solid $bottomBorder;
+  border-top: 1px solid $borderColor;
   background-color: $boxColor;
 
   .info {

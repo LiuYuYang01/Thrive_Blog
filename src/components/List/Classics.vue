@@ -81,7 +81,7 @@ getArticleList()
         display: flex;
         height: 230px;
         margin-bottom: 15px;
-        background-color: #fff;
+        background-color: $boxColor;
         @include container;
 
         // 文章封面
@@ -114,7 +114,7 @@ getArticleList()
                 h3 {
                     position: relative;
                     width: 100%;
-                    color: #333;
+                    color: $textColor;
                     padding-top: 10px;
                     padding-bottom: 20px;
                     transition: color $move;
@@ -139,7 +139,7 @@ getArticleList()
 
                 // 文章简述
                 p {
-                    color: #666;
+                    color: $contentColor;
                     font-size: 15px;
                     line-height: 30px;
 
@@ -159,7 +159,7 @@ getArticleList()
                     span {
                         padding-left: 30px;
                         font-size: 12px;
-                        color: #333;
+                        color: $textColor;
 
                         iconpark-icon {
                             padding: 4px;
