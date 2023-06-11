@@ -151,7 +151,7 @@ function createDirectory() {
     padding: 30px;
     padding-top: 0;
     line-height: 2.3;
-    background-color: #fff;
+    background-color: $boxColor;
     @include container;
 
     // 右侧背景
@@ -193,9 +193,15 @@ function createDirectory() {
     .title {
         padding: 20px 0;
         margin-bottom: 20px;
-        border-bottom: 1px solid #f3f3f3;
+        border-bottom: 1px solid $underBorderColor;
         font-weight: 700;
         text-align: center;
+        transition: border-bottom $move;
+
+        h1{
+            color: $essayTitle;
+            transition: color $move;
+        }
 
         // 文章信息
         .info {
@@ -205,6 +211,8 @@ function createDirectory() {
             span {
                 display: inline-block;
                 margin: 0 10px;
+                color: $textColor;
+                transition: color $move;
 
                 iconpark-icon {
                     padding: 3px;
@@ -234,7 +242,20 @@ function createDirectory() {
     // 文章内容
     .content {
         font-size: 15px;
-        color: #333;
+        color: $essayContent;
+        transition: color $move;
+
+        // 图片
+        :deep(img){
+            width: 100%;
+        }
+
+        // 超链接
+        ::deep(p a){
+            display: block;
+            color: #539dfd !important;
+            background-color: #539dfd !important;
+        }
 
         // 设置代码框样式
         :deep(pre) {
@@ -250,7 +271,8 @@ function createDirectory() {
             border-radius: 3px;
             color: $color;
             font-family: "Consolas";
-            background-color: #fafafa;
+            background-color: $contentLight;
+            transition: background-color $move;
         }
 
         // 设置代码字体
@@ -268,7 +290,8 @@ function createDirectory() {
             margin: 20px 0 10px;
             // a标签锚点跳转距离顶部的距离
             scroll-margin-top: 80px;
-            color: #000;
+            color: $essayTitle;
+            transition: color $move;
         }
 
         :deep(h1) {
@@ -280,7 +303,8 @@ function createDirectory() {
             position: relative;
             padding-bottom: 5px;
             margin-bottom: 25px;
-            border-bottom: 1px dashed #ddd;
+            border-bottom: 1px dashed $underBorderColor;
+            transition: border-bottom $move;
         }
 
         :deep(h2::before) {
@@ -306,7 +330,8 @@ function createDirectory() {
         :deep(blockquote) {
             padding: 20px;
             border-radius: $round;
-            background: #fafafa;
+            background-color: $contentLight;
+            transition: background-color $move;
         }
     }
 }
