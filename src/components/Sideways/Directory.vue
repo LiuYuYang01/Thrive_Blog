@@ -56,7 +56,7 @@ getContent()
 
     .title {
         color: $textColor;
-        transition: color $move;
+        transition: all $move;
 
         img {
             width: 40px;
