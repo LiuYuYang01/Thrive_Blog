@@ -35,7 +35,6 @@ const { isRipple = false, isTyping = false } = defineProps<{ src: string, isRipp
     position: relative;
     height: 500px;
     background: url("@/assets/img/t01d6f5fd3610da0a08.jpg") center;
-    // background: url("@/assets/img/63adb5eb87f9b.jpg") center;
     background-size: cover;
 
     // 背景渐变
@@ -46,7 +45,7 @@ const { isRipple = false, isTyping = false } = defineProps<{ src: string, isRipp
         position: absolute;
         bottom: 0;
         left: 0;
-        background: linear-gradient(to top, rgba(249, 249, 249), transparent);
+        background: linear-gradient(to top, $bgColor, transparent);
 
     }
 }
