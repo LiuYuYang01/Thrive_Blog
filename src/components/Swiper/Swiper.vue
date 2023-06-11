@@ -46,7 +46,6 @@ const { isRipple = false, isTyping = false } = defineProps<{ src: string, isRipp
         bottom: 0;
         left: 0;
         background: linear-gradient(to top, $bgColor, transparent);
-
     }
 }
 
