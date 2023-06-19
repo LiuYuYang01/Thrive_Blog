@@ -25,10 +25,9 @@ const articleData = ref<Article>({
     content: "", //文章内容
     view: 0, //浏览量
     cate: "", //分类
-    commentCount: 0, //评论数量
+    comment: 0, //评论数量
     tag: "", //标签
-    createTime: "", //创建时间
-    updateTime: "", //更改时间
+    date: "", //创建时间
     cover: "", //封面
 })
 
@@ -105,7 +104,7 @@ function createDirectory() {
             <div class="info">
                 <!-- 文章创建时间 -->
                 <span>
-                    <iconpark-icon name="alarm-clock" /> {{ articleData.createTime }}
+                    <iconpark-icon name="alarm-clock" /> {{ articleData.date }}
                 </span>
 
                 <!-- 文章浏览量 -->
@@ -120,7 +119,7 @@ function createDirectory() {
 
                 <!-- 文章评论数量 -->
                 <span>
-                    <iconpark-icon name="comment" /> 评论：{{ articleData.commentCount }}
+                    <iconpark-icon name="comment" /> 评论：{{ articleData.comment }}
                 </span>
             </div>
         </div>
