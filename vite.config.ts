@@ -19,8 +19,18 @@ export default defineConfig({
         }
       }
     }),
+    // 配置自动按需导入
     AutoImport({
       resolvers: [ElementPlusResolver()],
+      // 这些库在使用时候不需要再导入了，可以直接使用
+      imports: ["vue", "vue-router", "pinia", "@vueuse/core"],
+      eslintrc: {
+        enabled: true, // Default `false`
+        filepath: "./.eslintrc-auto-import.json",
+        globalsPropValue: true,
+      },
+      // 配置文件
+      dts: "auto-import.d.ts"
     }),
     // 配置组件自动导入
     Components({
