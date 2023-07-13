@@ -7,6 +7,30 @@ Store.getAuthor()
 
 // 获取作者信息
 const { authorInfo } = storeToRefs(Store)
+
+// 社交账号
+const socializing = [
+    {
+        "name": "GitHub",
+        "url": "https://github.com/LiuYuYang01?tab=overview&from=2023-04-01&to=2023-04-26"
+    },
+    {
+        "name": "Gitee",
+        "url": "https://gitee.com/liu_yu_yang666"
+    },
+    {
+        "name": "Juejin",
+        "url": "https://juejin.cn/user/3083456627092078/posts"
+    },
+    {
+        "name": "CSDN",
+        "url": "https://blog.csdn.net/haodian666?type=blog"
+    },
+    {
+        "name": "QQ",
+        "url": "http://wpa.qq.com/msgrd?v=3&uin=3311118881&site=qq&menu=yes"
+    }
+]
 </script>
 
 <template>
@@ -25,15 +49,15 @@ const { authorInfo } = storeToRefs(Store)
         </div>
 
         <!-- 社交账号 -->
-        <!-- <div class="socializing">
+        <div class="socializing">
             <div class="title"></div>
 
             <div class="list">
-                <a :href="item.url" target="_blank" v-for="item, index in authorInfo.socializing" :key="index">
+                <a :href="item.url" target="_blank" v-for="item, index in socializing" :key="index">
                     <img :src="`/src/assets/svg/socializing/${item.name}.svg`" :title="item.name">
                 </a>
             </div>
-        </div> -->
+        </div>
     </div>
 </template>
 
