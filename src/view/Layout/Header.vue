@@ -45,6 +45,35 @@ watch(() => route, route => {
 
 // 导出Scss指定的变量
 // const { color } = global;
+
+// 扩展页面
+const ExtendPage = {
+  name: "扩展页面",
+  icon: "💡",
+  url: "",
+  children: [
+    {
+      "id": 1,
+      "name": "个人主页",
+      "url": "/my",
+    },
+    {
+      "id": 2,
+      "name": "我的相册",
+      "url": "",
+    },
+    {
+      "id": 3,
+      "name": "数据统计",
+      "url": "/stats",
+    },
+    {
+      "id": 4,
+      "name": "在线聊天室",
+      "url": "/chat",
+    }
+  ]
+}
 </script>
 
 <template>
@@ -86,6 +115,24 @@ watch(() => route, route => {
           <!-- 二级导航 -->
           <ul class="two">
             <li class="two_item" v-for="two in one.children" :key="two.id">
+              <RouterLink :to="two.url" class="two_item_nav">{{ two.name }}</RouterLink>
+            </li>
+          </ul>
+        </li>
+
+        <!-- 扩展页面 -->
+        <li class="one_item">
+          <RouterLink :to="ExtendPage.url" class="one_item_nav"
+            :style="{ color: top > 100 || is ? 'var(--textColor, #333)' : '#fff' }">
+            {{ ExtendPage.icon }} {{ ExtendPage.name }}
+
+            <!-- 判断有没有二级分类，有就显示下拉箭头 -->
+            <iconpark-icon name="down" v-if="ExtendPage.children.length"></iconpark-icon>
+          </RouterLink>
+
+          <!-- 二级导航 -->
+          <ul class="two">
+            <li class="two_item" v-for="two in ExtendPage.children" :key="two.id">
               <RouterLink :to="two.url" class="two_item_nav">{{ two.name }}</RouterLink>
             </li>
           </ul>
@@ -244,4 +291,5 @@ watch(() => route, route => {
     height: 30px;
     transition: height $move;
   }
-}</style>
+}
+</style>
