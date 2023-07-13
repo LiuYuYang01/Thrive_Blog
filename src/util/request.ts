@@ -9,7 +9,7 @@ export default class Request {
     // Axios 实例对象
     readonly request: AxiosInstance
     // API URL 前缀
-    private static readonly baseURL: string = "http://127.0.0.1:4523/m1/2561526-0-default"
+    private static readonly baseURL: string = "http://127.0.0.1:5000/"
 
     // 获取store对象
     static interface: Request;

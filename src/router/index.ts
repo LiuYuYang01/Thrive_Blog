@@ -7,7 +7,7 @@ const router = createRouter({
     routes: [
         {
             path: "/",
-            component: () => import('@/components/Layout/Layout.vue'),
+            component: () => import('@/view/Layout/index.vue'),
             children: [
                 {
                     // 首页
