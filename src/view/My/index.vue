@@ -125,9 +125,9 @@ onMounted(() => {
       <div class="info">
         <!-- 介绍 -->
         <div class="introduce">
-          <div class="row1">I am <span class="name">{{ authorInfo.author }}</span></div>
-          <div class="row1">{{ authorInfo.myInfo.row1 }}</div>
-          <div class="row2">{{ authorInfo.myInfo.row2 }}</div>
+          <div class="row1">I am <span class="name">YuYang</span></div>
+          <div class="row1">一名Web全栈开发工程师</div>
+          <div class="row2">我从小就对计算机编程技术有着无穷的兴趣，因此我的梦想是做一名技术顶尖的 架构师，因此我一直在朝着这个方向去努力、去坚持 直到梦想成真！</div>
         </div>
 
         <!-- 头像 -->

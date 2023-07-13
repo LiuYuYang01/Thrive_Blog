@@ -2,6 +2,9 @@
 import { ref } from 'vue';
 import Status from '@/types/Status';
 
+// 引入时间插件
+import moment from 'moment';
+
 // Highlight代码高亮
 import hljs from 'highlight.js'
 import "highlight.js/styles/vs2015.css"
@@ -42,7 +45,7 @@ const getContentData = async () => {
     try {
         loading.value = "loading"
 
-        const { data } = await getArticleAPI(+route.query.id!)
+        const { data } = await getArticleAPI(+route.params.id)
         articleData.value = data
 
         loading.value = "success"
@@ -54,7 +57,7 @@ const getContentData = async () => {
         createDirectory()
     } catch (error) {
         loading.value = "error"
-        console.log(error);
+        console.log("Article：", error);
     }
 }
 
@@ -107,7 +110,7 @@ function createDirectory() {
             <div class="info">
                 <!-- 文章创建时间 -->
                 <span>
-                    <iconpark-icon name="alarm-clock" /> {{ articleData.date }}
+                    <iconpark-icon name="alarm-clock" /> {{ moment(articleData.date).format('YYYY-MM-DD') }}
                 </span>
 
                 <!-- 文章浏览量 -->

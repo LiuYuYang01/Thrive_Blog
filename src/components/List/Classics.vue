@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { Article } from '@/types/Article'
 import { getArticleListAPI } from '@/api/Article'
 import Status from '@/types/Status'
+
 // 引入时间插件
 import moment from 'moment';
 
@@ -20,7 +21,7 @@ const getArticleList = async () => {
         loading.value = "success"
     } catch (error) {
         loading.value = "error"
-        console.log("在 Classics 文件中捕获到错误：", error);
+        console.log("Classics：", error);
     }
 }
 getArticleList()

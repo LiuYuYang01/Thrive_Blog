@@ -27,7 +27,7 @@ const getActiveList = async () => {
 
         ActiveList.value = data
     } catch (error) {
-        console.log("在 Active 文件中捕获到错误：", error);
+        console.log("Active：", error);
     }
 }
 getActiveList()

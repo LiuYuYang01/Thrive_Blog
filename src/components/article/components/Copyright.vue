@@ -11,8 +11,8 @@ Store.getAuthor()
 
 <template>
     <div class="Copyright">
-        <p>作者：{{ authorInfo.author }}</p>
-        <p>版权：此文章版权归 {{ authorInfo.author }} 所有，如有转载，请注明出处!</p>
+        <p>作者：{{ authorInfo.name }}</p>
+        <p>版权：此文章版权归 {{ authorInfo.name }} 所有，如有转载，请注明出处!</p>
     </div>
 </template>
 
