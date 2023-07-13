@@ -3,6 +3,8 @@ import { ref } from 'vue'
 import { Article } from '@/types/Article'
 import { getArticleListAPI } from '@/api/Article'
 import Status from '@/types/Status'
+// 引入时间插件
+import moment from 'moment';
 
 const articleList = ref<Article[]>([])
 const loading = ref<Status>("idle")
@@ -36,7 +38,8 @@ getArticleList()
 
             <!-- 文章信息 -->
             <div class="info">
-                <RouterLink to="article/100">
+                {{ item.id }}
+                <RouterLink :to="`article/${item.id}`">
                     <!-- 文章标题 -->
                     <h3>{{ item.title }}</h3>
 
@@ -44,7 +47,7 @@ getArticleList()
                     <p>{{ item.sketch }}</p>
 
                     <div class="fun" v-if="index % 2 === 0">
-                        <span><iconpark-icon name="alarm-clock" /> {{ item.date }}</span>
+                        <span><iconpark-icon name="alarm-clock" /> {{ moment(item.date).format('YYYY-MM-DD') }}</span>
                         <span><iconpark-icon name="fire" /> {{ item.view }}</span>
                         <span><iconpark-icon name="tag-one" /> {{ item.cate }}</span>
                     </div>

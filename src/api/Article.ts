@@ -5,8 +5,7 @@ import { Article } from '@/types/Article'
 // 获取文章数据
 export const getArticleAPI = (id: number): http<Article> => {
     return Request.instance.request({
-        url: `/api/article/${id}`,
-        params: { id }
+        url: `/api/article/${id}`
     })
 }
 

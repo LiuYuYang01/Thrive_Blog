@@ -21,6 +21,7 @@
     "echarts": "^5.4.2",
     "element-plus": "^2.3.5",
     "highlight.js": "^11.8.0",
+    "moment": "^2.29.4",
     "nprogress": "^0.2.0",
     "path": "^0.12.7",
     "pinia": "^2.0.36",

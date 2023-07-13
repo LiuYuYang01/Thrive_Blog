@@ -16,6 +16,9 @@ import "@/util/createCopyright"
 import { getArticleAPI } from "@/api/Article"
 import { Article } from '@/types/Article'
 
+import { useRoute } from 'vue-router'
+const route = useRoute()
+
 const emit = defineEmits<{ (e: "updateImmerse"): () => void }>()
 
 // 文章内容
@@ -39,7 +42,7 @@ const getContent = async () => {
     try {
         loading.value = "loading"
 
-        const { data } = await getArticleAPI(100)
+        const { data } = await getArticleAPI(+route.query.id!)
         articleData.value = data
 
         loading.value = "success"
@@ -197,7 +200,7 @@ function createDirectory() {
         text-align: center;
         transition: border-bottom $move;
 
-        h1{
+        h1 {
             color: $essayTitle;
             transition: color $move;
         }
@@ -245,12 +248,12 @@ function createDirectory() {
         transition: color $move;
 
         // 图片
-        :deep(img){
+        :deep(img) {
             width: 100%;
         }
 
         // 超链接
-        ::deep(p a){
+        ::deep(p a) {
             display: block;
             color: #539dfd !important;
             background-color: #539dfd !important;
