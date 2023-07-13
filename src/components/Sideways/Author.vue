@@ -1,12 +1,12 @@
 <script setup lang='ts'>
-// 引入用户信息
-import useUserStore from '@/stores/Author'
 import { storeToRefs } from 'pinia';
+import useUserStore from '@/stores/Author'
 
 const Store = useUserStore()
-const { authorInfo } = storeToRefs(Store)
-
 Store.getAuthor()
+
+// 获取作者信息
+const { authorInfo } = storeToRefs(Store)
 </script>
 
 <template>
@@ -20,12 +20,12 @@ Store.getAuthor()
 
         <!-- 作者介绍 -->
         <div class="info">
-            <h3>{{ authorInfo.author }}</h3>
+            <h3>{{ authorInfo.name }}</h3>
             <p>{{ authorInfo.introduce }}</p>
         </div>
 
         <!-- 社交账号 -->
-        <div class="socializing">
+        <!-- <div class="socializing">
             <div class="title"></div>
 
             <div class="list">
@@ -33,7 +33,7 @@ Store.getAuthor()
                     <img :src="`/src/assets/svg/socializing/${item.name}.svg`" :title="item.name">
                 </a>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 

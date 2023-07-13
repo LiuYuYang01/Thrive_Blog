@@ -1,9 +1,9 @@
 import { getAuthorAPI } from '@/api/User'
-import { Author } from '@/types/User'
+import { User, UserInfo } from '@/types/User'
 import { defineStore } from "pinia"
 
 type State = {
-    authorInfo: Author
+    authorInfo: UserInfo
 }
 
 type Getter = {}
@@ -16,25 +16,26 @@ const Store = defineStore<"Author", State, Getter, Actions>("Author", {
     state: () => ({
         // 作者信息
         authorInfo: {
-            author: "", //头像
-            qq: 0, //QQ
-            introduce: "", //介绍
-            background: "", //背景图
             avatar: "",
-            myInfo: {
-                row1: "",
-                row2: ""
-            },
-            socializing: [] //社交账号
+            introduce: "",
+            name: "",
+            qq: 0,
+            background: "",
+            role: ""
+            // myInfo: {
+            //     row1: "",
+            //     row2: ""
+            // },
+            // socializing: [] //社交账号
         }
     }),
     actions: {
         // 获取作者信息
         async getAuthor() {
-            const { data } = await getAuthorAPI()
+            const { data } = await getAuthorAPI(1)
 
-            this.authorInfo = data
-        },
+            this.authorInfo = data.userInfo
+        }
     },
     // pinia状态是否持久化到本地存储
     // persist: true

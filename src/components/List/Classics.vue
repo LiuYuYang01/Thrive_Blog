@@ -38,7 +38,6 @@ getArticleList()
 
             <!-- 文章信息 -->
             <div class="info">
-                {{ item.id }}
                 <RouterLink :to="`article/${item.id}`">
                     <!-- 文章标题 -->
                     <h3>{{ item.title }}</h3>

@@ -38,7 +38,7 @@ const articleData = ref<Article>({
 const loading = ref<Status>("idle")
 
 // 获取文章的数据
-const getContent = async () => {
+const getContentData = async () => {
     try {
         loading.value = "loading"
 
@@ -59,8 +59,8 @@ const getContent = async () => {
 }
 
 // 这里必须调用两次这个函数，不然代码不高亮，暂时只能这样解决
-getContent()
-getContent()
+getContentData()
+getContentData()
 
 // 生成文章目录
 function createDirectory() {
