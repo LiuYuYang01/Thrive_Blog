@@ -8,34 +8,21 @@ import Status from '@/types/Status'
 import moment from 'moment';
 
 const articleList = ref<Article[]>([])
-const loading = ref<Status>("idle")
 
 // 获取文章列表
 const getArticleList = async () => {
-    try {
-        loading.value = "loading"
-
-        const { data } = await getArticleListAPI()
-        articleList.value = data
-
-        loading.value = "success"
-    } catch (error) {
-        loading.value = "error"
-        console.log("Classics：", error);
-    }
+    const { data } = await getArticleListAPI()
+    articleList.value = data
 }
 getArticleList()
 </script>
 
 <template>
     <div class="Classics">
-        <!-- 数据加载动画 -->
-        <Loading v-if="loading === 'loading'" />
-
         <!-- 文章列表 -->
         <div class="item" v-for="item, index in articleList">
             <!-- 文章封面 -->
-            <div class="cover" :style="{ backgroundImage: 'url(' + item.cover + ')' }" v-if="index % 2 === 0"></div>
+            <div class="cover" :style="{ backgroundImage: `url(${item.cover})` }" v-if="index % 2 === 0"></div>
 
             <!-- 文章信息 -->
             <div class="info">
@@ -60,7 +47,8 @@ getArticleList()
                 </RouterLink>
             </div>
 
-            <div class="cover" style="clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);" v-if="index % 2 !== 0"></div>
+            <div class="cover" style="clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);"
+                :style="{ backgroundImage: `url(${item.cover})` }" v-if="index % 2 !== 0"></div>
         </div>
 
         <!-- 加载更多 -->

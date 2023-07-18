@@ -2,7 +2,7 @@
 const props = defineProps<{ tags: string }>()
 
 const list = (str: string) => {
-    return str.split("、")
+    return str.split(",")
 }
 </script>
 

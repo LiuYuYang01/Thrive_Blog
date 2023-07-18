@@ -37,4 +37,7 @@ declare module '@vue/runtime-core' {
     Typewriter: typeof import('./src/components/Typewriter/index.vue')['default']
     UpAndDown: typeof import('./src/components/Article/components/UpAndDown.vue')['default']
   }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
+  }
 }
