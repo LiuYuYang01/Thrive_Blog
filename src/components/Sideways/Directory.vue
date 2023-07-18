@@ -23,7 +23,7 @@ getContent()
 </script>
 
 <template>
-    <div class="Directory">
+    <div class="Directory" v-if="doms.length">
         <div class="title">
             <img src="@/assets/svg/other/Directory.svg" alt="">
             <span>文章目录</span>
