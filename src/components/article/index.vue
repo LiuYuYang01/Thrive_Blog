@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import Status from '@/types/Status';
-
 // 引入时间插件
 import moment from 'moment';
 
@@ -16,7 +13,6 @@ import "@/util/createCopyright"
 import { getArticleAPI } from "@/api/Article"
 import { Article } from '@/types/Article'
 
-import { useRoute } from 'vue-router'
 const route = useRoute()
 
 const emit = defineEmits<{ (e: "updateImmerse"): () => void }>()
@@ -34,17 +30,11 @@ const articleData = ref<Article>({
     cover: "", //封面
 })
 
-// 加载状态
-const loading = ref<Status>("idle")
 
 // 获取文章的数据
 const getContentData = async () => {
-    loading.value = "loading"
-
     const { data } = await getArticleAPI(+route.params.id)
     articleData.value = data
-
-    loading.value = "success"
 
     // 代码高亮
     hljs.highlightAll()
@@ -81,13 +71,11 @@ function createDirectory() {
         });
     }
 }
+
 </script>
 
 <template>
-    <!-- 数据加载动画 -->
-    <Loading v-if="loading === 'loading'" style=" margin-top: 110px;" />
-
-    <div class="Article" v-else>
+    <div class="Article">
         <!-- 专注模式按钮 -->
         <div class="focus" @click="emit('updateImmerse')">
             <iconpark-icon name="book-open"></iconpark-icon>
@@ -123,7 +111,7 @@ function createDirectory() {
         </div>
 
         <!-- 文章内容 -->
-        <div class="content" v-html="articleData.content"></div>
+        <v-md-preview :text="articleData.content" class="content"></v-md-preview>
 
         <!-- 文章标签 -->
         <Tag :tags="articleData.tag" />
@@ -241,6 +229,10 @@ function createDirectory() {
         font-size: 15px;
         color: $essayContent;
         transition: color $move;
+
+        :deep .github-markdown-body {
+            padding: 0;
+        }
 
         // 图片
         :deep(img) {

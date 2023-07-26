@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@highlightjs/vue-plugin": "^2.1.0",
+    "@kangc/v-md-editor": "^2.3.16",
     "@types/canvas-confetti": "^1.6.0",
     "@types/node": "^18.15.11",
     "@vitejs/plugin-vue-jsx": "^3.0.1",
