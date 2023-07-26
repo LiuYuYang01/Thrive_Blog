@@ -60,12 +60,13 @@ function createDirectory() {
 
         doms.forEach((item: HTMLElement) => {
             // 给所有有内容的值设置自定义属性
+            // 如果是H1就设置一级目录的标识
             if (item.innerHTML) {
                 item.setAttribute("id", String(++index))
             }
 
-            // 如果是H3就设置二级目录的标识
-            if (item.tagName === "H3") {
+            // 如果是H2就设置二级目录的标识
+            if (item.tagName === "H2") {
                 item.setAttribute("two", "yes")
             }
         });
@@ -285,21 +286,39 @@ function createDirectory() {
 
         :deep(h1) {
             margin-bottom: 20px;
-            font-size: 28px;
+            font-size: 24px;
         }
 
         :deep(h2) {
             position: relative;
-            padding-bottom: 5px;
-            margin-bottom: 25px;
+            padding-left: 20px;
             border-bottom: 1px dashed $underBorderColor;
-            transition: border-bottom $move;
+            font-size: 22px;
         }
 
         :deep(h2::before) {
             content: "";
             position: absolute;
-            bottom: 20px;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 70%;
+            border-radius: $round;
+            background-color: $color;
+        }
+
+        :deep(h3) {
+            position: relative;
+            padding-bottom: 5px;
+            margin-bottom: 25px;
+            transition: border-bottom $move;
+        }
+
+        :deep(h3::before) {
+            content: "";
+            position: absolute;
+            bottom: 5px;
             width: 7%;
             height: 10px;
             border-radius: $round;
@@ -307,10 +326,15 @@ function createDirectory() {
             opacity: 0.4;
         }
 
-        :deep(h3::before) {
+        :deep(h4) {
+            display: flex;
+            align-items: center;
+        }
+
+        :deep(h4::before) {
             content: "#";
             color: $color;
-            padding-right: 10px;
+            padding-right: 5px;
             font-size: 25px;
             vertical-align: middle;
         }
