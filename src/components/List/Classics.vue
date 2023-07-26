@@ -1,8 +1,6 @@
 <script setup lang='ts'>
-import { ref } from 'vue'
 import { Article } from '@/types/Article'
 import { getArticleListAPI } from '@/api/Article'
-import Status from '@/types/Status'
 
 // 引入时间插件
 import moment from 'moment';
@@ -10,11 +8,11 @@ import moment from 'moment';
 const articleList = ref<Article[]>([])
 
 // 获取文章列表
-const getArticleList = async () => {
+const getArticleData = async () => {
     const { data } = await getArticleListAPI()
     articleList.value = data
 }
-getArticleList()
+getArticleData()
 </script>
 
 <template>
@@ -51,11 +49,8 @@ getArticleList()
                 :style="{ backgroundImage: `url(${item.cover})` }" v-if="index % 2 !== 0"></div>
         </div>
 
-        <!-- 加载更多 -->
-        <LoadMore v-if="articleList.length"></LoadMore>
-
         <!-- 空状态 -->
-        <Empty info="暂无文章" v-else></Empty>
+        <Empty info="暂无文章" v-if="!articleList.length"></Empty>
     </div>
 </template>
 

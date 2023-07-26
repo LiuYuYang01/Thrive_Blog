@@ -9,9 +9,6 @@ import moment from 'moment';
 import hljs from 'highlight.js'
 import "highlight.js/styles/vs2015.css"
 
-// Wangeditor编辑器样式
-import '@wangeditor/editor/dist/css/style.css'
-
 // 复制文本自动生成版权信息
 import "@/util/createCopyright"
 
@@ -42,23 +39,18 @@ const loading = ref<Status>("idle")
 
 // 获取文章的数据
 const getContentData = async () => {
-    try {
-        loading.value = "loading"
+    loading.value = "loading"
 
-        const { data } = await getArticleAPI(+route.params.id)
-        articleData.value = data
+    const { data } = await getArticleAPI(+route.params.id)
+    articleData.value = data
 
-        loading.value = "success"
+    loading.value = "success"
 
-        // 代码高亮
-        hljs.highlightAll()
+    // 代码高亮
+    hljs.highlightAll()
 
-        // 生成目录
-        createDirectory()
-    } catch (error) {
-        loading.value = "error"
-        console.log("Article：", error);
-    }
+    // 生成目录
+    createDirectory()
 }
 
 // 这里必须调用两次这个函数，不然代码不高亮，暂时只能这样解决

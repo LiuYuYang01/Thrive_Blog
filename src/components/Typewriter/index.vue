@@ -1,6 +1,5 @@
 <script setup lang='ts'>
 import Typed from 'typed.js'
-import { onMounted } from 'vue'
 
 const options = {
     strings: ['print("互联网从不缺乏天才, 而努力才是最终的入场券!")', 'console.log("路虽远, 行则将至, 事虽难, 做则必成!")'],

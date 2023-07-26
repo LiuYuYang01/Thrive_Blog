@@ -4,15 +4,11 @@ import { ref, watch } from 'vue'
 // 导入分类数据的类型
 import { Cate } from '@/types/Cate'
 
-// 导入Scss主题变量
-import global from '@/styles/global.module.scss';
-
 // 导入相关API
 import { getCateListAPI } from '@/api/Cate'
 
 // 获取页面滚动的距离
 import useScroll from '@/util/useScroll';
-import { onBeforeRouteUpdate, useRoute, useRouter } from 'vue-router';
 const top = useScroll()
 
 
@@ -20,13 +16,9 @@ let cateList = ref<Cate[]>()
 
 // 获取分类导航信息
 const getCateList = async () => {
-  try {
-    const { data } = await getCateListAPI()
+  const { data } = await getCateListAPI()
 
-    cateList.value = data
-  } catch (error) {
-    console.log("在分类导航中捕获到异常：", error);
-  }
+  cateList.value = data
 }
 
 getCateList()

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
 import { Form, Field, ErrorMessage } from 'vee-validate'
 import * as yup from 'yup'
 

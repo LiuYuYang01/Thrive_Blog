@@ -2,21 +2,19 @@
 import { getArticleAPI } from '@/api/Article';
 import { ref } from 'vue'
 
+const router = useRouter()
+
 const doms = ref<any>([]);
 
 // 获取文章的数据
 const getContent = async () => {
-    try {
-        await getArticleAPI(100)
+    await getArticleAPI(+router.currentRoute.value.params.id as number)
 
-        // 转换为真数组
-        doms.value = Array.from(document.querySelectorAll(".content h1,.content h2,.content h3"))
+    // 转换为真数组
+    doms.value = Array.from(document.querySelectorAll(".content h1,.content h2,.content h3"))
 
-        // 去除为空的标题
-        doms.value = doms.value.filter((item: HTMLElement) => { if (item.innerHTML) return item })
-    } catch (error) {
-        console.log(error);
-    }
+    // 去除为空的标题
+    doms.value = doms.value.filter((item: HTMLElement) => { if (item.innerHTML) return item })
 }
 
 getContent()

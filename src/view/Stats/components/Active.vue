@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { ActivityCalendar } from 'vue-activity-calendar'
 import 'vue-activity-calendar/style.css'
 import type { Calendar, Active } from '@/types/Stats'

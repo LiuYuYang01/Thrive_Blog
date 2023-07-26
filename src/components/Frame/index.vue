@@ -24,7 +24,7 @@ const { modules = ["Author", "HotArticle", "RandomArticle", "NewComments"], isIm
                 <!-- 最新评论 -->
                 <NewComments v-if="modules.includes('NewComments')" />
                 <!-- 文章目录 -->
-                <Directory v-if="modules.includes('Directory')" />
+                <Directory v-if="modules.includes('Directory')"/>
             </div>
         </div>
     </div>

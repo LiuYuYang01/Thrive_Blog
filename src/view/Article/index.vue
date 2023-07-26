@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-
 // 是否开启沉浸模式
 const isImmerse = ref(false)
 const update = () => {

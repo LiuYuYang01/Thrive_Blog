@@ -1,8 +1,6 @@
 <script setup lang="ts">
 // 引入用户信息
 import useUserStore from '@/stores/Author'
-import { storeToRefs } from 'pinia';
-import { onMounted } from 'vue';
 
 const Store = useUserStore()
 const { authorInfo } = storeToRefs(Store)
