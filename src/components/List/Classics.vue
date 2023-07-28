@@ -45,6 +45,8 @@ getArticleData()
                 </RouterLink>
             </div>
 
+            <div class="bg" :style="{ backgroundImage: `url(${item.cover})` }"></div>
+
             <div class="cover" style="clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);"
                 :style="{ backgroundImage: `url(${item.cover})` }" v-if="index % 2 !== 0"></div>
         </div>
@@ -72,12 +74,14 @@ getArticleData()
 
         // 文章封面
         .cover {
+            position: relative;
             width: 35%;
             background: url("https://liuyuyang.net/usr/uploads/2023/04/1258239203.jpeg") no-repeat center;
             background-size: cover;
             transition: all $move;
             transform: scale(1);
             clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+            z-index: 1;
 
             &:hover {
                 transform: scale(1.2);
@@ -87,8 +91,10 @@ getArticleData()
 
         // 文章信息
         .info {
+            position: relative;
             width: 65%;
             padding: 20px 40px;
+            z-index: 2;
 
             a {
                 display: flex;
@@ -100,35 +106,22 @@ getArticleData()
                 h3 {
                     position: relative;
                     width: 100%;
-                    color: $textColor;
                     padding-top: 10px;
                     padding-bottom: 20px;
-                    transition: color $move;
+                    color: #fff;
 
                     // 防止超长文本 溢出
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
-
-                    // 下划线
-                    &::after {
-                        content: "";
-                        position: absolute;
-                        left: 0;
-                        bottom: 10px;
-                        width: 0%;
-                        height: 2px;
-                        background-color: $color;
-                        transition: width $move;
-                    }
                 }
 
                 // 文章简述
                 p {
-                    color: $contentColor;
+                    color: #dfdfdf;
                     font-size: 15px;
                     line-height: 30px;
-                    transition: color $move;
+                    text-indent: 2em;
 
                     // 多行文本溢出
                     display: -webkit-box !important;
@@ -146,8 +139,7 @@ getArticleData()
                     span {
                         padding-left: 30px;
                         font-size: 12px;
-                        color: $textColor;
-                        transition: color $move;
+                        color: #ffffff;
 
                         iconpark-icon {
                             padding: 4px;
@@ -175,13 +167,15 @@ getArticleData()
             }
         }
 
-        // 鼠标经过文章样式
-        &:hover .info h3 {
-            color: $color;
-
-            &::after {
-                width: 100%;
-            }
+        // 背景虚化
+        .bg {
+            position: absolute;
+            width: 100%;
+            height: 250px;
+            background-position-x: center;
+            background-position-y: center;
+            background-size: cover;
+            filter: blur(2.5rem) brightness(0.6);
         }
     }
 
