@@ -12,6 +12,7 @@ import "@/util/createCopyright"
 // 引入文章API接口
 import { getArticleAPI } from "@/api/Article"
 import { Article } from '@/types/Article'
+import { set } from 'nprogress';
 
 const route = useRoute()
 
@@ -30,6 +31,17 @@ const articleData = ref<Article>({
     cover: "", //封面
 })
 
+const loading = ref(true)
+const svg = `
+        <path class="path" d="
+          M 30 15
+          L 28 17
+          M 25.61 25.61
+          A 15 15, 0, 0, 1, 15 30
+          A 15 15, 0, 1, 1, 27.99 7.5
+          L 15 15
+        " style="stroke-width: 4px; fill: rgba(0, 0, 0, 0)"/>
+      `
 
 // 获取文章的数据
 const getContentData = async () => {
@@ -40,7 +52,9 @@ const getContentData = async () => {
     hljs.highlightAll()
 
     // 生成目录
-    createDirectory()
+    nextTick(() => {
+        createDirectory()
+    })
 }
 
 // 这里必须调用两次这个函数，不然代码不高亮，暂时只能这样解决
@@ -72,7 +86,6 @@ function createDirectory() {
         });
     }
 }
-
 </script>
 
 <template>
@@ -88,7 +101,7 @@ function createDirectory() {
             <h1>{{ articleData.title }}</h1>
 
             <!-- 文章信息 -->
-            <div class="info">
+            <div class="info" v-if="false">
                 <!-- 文章创建时间 -->
                 <span>
                     <iconpark-icon name="alarm-clock" /> {{ moment(articleData.date).format('YYYY-MM-DD') }}
@@ -111,11 +124,15 @@ function createDirectory() {
             </div>
         </div>
 
+        <!-- 文章加载效果 -->
+        <div v-loading="loading" :element-loading-svg="svg" element-loading-svg-view-box="-10, -10, 50, 50" class="loading"
+            v-if="!articleData.content"></div>
+
         <!-- 文章内容 -->
-        <v-md-preview :text="articleData.content" class="content"></v-md-preview>
+        <v-md-preview :text="articleData.content" class="content" v-else></v-md-preview>
 
         <!-- 文章标签 -->
-        <Tag :tags="articleData.tag" />
+        <Tag :tags="articleData.tag" v-if="articleData.tag" />
 
         <!-- 版权信息 -->
         <Copyright />
@@ -225,6 +242,13 @@ function createDirectory() {
         }
     }
 
+    // 加载效果
+    .loading {
+        width: 80%;
+        height: 100px;
+        margin: 0 auto;
+    }
+
     // 文章内容
     .content {
         font-size: 15px;
@@ -277,7 +301,6 @@ function createDirectory() {
         :deep(h4),
         :deep(h5),
         :deep(h6) {
-            margin: 20px 0 10px;
             // a标签锚点跳转距离顶部的距离
             scroll-margin-top: 80px;
             color: $essayTitle;
@@ -301,7 +324,7 @@ function createDirectory() {
             position: absolute;
             left: 0;
             top: 50%;
-            transform: translateY(-50%);
+            transform: translateY(-60%);
             width: 5px;
             height: 70%;
             border-radius: $round;
@@ -309,9 +332,8 @@ function createDirectory() {
         }
 
         :deep(h3) {
+            display: inline-block;
             position: relative;
-            padding-bottom: 5px;
-            margin-bottom: 25px;
             transition: border-bottom $move;
         }
 
@@ -319,7 +341,7 @@ function createDirectory() {
             content: "";
             position: absolute;
             bottom: 5px;
-            width: 7%;
+            width: 80%;
             height: 10px;
             border-radius: $round;
             background-color: $color;
