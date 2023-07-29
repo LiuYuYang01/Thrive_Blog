@@ -1,13 +1,25 @@
 <script setup lang="ts">
 import { getArticleAPI } from '@/api/Article';
-import { ref } from 'vue'
 
 const router = useRouter()
+
+const loading = ref(true)
+const svg = `
+        <path class="path" d="
+          M 30 15
+          L 28 17
+          M 25.61 25.61
+          A 15 15, 0, 0, 1, 15 30
+          A 15 15, 0, 1, 1, 27.99 7.5
+          L 15 15
+        " style="stroke-width: 4px; fill: rgba(0, 0, 0, 0)"/>
+      `
 
 const doms = ref<any>([]);
 
 // 获取文章的数据
 const getContent = async () => {
+    loading.value = true
     await getArticleAPI(+router.currentRoute.value.params.id as number)
 
     // 转换为真数组
@@ -15,15 +27,17 @@ const getContent = async () => {
 
     // 去除为空的标题
     doms.value = doms.value.filter((item: HTMLElement) => { if (item.innerHTML) return item })
+    loading.value = false
 }
 
 getContent()
 </script>
 
 <template>
-    <div class="Directory" v-if="doms.length">
+    <div class="Directory">
         <div class="title">
-            <img src="@/assets/svg/other/Directory.svg" alt="">
+            <img src="@/assets/svg/other/directory.svg" alt="">
+
             <span>文章目录</span>
         </div>
 
@@ -36,6 +50,9 @@ getContent()
                         item.innerHTML }}</a>
                 </li>
             </ul>
+
+            <!-- 加载效果 -->
+            <div class="loading" v-loading="loading" :element-loading-svg="svg" v-if="loading"></div>
         </div>
     </div>
 </template>
@@ -64,7 +81,13 @@ getContent()
 
     // 目录
     .list {
+        overflow: auto;
         margin-top: 10px;
+        height: 560px;
+
+        .loading{
+            height: 200px;
+        }
 
         li {
             padding: 0 10px;

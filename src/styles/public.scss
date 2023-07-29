@@ -2,9 +2,13 @@
 @import "./global.scss";
 
 body {
-    // height: 3000px;
     background-color: $bgColor;
     transition: background-color $move;
+}
+
+// 进度条颜色
+::-webkit-scrollbar-thumb {
+    background-color: #d4d4d4;
 }
 
 // 封装CSS容器样式
@@ -31,7 +35,7 @@ body {
         color: $textColor;
         transition: all $move;
 
-        img{
+        img {
             width: 30px;
             height: 20px;
         }
@@ -49,4 +53,3 @@ body {
     font-family: kuaikan;
     src: url("../assets/font/kuaikanshijieti.ttf");
 }
-

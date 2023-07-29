@@ -2,17 +2,12 @@
 // 引入时间插件
 import moment from 'moment';
 
-// Highlight代码高亮
-import hljs from 'highlight.js'
-import "highlight.js/styles/vs2015.css"
-
 // 复制文本自动生成版权信息
 import "@/util/createCopyright"
 
 // 引入文章API接口
 import { getArticleAPI } from "@/api/Article"
 import { Article } from '@/types/Article'
-import { set } from 'nprogress';
 
 const route = useRoute()
 
@@ -49,16 +44,13 @@ const getContentData = async () => {
     articleData.value = data
 
     // 代码高亮
-    hljs.highlightAll()
+    // hljs.highlightAll()
 
     // 生成目录
     nextTick(() => {
         createDirectory()
     })
 }
-
-// 这里必须调用两次这个函数，不然代码不高亮，暂时只能这样解决
-getContentData()
 getContentData()
 
 // 生成文章目录
