@@ -1,6 +1,15 @@
 <script setup lang="ts">
 import { ElNotification } from 'element-plus';
 
+// 是否显示目录
+const isDirectory = () => {
+    const essay = document.querySelector(".main .left")
+    const directory = document.querySelector(".main .Directory")
+    console.log(essay, directory);
+}
+
+
+
 // 简化写法
 const $css = document.documentElement.style
 
@@ -103,6 +112,9 @@ const updateColor = () => {
 
 <template>
     <div class="ToolBar">
+        <!-- 文章目录 -->
+        <img src="@/assets/svg/other/directory.svg" alt="" class="item" @click="isDirectory" />
+
         <!-- 黑夜 -->
         <iconpark-icon name="sun" class="item" style="color: #f5a630;" @click="isEffect = !isEffect" v-if="isEffect" />
 

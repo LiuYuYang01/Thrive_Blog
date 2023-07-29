@@ -11,8 +11,6 @@ import { Article } from '@/types/Article'
 
 const route = useRoute()
 
-const emit = defineEmits<{ (e: "updateImmerse"): () => void }>()
-
 // 文章内容
 const articleData = ref<Article>({
     title: "", //标题
@@ -82,12 +80,6 @@ function createDirectory() {
 
 <template>
     <div class="Article">
-        <!-- 专注模式按钮 -->
-        <div class="focus" @click="emit('updateImmerse')">
-            <iconpark-icon name="book-open"></iconpark-icon>
-            <span>沉浸式</span>
-        </div>
-
         <!-- 文章标题 -->
         <div class="title">
             <h1>{{ articleData.title }}</h1>
@@ -148,41 +140,6 @@ function createDirectory() {
     line-height: 2.3;
     background-color: $boxColor;
     @include container;
-
-    // 右侧背景
-    &::after {
-        content: "";
-        width: 110px;
-        height: 210px;
-        background-color: $color;
-        position: absolute;
-        top: -110px;
-        right: -20px;
-        transform: rotate(135deg);
-    }
-
-    // 专注模式按钮样式
-    .focus {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: absolute;
-        top: -22px;
-        right: -23px;
-        padding: 30px;
-        cursor: pointer;
-        z-index: 2;
-
-        iconpark-icon {
-            font-size: 30px;
-            color: #fff;
-        }
-
-        span {
-            color: #fff;
-            font-size: 12px;
-        }
-    }
 
     // 文章标题
     .title {

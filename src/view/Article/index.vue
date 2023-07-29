@@ -1,15 +1,5 @@
 <script setup lang="ts">
-// 是否开启沉浸模式
-const isImmerse = ref(false)
-const update = () => {
-  isImmerse.value = !isImmerse.value
 
-  if (isImmerse.value) {
-    document.body.style.background = "#fff"
-  } else {
-    document.body.style.background = "#f9f9f9"
-  }
-}
 </script>
 
 <template>
@@ -19,8 +9,8 @@ const update = () => {
 
     <!-- :modules="['Author']" 设置只显示哪些模块 -->
     <!-- :isModules="false" 是否开启沉浸模式 -->
-    <Frame :modules="['Directory']" :isImmerse="isImmerse">
-      <Article @updateImmerse="update" />
+    <Frame :modules="['Directory']">
+      <Article />
     </Frame>
   </div>
 </template>
