@@ -3,5 +3,6 @@ export interface Cate {
     name: string,
     icon: string,
     url: string,
+    mark: string,
     children: Cate[]
 }

@@ -35,9 +35,6 @@ watch(() => route, route => {
   pages.includes(route.fullPath) ? is.value = true : is.value = false
 }, { immediate: true, deep: true })
 
-// 导出Scss指定的变量
-// const { color } = global;
-
 // 扩展页面
 const ExtendPage = {
   name: "扩展页面",
@@ -96,7 +93,7 @@ const ExtendPage = {
 
         <!-- 导航列表 -->
         <li class="one_item" v-for="one in cateList" :key="one.id">
-          <RouterLink :to="one.url" class="one_item_nav"
+          <RouterLink :to="`cate/${one.mark}`" class="one_item_nav"
             :style="{ color: top > 100 || is ? 'var(--textColor, #333)' : '#fff' }">
             {{ one.icon }} {{ one.name }}
 
@@ -107,7 +104,7 @@ const ExtendPage = {
           <!-- 二级导航 -->
           <ul class="two">
             <li class="two_item" v-for="two in one.children" :key="two.id">
-              <RouterLink :to="two.url" class="two_item_nav">{{ two.name }}</RouterLink>
+              <RouterLink :to="`cate/${one.mark}/${two.mark}`" class="two_item_nav">{{ two.name }}</RouterLink>
             </li>
           </ul>
         </li>

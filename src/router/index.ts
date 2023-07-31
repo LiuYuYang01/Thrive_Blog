@@ -22,6 +22,18 @@ const router = createRouter({
                     component: () => import('@/view/Article/index.vue')
                 },
                 {
+                    // 一级分类
+                    path: "cate/:one",
+                    name: "cate",
+                    component: () => import('@/view/Cate/index.vue')
+                },
+                {
+                    // 二级分类
+                    path: "cate/:one/:two",
+                    name: "cate",
+                    component: () => import('@/view/Cate/index.vue')
+                },
+                {
                     // 统计页
                     path: "stats",
                     name: "stats",
