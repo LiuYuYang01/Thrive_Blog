@@ -41,7 +41,7 @@ const { isRipple = false, isTyping = false } = defineProps<{ src: string, isRipp
     &::after {
         content: "";
         width: 100%;
-        height: 10%;
+        height: 20%;
         position: absolute;
         bottom: 0;
         left: 0;

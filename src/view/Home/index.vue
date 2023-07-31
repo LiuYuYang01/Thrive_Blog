@@ -3,8 +3,8 @@
 
 <template>
   <Swiper src="http://static.liuyuyang.net/images/t01d6f5fd3610da0a08.jpg"></Swiper>
-  
-  <Frame>
+
+  <Frame :modules='["Author", "HotArticle", "RandomArticle", "NewComments"]'>
     <Classics />
   </Frame>
 </template>

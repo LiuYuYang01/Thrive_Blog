@@ -3,12 +3,15 @@
 // import confetti from 'canvas-confetti';
 
 // 默认显示所有侧边栏模块，可以指定选择哪些显示
-const { modules = ["Author", "HotArticle", "RandomArticle", "NewComments"]} = defineProps<{ modules?: string[] }>()
+const { modules = [] } = defineProps<{ modules?: string[] }>()
+
+const router = useRouter()
+const path = router.currentRoute.value.path
 </script>
 
 <template>
     <div class="main">
-        <div class="left">
+        <div class="left" :style="{ width: path === '/' ? '75%' : '100%' }">
             <!-- 文章列表经典风格 -->
             <slot />
         </div>
@@ -24,7 +27,7 @@ const { modules = ["Author", "HotArticle", "RandomArticle", "NewComments"]} = de
                 <!-- 最新评论 -->
                 <NewComments v-if="modules.includes('NewComments')" />
                 <!-- 文章目录 -->
-                <Directory v-if="modules.includes('Directory')"/>
+                <Directory />
             </div>
         </div>
     </div>
@@ -42,8 +45,6 @@ const { modules = ["Author", "HotArticle", "RandomArticle", "NewComments"]} = de
     margin: 0 auto;
 
     .left {
-        // width: 75%;
-        width: 100%;
         transition: width $move;
     }
 

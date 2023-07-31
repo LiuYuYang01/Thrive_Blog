@@ -3,9 +3,18 @@ import { ElNotification } from 'element-plus';
 
 // 是否显示目录
 const isDirectory = () => {
-    const essay = document.querySelector(".main .left")
-    const directory = document.querySelector(".main .Directory")
-    console.log(essay, directory);
+    const essay = document.querySelector(".main .left") as HTMLElement
+    const directory = document.querySelector(".main .Directory") as HTMLElement
+
+    let w = essay.style.width
+
+    if (w === "100%") {
+        essay.style.width = "75%"
+        directory.style.display = "block"
+    } else {
+        essay.style.width = "100%"
+        directory.style.display = "none"
+    }
 }
 
 

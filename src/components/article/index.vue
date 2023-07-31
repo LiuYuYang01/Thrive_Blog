@@ -80,32 +80,27 @@ function createDirectory() {
 
 <template>
     <div class="Article">
-        <!-- 文章标题 -->
-        <div class="title">
-            <h1>{{ articleData.title }}</h1>
+        <!-- 文章信息 -->
+        <div class="info" v-if="false">
+            <!-- 文章创建时间 -->
+            <span>
+                <iconpark-icon name="alarm-clock" /> {{ moment(articleData.date).format('YYYY-MM-DD') }}
+            </span>
 
-            <!-- 文章信息 -->
-            <div class="info" v-if="false">
-                <!-- 文章创建时间 -->
-                <span>
-                    <iconpark-icon name="alarm-clock" /> {{ moment(articleData.date).format('YYYY-MM-DD') }}
-                </span>
+            <!-- 文章浏览量 -->
+            <span>
+                <iconpark-icon name="fire" /> {{ articleData.view }}
+            </span>
 
-                <!-- 文章浏览量 -->
-                <span>
-                    <iconpark-icon name="fire" /> {{ articleData.view }}
-                </span>
+            <!-- 文章所在的标签 -->
+            <span>
+                <iconpark-icon name="tag-one" /> {{ articleData.cate }}
+            </span>
 
-                <!-- 文章所在的标签 -->
-                <span>
-                    <iconpark-icon name="tag-one" /> {{ articleData.cate }}
-                </span>
-
-                <!-- 文章评论数量 -->
-                <span>
-                    <iconpark-icon name="comment" /> 评论：{{ articleData.comment }}
-                </span>
-            </div>
+            <!-- 文章评论数量 -->
+            <span>
+                <iconpark-icon name="comment" /> 评论：{{ articleData.comment }}
+            </span>
         </div>
 
         <!-- 文章加载效果 -->
@@ -141,52 +136,37 @@ function createDirectory() {
     background-color: $boxColor;
     @include container;
 
-    // 文章标题
-    .title {
-        padding: 20px 0;
-        margin-bottom: 20px;
-        border-bottom: 1px solid $underBorderColor;
-        font-weight: 700;
-        text-align: center;
-        transition: border-bottom $move;
+    // 文章信息
+    .info {
+        font-size: 12px;
+        font-weight: 400;
 
-        h1 {
-            color: $essayTitle;
+        span {
+            display: inline-block;
+            margin: 0 10px;
+            color: $textColor;
             transition: color $move;
-        }
 
-        // 文章信息
-        .info {
-            font-size: 12px;
-            font-weight: 400;
+            iconpark-icon {
+                padding: 3px;
+                border-radius: 50%;
+                color: #fff;
+            }
 
-            span {
-                display: inline-block;
-                margin: 0 10px;
-                color: $textColor;
-                transition: color $move;
+            &:nth-child(1) iconpark-icon {
+                background-color: #539dfd;
+            }
 
-                iconpark-icon {
-                    padding: 3px;
-                    border-radius: 50%;
-                    color: #fff;
-                }
+            &:nth-child(2) iconpark-icon {
+                background-color: #eb373a;
+            }
 
-                &:nth-child(1) iconpark-icon {
-                    background-color: #539dfd;
-                }
+            &:nth-child(3) iconpark-icon {
+                background-color: #f5a630;
+            }
 
-                &:nth-child(2) iconpark-icon {
-                    background-color: #eb373a;
-                }
-
-                &:nth-child(3) iconpark-icon {
-                    background-color: #f5a630;
-                }
-
-                &:nth-child(4) iconpark-icon {
-                    background-color: #b335ec;
-                }
+            &:nth-child(4) iconpark-icon {
+                background-color: #b335ec;
             }
         }
     }
@@ -257,8 +237,12 @@ function createDirectory() {
         }
 
         :deep(h1) {
-            margin-bottom: 20px;
-            font-size: 24px;
+            padding: 20px 0;
+            margin: 30px 0;
+            border-bottom: 1px solid $underBorderColor;
+            font-weight: 700;
+            text-align: center;
+            transition: border-bottom $move;
         }
 
         :deep(h2) {
@@ -283,6 +267,7 @@ function createDirectory() {
         :deep(h3) {
             display: inline-block;
             position: relative;
+            margin: 10px 0;
             transition: border-bottom $move;
         }
 
@@ -291,7 +276,7 @@ function createDirectory() {
             position: absolute;
             bottom: 5px;
             width: 80%;
-            height: 10px;
+            height: 35%;
             border-radius: $round;
             background-color: $color;
             opacity: 0.4;

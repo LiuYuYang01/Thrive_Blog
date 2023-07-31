@@ -34,7 +34,7 @@ getContent()
 </script>
 
 <template>
-    <div class="Directory">
+    <div class="Directory" style="display: none;">
         <div class="title">
             <img src="@/assets/svg/other/directory.svg" alt="">
 
