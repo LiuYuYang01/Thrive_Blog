@@ -29,8 +29,6 @@ const pages = ["/stats", "/chat", "/my"]
 const is = ref<boolean>(false)
 // 监听整个route对象的变化
 watch(() => route, route => {
-  console.log(route.fullPath);
-
   // 查询pages数组中是否包含对应路由的信息
   pages.includes(route.fullPath) ? is.value = true : is.value = false
 }, { immediate: true, deep: true })
@@ -93,7 +91,7 @@ const ExtendPage = {
 
         <!-- 导航列表 -->
         <li class="one_item" v-for="one in cateList" :key="one.id">
-          <RouterLink :to="`cate/${one.mark}`" class="one_item_nav"
+          <RouterLink :to="`/cate/${one.mark}`" class="one_item_nav"
             :style="{ color: top > 100 || is ? 'var(--textColor, #333)' : '#fff' }">
             {{ one.icon }} {{ one.name }}
 
@@ -104,7 +102,7 @@ const ExtendPage = {
           <!-- 二级导航 -->
           <ul class="two">
             <li class="two_item" v-for="two in one.children" :key="two.id">
-              <RouterLink :to="`cate/${one.mark}/${two.mark}`" class="two_item_nav">{{ two.name }}</RouterLink>
+              <RouterLink :to="`/cate/${one.mark}/${two.mark}`" class="two_item_nav">{{ two.name }}</RouterLink>
             </li>
           </ul>
         </li>

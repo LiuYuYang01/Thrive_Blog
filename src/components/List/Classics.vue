@@ -24,7 +24,7 @@ getArticleData()
 
             <!-- 文章信息 -->
             <div class="info">
-                <RouterLink :to="`article/${item.id}`">
+                <RouterLink :to="`/article/${item.id}`">
                     <!-- 文章标题 -->
                     <h3>{{ item.title }}</h3>
 

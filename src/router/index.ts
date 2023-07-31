@@ -24,14 +24,14 @@ const router = createRouter({
                 {
                     // 一级分类
                     path: "cate/:one",
-                    name: "cate",
-                    component: () => import('@/view/Cate/index.vue')
-                },
-                {
-                    // 二级分类
-                    path: "cate/:one/:two",
-                    name: "cate",
-                    component: () => import('@/view/Cate/index.vue')
+                    component: () => import('@/view/Cate/index.vue'),
+                    children: [
+                        {
+                            // 二级分类
+                            path: ":two",
+                            component: () => import('@/view/Cate/index.vue')
+                        }
+                    ]
                 },
                 {
                     // 统计页
