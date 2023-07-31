@@ -57,7 +57,7 @@
             height: 130px;
             margin-bottom: 10px;
             border-radius: $round;
-            background: url("https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1ab6d654bb3747a2af609d15b8fb387e~tplv-k3u1fbpfcp-zoom-crop-mark:1512:1512:1512:851.awebp") no-repeat;
+            background: url("https://liuyuyang.net/usr/uploads/2023/06/1705766133.jpg") no-repeat;
             background-size: 100%;
             transform: scale(1);
             transition: background-size $move;

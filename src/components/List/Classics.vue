@@ -69,7 +69,7 @@ getArticleData()
         display: flex;
         height: 230px;
         margin-bottom: 15px;
-        background-color: $boxColor;
+        background-color: #333;
         @include container;
 
         // 文章封面

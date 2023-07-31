@@ -19,6 +19,8 @@ const doms = ref<any>([]);
 
 // 获取文章的数据
 const getContent = async () => {
+    if (!+router.currentRoute.value.params.id as boolean) return
+
     loading.value = true
     await getArticleAPI(+router.currentRoute.value.params.id as number)
 
@@ -85,7 +87,7 @@ getContent()
         margin-top: 10px;
         height: 560px;
 
-        .loading{
+        .loading {
             height: 200px;
         }
 
