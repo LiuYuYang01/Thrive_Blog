@@ -303,5 +303,14 @@ function createDirectory() {
             transition: background-color $move;
         }
     }
+
+    :deep .v-md-editor-preview>div {
+        font-family: LXGWWenKai !important;
+    }
+
+    :deep .line-numbers-wrapper {
+        height: 98%;
+        overflow: hidden;
+    }
 }
 </style>
