@@ -96,6 +96,7 @@ getArticleData()
             width: 65%;
             padding: 20px 40px;
             z-index: 2;
+            font-family: LXGWWenKai !important;
 
             a {
                 display: flex;

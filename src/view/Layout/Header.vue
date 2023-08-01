@@ -28,9 +28,11 @@ const route = useRoute()
 const pages = ["/stats", "/chat", "/my"]
 const is = ref<boolean>(false)
 // 监听整个route对象的变化
-watch(() => route, route => {
+watch(() => route, r => {
+  const c = "/" + r.fullPath.split("/")[1]
+
   // 查询pages数组中是否包含对应路由的信息
-  pages.includes(route.fullPath) ? is.value = true : is.value = false
+  pages.includes(c) ? is.value = true : is.value = false
 }, { immediate: true, deep: true })
 
 // 扩展页面

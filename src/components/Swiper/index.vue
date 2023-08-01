@@ -1,17 +1,23 @@
 <script setup lang='ts'>
-const { isRipple = false, isTyping = false } = defineProps<{ src: string, isRipple?: boolean, isTyping?: boolean }>()
+const { Ripple = false, Typing = false } = defineProps<{ src: string, Ripple?: boolean, Typing?: boolean }>()
+
+onMounted(() => {
+    const TypedCursor = document.querySelector(".typed-cursor") as HTMLElement
+    if (!TypedCursor) return
+    TypedCursor.style.display = "none"
+})
 </script>
 
 <template>
     <div class="Swiper" :style="{ backgroundImage: `url(${src})` }">
         <!-- 引入打字机组件 -->
-        <Typewriter v-if="!isTyping">
+        <Typewriter v-if="!Typing" class="Typewriter">
             <span id="typed"></span>
         </Typewriter>
     </div>
 
     <!-- 波浪 -->
-    <div class="ripple" v-if="!isRipple">
+    <div class="ripple" v-if="!Ripple">
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
             <defs>

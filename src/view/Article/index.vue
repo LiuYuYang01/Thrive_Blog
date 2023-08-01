@@ -5,7 +5,7 @@
 <template>
   <div class="Article">
     <!-- 取消波浪、打字机效果 -->
-    <Swiper src="http://static.liuyuyang.net/images/63adb5eb87f9b.jpg" :isRipple="true" :isTyping="true"></Swiper>
+    <Swiper src="http://static.liuyuyang.net/images/63adb5eb87f9b.jpg" :Ripple="true" :Typing="true"></Swiper>
 
     <!-- :modules="['Author']" 设置只显示哪些模块 -->
     <Frame>

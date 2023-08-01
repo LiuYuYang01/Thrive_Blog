@@ -18,7 +18,6 @@ declare module '@vue/runtime-core' {
     ElButton: typeof import('element-plus/es')['ElButton']
     ElColorPicker: typeof import('element-plus/es')['ElColorPicker']
     ElDialog: typeof import('element-plus/es')['ElDialog']
-    ElIcon: typeof import('element-plus/es')['ElIcon']
     Emote: typeof import('./src/components/Comment/components/Emote/index.vue')['default']
     Empty: typeof import('./src/components/Empty/index.vue')['default']
     Frame: typeof import('./src/components/Frame/index.vue')['default']
