@@ -2,6 +2,7 @@
 @import "./global.scss";
 
 body {
+    font-family: LXGWWenKai !important;
     background-color: $bgColor;
     transition: background-color $move;
 }

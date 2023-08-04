@@ -303,9 +303,5 @@ function createDirectory() {
             transition: background-color $move;
         }
     }
-
-    :deep .v-md-editor-preview>div {
-        font-family: LXGWWenKai !important;
-    }
 }
 </style>

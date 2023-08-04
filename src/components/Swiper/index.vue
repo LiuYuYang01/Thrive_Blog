@@ -14,6 +14,8 @@ onMounted(() => {
         <Typewriter v-if="!Typing" class="Typewriter">
             <span id="typed"></span>
         </Typewriter>
+
+        <slot></slot>
     </div>
 
     <!-- 波浪 -->
@@ -63,7 +65,6 @@ onMounted(() => {
     transform: translate(-50%);
     color: #fff;
     font-size: 30px;
-    font-family: Alimama ShuHeiTi, -apple-system, BlinkMacSystemFont;
     text-shadow: 0 0.1875rem 0.3125rem #1c1f21;
 }
 </style>

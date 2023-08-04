@@ -5,6 +5,9 @@ import { getArticleListAPI } from '@/api/Article'
 // 引入时间插件
 import moment from 'moment';
 
+const props = defineProps<{ data: Article[] }>()
+console.log(props.data,666);
+
 const articleList = ref<Article[]>([])
 
 // 获取文章列表
