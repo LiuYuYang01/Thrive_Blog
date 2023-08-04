@@ -1,27 +1,16 @@
 <script setup lang='ts'>
 import { Article } from '@/types/Article'
-import { getArticleListAPI } from '@/api/Article'
 
 // 引入时间插件
 import moment from 'moment';
 
 const props = defineProps<{ data: Article[] }>()
-console.log(props.data,666);
-
-const articleList = ref<Article[]>([])
-
-// 获取文章列表
-const getArticleData = async () => {
-    const { data } = await getArticleListAPI()
-    articleList.value = data
-}
-getArticleData()
 </script>
 
 <template>
     <div class="Classics">
         <!-- 文章列表 -->
-        <div class="item" v-for="item, index in articleList">
+        <div class="item" v-for="item, index in data">
             <!-- 文章封面 -->
             <div class="cover" :style="{ backgroundImage: `url(${item.cover})` }" v-if="index % 2 === 0"></div>
 
@@ -55,7 +44,7 @@ getArticleData()
         </div>
 
         <!-- 空状态 -->
-        <Empty info="暂无文章" v-if="!articleList.length"></Empty>
+        <Empty info="暂无文章" v-if="!data.length"></Empty>
     </div>
 </template>
 

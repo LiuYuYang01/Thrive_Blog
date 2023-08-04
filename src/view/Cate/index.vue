@@ -30,6 +30,9 @@ watch(r, async () => {
     }
   })
 
+  // 先清除之前的文章数据
+  ArticleData.value = []
+
   // 筛选当前分类下的文章
   const Article = await getArticleListAPI()
   Article.data.forEach(item => {
@@ -37,19 +40,16 @@ watch(r, async () => {
       ArticleData.value.push(item)
     }
   })
-
-  console.log(ArticleData.value,333);
-  
 }, { immediate: true, deep: true })
 </script>
 
 <template>
   <Swiper src="https://blog.isww.cn/usr/uploads/2021/02/944672060.jpg" :Typing="true">
-    <div class="title">{{ CateName }} ~ 共 10 篇文章</div>
+    <div class="title">{{ CateName }} ~ 共 {{ ArticleData.length }} 篇文章</div>
   </Swiper>
 
   <div class="main">
-    <Classics :data="ArticleData"/>
+    <Classics :data="ArticleData" />
   </div>
 </template>
 
@@ -70,5 +70,6 @@ watch(r, async () => {
 .main {
   width: 850px;
   margin: 0 auto;
+  margin-bottom: 15px;
 }
 </style>
