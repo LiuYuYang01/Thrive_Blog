@@ -9,6 +9,11 @@ import "@/util/createCopyright"
 import { getArticleAPI } from "@/api/Article"
 import { Article } from '@/types/Article'
 
+// 随机预览图
+import { randomImage } from '@/util/randomImage'
+
+const emit = defineEmits<{ (e: "update:modelValue", value: string): void }>()
+
 const route = useRoute()
 
 // 文章内容
@@ -41,8 +46,12 @@ const getContentData = async () => {
     const { data } = await getArticleAPI(+route.params.id)
     articleData.value = data
 
-    // 代码高亮
-    // hljs.highlightAll()
+    // 如果有文章封面就显示，没有就显示默认的
+    if (data.cover) {
+        emit("update:modelValue", data.cover)
+    } else {
+        emit("update:modelValue", randomImage())
+    }
 
     // 生成目录
     nextTick(() => {

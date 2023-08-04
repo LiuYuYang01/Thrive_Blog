@@ -5,6 +5,9 @@ import { Article } from '@/types/Article'
 import moment from 'moment';
 
 const props = defineProps<{ data: Article[] }>()
+
+// 随机预览图
+import { randomImage } from '@/util/randomImage'
 </script>
 
 <template>
@@ -12,7 +15,8 @@ const props = defineProps<{ data: Article[] }>()
         <!-- 文章列表 -->
         <div class="item" v-for="item, index in data">
             <!-- 文章封面 -->
-            <div class="cover" :style="{ backgroundImage: `url(${item.cover})` }" v-if="index % 2 === 0"></div>
+            <div class="cover" :style="{ backgroundImage: `url(${item.cover || randomImage()})` }" v-if="index % 2 === 0">
+            </div>
 
             <!-- 文章信息 -->
             <div class="info">
@@ -37,10 +41,10 @@ const props = defineProps<{ data: Article[] }>()
                 </RouterLink>
             </div>
 
-            <div class="bg" :style="{ backgroundImage: `url(${item.cover})` }"></div>
+            <div class="bg" :style="{ backgroundImage: `url(${item.cover || randomImage()})` }"></div>
 
             <div class="cover" style="clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);"
-                :style="{ backgroundImage: `url(${item.cover})` }" v-if="index % 2 !== 0"></div>
+                :style="{ backgroundImage: `url(${item.cover || randomImage()})` }" v-if="index % 2 !== 0"></div>
         </div>
 
         <!-- 空状态 -->
@@ -51,7 +55,6 @@ const props = defineProps<{ data: Article[] }>()
 <style scoped lang="scss">
 @import "@/styles/public.scss";
 
-// 文章风格一
 .Classics {
 
     // 文章列表
@@ -103,6 +106,7 @@ const props = defineProps<{ data: Article[] }>()
                     padding-top: 10px;
                     padding-bottom: 20px;
                     color: #fff;
+                    font-size: 25px;
 
                     // 防止超长文本 溢出
                     white-space: nowrap;

@@ -4,6 +4,9 @@ import { getArticleListAPI } from '@/api/Article';
 import { Cate } from '@/types/Cate';
 import { Article } from '@/types/Article';
 
+// 随机预览图
+import { randomImage } from '@/util/randomImage'
+
 const r = useRoute()
 
 // 当前分类
@@ -44,7 +47,7 @@ watch(r, async () => {
 </script>
 
 <template>
-  <Swiper src="https://blog.isww.cn/usr/uploads/2021/02/944672060.jpg" :Typing="true">
+  <Swiper :src="randomImage()" :Typing="true">
     <div class="title">{{ CateName }} ~ 共 {{ ArticleData.length }} 篇文章</div>
   </Swiper>
 
