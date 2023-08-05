@@ -56,4 +56,12 @@ const router = createRouter({
     ],
 })
 
+// 监听路由是否发生变化
+router.beforeEach(to => {
+    const dom = document.querySelector(".ToolBar .item") as HTMLElement
+
+    // 只有在文章页才会出现显示目录按钮，否则不显示
+    to.path.includes("/article") ? dom.style.display = "block" : dom.style.display = "none"
+})
+
 export default router

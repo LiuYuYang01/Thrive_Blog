@@ -16,9 +16,9 @@ const cover = ref<string>("")
 </template>
 
 <style scoped lang="scss">
-.main {
-  // margin-top: -250px;
-}
+// .main {
+//   margin-top: -250px;
+// }
 
 .Article {
   :deep .Directory {

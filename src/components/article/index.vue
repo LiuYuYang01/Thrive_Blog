@@ -90,7 +90,7 @@ function createDirectory() {
 <template>
     <div class="Article">
         <!-- 文章信息 -->
-        <div class="info" v-if="false">
+        <div class="info">
             <!-- 文章创建时间 -->
             <span>
                 <iconpark-icon name="alarm-clock" /> {{ moment(articleData.date).format('YYYY-MM-DD') }}

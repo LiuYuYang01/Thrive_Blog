@@ -19,6 +19,15 @@ const cover = [
     "https://t3.picb.cc/2023/08/04/ITNacL.jpeg",
     "https://t3.picb.cc/2023/08/04/ITN0iR.jpeg",
     "https://t3.picb.cc/2023/08/04/ITNjDw.jpeg",
+    "https://t3.picb.cc/2023/08/05/ITjBlc.jpeg",
+    "https://t3.picb.cc/2023/08/05/ITjp4G.jpeg",
+    "https://t3.picb.cc/2023/08/05/ITj0jy.jpeg",
+    "https://t3.picb.cc/2023/08/05/ITjPLN.jpeg",
+    "https://t3.picb.cc/2023/08/05/ITjSKj.jpeg",
+    "https://t3.picb.cc/2023/08/05/ITjFhK.jpeg",
+    "https://t3.picb.cc/2023/08/05/ITj9F7.jpeg",
+    "https://t3.picb.cc/2023/08/05/ITjTAs.jpeg",
+    "https://t3.picb.cc/2023/08/05/ITjUV6.jpeg"
 ]
 
 // 随机预览图
