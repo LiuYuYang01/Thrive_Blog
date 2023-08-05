@@ -12,7 +12,8 @@ import { Article } from '@/types/Article'
 // 随机预览图
 import { randomImage } from '@/util/randomImage'
 
-const emit = defineEmits<{ (e: "update:modelValue", value: string): void }>()
+import { Info } from '@/types/Article'
+const emit = defineEmits<{ (e: "update:modelValue", value: Info): void }>()
 
 const route = useRoute()
 
@@ -48,9 +49,9 @@ const getContentData = async () => {
 
     // 如果有文章封面就显示，没有就显示默认的
     if (data.cover) {
-        emit("update:modelValue", data.cover)
+        emit("update:modelValue", { cover: data.cover, title: data.title, cate: data.cate, view: data.view, comment: data.comment, date: data.date })
     } else {
-        emit("update:modelValue", randomImage())
+        emit("update:modelValue", { cover: randomImage(), title: data.title, cate: data.cate, view: data.view, comment: data.comment, date: data.date })
     }
 
     // 生成目录
@@ -89,29 +90,6 @@ function createDirectory() {
 
 <template>
     <div class="Article">
-        <!-- 文章信息 -->
-        <div class="info">
-            <!-- 文章创建时间 -->
-            <span>
-                <iconpark-icon name="alarm-clock" /> {{ moment(articleData.date).format('YYYY-MM-DD') }}
-            </span>
-
-            <!-- 文章浏览量 -->
-            <span>
-                <iconpark-icon name="fire" /> {{ articleData.view }}
-            </span>
-
-            <!-- 文章所在的标签 -->
-            <span>
-                <iconpark-icon name="tag-one" /> {{ articleData.cate }}
-            </span>
-
-            <!-- 文章评论数量 -->
-            <span>
-                <iconpark-icon name="comment" /> 评论：{{ articleData.comment }}
-            </span>
-        </div>
-
         <!-- 文章加载效果 -->
         <div v-loading="loading" :element-loading-svg="svg" element-loading-svg-view-box="-10, -10, 50, 50" class="loading"
             v-if="!articleData.content"></div>
@@ -144,41 +122,6 @@ function createDirectory() {
     line-height: 2.3;
     background-color: $boxColor;
     @include container;
-
-    // 文章信息
-    .info {
-        font-size: 12px;
-        font-weight: 400;
-
-        span {
-            display: inline-block;
-            margin: 0 10px;
-            color: $textColor;
-            transition: color $move;
-
-            iconpark-icon {
-                padding: 3px;
-                border-radius: 50%;
-                color: #fff;
-            }
-
-            &:nth-child(1) iconpark-icon {
-                background-color: #539dfd;
-            }
-
-            &:nth-child(2) iconpark-icon {
-                background-color: #eb373a;
-            }
-
-            &:nth-child(3) iconpark-icon {
-                background-color: #f5a630;
-            }
-
-            &:nth-child(4) iconpark-icon {
-                background-color: #b335ec;
-            }
-        }
-    }
 
     // 加载效果
     .loading {
