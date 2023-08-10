@@ -114,7 +114,7 @@ ul {
 
         /* 评论者昵称 */
         .name {
-          color: var(--Yuexing-tags-a);
+          color: #333;
           transition: all 0.3s;
           font-size: 16px;
         }

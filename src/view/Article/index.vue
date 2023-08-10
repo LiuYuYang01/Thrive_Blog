@@ -1,4 +1,7 @@
 <script setup lang="ts">
+// 引入时间插件
+import moment from 'moment';
+
 import { Info } from '@/types/Article'
 
 const info = ref<Info>({
@@ -14,28 +17,33 @@ const info = ref<Info>({
   <div class="Article">
     <!-- 取消波浪、打字机效果 -->
     <Swiper :src="info.cover" :Ripple="true" :Typing="true">
-      <!-- 文章信息 -->
-      <div class="info">
-        <!-- 文章创建时间 -->
-        <span>
-          <iconpark-icon name="alarm-clock" /> {{ info.date }}
-        </span>
+      <div class="box">
+        <!-- 文章标题 -->
+        <div class="title">{{ info.title }}</div>
 
-        <!-- 文章浏览量 -->
-        <span>
-          <iconpark-icon name="fire" /> {{ info.view }}
-        </span>
+        <!-- 文章信息 -->
+        <div class="info">
+          <!-- 文章创建时间 -->
+          <span>
+            <iconpark-icon name="alarm-clock" /> {{ moment(info.date).format('YYYY-MM-DD') }}
+          </span>
 
-        <!-- 文章所在的分类 -->
-        <span>
-          <iconpark-icon name="tag-one" /> {{ info.cate }}
-        </span>
+          <!-- 文章浏览量 -->
+          <span>
+            <iconpark-icon name="fire" /> {{ info.view }}
+          </span>
 
-        <!-- 文章评论数量 -->
-        <span>
+          <!-- 文章所在的分类 -->
+          <span>
+            <iconpark-icon name="tag-one" /> {{ info.cate }}
+          </span>
 
-          <iconpark-icon name="comment" /> 评论：{{ info.comment }}
-        </span>
+          <!-- 文章评论数量 -->
+          <span>
+
+            <iconpark-icon name="comment" /> 评论：{{ info.comment }}
+          </span>
+        </div>
       </div>
     </Swiper>
 
@@ -56,40 +64,50 @@ const info = ref<Info>({
     margin-top: 0;
   }
 
-  .info {
+  .box {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
     background: rgba(0, 0, 0, 0.3);
-    font-size: 12px;
-    font-weight: 400;
 
-    span {
-      display: inline-block;
-      margin: 0 10px;
+    .title {
       color: #fff;
+      font-size: 40px;
+      margin-bottom: 40px;
+    }
 
-      iconpark-icon {
-        padding: 3px;
-        border-radius: 50%;
+    .info {
+      font-size: 12px;
+      font-weight: 400;
+
+      span {
+        display: inline-block;
+        margin: 0 10px;
         color: #fff;
-      }
 
-      &:nth-child(1) iconpark-icon {
-        background-color: #539dfd;
-      }
+        iconpark-icon {
+          padding: 3px;
+          border-radius: 50%;
+          color: #fff;
+        }
 
-      &:nth-child(2) iconpark-icon {
-        background-color: #eb373a;
-      }
+        &:nth-child(1) iconpark-icon {
+          background-color: #539dfd;
+        }
 
-      &:nth-child(3) iconpark-icon {
-        background-color: #f5a630;
-      }
+        &:nth-child(2) iconpark-icon {
+          background-color: #eb373a;
+        }
 
-      &:nth-child(4) iconpark-icon {
-        background-color: #b335ec;
+        &:nth-child(3) iconpark-icon {
+          background-color: #f5a630;
+        }
+
+        &:nth-child(4) iconpark-icon {
+          background-color: #b335ec;
+        }
       }
     }
   }

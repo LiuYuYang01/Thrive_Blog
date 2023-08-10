@@ -35,7 +35,7 @@ const socializing = [
 <template>
     <!-- 有背景就显示自己的背景，否则显示默认背景 -->
     <div class="author"
-        :style="{ backgroundImage: `url(${authorInfo.background ? authorInfo.background : '/src/assets/img/avatar_bg.jpg'})` }">
+        :style="{ backgroundImage: `url(${authorInfo.background ? authorInfo.background : import('@/assets/img/avatar_bg.jpg')})` }">
         <!-- 作者头像 -->
         <div class="avatar">
             <img :src="authorInfo.avatar" alt="">
@@ -53,7 +53,7 @@ const socializing = [
 
             <div class="list">
                 <a :href="item.url" target="_blank" v-for="item, index in socializing" :key="index">
-                    <img :src="`/src/assets/svg/socializing/${item.name}.svg`" :title="item.name">
+                    <img :src="`./src/assets/svg/socializing/${item.name}.svg`" :title="item.name">
                 </a>
             </div>
         </div>

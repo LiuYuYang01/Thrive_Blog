@@ -1,7 +1,4 @@
 <script setup lang="ts">
-// 引入时间插件
-import moment from 'moment';
-
 // 复制文本自动生成版权信息
 import "@/util/createCopyright"
 
