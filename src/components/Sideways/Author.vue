@@ -7,35 +7,43 @@ Store.getAuthor()
 // 获取作者信息
 const { authorInfo } = storeToRefs(Store)
 
+// 有背景就显示自己的背景，否则显示默认背景
+import avatar_bg from '@/assets/img/avatar_bg.jpg'
+const backgroundImage = `url(${authorInfo.value.background ? authorInfo.value.background : avatar_bg})`
+
 // 社交账号
 const socializing = [
     {
-        "name": "GitHub",
-        "url": "https://github.com/LiuYuYang01?tab=overview&from=2023-04-01&to=2023-04-26"
+        name: "GitHub",
+        url: "https://github.com/LiuYuYang01?tab=overview&from=2023-04-01&to=2023-04-26"
     },
     {
-        "name": "Gitee",
-        "url": "https://gitee.com/liu_yu_yang666"
+        name: "Gitee",
+        url: "https://gitee.com/liu_yu_yang666"
     },
     {
-        "name": "Juejin",
-        "url": "https://juejin.cn/user/3083456627092078/posts"
+        name: "Juejin",
+        url: "https://juejin.cn/user/3083456627092078/posts"
     },
     {
-        "name": "CSDN",
-        "url": "https://blog.csdn.net/haodian666?type=blog"
+        name: "CSDN",
+        url: "https://blog.csdn.net/haodian666?type=blog"
     },
     {
-        "name": "QQ",
-        "url": "http://wpa.qq.com/msgrd?v=3&uin=3311118881&site=qq&menu=yes"
+        name: "QQ",
+        url: "http://wpa.qq.com/msgrd?v=3&uin=3311118881&site=qq&menu=yes"
     }
 ]
+
+// 动态获取图片路径
+const getIcon = (src: string) => {
+    return new URL(`../../assets/svg/socializing/${src}.svg`, import.meta.url).href
+}
 </script>
 
 <template>
-    <!-- 有背景就显示自己的背景，否则显示默认背景 -->
-    <div class="author"
-        :style="{ backgroundImage: `url(${authorInfo.background ? authorInfo.background : import('@/assets/img/avatar_bg.jpg')})` }">
+    <!-- <div class="author" :style="{ backgroundImage }"> -->
+    <div class="author" :style="backgroundImage">
         <!-- 作者头像 -->
         <div class="avatar">
             <img :src="authorInfo.avatar" alt="">
@@ -53,7 +61,7 @@ const socializing = [
 
             <div class="list">
                 <a :href="item.url" target="_blank" v-for="item, index in socializing" :key="index">
-                    <img :src="`./src/assets/svg/socializing/${item.name}.svg`" :title="item.name">
+                    <img :src="getIcon(item.name)" :title="item.name">
                 </a>
             </div>
         </div>
@@ -69,7 +77,7 @@ const socializing = [
     flex-direction: column;
     align-items: center;
     padding-top: 60px;
-    background: url("/src/assets/img/avatar_bg.jpg") no-repeat;
+    background: url("@/assets/img/avatar_bg.jpg") no-repeat;
     background-size: 100% 35%;
     width: 100%;
     height: 325px;
