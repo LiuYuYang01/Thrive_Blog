@@ -109,6 +109,12 @@ const ExtendPage = {
           </ul>
         </li>
 
+        <li class="one_item">
+          <RouterLink to="/diary" class="one_item_nav"
+            :style="{ color: top > 100 || is ? 'var(--textColor, #333)' : '#fff' }">
+            ✍️ 闪念</RouterLink>
+        </li>
+
         <!-- 扩展页面 -->
         <li class="one_item">
           <RouterLink :to="ExtendPage.url" class="one_item_nav"

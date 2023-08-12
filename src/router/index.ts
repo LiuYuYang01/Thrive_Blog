@@ -33,6 +33,12 @@ const router = createRouter({
                         }
                     ]
                 },
+                // 闪念
+                {
+                    path: "diary",
+                    name: "diary",
+                    component: () => import('@/view/Diary/index.vue')
+                },
                 {
                     // 统计页
                     path: "stats",
