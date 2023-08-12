@@ -9,6 +9,9 @@ import { randomImage } from '@/util/randomImage'
 
 const r = useRoute()
 
+// 全屏加载效果
+const isLoading = ref<boolean>(false)
+
 // 当前分类
 const CateName = ref<string>("")
 // 当前分类下的文章
@@ -18,7 +21,9 @@ watch(r, async () => {
   // 拿到当前分类别名
   const mark = r.path.split("/")[r.path.split("/").length - 1]
 
+  isLoading.value = true
   const Cate = await getCateListAPI()
+  isLoading.value = false
 
   // 通过分类别名拿到分类名称
   Cate.data.forEach((one: Cate) => {
@@ -52,6 +57,8 @@ watch(r, async () => {
   </Swiper>
 
   <div class="main">
+    <loading :loading="isLoading"/>
+    
     <Classics :data="ArticleData" />
   </div>
 </template>
