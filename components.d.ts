@@ -34,6 +34,7 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     Swiper: typeof import('./src/components/Swiper/index.vue')['default']
     Tag: typeof import('./src/components/Article/components/Tag.vue')['default']
+    TimeAxis: typeof import('./src/components/TimeAxis/index.vue')['default']
     ToolBar: typeof import('./src/components/ToolBar/index.vue')['default']
     Typewriter: typeof import('./src/components/Typewriter/index.vue')['default']
     UpAndDown: typeof import('./src/components/Article/components/UpAndDown.vue')['default']
