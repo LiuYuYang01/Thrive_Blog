@@ -52,7 +52,7 @@ watch(r, async () => {
 </script>
 
 <template>
-  <Swiper :src="randomImage()" :Typing="true">
+  <Swiper :src="randomImage()">
     <div class="title">{{ CateName }} ~ 共 {{ ArticleData.length }} 篇文章</div>
   </Swiper>
 

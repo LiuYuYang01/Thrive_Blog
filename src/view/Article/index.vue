@@ -16,7 +16,7 @@ const info = ref<Info>({
 <template>
   <div class="Article">
     <!-- 取消波浪、打字机效果 -->
-    <Swiper :src="info.cover" :Ripple="true" :Typing="true">
+    <Swiper :src="info.cover" :Ripple="true">
       <div class="box">
         <!-- 文章标题 -->
         <div class="title">{{ info.title }}</div>

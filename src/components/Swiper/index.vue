@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-const { Ripple = false, Typing = false } = defineProps<{ src: string, Ripple?: boolean, Typing?: boolean }>()
+const { Ripple = false } = defineProps<{ src: string, Ripple?: boolean, data?: string[] }>()
 
 onMounted(() => {
     const TypedCursor = document.querySelector(".typed-cursor") as HTMLElement
@@ -11,7 +11,8 @@ onMounted(() => {
 <template>
     <div class="Swiper" :style="{ backgroundImage: `url(${src})` }">
         <!-- 引入打字机组件 -->
-        <Typewriter v-if="!Typing" class="Typewriter">
+        <Typewriter :data="data!"
+            class="Typewriter">
             <span id="typed"></span>
         </Typewriter>
 
