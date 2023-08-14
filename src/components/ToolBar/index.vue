@@ -19,7 +19,7 @@ const isDirectory = () => {
 
     let mainWidth = main.style.width
 
-    if(mainWidth === "950px") {
+    if (mainWidth === "950px") {
         main.style.width = "1200PX"
     } else {
         main.style.width = "950px"
@@ -38,6 +38,7 @@ const isEffect = ref<boolean>(false)
 const Theme = reactive({
     Light: {
         bgColor: "#f9f9f9",
+        subBackground: "linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%)",
         boxColor: "#fff",
         textColor: "#333",
         contentColor: "#666",
@@ -51,6 +52,7 @@ const Theme = reactive({
     },
     Dark: {
         bgColor: "#232931",
+        subBackground: "#2b333e",
         boxColor: "#2b333e",
         textColor: "#fff",
         contentColor: "#bbb",
@@ -69,6 +71,7 @@ watch(isEffect, n => {
         // 黑夜模式
         console.log("黑夜");
         $css.setProperty("--bgColor", Theme.Dark.bgColor)
+        $css.setProperty("--subBackground", Theme.Dark.subBackground)
         $css.setProperty("--boxColor", Theme.Dark.boxColor)
         $css.setProperty("--textColor", Theme.Dark.textColor)
         $css.setProperty("--contentColor", Theme.Dark.contentColor)
@@ -83,6 +86,7 @@ watch(isEffect, n => {
         // 白天模式
         console.log("白天");
         $css.setProperty("--bgColor", Theme.Light.bgColor)
+        $css.setProperty("--subBackground", Theme.Light.subBackground)
         $css.setProperty("--boxColor", Theme.Light.boxColor)
         $css.setProperty("--textColor", Theme.Light.textColor)
         $css.setProperty("--contentColor", Theme.Light.contentColor)

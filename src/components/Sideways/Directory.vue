@@ -65,8 +65,8 @@ getContent()
 .Directory {
     padding: 20px 0;
     margin-top: 20px;
-    // background-color: $boxColor;
-    // @include container;
+    background-color: $boxColor;
+    @include container;
 
     // 文章模块标题
     @include titleRight;

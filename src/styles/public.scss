@@ -7,6 +7,12 @@ body {
     transition: background-color $move;
 }
 
+// 滚动条轨道
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #f5f5f5;
+}
+
 // 进度条颜色
 ::-webkit-scrollbar-thumb {
     background-color: #d4d4d4;

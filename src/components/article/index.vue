@@ -117,8 +117,8 @@ function createDirectory() {
     padding: 30px;
     padding-top: 0;
     line-height: 2.3;
-    // background-color: $boxColor;
-    // @include container;
+    background-color: $boxColor;
+    @include container;
 
     // 加载效果
     .loading {
