@@ -5,12 +5,25 @@
 // 默认显示所有侧边栏模块，可以指定选择哪些显示
 const { modules = [] } = defineProps<{ modules?: string[] }>()
 
-const router = useRouter()
-const path = router.currentRoute.value.path
+const mainWidth = ref<string>("1200px")
+
+const route = useRoute()
+const path = route.path
+
+// 根据是文章页还是首页来决定main模块的宽度
+watch(route, r => {
+    const c = "/" + r.fullPath.split("/")[1]
+
+    if (c === '/article') {
+        mainWidth.value = "950px"
+    } else {
+        mainWidth.value = "1200px"
+    }
+}, { immediate: true, deep: true })
 </script>
 
 <template>
-    <div class="main" style="width: 950px;">
+    <div class="main" :style="{ width: mainWidth }">
         <div class="left" :style="{ width: path === '/' ? '75%' : '100%' }">
             <!-- 文章列表经典风格 -->
             <slot />

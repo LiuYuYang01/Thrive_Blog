@@ -1,5 +1,5 @@
 import { getAuthorAPI } from '@/api/User'
-import { User, UserInfo } from '@/types/User'
+import { UserInfo } from '@/types/User'
 import { defineStore } from "pinia"
 
 type State = {

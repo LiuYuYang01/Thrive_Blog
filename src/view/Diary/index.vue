@@ -1,5 +1,25 @@
 <script setup lang="ts">
-import "@/util/changeTheBackground"
+import useAuthorStore from '@/stores/Author'
+const store = useAuthorStore()
+store.getAuthor()
+
+const diarys = [
+  {
+    id: 1,
+    content: "互联网从不缺乏天才，而努力才是最终的入场券!",
+    date: "2023-08-13"
+  },
+  {
+    id: 2,
+    content: "互联网从不缺乏天才，而努力才是最终的入场券!",
+    date: "2023-08-13"
+  },
+  {
+    id: 3,
+    content: "互联网从不缺乏天才，而努力才是最终的入场券!",
+    date: "2023-08-13"
+  }
+]
 </script>
 
 <template>
@@ -12,33 +32,13 @@ import "@/util/changeTheBackground"
   <!-- 日记列表 -->
   <div class="diary">
     <div class="list">
-      <div class="item">
-        <img src="https://q1.qlogo.cn/g?b=qq&nk=3311118881&s=640" alt="">
+      <div class="item" v-for="item in diarys" :key="item.id">
+        <img :src="store.authorInfo.avatar" alt="">
 
         <div class="info">
-          <div class="name">YuYang</div>
-          <div class="content">互联网从不缺乏天才，而努力才是最终的入场券!</div>
-          <div class="date">2023-08-13</div>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="https://q1.qlogo.cn/g?b=qq&nk=3311118881&s=640" alt="">
-
-        <div class="info">
-          <div class="name">YuYang</div>
-          <div class="content">互联网从不缺乏天才，而努力才是最终的入场券!</div>
-          <div class="date">2023-08-13</div>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="https://q1.qlogo.cn/g?b=qq&nk=3311118881&s=640" alt="">
-
-        <div class="info">
-          <div class="name">YuYang</div>
-          <div class="content">互联网从不缺乏天才，而努力才是最终的入场券!</div>
-          <div class="date">2023-08-13</div>
+          <div class="name">{{ store.authorInfo.name }}</div>
+          <div class="content">{{ item.content }}</div>
+          <div class="date">{{ item.date }}</div>
         </div>
       </div>
     </div>
@@ -77,7 +77,6 @@ import "@/util/changeTheBackground"
 
     .item {
       display: flex;
-      height: 150px;
       padding: 30px;
       border-bottom: 1px solid #f2f2f2;
 
