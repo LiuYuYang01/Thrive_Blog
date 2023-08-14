@@ -10,7 +10,7 @@ const path = router.currentRoute.value.path
 </script>
 
 <template>
-    <div class="main">
+    <div class="main" style="width: 950px;">
         <div class="left" :style="{ width: path === '/' ? '75%' : '100%' }">
             <!-- 文章列表经典风格 -->
             <slot />
@@ -40,7 +40,7 @@ const path = router.currentRoute.value.path
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: $w;
+    // width: $w;
     padding: 20px;
     margin: 0 auto;
 

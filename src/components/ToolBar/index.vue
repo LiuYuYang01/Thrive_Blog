@@ -3,17 +3,26 @@ import { ElNotification } from 'element-plus';
 
 // 是否显示目录
 const isDirectory = () => {
+    const main = document.querySelector(".main") as HTMLElement
     const essay = document.querySelector(".main .left") as HTMLElement
     const directory = document.querySelector(".main .Directory") as HTMLElement
 
-    let w = essay.style.width
+    let essayWidth = essay.style.width
 
-    if (w === "100%") {
+    if (essayWidth === "100%") {
         essay.style.width = "75%"
         directory.style.display = "block"
     } else {
         essay.style.width = "100%"
         directory.style.display = "none"
+    }
+
+    let mainWidth = main.style.width
+
+    if(mainWidth === "950px") {
+        main.style.width = "1200PX"
+    } else {
+        main.style.width = "950px"
     }
 }
 
