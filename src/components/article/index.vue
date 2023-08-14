@@ -62,8 +62,8 @@ getContentData()
 function createDirectory() {
     let index = 0;
 
-    // 获取content下的所有标签
-    let doms: any = document.querySelectorAll(".content h1,.content h2,.content h3")
+    // 获取content下的所有标题
+    let doms: any = document.querySelectorAll(".content h2,.content h3")
 
     if (doms) {
         // 转换为真数组
@@ -71,13 +71,13 @@ function createDirectory() {
 
         doms.forEach((item: HTMLElement) => {
             // 给所有有内容的值设置自定义属性
-            // 如果是H1就设置一级目录的标识
-            if (item.innerHTML) {
+            // 如果是H2就设置一级目录的标识
+            if (item.innerHTML && item.tagName === "H2") {
                 item.setAttribute("id", String(++index))
             }
 
             // 如果是H2就设置二级目录的标识
-            if (item.tagName === "H2") {
+            if (item.innerHTML && item.tagName === "H3") {
                 item.setAttribute("two", "yes")
             }
         });
@@ -117,8 +117,8 @@ function createDirectory() {
     padding: 30px;
     padding-top: 0;
     line-height: 2.3;
-    background-color: $boxColor;
-    @include container;
+    // background-color: $boxColor;
+    // @include container;
 
     // 加载效果
     .loading {
@@ -188,7 +188,7 @@ function createDirectory() {
         :deep(h1) {
             padding: 20px 0;
             margin: 30px 0;
-            border-bottom: 1px solid $underBorderColor;
+            border-bottom: 1px dashed $underBorderColor;
             font-weight: 700;
             text-align: center;
             transition: border-bottom $move;
@@ -197,7 +197,7 @@ function createDirectory() {
         :deep(h2) {
             position: relative;
             padding-left: 20px;
-            border-bottom: 1px dashed $underBorderColor;
+            border-bottom: none;
             font-size: 22px;
         }
 
