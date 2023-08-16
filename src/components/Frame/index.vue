@@ -33,10 +33,10 @@ watch(route, r => {
             <div class="sticky">
                 <!-- 作者信息 -->
                 <Author v-if="modules.includes('Author')" />
-                <!-- 热门文章 -->
+                <!-- 推荐文章 -->
                 <HotArticle v-if="modules.includes('HotArticle')" />
                 <!-- 随机文章 -->
-                <RandomArticle v-if="modules.includes('RandomArticle')" />
+                <!-- <RandomArticle v-if="modules.includes('RandomArticle')" /> -->
                 <!-- 最新评论 -->
                 <NewComments v-if="modules.includes('NewComments')" />
                 <!-- 文章目录 -->

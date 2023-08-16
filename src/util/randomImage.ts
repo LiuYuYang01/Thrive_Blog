@@ -1,3 +1,5 @@
+import { getRandom } from "./random";
+
 const cover = [
     "https://t3.picb.cc/2023/08/12/I952Y6.jpeg",
     "https://t3.picb.cc/2023/08/12/I95yj7.jpeg",
@@ -39,7 +41,5 @@ const cover = [
 
 // 随机预览图
 export function randomImage() {
-    const n = Math.floor(Math.random() * ((cover.length - 1) - 0 + 1) + 0);
-
-    return cover[n]
+    return cover[getRandom(0, cover.length - 1)];
 }

@@ -4,7 +4,7 @@
 <template>
     <div class="HotArticle">
         <h3 class="title">
-            <img src="@/assets/svg/other/fire.svg" alt=""> 热门文章
+            <img src="@/assets/svg/other/fire.svg" alt=""> 推荐文章
         </h3>
 
         <!-- 文章列表 -->
