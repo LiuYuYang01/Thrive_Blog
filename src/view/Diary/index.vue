@@ -6,14 +6,14 @@ store.getAuthor()
 const diarys = [
   {
     id: 0,
-    content: "互联网从不缺乏天才，而努力才是最终的入场券!",
+    content: "追魂夺命流水线，暗无天日鬼车间",
     cover: ["https://liuyuyang.net/usr/uploads/2023/04/2401325320.jpeg", "https://liuyuyang.net/usr/uploads/2023/04/624381519.jpg", "https://liuyuyang.net/usr/uploads/2023/04/2555324373.jpeg"],
     date: "2023-08-13"
   },
   {
     id: 1,
     content: "互联网从不缺乏天才，而努力才是最终的入场券!",
-    cover: ["https://liuyuyang.net/usr/uploads/2023/04/2401325320.jpeg", "https://liuyuyang.net/usr/uploads/2023/08/3843057387.jpg"],
+    cover: ["https://liuyuyang.net/usr/uploads/2023/08/3843057387.jpg"],
     date: "2023-08-13"
   },
   {
@@ -28,6 +28,9 @@ const diarys = [
     date: "2023-08-13"
   }
 ]
+
+const viewImages = ref(false)
+const image = ref<string>('')
 </script>
 
 <template>
@@ -56,7 +59,7 @@ const diarys = [
           <!-- 单图 -->
           <template v-if="item.cover?.length === 1">
             <div class="cover">
-              <img :src="cover" v-for="cover in item.cover" :key="cover">
+              <img :src="cover" v-for="cover in item.cover" :key="cover" @click="image = cover; viewImages = true">
             </div>
           </template>
 
@@ -64,7 +67,7 @@ const diarys = [
           <template v-if="item.cover?.length === 2">
             <div class="cover" style="height: 145px;">
               <div style="width: 49%; height: 100%;" :style="{ backgroundImage: `url(${cover})` }"
-                v-for="cover in item.cover" :key="cover"></div>
+                v-for="cover in item.cover" :key="cover" @click="image = cover; viewImages = true"></div>
             </div>
           </template>
 
@@ -72,7 +75,7 @@ const diarys = [
           <template v-if="item.cover?.length === 3 || item.cover?.length === 4">
             <div class="cover" style="height: 300px;flex-wrap: wrap;">
               <div style="width: 49%; height: 47%;" :style="{ backgroundImage: `url(${cover})` }"
-                v-for="cover in item.cover" :key="cover"></div>
+                v-for="cover in item.cover" :key="cover" @click="image = cover; viewImages = true"></div>
             </div>
           </template>
 
@@ -81,6 +84,10 @@ const diarys = [
       </div>
     </div>
   </div>
+
+  <el-dialog v-model="viewImages" title="查看图片">
+    <img :src="image" style="width: 100%;">
+  </el-dialog>
 </template>
 
 <style scoped lang="scss">
@@ -152,7 +159,7 @@ const diarys = [
     font-size: 30px;
     color: #555;
     padding-bottom: 20px;
-    // border-bottom: 1px solid #fafafa;
+    border-bottom: 1px solid #fafafa;
   }
 
   .list {
@@ -160,11 +167,12 @@ const diarys = [
     position: relative;
     left: 230px;
     width: 700px;
+    padding: 0 20px;
     margin: 50px auto;
-    // background: #fff;
-    // border-radius: 10px;
-    // border: 1px solid #eee;
-    // box-shadow: rgba(255, 255, 255, 0.2) 0px 8px 24px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 8px 24px;
 
     .item {
       display: flex;
@@ -205,6 +213,7 @@ const diarys = [
         img {
           height: 100%;
           border-radius: $round;
+          cursor: pointer;
         }
 
         >div {
@@ -212,6 +221,7 @@ const diarys = [
           background-repeat: no-repeat;
           background-position: center;
           background-size: cover;
+          cursor: pointer;
         }
       }
 
