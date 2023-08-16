@@ -17,6 +17,8 @@ $subBackground: var(
 );
 // 模块背景
 $boxColor: var(--boxColor, #fff);
+// 模块背景 毛玻璃
+$boxColorTransparent: var(--boxColorTransparent, rgba(255, 255, 255, 0.9));
 // 文本标题
 $textColor: var(--textColor, #333);
 // 文本内容

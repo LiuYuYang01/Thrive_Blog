@@ -277,7 +277,7 @@ const ExtendPage = {
 .borderColor {
   border-bottom: 1px solid $borderColor;
   // background-color: $boxColor;
-  background-color: rgba(255,255,255,.9);
+  background-color: $boxColorTransparent;
   transition: all $move;
 }
 

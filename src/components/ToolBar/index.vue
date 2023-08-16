@@ -40,6 +40,7 @@ const Theme = reactive({
         bgColor: "#f9f9f9",
         subBackground: "linear-gradient(90deg,rgba(247,149,51,.1),rgba(243,112,85,.1) 15%,rgba(239,78,123,.1) 30%,rgba(161,102,171,.1) 44%,rgba(80,115,184,.1) 58%,rgba(16,152,173,.1) 72%,rgba(7,179,155,.1) 86%,rgba(109,186,130,.1)),white",
         boxColor: "#fff",
+        boxColorTransparent: "rgba(255,255,255,.9)",
         textColor: "#333",
         contentColor: "#666",
         borderColor: "#eee",
@@ -54,6 +55,7 @@ const Theme = reactive({
         bgColor: "#232931",
         subBackground: "#2b333e",
         boxColor: "#2b333e",
+        boxColorTransparent: "rgba(44, 51, 62, 0.9)",
         textColor: "#fff",
         contentColor: "#bbb",
         borderColor: "#2b333e",
@@ -73,6 +75,7 @@ watch(isEffect, n => {
         $css.setProperty("--bgColor", Theme.Dark.bgColor)
         $css.setProperty("--subBackground", Theme.Dark.subBackground)
         $css.setProperty("--boxColor", Theme.Dark.boxColor)
+        $css.setProperty("--boxColorTransparent", Theme.Dark.boxColorTransparent)
         $css.setProperty("--textColor", Theme.Dark.textColor)
         $css.setProperty("--contentColor", Theme.Dark.contentColor)
         $css.setProperty("--borderColor", Theme.Dark.borderColor)
@@ -88,6 +91,7 @@ watch(isEffect, n => {
         $css.setProperty("--bgColor", Theme.Light.bgColor)
         $css.setProperty("--subBackground", Theme.Light.subBackground)
         $css.setProperty("--boxColor", Theme.Light.boxColor)
+        $css.setProperty("--boxColorTransparent", Theme.Light.boxColorTransparent)
         $css.setProperty("--textColor", Theme.Light.textColor)
         $css.setProperty("--contentColor", Theme.Light.contentColor)
         $css.setProperty("--borderColor", Theme.Light.borderColor)
