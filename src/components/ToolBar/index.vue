@@ -38,7 +38,7 @@ const isEffect = ref<boolean>(false)
 const Theme = reactive({
     Light: {
         bgColor: "#f9f9f9",
-        subBackground: "linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%)",
+        subBackground: "linear-gradient(90deg,rgba(247,149,51,.1),rgba(243,112,85,.1) 15%,rgba(239,78,123,.1) 30%,rgba(161,102,171,.1) 44%,rgba(80,115,184,.1) 58%,rgba(16,152,173,.1) 72%,rgba(7,179,155,.1) 86%,rgba(109,186,130,.1)),white",
         boxColor: "#fff",
         textColor: "#333",
         contentColor: "#666",

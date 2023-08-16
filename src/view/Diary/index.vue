@@ -5,37 +5,25 @@ store.getAuthor()
 
 const diarys = [
   {
+    id: 0,
+    content: "互联网从不缺乏天才，而努力才是最终的入场券!",
+    cover: ["https://liuyuyang.net/usr/uploads/2023/04/2401325320.jpeg", "https://liuyuyang.net/usr/uploads/2023/04/624381519.jpg", "https://liuyuyang.net/usr/uploads/2023/04/2555324373.jpeg"],
+    date: "2023-08-13"
+  },
+  {
     id: 1,
     content: "互联网从不缺乏天才，而努力才是最终的入场券!",
+    cover: ["https://liuyuyang.net/usr/uploads/2023/04/2401325320.jpeg", "https://liuyuyang.net/usr/uploads/2023/08/3843057387.jpg"],
     date: "2023-08-13"
   },
   {
     id: 2,
-    content: "互联网从不缺乏天才，而努力才是最终的入场券!",
-    date: "2023-08-13"
+    content: "一天一夜没睡，登顶江苏最高峰！玉女峰",
+    cover: ["http://liuyuyang.net/usr/uploads/2023/06/20230501163808.jpg"],
+    date: "2023-05-01"
   },
   {
     id: 3,
-    content: "互联网从不缺乏天才，而努力才是最终的入场券!",
-    date: "2023-08-13"
-  },
-  {
-    id: 4,
-    content: "互联网从不缺乏天才，而努力才是最终的入场券!",
-    date: "2023-08-13"
-  },
-  {
-    id: 5,
-    content: "互联网从不缺乏天才，而努力才是最终的入场券!",
-    date: "2023-08-13"
-  },
-  {
-    id: 6,
-    content: "互联网从不缺乏天才，而努力才是最终的入场券!",
-    date: "2023-08-13"
-  },
-  {
-    id: 7,
     content: "互联网从不缺乏天才，而努力才是最终的入场券!",
     date: "2023-08-13"
   }
@@ -56,14 +44,38 @@ const diarys = [
 
     <!-- 日记列表 -->
     <div class="list">
-      <div class="title">✍️生活随笔</div>
+      <div class="title">✍️ 生活随笔</div>
 
       <div class="item" v-for="item in diarys" :key="item.id">
-        <img :src="store.authorInfo.avatar" alt="">
+        <img :src="store.authorInfo.avatar" alt="" class="avatar">
 
         <div class="info">
           <div class="name">{{ store.authorInfo.name }}</div>
           <div class="content">{{ item.content }}</div>
+
+          <!-- 单图 -->
+          <template v-if="item.cover?.length === 1">
+            <div class="cover">
+              <img :src="cover" v-for="cover in item.cover" :key="cover">
+            </div>
+          </template>
+
+          <!-- 双图 -->
+          <template v-if="item.cover?.length === 2">
+            <div class="cover" style="height: 145px;">
+              <div style="width: 49%; height: 100%;" :style="{ backgroundImage: `url(${cover})` }"
+                v-for="cover in item.cover" :key="cover"></div>
+            </div>
+          </template>
+
+          <!-- 三图、四图 -->
+          <template v-if="item.cover?.length === 3 || item.cover?.length === 4">
+            <div class="cover" style="height: 300px;flex-wrap: wrap;">
+              <div style="width: 49%; height: 47%;" :style="{ backgroundImage: `url(${cover})` }"
+                v-for="cover in item.cover" :key="cover"></div>
+            </div>
+          </template>
+
           <div class="date">{{ item.date }}</div>
         </div>
       </div>
@@ -93,12 +105,23 @@ const diarys = [
 //   }
 // }
 
+// 滚动条轨道
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: #f5f5f5;
+}
+
+// 进度条颜色
+::-webkit-scrollbar-thumb {
+  background-color: #e4e4e4;
+}
+
 .diary {
   display: flex;
   height: 100vh;
   padding-top: 50px;
   margin: 0 auto;
-  background-image: $subBackground;
+  background: $subBackground;
   transition: background-color $move;
 
   .my {
@@ -111,13 +134,13 @@ const diarys = [
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-radius: 50%;
 
-    img {
+    >img {
       width: 100%;
       height: 100%;
       transition: transform $move;
     }
 
-    &:hover img{
+    &:hover img {
       transform: scale(1.1);
     }
   }
@@ -129,7 +152,7 @@ const diarys = [
     font-size: 30px;
     color: #555;
     padding-bottom: 20px;
-    border-bottom: 1px solid #fafafa;
+    // border-bottom: 1px solid #fafafa;
   }
 
   .list {
@@ -138,9 +161,10 @@ const diarys = [
     left: 230px;
     width: 700px;
     margin: 50px auto;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: rgba(255, 255, 255, 0.2) 0px 8px 24px;
+    // background: #fff;
+    // border-radius: 10px;
+    // border: 1px solid #eee;
+    // box-shadow: rgba(255, 255, 255, 0.2) 0px 8px 24px;
 
     .item {
       display: flex;
@@ -151,7 +175,7 @@ const diarys = [
         border-bottom: none;
       }
 
-      img {
+      .avatar {
         width: 50px;
         height: 50px;
         margin-right: 20px;
@@ -166,6 +190,29 @@ const diarys = [
 
       .content {
         margin: 10px 0;
+      }
+
+      .cover {
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 400px;
+        height: 300px;
+        margin: 20px 0;
+
+        img {
+          height: 100%;
+          border-radius: $round;
+        }
+
+        >div {
+          border-radius: $round;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+        }
       }
 
       .date {
