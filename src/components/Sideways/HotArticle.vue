@@ -1,36 +1,39 @@
 <script setup lang="ts">
+import { getRandom } from '@/util/random.ts'
+import { randomImage } from '@/util/randomImage.ts'
+import { getArticleListAPI } from '@/api/Article.ts'
+import { Article } from '@/types/Article';
+
+const ArticleList = ref<Article[]>([])
+
+const getArticleData = async () => {
+    const { data } = await getArticleListAPI()
+
+    for (let i = 1; i <= 3; i++) {
+        console.log(getRandom(0, data.length - 1), data[getRandom(0, data.length - 1)], 222);
+
+        ArticleList.value?.push(data[getRandom(0, data.length - 1)])
+        console.log(ArticleList.value, 666);
+    }
+}
+
+getArticleData()
 </script>
 
 <template>
     <div class="HotArticle">
         <h3 class="title">
-            <img src="@/assets/svg/other/fire.svg" alt=""> 推荐文章
+            <img src="@/assets/svg/other/fire.svg" alt=""> 随机推荐
         </h3>
 
         <!-- 文章列表 -->
         <div class="list">
-            <div class="item">
+            <div class="item" :style="{ backgroundImage: `url(${item.cover || randomImage()})` }" v-for="item in ArticleList">
                 <a href="javascript:;">
-                    <h4>20个你从未想过的 ChatGPT 有趣用途</h4>
+                    <h4>{{ item.title }}</h4>
                 </a>
 
                 <span>1</span>
-            </div>
-
-            <div class="item">
-                <a href="javascript:;">
-                    <h4>20个你从未想过的 ChatGPT 有趣用途</h4>
-                </a>
-
-                <span>2</span>
-            </div>
-
-            <div class="item">
-                <a href="javascript:;">
-                    <h4>20个你从未想过的 ChatGPT 有趣用途</h4>
-                </a>
-
-                <span>3</span>
             </div>
         </div>
     </div>
@@ -57,9 +60,8 @@
             height: 130px;
             margin-bottom: 10px;
             border-radius: $round;
-            background: url("https://liuyuyang.net/usr/uploads/2023/06/1705766133.jpg") no-repeat;
+            background: url("https://liuyuyang.net/usr/uploads/2023/06/1705766133.jpg") center no-repeat;
             background-size: 100%;
-            transform: scale(1);
             transition: background-size $move;
 
             // 阴影
@@ -71,17 +73,12 @@
                 width: 100%;
                 height: 50px;
                 background-image: linear-gradient(transparent, #000);
-                opacity: 0;
                 transition: opacity $move;
             }
 
             // 鼠标经过效果
             &:hover {
                 background-size: 105%;
-
-                &::after {
-                    opacity: 1;
-                }
             }
 
             a {
