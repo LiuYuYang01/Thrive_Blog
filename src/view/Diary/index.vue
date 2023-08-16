@@ -5,27 +5,22 @@ store.getAuthor()
 
 const diarys = [
   {
-    id: 0,
+    id: 1,
     content: "追魂夺命流水线，暗无天日鬼车间",
     cover: ["https://liuyuyang.net/usr/uploads/2023/04/2401325320.jpeg", "https://liuyuyang.net/usr/uploads/2023/04/624381519.jpg", "https://liuyuyang.net/usr/uploads/2023/04/2555324373.jpeg"],
     date: "2023-08-13"
   },
   {
-    id: 1,
+    id: 2,
     content: "互联网从不缺乏天才，而努力才是最终的入场券!",
     cover: ["https://liuyuyang.net/usr/uploads/2023/08/3843057387.jpg"],
     date: "2023-08-13"
   },
   {
-    id: 2,
+    id: 3,
     content: "一天一夜没睡，登顶江苏最高峰！玉女峰",
     cover: ["http://liuyuyang.net/usr/uploads/2023/06/20230501163808.jpg"],
     date: "2023-05-01"
-  },
-  {
-    id: 3,
-    content: "互联网从不缺乏天才，而努力才是最终的入场券!",
-    date: "2023-08-13"
   }
 ]
 
@@ -157,7 +152,6 @@ const image = ref<string>('')
     margin: 20px auto 0px;
     text-align: center;
     font-size: 30px;
-    color: #555;
     padding-bottom: 20px;
     border-bottom: 1px solid #fafafa;
   }
@@ -198,6 +192,7 @@ const image = ref<string>('')
 
       .content {
         margin: 10px 0;
+        color: #555;
       }
 
       .cover {

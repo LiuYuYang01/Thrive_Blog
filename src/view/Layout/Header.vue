@@ -145,6 +145,7 @@ const ExtendPage = {
   top: 0;
   width: 100%;
   height: 60px;
+  backdrop-filter: blur(5px);
   transition: background-color $move;
   z-index: 999;
 
@@ -275,7 +276,8 @@ const ExtendPage = {
 // 下边框
 .borderColor {
   border-bottom: 1px solid $borderColor;
-  background-color: $boxColor;
+  // background-color: $boxColor;
+  background-color: rgba(255,255,255,.9);
   transition: all $move;
 }
 
