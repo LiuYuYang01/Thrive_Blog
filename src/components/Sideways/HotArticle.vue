@@ -1,23 +1,34 @@
 <script setup lang="ts">
-import { getRandom } from '@/util/random.ts'
-import { randomImage } from '@/util/randomImage.ts'
-import { getArticleListAPI } from '@/api/Article.ts'
+import { randomImage } from '@/util/randomImage'
+import { getArticleListAPI } from '@/api/Article'
 import { Article } from '@/types/Article';
 
-const ArticleList = ref<Article[]>([])
+const ArticleList = ref<Article[]>([]);
 
 const getArticleData = async () => {
-    const { data } = await getArticleListAPI()
+    const { data } = await getArticleListAPI();
+    const generatedNumbers: number[] = [];
 
-    for (let i = 1; i <= 3; i++) {
-        console.log(getRandom(0, data.length - 1), data[getRandom(0, data.length - 1)], 222);
+    function getRandom(min: number, max: number) {
+        let randomNum = Math.floor(Math.random() * (max - min + 1) + min);
 
-        ArticleList.value?.push(data[getRandom(0, data.length - 1)])
-        console.log(ArticleList.value, 666);
+        while (generatedNumbers.includes(randomNum)) {
+            randomNum = Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        generatedNumbers.push(randomNum);
+        return randomNum;
     }
-}
 
-getArticleData()
+    for (let i = 1; i <= 4; i++) {
+        const randomIndex = getRandom(0, data.length - 1);
+        ArticleList.value?.push(data[randomIndex]);
+    }
+
+    console.log(ArticleList.value, 999);
+};
+
+getArticleData();
 </script>
 
 <template>
@@ -28,12 +39,13 @@ getArticleData()
 
         <!-- 文章列表 -->
         <div class="list">
-            <div class="item" :style="{ backgroundImage: `url(${item.cover || randomImage()})` }" v-for="item in ArticleList">
+            <div class="item" :style="{ backgroundImage: `url(${item.cover || randomImage()})` }"
+                v-for="item, index in ArticleList">
                 <a href="javascript:;">
                     <h4>{{ item.title }}</h4>
                 </a>
 
-                <span>1</span>
+                <span>{{ index + 1 }}</span>
             </div>
         </div>
     </div>
@@ -145,6 +157,14 @@ getArticleData()
 
             &::after {
                 border-color: transparent transparent transparent #3c83fd;
+            }
+        }
+
+        .item:nth-of-type(4) span {
+            background-color: #56c357;
+
+            &::after {
+                border-color: transparent transparent transparent #56c357;
             }
         }
 

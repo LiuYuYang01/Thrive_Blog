@@ -77,6 +77,9 @@ const image = ref<string>('')
           <div class="date">{{ item.date }}</div>
         </div>
       </div>
+
+      <!-- 加载更多 -->
+      <a href="javascript:;" class="loadMore">加载更多...</a>
     </div>
   </div>
 
@@ -173,7 +176,7 @@ const image = ref<string>('')
       padding: 30px;
       border-bottom: 1px solid #f2f2f2;
 
-      &:last-child {
+      &:last-of-type {
         border-bottom: none;
       }
 
@@ -223,6 +226,22 @@ const image = ref<string>('')
       .date {
         font-size: 12px;
         color: #666;
+      }
+    }
+
+    .loadMore {
+      display: block;
+      height: 30px;
+      line-height: 30px;
+      padding: 10px 0;
+      margin-bottom: 10px;
+      text-align: center;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      transition: background-color $move;
+
+      &:hover{
+        background-color: #fafafa;
       }
     }
   }

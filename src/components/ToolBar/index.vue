@@ -207,7 +207,7 @@ const updateColor = () => {
     right: 80px;
     bottom: 150px;
     width: 50px;
-    background-color: #fff;
+    background-color: $boxColor;
     user-select: none;
     z-index: 999;
     @include container;
