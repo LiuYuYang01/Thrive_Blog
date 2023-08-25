@@ -3,12 +3,27 @@ import { randomImage } from '@/util/randomImage'
 import { getArticleListAPI } from '@/api/Article'
 import { Article } from '@/types/Article';
 
+const loading = ref(false)
+const svg = `
+        <path class="path" d="
+          M 30 15
+          L 28 17
+          M 25.61 25.61
+          A 15 15, 0, 0, 1, 15 30
+          A 15 15, 0, 1, 1, 27.99 7.5
+          L 15 15
+        " style="stroke-width: 4px; fill: rgba(0, 0, 0, 0)"/>
+      `
+
 const ArticleList = ref<Article[]>([]);
 
 const getArticleData = async () => {
+    loading.value = true;
+
     const { data } = await getArticleListAPI();
     const generatedNumbers: number[] = [];
 
+    // 随机生成不重复的数
     function getRandom(min: number, max: number) {
         let randomNum = Math.floor(Math.random() * (max - min + 1) + min);
 
@@ -25,7 +40,7 @@ const getArticleData = async () => {
         ArticleList.value?.push(data[randomIndex]);
     }
 
-    console.log(ArticleList.value, 999);
+    loading.value = false;
 };
 
 getArticleData();
@@ -38,7 +53,8 @@ getArticleData();
         </h3>
 
         <!-- 文章列表 -->
-        <div class="list">
+        <div class="list" v-loading="loading" element-loading-text="Loading..." :element-loading-spinner="svg"
+            element-loading-svg-view-box="-10, -10, 50, 50">
             <div class="item" :style="{ backgroundImage: `url(${item.cover || randomImage()})` }"
                 v-for="item, index in ArticleList">
                 <a href="javascript:;">
@@ -66,6 +82,7 @@ getArticleData();
     // 文章列表
     .list {
         padding-top: 10px;
+        min-height: 120px;
 
         .item {
             position: relative;

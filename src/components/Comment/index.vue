@@ -14,7 +14,7 @@ const CommentSchema = yup.object({
 })
 
 // 收集评论框的内容
-const commentInfo = reactive({
+const commentInfo = ref({
     content: "",
     name: "",
     email: "",
@@ -24,7 +24,7 @@ const commentInfo = reactive({
 // 添加表情
 const addEmote = (url: string) => {
     const img = `<img src="${url}">`
-    commentInfo.content += img
+    commentInfo.value.content += img
     isEmote.value = false
 }
 
@@ -32,11 +32,27 @@ const addEmote = (url: string) => {
 const postComment = () => {
     // 发布评论之前先校验一下
     CommentSchema.validate(commentInfo, { abortEarly: false }).then(value => {
-        commentInfo.content = ""
+        commentInfo.value.content = ""
 
         // 消息提示
         ElMessage({ message: "恭喜你发布评论成功!", type: 'success' })
     }).catch(error => {
+        commentInfo.value = {
+            content: " ",
+            name: " ",
+            email: " ",
+            url: " "
+        }
+
+        setTimeout(() => {
+            commentInfo.value = {
+                content: "",
+                name: "",
+                email: "",
+                url: ""
+            }
+        }, 0)
+
         console.log(error);
         ElMessage({ message: '请确保每一项不能为空!', type: 'error' })
     })
