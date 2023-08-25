@@ -1,30 +1,22 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { Comment } from '@/types/Comment'
 
-interface CommentsList {
-  id: number,
-  avatar: string,
-  name: string,
-  content: string,
-  time: string,
-  children: Omit<CommentsList, "children">[]
-}
-
-const CommentsList = ref<CommentsList[]>([])
+const CommentsList = ref<Comment[]>([])
 CommentsList.value = [
   {
     "id": 1,
     "name": "方法总比困难多",
     "avatar": "https://q2.qlogo.cn/headimg_dl?dst_uin=3311118881&spec=100",
     "content": "半山腰的风景很美，然而我还是更想到山顶去看看！",
-    "time": "2022-06-06 15:28",
+    "date": "2022-06-06 15:28",
     "children": [
       {
         "id": 1,
         "name": "苏小晨",
         "avatar": "https://q2.qlogo.cn/headimg_dl?dst_uin=528609062&spec=100",
         "content": "加油哦",
-        "time": "2022-06-11 15:28"
+        "date": "2022-06-11 15:28"
       }
     ]
   },
@@ -33,7 +25,7 @@ CommentsList.value = [
     "name": "鱼子酱",
     "avatar": "https://q2.qlogo.cn/headimg_dl?dst_uin=3118614536&spec=100",
     "content": "生命不息，奋斗不止！只要相信，只要坚持，只要你真的是用生命在热爱，那一定是天赋使命使然，那就是一个人该坚持和努力的东西，无论梦想是什么，无论路有多曲折多遥远，只要是灵魂深处的热爱，就会一直坚持到走上属于自己的舞台！",
-    "time": "2022-06-06 15:28",
+    "date": "2022-06-06 15:28",
     "children": []
   }
 ]
@@ -50,7 +42,7 @@ console.log(CommentsList.value);
 
         <div class="comment_user_one_info">
           <span class="name">{{ one.name }}</span>
-          <span class="time">{{ one.time }}</span>
+          <span class="time">{{ one.date }}</span>
         </div>
       </div>
 
@@ -64,7 +56,7 @@ console.log(CommentsList.value);
           <div class="comment_user_two_info">
             <img src="https://q2.qlogo.cn/headimg_dl?dst_uin=528609062&spec=100" class="avatar_two">
             <span class="name">{{ two.name }}</span>
-            <span class="time">{{ two.time }}</span>
+            <span class="time">{{ two.date }}</span>
           </div>
 
           <!-- 评论内容 -->
