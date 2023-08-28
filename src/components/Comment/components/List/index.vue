@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { Comment } from '@/types/Comment'
+import { getCommentListAPI } from '@/api/Comment'
+// 引入时间插件
+import moment from 'moment';
+
+const route = useRoute()
 
 const CommentsList = ref<Comment[]>([])
 CommentsList.value = [
@@ -29,8 +34,31 @@ CommentsList.value = [
     "children": []
   }
 ]
-console.log(CommentsList.value);
 
+// 获取评论列表数据
+async function getCommentData() {
+  let { data } = await getCommentListAPI()
+
+  data.forEach(i => {
+    i.children = [];
+    
+    data.forEach(j => {
+      if (i.id === j.rid) {
+        i.children.push(j)
+      }
+    })
+  })
+
+  // 过滤出当前文章的评论
+  const currentArticle = data.filter(item => item.aid === +route.params.id)
+
+  console.log(currentArticle,888);
+  
+
+  // 转换二级评论
+  CommentsList.value = currentArticle;
+}
+getCommentData()
 </script>
 
 <template>
@@ -42,7 +70,7 @@ console.log(CommentsList.value);
 
         <div class="comment_user_one_info">
           <span class="name">{{ one.name }}</span>
-          <span class="time">{{ one.date }}</span>
+          <span class="time">{{ moment(one.date).format('YYYY-MM-DD') }}</span>
         </div>
       </div>
 
@@ -50,13 +78,14 @@ console.log(CommentsList.value);
       <div class="comment_main">{{ one.content }}</div>
 
       <!-- 二级评论 -->
+      <!-- <template v-if="one.children.length"> -->
       <template v-if="one.children.length">
         <div class="comment_user_two" v-for="two in one.children" :key="two.id">
           <!-- 评论者信息 -->
           <div class="comment_user_two_info">
             <img src="https://q2.qlogo.cn/headimg_dl?dst_uin=528609062&spec=100" class="avatar_two">
             <span class="name">{{ two.name }}</span>
-            <span class="time">{{ two.date }}</span>
+            <span class="time">{{ moment(two.date).format('YYYY-MM-DD') }}</span>
           </div>
 
           <!-- 评论内容 -->
