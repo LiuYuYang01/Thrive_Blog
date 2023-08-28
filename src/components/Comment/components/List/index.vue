@@ -8,40 +8,16 @@ import moment from 'moment';
 const route = useRoute()
 
 const CommentsList = ref<Comment[]>([])
-CommentsList.value = [
-  {
-    "id": 1,
-    "name": "方法总比困难多",
-    "avatar": "https://q2.qlogo.cn/headimg_dl?dst_uin=3311118881&spec=100",
-    "content": "半山腰的风景很美，然而我还是更想到山顶去看看！",
-    "date": "2022-06-06 15:28",
-    "children": [
-      {
-        "id": 1,
-        "name": "苏小晨",
-        "avatar": "https://q2.qlogo.cn/headimg_dl?dst_uin=528609062&spec=100",
-        "content": "加油哦",
-        "date": "2022-06-11 15:28"
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "name": "鱼子酱",
-    "avatar": "https://q2.qlogo.cn/headimg_dl?dst_uin=3118614536&spec=100",
-    "content": "生命不息，奋斗不止！只要相信，只要坚持，只要你真的是用生命在热爱，那一定是天赋使命使然，那就是一个人该坚持和努力的东西，无论梦想是什么，无论路有多曲折多遥远，只要是灵魂深处的热爱，就会一直坚持到走上属于自己的舞台！",
-    "date": "2022-06-06 15:28",
-    "children": []
-  }
-]
+CommentsList.value = []
 
 // 获取评论列表数据
 async function getCommentData() {
   let { data } = await getCommentListAPI()
 
+  // 筛选当前评论下的二级评论
   data.forEach(i => {
     i.children = [];
-    
+
     data.forEach(j => {
       if (i.id === j.rid) {
         i.children.push(j)
@@ -51,9 +27,6 @@ async function getCommentData() {
 
   // 过滤出当前文章的评论
   const currentArticle = data.filter(item => item.aid === +route.params.id)
-
-  console.log(currentArticle,888);
-  
 
   // 转换二级评论
   CommentsList.value = currentArticle;
@@ -78,7 +51,6 @@ getCommentData()
       <div class="comment_main">{{ one.content }}</div>
 
       <!-- 二级评论 -->
-      <!-- <template v-if="one.children.length"> -->
       <template v-if="one.children.length">
         <div class="comment_user_two" v-for="two in one.children" :key="two.id">
           <!-- 评论者信息 -->

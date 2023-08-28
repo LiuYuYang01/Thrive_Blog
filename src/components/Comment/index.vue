@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate'
 import * as yup from 'yup'
+import { addCommentDataAPI } from '@/api/Comment'
 
 // 表情框是否显示
 const isEmote = ref<boolean>(false)
@@ -21,6 +22,8 @@ const commentInfo = ref({
     url: ""
 })
 
+
+
 // 添加表情
 const addEmote = (url: string) => {
     const img = `<img src="${url}">`
@@ -28,32 +31,27 @@ const addEmote = (url: string) => {
     isEmote.value = false
 }
 
+// 表单实例
+const content = ref()
+const form = ref()
+
 // 发布评论
 const postComment = () => {
+    console.log(commentInfo.value, 111);
+
     // 发布评论之前先校验一下
-    CommentSchema.validate(commentInfo, { abortEarly: false }).then(value => {
-        commentInfo.value.content = ""
+    CommentSchema.validate(commentInfo.value, { abortEarly: false }).then(value => {
+        // 重置数据
+        content.value.resetForm()
+        form.value.resetForm()
 
         // 消息提示
         ElMessage({ message: "恭喜你发布评论成功!", type: 'success' })
     }).catch(error => {
-        commentInfo.value = {
-            content: " ",
-            name: " ",
-            email: " ",
-            url: " "
-        }
+        // 数据校验
+        content.value.validate()
+        form.value.validate()
 
-        setTimeout(() => {
-            commentInfo.value = {
-                content: "",
-                name: "",
-                email: "",
-                url: ""
-            }
-        }, 0)
-
-        console.log(error);
         ElMessage({ message: '请确保每一项不能为空!', type: 'error' })
     })
 }
@@ -64,7 +62,7 @@ const postComment = () => {
         <div class="title"></div>
 
         <!-- 评论框 -->
-        <Form :validation-schema="CommentSchema" as="div" class="frame">
+        <Form :validation-schema="CommentSchema" as="div" ref="content" class="frame">
             <div style="position: relative;">
                 <Field type="textarea" as="textarea" name="content" placeholder="不断进取，创造无限可能🎉" class="ipt"
                     style="height: 150px;" v-model="commentInfo.content" />
@@ -81,7 +79,7 @@ const postComment = () => {
         <!-- 表情框 -->
         <Emote :isEmote="isEmote" @addEmote="addEmote" />
 
-        <Form :validation-schema="CommentSchema" as="div" class="form">
+        <Form :validation-schema="CommentSchema" as="div" ref="form" class="form">
             <!-- 表单项 -->
             <div>
                 <Field type="text" name="name" class="ipt" style="width: 200px;" placeholder="显示名称 *"
