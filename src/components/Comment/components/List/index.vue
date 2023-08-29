@@ -6,6 +6,8 @@ import { getCommentListAPI } from '@/api/Comment'
 import moment from 'moment';
 
 const props = defineProps<{ isPublish: boolean }>()
+
+// 监听是否发布完评论，发布完后就重新获取评论列表数据
 watch(() => props.isPublish, (val) => {
   if (val) {
     getCommentData()

@@ -49,6 +49,11 @@ const postComment = () => {
         // 通过QQ邮箱生成头像
         commentInfo.value.avatar = `https://q1.qlogo.cn/g?b=qq&nk=${commentInfo.value.email.split("@")[0]}&s=640`;
 
+        // 解决第二次发不出去评论bug
+        if(!commentInfo.value.url){
+            commentInfo.value.url = "/";
+        }
+
         const { code, message } = await addCommentDataAPI(commentInfo.value);
         if(code != 200) return ElMessage({ message: message, type: 'error' })
 
