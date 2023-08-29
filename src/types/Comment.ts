@@ -5,7 +5,7 @@ export interface Comment {
     content: string,
     email: string,
     url?: string,
-    aid: string,
+    aid: number,
     rid?: number,
     date?: string,
     children?: Omit<Comment, "children">[]

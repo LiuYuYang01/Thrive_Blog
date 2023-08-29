@@ -6,12 +6,12 @@ import { getCommentListAPI } from '@/api/Comment'
 import moment from 'moment';
 
 const props = defineProps<{ isPublish: boolean }>()
+const emit = defineEmits<{ (e: "setAid", id: number): void }>()
+
 
 // 监听是否发布完评论，发布完后就重新获取评论列表数据
 watch(() => props.isPublish, (val) => {
-  if (val) {
-    getCommentData()
-  }
+  if (val) getCommentData()
 })
 
 const loading = ref(false)
@@ -57,6 +57,15 @@ async function getCommentData() {
   loading.value = false;
 }
 getCommentData()
+
+// 回复评论
+const reply = (id: number) => {
+  const content = document.querySelector(".frame .ipt") as HTMLDivElement;
+  content.focus();
+
+  // 给发布评论组件传递id，用于表示回复一级还是二级评论
+  emit("setAid", id)
+}
 </script>
 
 <template>
@@ -74,7 +83,7 @@ getCommentData()
       </div>
 
       <!-- 评论内容 -->
-      <div class="comment_main">{{ one.content }} <div class="reply">回复</div>
+      <div class="comment_main">{{ one.content }} <div class="reply" @click="reply(one.id as number)">回复</div>
       </div>
 
       <!-- 二级评论 -->
@@ -90,7 +99,7 @@ getCommentData()
 
           <!-- 评论内容 -->
           <div class="comment_main">
-            <a href="javascript:;">@{{ one.name }}： </a>
+            <!-- <a href="javascript:;">@{{ one.name }}： </a> -->
             <span style="font-size:15px;color:#444">{{ two.content }}</span>
           </div>
         </div>
@@ -122,12 +131,17 @@ ul {
       line-height: 25px;
       padding: 0 5px;
       margin-left: 10px;
-      border: 1px solid $color;
+      border: 1px solid $contentColor;
       border-radius: $round;
-      color: $color;
+      color: $contentColor;
       opacity: 0;
-      transition: opacity $move;
       cursor: pointer;
+      transition: all $move;
+
+      &:hover {
+        color: $color;
+        border: 1px solid $color;
+      }
     }
 
     &:hover .reply {
@@ -208,7 +222,7 @@ ul {
       }
 
       .comment_main {
-        margin: 5px 0px 5px 50px;
+        margin: 5px 0px 5px 40px;
 
         a {
           color: #007bff;

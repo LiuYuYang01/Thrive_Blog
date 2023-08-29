@@ -24,7 +24,7 @@ const commentInfo = ref<Comment>({
     email: "",
     url: "",
     avatar: '',
-    aid: id as string,
+    aid: +id,
     rid: 0
 })
 
@@ -42,6 +42,14 @@ const content = ref()
 const form = ref()
 const isPublish = ref<boolean>(false);
 
+// 回复的文章id
+const aid = ref<number>(0);
+
+// 修改回复文章ID
+const setAid = (id: number) => {
+    aid.value = id
+}
+
 // 发布评论
 const postComment = () => {
     // 发布评论之前先校验一下
@@ -50,12 +58,16 @@ const postComment = () => {
         commentInfo.value.avatar = `https://q1.qlogo.cn/g?b=qq&nk=${commentInfo.value.email.split("@")[0]}&s=640`;
 
         // 解决第二次发不出去评论bug
-        if(!commentInfo.value.url){
-            commentInfo.value.url = "/";
-        }
+        if (!commentInfo.value.url) commentInfo.value.url = "/";
 
+        console.log(aid.value,999);
+        
+        // 如果有id就是二级评论
+        if (aid.value) commentInfo.value.rid = aid.value;
+
+        // 调用发布评论接口
         const { code, message } = await addCommentDataAPI(commentInfo.value);
-        if(code != 200) return ElMessage({ message: message, type: 'error' })
+        if (code != 200) return ElMessage({ message: message, type: 'error' })
 
         // 重置数据
         content.value.resetForm()
@@ -129,7 +141,7 @@ const postComment = () => {
         </div>
     </div>
 
-    <List :isPublish="isPublish"/>
+    <List :isPublish="isPublish" @setAid="setAid" />
 </template>
 
 <style scoped lang="scss">
