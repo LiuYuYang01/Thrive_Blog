@@ -40,6 +40,7 @@ const addEmote = (url: string) => {
 // 表单实例
 const content = ref()
 const form = ref()
+const isPublish = ref<boolean>(false);
 
 // 发布评论
 const postComment = () => {
@@ -48,9 +49,8 @@ const postComment = () => {
         // 通过QQ邮箱生成头像
         commentInfo.value.avatar = `https://q1.qlogo.cn/g?b=qq&nk=${commentInfo.value.email.split("@")[0]}&s=640`;
 
-        const res = await addCommentDataAPI(commentInfo.value);
-        console.log(res);
-
+        const { code, message } = await addCommentDataAPI(commentInfo.value);
+        if(code != 200) return ElMessage({ message: message, type: 'error' })
 
         // 重置数据
         content.value.resetForm()
@@ -58,6 +58,8 @@ const postComment = () => {
 
         // 消息提示
         ElMessage({ message: "恭喜你发布评论成功!", type: 'success' })
+
+        isPublish.value = true;
     }).catch(error => {
         // 数据校验
         content.value.validate()
@@ -122,7 +124,7 @@ const postComment = () => {
         </div>
     </div>
 
-    <List />
+    <List :isPublish="isPublish"/>
 </template>
 
 <style scoped lang="scss">

@@ -5,6 +5,13 @@ import { getCommentListAPI } from '@/api/Comment'
 // 引入时间插件
 import moment from 'moment';
 
+const props = defineProps<{ isPublish: boolean }>()
+watch(() => props.isPublish, (val) => {
+  if (val) {
+    getCommentData()
+  }
+})
+
 const route = useRoute()
 
 const CommentsList = ref<Comment[]>([])

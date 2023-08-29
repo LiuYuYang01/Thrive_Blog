@@ -3,7 +3,7 @@ import type { http } from '@/types/Response'
 import type { Comment } from '@/types/Comment'
 
 // 新增评论
-export function addCommentDataAPI(data: Comment) {
+export function addCommentDataAPI(data: Comment): http<Comment> {
     console.log(data, 333);
 
     return Request.instance.request({
