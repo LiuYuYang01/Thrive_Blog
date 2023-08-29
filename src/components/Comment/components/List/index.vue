@@ -20,13 +20,13 @@ async function getCommentData() {
 
     data.forEach(j => {
       if (i.id === j.rid) {
-        i.children.push(j)
+        i.children?.push(j)
       }
     })
   })
 
   // 过滤出当前文章的评论
-  const currentArticle = data.filter(item => item.aid === +route.params.id)
+  const currentArticle = data.filter(item => item.aid + "" === route.params.id as string)
 
   // 转换二级评论
   CommentsList.value = currentArticle;
@@ -51,7 +51,7 @@ getCommentData()
       <div class="comment_main">{{ one.content }}</div>
 
       <!-- 二级评论 -->
-      <template v-if="one.children.length">
+      <template v-if="one.children?.length">
         <div class="comment_user_two" v-for="two in one.children" :key="two.id">
           <!-- 评论者信息 -->
           <div class="comment_user_two_info">

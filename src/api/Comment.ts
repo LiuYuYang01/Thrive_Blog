@@ -4,8 +4,11 @@ import type { Comment } from '@/types/Comment'
 
 // 新增评论
 export function addCommentDataAPI(data: Comment) {
+    console.log(data, 333);
+
     return Request.instance.request({
         url: `/api/comment`,
+        method: "post",
         data
     })
 }

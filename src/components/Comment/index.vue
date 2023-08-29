@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate'
 import * as yup from 'yup'
-import { addCommentDataAPI } from '@/api/Comment'
+import { addCommentDataAPI, getCommentListAPI } from '@/api/Comment'
+import { Comment } from '@/types/Comment'
 
 // 表情框是否显示
 const isEmote = ref<boolean>(false)
@@ -14,12 +15,17 @@ const CommentSchema = yup.object({
     url: yup.string().url("请输入正确的网站地址"),
 })
 
+const id = useRoute().params.id;
+
 // 收集评论框的内容
-const commentInfo = ref({
+const commentInfo = ref<Comment>({
     content: "",
     name: "",
     email: "",
-    url: ""
+    url: "",
+    avatar: '',
+    aid: id as string,
+    rid: 0
 })
 
 
@@ -37,10 +43,15 @@ const form = ref()
 
 // 发布评论
 const postComment = () => {
-    console.log(commentInfo.value, 111);
-
     // 发布评论之前先校验一下
-    CommentSchema.validate(commentInfo.value, { abortEarly: false }).then(value => {
+    CommentSchema.validate(commentInfo.value, { abortEarly: false }).then(async value => {
+        // 通过QQ邮箱生成头像
+        commentInfo.value.avatar = `https://q1.qlogo.cn/g?b=qq&nk=${commentInfo.value.email.split("@")[0]}&s=640`;
+
+        const res = await addCommentDataAPI(commentInfo.value);
+        console.log(res);
+
+
         // 重置数据
         content.value.resetForm()
         form.value.resetForm()
