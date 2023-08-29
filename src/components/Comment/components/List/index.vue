@@ -14,6 +14,18 @@ watch(() => props.isPublish, (val) => {
   }
 })
 
+const loading = ref(false)
+const svg = `
+        <path class="path" d="
+          M 30 15
+          L 28 17
+          M 25.61 25.61
+          A 15 15, 0, 0, 1, 15 30
+          A 15 15, 0, 1, 1, 27.99 7.5
+          L 15 15
+        " style="stroke-width: 4px; fill: rgba(0, 0, 0, 0)"/>
+      `
+
 const route = useRoute()
 
 const CommentsList = ref<Comment[]>([])
@@ -21,6 +33,8 @@ CommentsList.value = []
 
 // 获取评论列表数据
 async function getCommentData() {
+  loading.value = true;
+
   let { data } = await getCommentListAPI()
 
   // 筛选当前评论下的二级评论
@@ -39,25 +53,29 @@ async function getCommentData() {
 
   // 转换二级评论
   CommentsList.value = currentArticle;
+
+  loading.value = false;
 }
 getCommentData()
 </script>
 
 <template>
-  <ul class="list">
+  <ul class="list" v-loading="loading" :element-loading-svg="svg" element-loading-svg-view-box="-10, -10, 50, 50">
     <li class="item" v-for="one in CommentsList" :key="one.id">
       <!-- 评论者信息 -->
       <div class="comment_user_one">
         <img :src="one.avatar" alt="" class="avatar">
 
         <div class="comment_user_one_info">
-          <span class="name">{{ one.name }}</span>
+          <a :href="one.url" class="name active" target="_blank" v-if="one.url">{{ one.name }}</a>
+          <a class="name" v-else>{{ one.name }}</a>
           <span class="time">{{ moment(one.date).format('YYYY-MM-DD') }}</span>
         </div>
       </div>
 
       <!-- 评论内容 -->
-      <div class="comment_main">{{ one.content }}</div>
+      <div class="comment_main">{{ one.content }} <div class="reply">回复</div>
+      </div>
 
       <!-- 二级评论 -->
       <template v-if="one.children?.length">
@@ -65,7 +83,8 @@ getCommentData()
           <!-- 评论者信息 -->
           <div class="comment_user_two_info">
             <img src="https://q2.qlogo.cn/headimg_dl?dst_uin=528609062&spec=100" class="avatar_two">
-            <span class="name">{{ two.name }}</span>
+            <a :href="two.url" class="name active" target="_blank" v-if="two.url">{{ two.name }}</a>
+            <a class="name" v-else>{{ two.name }}</a>
             <span class="time">{{ moment(two.date).format('YYYY-MM-DD') }}</span>
           </div>
 
@@ -96,6 +115,25 @@ ul {
     border-bottom: 1px dashed #eee;
     transition: all 0.3s;
 
+    // 回复按钮布局
+    .reply {
+      display: inline-block;
+      height: 25px;
+      line-height: 25px;
+      padding: 0 5px;
+      margin-left: 10px;
+      border: 1px solid $color;
+      border-radius: $round;
+      color: $color;
+      opacity: 0;
+      transition: opacity $move;
+      cursor: pointer;
+    }
+
+    &:hover .reply {
+      opacity: 1;
+    }
+
     // 评论者头像
     .avatar {
       width: 35px;
@@ -119,6 +157,10 @@ ul {
           color: #333;
           transition: all 0.3s;
           font-size: 16px;
+        }
+
+        .active {
+          color: $color;
         }
 
         /* 评论时间 */

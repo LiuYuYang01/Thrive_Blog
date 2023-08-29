@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate'
 import * as yup from 'yup'
-import { addCommentDataAPI, getCommentListAPI } from '@/api/Comment'
+import { addCommentDataAPI } from '@/api/Comment'
 import { Comment } from '@/types/Comment'
 
 // 表情框是否显示
