@@ -28,6 +28,9 @@ const commentInfo = ref<Comment>({
     rid: 0
 })
 
+// 评论提示信息
+const commentData = ref<string>("来发一针见血的评论吧~");
+
 
 
 // 添加表情
@@ -47,7 +50,8 @@ const Commentid = ref<number>(0);
 
 // 修改回复文章ID
 const setAid = (id: number) => {
-    Commentid.value = id
+    Commentid.value = id;
+    commentData.value = "回复评论~";
 }
 
 // 发布评论
@@ -70,14 +74,19 @@ const postComment = () => {
         const { code, message } = await addCommentDataAPI(commentInfo.value);
         if (code != 200) return ElMessage({ message: message, type: 'error' })
 
+        // 将数据信息保存到本地，方便下一次评论
+        saveLocally()
+
         // 重置数据
         content.value.resetForm()
-        form.value.resetForm()
+        // form.value.resetForm()
 
         // 消息提示
         ElMessage({ message: "恭喜你发布评论成功!", type: 'success' })
 
-        isPublish.value = true;
+        isPublish.value = !isPublish.value;
+
+        commentData.value = "来发一针见血的评论吧~";
     }).catch(error => {
         // 数据校验
         content.value.validate()
@@ -86,6 +95,19 @@ const postComment = () => {
         ElMessage({ message: '请确保每一项不能为空!', type: 'error' })
     })
 }
+
+// 将数据信息保存到本地，方便下一次评论
+const saveLocally = () => {
+    const data = { name: commentInfo.value.name, email: commentInfo.value.email, url: commentInfo.value.url }
+    localStorage.setItem("commentInfo", JSON.stringify(data))
+}
+
+// 页面加载完成后，先判断本地有没有数据，如果有就从本地读取
+onMounted(() => {
+    const data = localStorage.getItem("commentInfo") && JSON.parse(localStorage.getItem("commentInfo") as string) || { name: "", email: "", url: "" };
+
+    [commentInfo.value.name, commentInfo.value.email, commentInfo.value.url] = [data.name, data.email, data.url]
+})
 </script>
 
 <template>
@@ -95,7 +117,7 @@ const postComment = () => {
         <!-- 评论框 -->
         <Form :validation-schema="CommentSchema" as="div" ref="content" class="frame">
             <div style="position: relative;">
-                <Field type="textarea" as="textarea" name="content" placeholder="不断进取，创造无限可能🎉" class="ipt"
+                <Field type="textarea" as="textarea" name="content" :placeholder="commentData" class="ipt"
                     style="height: 150px;" v-model="commentInfo.content" />
 
                 <!-- 表情按钮 -->

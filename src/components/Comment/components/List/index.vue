@@ -10,8 +10,8 @@ const emit = defineEmits<{ (e: "setAid", id: number): void }>()
 
 
 // 监听是否发布完评论，发布完后就重新获取评论列表数据
-watch(() => props.isPublish, (val) => {
-  if (val) getCommentData()
+watch(() => props.isPublish, () => {
+  getCommentData()
 })
 
 const loading = ref(false)
