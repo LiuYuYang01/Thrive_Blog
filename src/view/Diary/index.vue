@@ -36,13 +36,13 @@ const image = ref<string>('')
   </div> -->
 
   <div class="diary">
-    <div class="my">
+    <!-- <div class="my">
       <img :src="store.authorInfo.avatar" alt="">
-    </div>
+    </div> -->
 
     <!-- 日记列表 -->
     <div class="list">
-      <div class="title">✍️ 生活随笔</div>
+      <div class="title">🏄‍♂️ 闪念</div>
 
       <div class="item" v-for="item in diarys" :key="item.id">
         <img :src="store.authorInfo.avatar" alt="" class="avatar">
@@ -161,8 +161,8 @@ const image = ref<string>('')
 
   .list {
     overflow: auto;
-    position: relative;
-    left: 230px;
+    // position: relative;
+    // left: 230px;
     width: 700px;
     padding: 0 20px;
     margin: 50px auto;
