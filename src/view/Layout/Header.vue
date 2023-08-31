@@ -67,7 +67,7 @@ const ExtendPage = {
 
 <template>
   <div :class="top > 100 || is ? 'Header borderColor gradient' : 'Header'">
-    <div class="w">
+    <div class="w" style="width: 1500px;">
       <!-- 一级导航 -->
       <ul class="one">
         <!-- LOGO -->
@@ -112,7 +112,13 @@ const ExtendPage = {
         <li class="one_item">
           <RouterLink to="/diary" class="one_item_nav"
             :style="{ color: top > 100 || is ? 'var(--textColor, #333)' : '#fff' }">
-            ✍️ 闪念</RouterLink>
+            🏄‍♂️ 闪念</RouterLink>
+        </li>
+
+        <li class="one_item">
+          <RouterLink to="/diary" class="one_item_nav"
+            :style="{ color: top > 100 || is ? 'var(--textColor, #333)' : '#fff' }">
+            🌎 朋友圈</RouterLink>
         </li>
 
         <!-- 扩展页面 -->
