@@ -43,11 +43,11 @@ const form = ref()
 const isPublish = ref<boolean>(false);
 
 // 回复的文章id
-const aid = ref<number>(0);
+const Commentid = ref<number>(0);
 
 // 修改回复文章ID
 const setAid = (id: number) => {
-    aid.value = id
+    Commentid.value = id
 }
 
 // 发布评论
@@ -58,12 +58,13 @@ const postComment = () => {
         commentInfo.value.avatar = `https://q1.qlogo.cn/g?b=qq&nk=${commentInfo.value.email.split("@")[0]}&s=640`;
 
         // 解决第二次发不出去评论bug
-        if (!commentInfo.value.url) commentInfo.value.url = "/";
+        if (!commentInfo.value.url) commentInfo.value.url = "";
 
-        console.log(aid.value,999);
-        
-        // 如果有id就是二级评论
-        if (aid.value) commentInfo.value.rid = aid.value;
+        // 如果有id就是二级评论，没有就是一级评论
+        if (Commentid.value) {
+            commentInfo.value.aid = 0;
+            commentInfo.value.rid = Commentid.value;
+        };
 
         // 调用发布评论接口
         const { code, message } = await addCommentDataAPI(commentInfo.value);

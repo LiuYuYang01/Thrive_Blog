@@ -91,7 +91,7 @@ const reply = (id: number) => {
         <div class="comment_user_two" v-for="two in one.children" :key="two.id">
           <!-- 评论者信息 -->
           <div class="comment_user_two_info">
-            <img src="https://q2.qlogo.cn/headimg_dl?dst_uin=528609062&spec=100" class="avatar_two">
+            <img :src="two.avatar" class="avatar_two">
             <a :href="two.url" class="name active" target="_blank" v-if="two.url">{{ two.name }}</a>
             <a class="name" v-else>{{ two.name }}</a>
             <span class="time">{{ moment(two.date).format('YYYY-MM-DD') }}</span>

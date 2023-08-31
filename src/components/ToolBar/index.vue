@@ -60,7 +60,7 @@ const Theme = reactive({
         contentColor: "#bbb",
         borderColor: "#2b333e",
         waveColor: "rgba(35, 41, 49, 0.7)",
-        shadeColor: "0 -2px 15px rgba(97, 156, 251, .5)",
+        shadeColor: "0 0px 20px -2px rgb(144 146 148 / 50%)",
         underBorderColor: "#464646",
         essayTitle: "#fff",
         essayContent: "#d9d9d9",
