@@ -29,12 +29,6 @@ const image = ref<string>('')
 </script>
 
 <template>
-  <!-- <div class="swiper">
-    <Swiper src="https://t3.picb.cc/2023/08/04/ITN4rM.jpeg" :Ripple="true">
-      <div class="title">记录点点滴滴</div>
-    </Swiper>
-  </div> -->
-
   <div class="diary">
     <!-- <div class="my">
       <img :src="store.authorInfo.avatar" alt="">
@@ -90,25 +84,6 @@ const image = ref<string>('')
 
 <style scoped lang="scss">
 @import "@/styles/public.scss";
-
-// .swiper {
-//   :deep .Swiper {
-//     background-position: center top;
-//   }
-
-//   .title {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     background-color: rgba(0, 0, 0, 0.2);
-//     width: 100%;
-//     height: 100%;
-//     padding-bottom: 60px;
-//     color: #fff;
-//     font-size: 40px;
-//     text-shadow: 0 0.1875rem 0.5rem #1c1f21;
-//   }
-// }
 
 // 滚动条轨道
 ::-webkit-scrollbar-track {

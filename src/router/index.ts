@@ -40,6 +40,11 @@ const router = createRouter({
                     component: () => import('@/view/Diary/index.vue')
                 },
                 {
+                    path: "friend",
+                    name: "friend",
+                    component: () => import('@/view/Friend/index.vue')
+                },
+                {
                     // 统计页
                     path: "stats",
                     name: "stats",

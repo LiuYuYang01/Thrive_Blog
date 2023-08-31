@@ -116,7 +116,7 @@ const ExtendPage = {
         </li>
 
         <li class="one_item">
-          <RouterLink to="/diary" class="one_item_nav"
+          <RouterLink to="/friend" class="one_item_nav"
             :style="{ color: top > 100 || is ? 'var(--textColor, #333)' : '#fff' }">
             🌎 朋友圈</RouterLink>
         </li>
