@@ -69,7 +69,8 @@ const reply = (id: number) => {
 </script>
 
 <template>
-  <ul class="list" v-loading="loading" :element-loading-svg="svg" element-loading-svg-view-box="-10, -10, 50, 50">
+  <ul class="list" v-loading="loading" :element-loading-svg="svg" element-loading-svg-view-box="-10, -10, 50, 50"
+    v-if="CommentsList.length">
     <li class="item" v-for="one in CommentsList" :key="one.id">
       <!-- 评论者信息 -->
       <div class="comment_user_one">
@@ -106,11 +107,16 @@ const reply = (id: number) => {
       </template>
     </li>
   </ul>
+
+  <div class="void" v-else>
+    <img src="@/assets/svg/other/empty.svg" alt="">
+    <p>空空如也~</p>
+  </div>
 </template>
 
 <style scoped lang="scss">
 /* 评论内容 */
-ul {
+.list {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
@@ -234,6 +240,22 @@ ul {
     &:last-of-type {
       border-bottom: 0;
     }
+  }
+}
+
+// 空状态
+.void {
+  text-align: center;
+  margin: 50px 0 10px;
+
+  img {
+    width: 200px;
+    height: 150px;
+  }
+
+  p {
+    margin-top: 10px;
+    color: #333;
   }
 }
 </style>
