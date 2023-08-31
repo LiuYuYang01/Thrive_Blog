@@ -81,7 +81,7 @@ const ExtendPage = {
           <!-- 文字LOGO模式 -->
           <RouterLink to="/" class="one_item_nav" :style="{ color: top > 100 || is ? 'var(--textColor, #333)' : '#fff' }"
             v-else>
-            <b>Blog</b>
+            <b>Thrive</b>
           </RouterLink>
         </li>
 

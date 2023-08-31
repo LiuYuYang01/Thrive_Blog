@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Link, Cate } from '@/types/Link'
+
 const linkData = ref<Cate[]>([
     {
         title: "技术类",
@@ -199,7 +200,7 @@ const linkData = ref<Cate[]>([
                 display: flex;
                 align-items: center;
                 width: 270px;
-                height: 80px;
+                height: 100px;
                 margin-bottom: 20px;
                 margin-right: 19.5px;
                 border: 1px solid #eee;
