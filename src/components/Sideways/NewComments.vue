@@ -1,5 +1,15 @@
 <script setup lang="ts">
+import { getCommentListAPI } from '@/api/Comment'
+import { Comment } from '@/types/Comment'
+import moment from 'moment';
 
+const commentList = ref<Comment[]>()
+
+const getCommentData = async () => {
+    const { data } = await getCommentListAPI()
+    commentList.value = data;
+}
+getCommentData()
 </script>
 
 <template>
@@ -10,63 +20,15 @@
 
         <!-- 评论列表 -->
         <div class="list">
-            <a href="javascript:;" class="item">
+            <a href="javascript:;" class="item" v-for="item in commentList" :key="item.id">
                 <!-- 头像 -->
-                <img src="http://q.qlogo.cn/headimg_dl?dst_uin=3311118881&spec=640&img_type=jpg" alt="" class="avatar">
+                <img :src="item.avatar" alt="" class="avatar">
                 <!-- 内容 -->
                 <div class="content">
                     <!-- 评论信息 -->
-                    <div class="info">真的很喜欢这个网站的风格</div>
+                    <div class="info">{{ item.content }}</div>
                     <!-- 评论时间 -->
-                    <div class="time">2023-05-08</div>
-                </div>
-            </a>
-
-            <a href="javascript:;" class="item">
-                <!-- 头像 -->
-                <img src="http://q.qlogo.cn/headimg_dl?dst_uin=3311118881&spec=640&img_type=jpg" alt="" class="avatar">
-                <!-- 内容 -->
-                <div class="content">
-                    <!-- 评论信息 -->
-                    <div class="info">你好，该网站开源吗</div>
-                    <!-- 评论时间 -->
-                    <div class="time">2023-05-08</div>
-                </div>
-            </a>
-
-            <a href="javascript:;" class="item">
-                <!-- 头像 -->
-                <img src="http://q.qlogo.cn/headimg_dl?dst_uin=3311118881&spec=640&img_type=jpg" alt="" class="avatar">
-                <!-- 内容 -->
-                <div class="content">
-                    <!-- 评论信息 -->
-                    <div class="info">加油</div>
-                    <!-- 评论时间 -->
-                    <div class="time">2023-05-08</div>
-                </div>
-            </a>
-
-            <a href="javascript:;" class="item">
-                <!-- 头像 -->
-                <img src="http://q.qlogo.cn/headimg_dl?dst_uin=3311118881&spec=640&img_type=jpg" alt="" class="avatar">
-                <!-- 内容 -->
-                <div class="content">
-                    <!-- 评论信息 -->
-                    <div class="info">网站的设计非常精美，很喜欢</div>
-                    <!-- 评论时间 -->
-                    <div class="time">2023-05-08</div>
-                </div>
-            </a>
-
-            <a href="javascript:;" class="item">
-                <!-- 头像 -->
-                <img src="http://q.qlogo.cn/headimg_dl?dst_uin=3311118881&spec=640&img_type=jpg" alt="" class="avatar">
-                <!-- 内容 -->
-                <div class="content">
-                    <!-- 评论信息 -->
-                    <div class="info">非常Nice！</div>
-                    <!-- 评论时间 -->
-                    <div class="time">2023-05-08</div>
+                    <div class="time">{{ moment(item.date).format('YYYY-MM-DD') }}</div>
                 </div>
             </a>
         </div>
@@ -97,12 +59,13 @@
 
         .item {
             display: flex;
+            align-items: center;
             padding: 10px 0;
             border-bottom: 1px solid $underBorderColor;
             transition: border-bottom $move;
 
             // 最后一个评论取消下边框
-            &:last-of-type{
+            &:last-of-type {
                 border-bottom: none;
             }
 
@@ -128,9 +91,12 @@
                     transition: color $move;
 
                     // 文本溢出省略
-                    white-space: nowrap;
+                    display: -webkit-box !important;
                     overflow: hidden;
+                    word-break: break-all;
                     text-overflow: ellipsis;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 3;
                 }
 
                 // 评论时间
