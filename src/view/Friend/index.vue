@@ -99,6 +99,15 @@ const linkData = ref<Cate[]>([
         ]
     }
 ])
+
+onMounted(() => {
+    // 获取朋友圈的高度
+    const bgHeight = document.querySelector(".bg") as HTMLElement;
+    const FriendHeight = document.querySelector(".bg .Friend") as HTMLElement;
+    const height = FriendHeight.offsetHeight;
+
+    bgHeight.style.height = (height - 50) + "px";
+})
 </script>
 
 <template>
@@ -156,13 +165,16 @@ const linkData = ref<Cate[]>([
 }
 
 .bg {
+    position: relative;
     padding: 50px 0;
     background: linear-gradient(45deg, #fff1eb, #ace0f9);
 }
 
 .Friend {
-    position: relative;
-    top: -240px;
+    position: absolute;
+    top: -190px;
+    left: 50%;
+    transform: translateX(-50%);
     width: $w;
     padding: 30px;
     margin: 50px auto;
