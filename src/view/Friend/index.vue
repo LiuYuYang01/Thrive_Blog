@@ -3,7 +3,7 @@ import { Link, Cate } from '@/types/Link'
 
 const linkData = ref<Cate[]>([
     {
-        title: "技术类",
+        title: "💻 技术类",
         list: [
             {
                 id: 1,
@@ -51,7 +51,7 @@ const linkData = ref<Cate[]>([
         ]
     },
     {
-        title: "生活类",
+        title: "🏄‍♂️ 生活类",
         list: [
             {
                 id: 1,
@@ -114,6 +114,7 @@ onMounted(() => {
     <div class="swiper">
         <Swiper src="https://t3.picb.cc/2023/08/04/ITN4rM.jpeg" :Ripple="true">
             <div class="title">一个人的寂寞, 一群人的狂欢!</div>
+            <div class="application">申请友联</div>
         </Swiper>
     </div>
 
@@ -142,6 +143,8 @@ onMounted(() => {
 @import "@/styles/public.scss";
 
 .swiper {
+    position: relative;
+
     :deep .Swiper {
         background-position: center top;
 
@@ -157,10 +160,29 @@ onMounted(() => {
         background-color: rgba(0, 0, 0, 0.2);
         width: 100%;
         height: 100%;
-        padding-bottom: 60px;
+        padding-bottom: 150px;
         color: #fff;
         font-size: 40px;
         text-shadow: 0 0.1875rem 0.5rem #1c1f21;
+    }
+
+    .application {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%);
+        width: 140px;
+        height: 50px;
+        line-height: 50px;
+        border-radius: 30px;
+        background-color: #49b984;
+        text-align: center;
+        color: #fff;
+        cursor: pointer;
+
+        &:active{
+            background-color: #3c9a6d;
+        }
     }
 }
 
@@ -185,22 +207,23 @@ onMounted(() => {
         position: relative;
         margin-bottom: 30px;
 
-        &::after {
-            position: absolute;
-            top: 0px;
-            left: 4px;
-            content: "#";
-            padding-right: 5px;
-            font-size: 30px;
-            vertical-align: middle;
-            color: $color;
-        }
+        // &::after {
+        //     position: absolute;
+        //     top: 0px;
+        //     left: 4px;
+        //     content: "#";
+        //     padding-right: 5px;
+        //     font-size: 30px;
+        //     vertical-align: middle;
+        //     color: $color;
+        // }
 
         .title {
             font-size: 30px;
-            padding-left: 30px;
+            // padding-left: 30px;
             padding-bottom: 20px;
             border-bottom: 1px dotted #eee;
+            text-align: center;
         }
 
         .list {
@@ -233,7 +256,18 @@ onMounted(() => {
                 .info {
                     .name {}
 
-                    .description {}
+                    .description {
+                        color: #666;
+                        margin-top: 5px;
+
+                        // 内容防止溢出
+                        display: -webkit-box !important;
+                        overflow: hidden;
+                        word-break: break-all;
+                        text-overflow: ellipsis;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 2;
+                    }
                 }
             }
         }
