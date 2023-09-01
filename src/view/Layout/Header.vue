@@ -73,9 +73,9 @@ const ExtendPage = {
         <!-- LOGO -->
         <li class="one_item">
           <!-- 图片LOGO模式 -->
-          <RouterLink to="/" class="one_item_nav" v-if="false">
-            <img src="@/assets/img/logo_dark.png" alt="" v-if="top > 100 || is">
-            <img src="@/assets/img/logo_light.png" alt="" v-else>
+          <RouterLink to="/" class="one_item_nav" v-if="true">
+            <img src="@/assets/img/logo_light.png" alt="" v-if="top > 100 || is">
+            <img src="@/assets/img/logo_dark.png" alt="" v-else>
           </RouterLink>
 
           <!-- 文字LOGO模式 -->
@@ -180,9 +180,9 @@ const ExtendPage = {
         position: relative;
 
         img {
-          width: 145px;
+          // width: 145px;
           height: 40px;
-          padding-right: 40px;
+          padding-right: 20px;
           transition: all $move;
         }
 
