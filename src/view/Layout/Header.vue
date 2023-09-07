@@ -35,6 +35,12 @@ watch(() => route, r => {
   pages.includes(c) ? is.value = true : is.value = false
 }, { immediate: true, deep: true })
 
+import logo_dark from '@/assets/img/logo_dark.png'
+import logo_light from '@/assets/img/logo_light.png'
+
+import { useConfigStore } from '@/stores'
+const store = useConfigStore()
+
 // 扩展页面
 const ExtendPage = {
   name: "扩展页面",
@@ -74,8 +80,15 @@ const ExtendPage = {
         <li class="one_item">
           <!-- 图片LOGO模式 -->
           <RouterLink to="/" class="one_item_nav" v-if="true">
-            <img src="@/assets/img/logo_light.png" alt="" v-if="top > 100 || is">
-            <img src="@/assets/img/logo_dark.png" alt="" v-else>
+            <!-- 白天 -->
+            <template v-if="!store.isEffect">
+              <img :src="top > 100 || is ? logo_light : logo_dark" alt="">
+            </template>
+
+            <!-- 黑夜 -->
+            <template v-else>
+              <img :src="logo_dark" alt="">
+            </template>
           </RouterLink>
 
           <!-- 文字LOGO模式 -->

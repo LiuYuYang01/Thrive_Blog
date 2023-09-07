@@ -10,11 +10,12 @@
 .pagination {
     display: flex;
     justify-content: center;
-    margin-top: 40px;
+    margin: 25px 0;
 
     :deep .el-pager li {
-        padding: 20px;
+        padding: 15px;
         border-radius: 10px;
+        color: $textColor;
         background-color: transparent;
     }
 

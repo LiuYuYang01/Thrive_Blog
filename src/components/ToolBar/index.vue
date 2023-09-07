@@ -68,10 +68,12 @@ const Theme = reactive({
     }
 })
 
+import { useConfigStore } from '@/stores'
+const store = useConfigStore()
+
 watch(isEffect, n => {
     if (n) {
         // 黑夜模式
-        console.log("黑夜");
         $css.setProperty("--bgColor", Theme.Dark.bgColor)
         $css.setProperty("--subBackground", Theme.Dark.subBackground)
         $css.setProperty("--boxColor", Theme.Dark.boxColor)
@@ -87,7 +89,6 @@ watch(isEffect, n => {
         $css.setProperty("--contentLight", Theme.Dark.contentLight)
     } else {
         // 白天模式
-        console.log("白天");
         $css.setProperty("--bgColor", Theme.Light.bgColor)
         $css.setProperty("--subBackground", Theme.Light.subBackground)
         $css.setProperty("--boxColor", Theme.Light.boxColor)
@@ -102,6 +103,8 @@ watch(isEffect, n => {
         $css.setProperty("--essayContent", Theme.Light.essayContent)
         $css.setProperty("--contentLight", Theme.Light.contentLight)
     }
+
+    store.updateIsEffect(n)
 })
 
 
