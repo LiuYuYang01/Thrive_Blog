@@ -50,6 +50,8 @@ import { randomImage } from '@/util/randomImage'
         <!-- 空状态 -->
         <Empty info="暂无文章" v-if="!data.length"></Empty>
     </div>
+
+    <Pagination />
 </template>
 
 <style scoped lang="scss">

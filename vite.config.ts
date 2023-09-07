@@ -5,6 +5,9 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
+// 导入对应包
+import ElementPlus from 'unplugin-element-plus/vite'
+
 // 配置@路径别名
 import { resolve } from "path";
 
@@ -58,7 +61,9 @@ export default defineConfig({
         /**如果引入多个文件，可以使用
        * '@import "@/assets/sass/globalVariable1.sass"; @import"@/assets/sass/globalVariable2.sass";'
       **/
-        additionalData: '@import "@/styles/global.scss";',
+        additionalData: `
+            @import "@/styles/global.scss";
+        `,
       }
     }
   },
