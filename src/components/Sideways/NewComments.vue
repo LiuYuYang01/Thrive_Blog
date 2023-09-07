@@ -7,7 +7,16 @@ const commentList = ref<Comment[]>()
 
 const getCommentData = async () => {
     const { data } = await getCommentListAPI()
-    commentList.value = data;
+
+    // 根据评论时间进行排序并且只保留5个数据
+    const list = data.sort((a, b) => {
+        const timeA = new Date(a.date!).getTime();
+        const timeB = new Date(b.date!).getTime();
+
+        return timeB - timeA;
+    }).slice(0, 5);
+
+    commentList.value = list;
 }
 getCommentData()
 </script>
