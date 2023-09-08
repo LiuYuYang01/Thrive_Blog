@@ -51,7 +51,8 @@ import { randomImage } from '@/util/randomImage'
         <Empty info="暂无文章" v-if="!data.length"></Empty>
     </div>
 
-    <Pagination />
+    <!-- 当文章数量超过5个时才会显示分页 -->
+    <Pagination v-if="data.length >= 5" />
 </template>
 
 <style scoped lang="scss">

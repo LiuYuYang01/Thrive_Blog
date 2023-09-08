@@ -5,9 +5,6 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
-// 导入对应包
-import ElementPlus from 'unplugin-element-plus/vite'
-
 // 配置@路径别名
 import { resolve } from "path";
 

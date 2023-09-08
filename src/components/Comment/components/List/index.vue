@@ -49,10 +49,7 @@ async function getCommentData() {
   })
 
   // 过滤出当前文章的评论
-  const currentArticle = data.filter(item => item.aid + "" === route.params.id as string)
-
-  // 转换二级评论
-  CommentsList.value = currentArticle;
+  CommentsList.value = data.filter(item => item.aid + "" === route.params.id as string);
 
   loading.value = false;
 }
@@ -112,6 +109,9 @@ const reply = (id: number) => {
     <img src="@/assets/svg/other/empty.svg" alt="">
     <p>空空如也~</p>
   </div>
+
+  <!-- 当评论数量超过5个时才会显示分页 -->
+  <Pagination v-if="CommentsList.length >= 5" />
 </template>
 
 <style scoped lang="scss">
