@@ -32,6 +32,7 @@ declare module '@vue/runtime-core' {
     RandomArticle: typeof import('./src/components/Sideways/RandomArticle.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    StarrySky: typeof import('./src/components/StarrySky/StarrySky.vue')['default']
     Swiper: typeof import('./src/components/Swiper/index.vue')['default']
     Tag: typeof import('./src/components/Article/components/Tag.vue')['default']
     TimeAxis: typeof import('./src/components/TimeAxis/index.vue')['default']

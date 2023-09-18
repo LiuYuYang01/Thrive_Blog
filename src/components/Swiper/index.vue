@@ -11,8 +11,7 @@ onMounted(() => {
 <template>
     <div class="Swiper" :style="{ backgroundImage: `url(${src})` }">
         <!-- 引入打字机组件 -->
-        <Typewriter :data="data!"
-            class="Typewriter">
+        <Typewriter :data="data!" class="Typewriter">
             <span id="typed"></span>
         </Typewriter>
 
