@@ -10,6 +10,7 @@ import { Article } from '@/types/Article'
 import { randomImage } from '@/util/randomImage'
 
 import { Info } from '@/types/Article'
+
 const emit = defineEmits<{ (e: "update:modelValue", value: Info): void }>()
 
 const route = useRoute()
@@ -52,9 +53,7 @@ const getContentData = async () => {
     }
 
     // 生成目录
-    nextTick(() => {
-        createDirectory()
-    })
+    nextTick(() => createDirectory())
 }
 getContentData()
 
