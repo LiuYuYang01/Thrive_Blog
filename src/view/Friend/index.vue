@@ -510,6 +510,7 @@ onMounted(() => {
         text-align: center;
         color: #fff;
         cursor: pointer;
+        z-index: 999;
 
         &:active {
             background-color: #3c9a6d;
@@ -586,7 +587,7 @@ onMounted(() => {
                 }
 
                 .info {
-                    .name {}
+                    // .name {}
 
                     .description {
                         color: #666;

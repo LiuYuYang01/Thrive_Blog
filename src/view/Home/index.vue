@@ -23,8 +23,8 @@ const data = ['print(" 互联网从不缺乏天才, 而努力才是最终的入�
 </script>
 
 <template>
-  <Swiper :data="data" src="http://static.liuyuyang.net/images/t01d6f5fd3610da0a08.jpg"></Swiper>
-  <!-- <Swiper :data="data" src="https://t3.picb.cc/2023/08/04/ITNcx6.jpeg"></Swiper> -->
+  <!-- <Swiper :data="data" src="http://static.liuyuyang.net/images/t01d6f5fd3610da0a08.jpg"></Swiper> -->
+  <Swiper :data="data" src="https://t3.picb.cc/2023/08/04/ITNcx6.jpeg"></Swiper>
 
   <Frame :modules='["Author", "HotArticle", "RandomArticle", "NewComments"]'>
     <loading :loading="isLoading"/>
