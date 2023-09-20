@@ -32,8 +32,8 @@ $waveColor: var(--waveColor, rgba(249, 249, 249, 0.7));
 // 阴影
 $shadeColor: var(--shadeColor, 0 2px 8px rgba(186, 186, 186, 0.15));
 // 文章标题
-$essayTitle: var(--essayTitle, "#000");
+$essayTitle: var(--essayTitle, #000);
 // 文章内容
-$essayContent: var(--essayContent, "#333");
+$essayContent: var(--essayContent, #333);
 // 内容高亮
-$contentLight: var(--contentLight, "#fafafa");
+$contentLight: var(--contentLight, #fafafa);

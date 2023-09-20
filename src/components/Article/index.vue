@@ -250,6 +250,10 @@ function createDirectory() {
             background-color: $contentLight;
             transition: background-color $move;
         }
+
+        :deep(strong){
+            color: $essayTitle;
+        }
     }
 }
 </style>
