@@ -28,50 +28,50 @@ const linkData = ref<Cate[]>([
                 url: "https://xiayexiaolu.top/"
             },
             {
-                title: "个人学习和分享壁纸的博客",
-                description: "xiaoger",
+                title: "xiaoger",
+                description: "个人学习和分享壁纸的博客",
                 email: "",
                 image: "https://image.xiaoger.top/xiaoger/config/xiaoger.jpg",
                 url: "https://xiaoger.top"
             },
             {
-                title: "代码改变未来，努力coding",
-                description: "在码圈",
+                title: "在码圈",
+                description: "代码改变未来，努力coding",
                 email: "",
                 image: "https://www.bedebug.com/avatar",
                 url: "https://www.bedebug.com"
             },
             {
-                title: "网络安全博客,分享黑客攻防技术和WordPress笔记.",
-                description: "MrWu",
+                title: "MrWu",
+                description: "网络安全博客,分享黑客攻防技术和WordPress笔记.",
                 email: "",
                 image: "https://www.mrwu.red/favicon.ico",
                 url: "https://www.mrwu.red"
             },
             {
-                title: "进一寸有进一寸的欢喜",
-                description: "Leonus",
+                title: "Leonus",
+                description: "进一寸有进一寸的欢喜",
                 email: "",
                 image: "https://q1.qlogo.cn/g?b=qq&nk=990320751&s=5",
                 url: "https://blog.leonus.cn/"
             },
             {
-                title: "一个专注分享前端技术和趋势的博客",
-                description: "M酷的前端Blog",
+                title: "M酷的前端Blog",
+                description: "一个专注分享前端技术和趋势的博客",
                 email: "",
                 image: "https://bbchin.com/logo",
                 url: "https://bbchin.com"
             },
             {
-                title: "个人博客，分享技术文章、自建ChatGPT提示库、在线聊天网页",
-                description: "ChenZhen的客栈",
+                title: "ChenZhen的客栈",
+                description: "个人博客，分享技术文章、自建ChatGPT提示库、在线聊天网页",
                 email: "",
                 image: "https://www.chenzhen.space/images/me.jpg",
                 url: "https://www.chenzhen.space"
             },
             {
-                title: "经历反反复复，终是观后无感",
-                description: "观后无感博客",
+                title: "观后无感博客",
+                description: "经历反反复复，终是观后无感",
                 email: "",
                 image: "http://q1.qlogo.cn/g?b=qq&nk=2383262410&s=100",
                 url: "https://www.blog18.cn"
@@ -457,12 +457,14 @@ onMounted(() => {
 
                 <div class="list">
                     <div class="item" v-for="item in list" :key="item.id">
-                        <img :src="item.image" alt="">
+                        <a :href="item.url" target="_blank" class="box">
+                            <img :src="item.image" alt="">
 
-                        <div class="info">
-                            <div class="name">{{ item.title }}</div>
-                            <div class="description">{{ item.description }}</div>
-                        </div>
+                            <div class="info">
+                                <div class="name">{{ item.title }}</div>
+                                <div class="description">{{ item.description }}</div>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -564,42 +566,46 @@ onMounted(() => {
             margin-top: 25px;
 
             .item {
-                display: flex;
-                align-items: center;
                 width: 270px;
                 height: 100px;
                 margin-bottom: 20px;
                 margin-right: 19.5px;
                 border: 1px solid #eee;
                 border-radius: 5px;
-                cursor: pointer;
 
                 &:nth-child(4n) {
                     margin-right: 0;
                 }
 
-                img {
-                    width: 60px;
-                    height: 60px;
-                    margin-left: 10px;
-                    margin-right: 15px;
-                    border-radius: 50%;
-                }
+                .box {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
 
-                .info {
-                    // .name {}
+                    img {
+                        width: 60px;
+                        height: 60px;
+                        margin-left: 10px;
+                        margin-right: 15px;
+                        border-radius: 50%;
+                    }
 
-                    .description {
-                        color: #666;
-                        margin-top: 5px;
+                    .info {
+                        // .name {}
 
-                        // 内容防止溢出
-                        display: -webkit-box !important;
-                        overflow: hidden;
-                        word-break: break-all;
-                        text-overflow: ellipsis;
-                        -webkit-box-orient: vertical;
-                        -webkit-line-clamp: 2;
+                        .description {
+                            color: #666;
+                            margin-top: 5px;
+
+                            // 内容防止溢出
+                            display: -webkit-box !important;
+                            overflow: hidden;
+                            word-break: break-all;
+                            text-overflow: ellipsis;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 2;
+                        }
                     }
                 }
             }

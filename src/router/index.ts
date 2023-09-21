@@ -33,13 +33,14 @@ const router = createRouter({
                         }
                     ]
                 },
-                // 闪念
                 {
+                    // 闪念
                     path: "diary",
                     name: "diary",
                     component: () => import('@/view/Diary/index.vue')
                 },
                 {
+                    // 朋友圈
                     path: "friend",
                     name: "friend",
                     component: () => import('@/view/Friend/index.vue')
