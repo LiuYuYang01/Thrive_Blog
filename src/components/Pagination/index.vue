@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <el-pagination background layout="pager" :page-size="5" :total="100" class="pagination" />
+    <el-pagination background layout="pager" :page-size="10" :total="100" class="pagination" />
 </template>
 
 <style scoped lang="scss">

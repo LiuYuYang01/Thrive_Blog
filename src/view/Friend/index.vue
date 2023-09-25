@@ -443,7 +443,7 @@ onMounted(() => {
 
 <template>
     <div class="swiper">
-        <Swiper src="https://t3.picb.cc/2023/08/04/ITN4rM.jpeg" :Ripple="true">
+        <Swiper src="https://liuyuyang.net/img/8b9c118a724f4fca9ae8d5c455b15ceb_VY7UBT.jpg" :Ripple="true">
             <div class="title">一个人的寂寞, 一群人的狂欢!</div>
             <div class="application">申请友联</div>
         </Swiper>
