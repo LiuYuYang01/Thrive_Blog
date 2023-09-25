@@ -13,3 +13,6 @@ export interface Article extends Info {
     content: string, //文章内容
     tag: string, //标签
 }
+
+// 页码
+export type Page = { page: number; size: number };

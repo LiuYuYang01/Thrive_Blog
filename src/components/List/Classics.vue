@@ -1,13 +1,23 @@
 <script setup lang='ts'>
-import { Article } from '@/types/Article'
+import { Article, Page } from '@/types/Article'
 
 // 引入时间插件
 import moment from 'moment';
 
-const props = defineProps<{ data: Article[] }>()
+const props = defineProps<{ data: Article[], total: number }>()
+const emit = defineEmits<{ (e: "getArticleData", params: Page): void }>()
 
 // 随机预览图
 import { randomImage } from '@/util/randomImage'
+
+
+
+// 分页查询
+const page = ref<number>(1) // 第几页
+const size = ref<number>(2) // 每页显示多少
+watch(page, data => {
+    emit("getArticleData", { page: data, size: size.value })
+}, { immediate: true })
 </script>
 
 <template>
@@ -52,7 +62,7 @@ import { randomImage } from '@/util/randomImage'
     </div>
 
     <!-- 当文章数量超过5个时才会显示分页 -->
-    <Pagination v-if="data.length >= 5" />
+    <Pagination v-if="total >= 5" v-model="page" :size="size" :total="total" />
 </template>
 
 <style scoped lang="scss">

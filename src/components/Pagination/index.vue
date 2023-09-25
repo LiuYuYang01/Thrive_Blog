@@ -1,9 +1,12 @@
 <script setup lang="ts">
+const props = defineProps<{ size: number, total: number }>()
+const emit = defineEmits<{ (e: "update:modelValue", page: number): void }>()
 
+const change = (value: number) => emit("update:modelValue", value)
 </script>
 
 <template>
-    <el-pagination background layout="pager" :page-size="10" :total="100" class="pagination" />
+    <el-pagination background layout="pager" @current-change="change" :page-size="size" :total="total" class="pagination" />
 </template>
 
 <style scoped lang="scss">
