@@ -10,11 +10,11 @@ const emit = defineEmits<{ (e: "getArticleData", params: Page): void }>()
 // 随机预览图
 import { randomImage } from '@/util/randomImage'
 
-
+// 但
 
 // 分页查询
 const page = ref<number>(1) // 第几页
-const size = ref<number>(2) // 每页显示多少
+const size = ref<number>(6) // 每页显示多少
 watch(page, data => {
     emit("getArticleData", { page: data, size: size.value })
 }, { immediate: true })

@@ -572,9 +572,19 @@ onMounted(() => {
                 margin-right: 19.5px;
                 border: 1px solid #eee;
                 border-radius: 5px;
+                transition: border,transform $move;
 
                 &:nth-child(4n) {
                     margin-right: 0;
+                }
+
+                &:hover {
+                    border: 1px solid $color;
+                    transform: scale(1.07);
+
+                    .box .info .name {
+                        color: $color;
+                    }
                 }
 
                 .box {
@@ -592,7 +602,9 @@ onMounted(() => {
                     }
 
                     .info {
-                        // .name {}
+                        .name{
+                            transition: color $move;
+                        }
 
                         .description {
                             color: #666;
