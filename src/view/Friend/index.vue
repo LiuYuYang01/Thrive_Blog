@@ -14,11 +14,10 @@ onMounted(async () => {
     await getLinkList()
 
     // 获取朋友圈的高度
-    const bgHeight = document.querySelector(".bg") as HTMLElement;
-    const FriendHeight = document.querySelector(".bg .Friend") as HTMLElement;
-    const height = FriendHeight.offsetHeight;
+    const bgHeight = (document.querySelector(".bg") as HTMLElement).style;
+    const FriendHeight = (document.querySelector(".bg .Friend") as HTMLElement).offsetHeight;
 
-    bgHeight.style.height = (height - 50) + "px";
+    bgHeight.height = (FriendHeight - 50) + "px";
 })
 
 // 控制弹框显示与隐藏
