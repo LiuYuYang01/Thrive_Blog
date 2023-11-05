@@ -2,10 +2,26 @@
 import { Cate } from '@/types/Link'
 import { getLinkListAPI } from '@/api/Link'
 
+// 网站列表数据
 const linkData = ref<Cate>({})
+
+// 加载效果
+const loading = ref(false)
+const svg = `
+        <path class="path" d="
+          M 30 15
+          L 28 17
+          M 25.61 25.61
+          A 15 15, 0, 0, 1, 15 30
+          A 15 15, 0, 1, 1, 27.99 7.5
+          L 15 15
+        " style="stroke-width: 4px; fill: rgba(0, 0, 0, 0)"/>
+      `
 
 // 获取网站列表数据
 const getLinkList = async () => {
+    loading.value = true
+
     const { data } = await getLinkListAPI()
 
     // 将所有type类型做一个分类
@@ -19,6 +35,8 @@ const getLinkList = async () => {
             linkData.value[item.type] = { type: "", list: [] }
         }
     })
+
+    loading.value = false
 }
 
 // 初次加载做一些事情
@@ -54,7 +72,7 @@ const linkForm = ref({
 
     <!-- 朋友圈 -->
     <div class="bg">
-        <div class="Friend">
+        <div class="Friend" v-loading="loading" :element-loading-svg="svg" element-loading-svg-view-box="-10, -10, 50, 50">
             <div class="cate" v-for="{ type, list } in linkData" :key="type">
                 <div class="title">{{ type }}</div>
 
