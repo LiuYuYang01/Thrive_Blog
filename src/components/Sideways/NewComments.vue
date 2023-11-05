@@ -9,7 +9,7 @@ const getCommentData = async () => {
     const { data } = await getCommentListAPI()
 
     // 根据评论时间进行排序并且只保留5个数据
-    const list = data.sort((a, b) => {
+    const list = data && data.sort((a, b) => {
         const timeA = new Date(a.date!).getTime();
         const timeB = new Date(b.date!).getTime();
 
