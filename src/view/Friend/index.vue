@@ -1,27 +1,39 @@
 <script setup lang="ts">
-import { Link } from '@/types/Link'
-import {getLinkListAPI} from '@/api/Link'
+import { Cate } from '@/types/Link'
+import { getLinkListAPI } from '@/api/Link'
 
-const linkData = ref<Link[]>()
+const linkData = ref<Cate>({})
 
 // 获取网站列表数据
 const getLinkList = async () => {
-    const {data} = await getLinkListAPI()
-    linkData.value = data;
+    const { data } = await getLinkListAPI()
+
+    // 将所有type类型做一个分类
+    data.forEach(item => {
+        if (linkData.value[item.type]) {
+            // 如果有这个类型就添加数据
+            linkData.value[item.type].list.push(item)
+            linkData.value[item.type].type = item.type
+        } else {
+            // 没有就设置为空数组
+            linkData.value[item.type] = { type: "", list: [] }
+        }
+    })
 }
 
+// 初次加载做一些事情
 onMounted(async () => {
     await getLinkList()
 
     // 获取朋友圈的高度
-    const bgHeight = (document.querySelector(".bg") as HTMLElement).style;
-    const FriendHeight = (document.querySelector(".bg .Friend") as HTMLElement).offsetHeight;
+    const bgHeight: CSSStyleDeclaration = (document.querySelector(".bg") as HTMLElement).style;
+    const FriendHeight: number = (document.querySelector(".bg .Friend") as HTMLElement).offsetHeight;
 
     bgHeight.height = (FriendHeight - 50) + "px";
 })
 
 // 控制弹框显示与隐藏
-const dialogVisible = ref<boolean>(true)
+const dialogVisible = ref<boolean>(false)
 
 const linkForm = ref({
     title: "",
@@ -34,7 +46,7 @@ const linkForm = ref({
 
 <template>
     <div class="swiper">
-        <Swiper src="https://liuyuyang.net/img/8b9c118a724f4fca9ae8d5c455b15ceb_VY7UBT.jpg" :Ripple="true">
+        <Swiper src="https://bu.dusays.com/2023/11/05/65473848ed863.jpg" :Ripple="true">
             <div class="title">一个人的寂寞, 一群人的狂欢!</div>
             <div class="application">申请友联</div>
         </Swiper>
@@ -43,11 +55,11 @@ const linkForm = ref({
     <!-- 朋友圈 -->
     <div class="bg">
         <div class="Friend">
-            <div class="cate">
-                <div class="title">朋友圈</div>
+            <div class="cate" v-for="{ type, list } in linkData" :key="type">
+                <div class="title">{{ type }}</div>
 
                 <div class="list">
-                    <div class="item" v-for="item in linkData" :key="item.id">
+                    <div class="item" v-for="item in list">
                         <a :href="item.url" target="_blank" class="box">
                             <img :src="item.image" alt="">
 
@@ -62,7 +74,7 @@ const linkForm = ref({
 
             <!-- 空状态 -->
             <!-- <Null style="margin-top: 30px;" v-if="!loading && !linkData?.length" /> -->
-            <Null style="margin-top: -40px;" v-if="!linkData?.length" />
+            <!-- <Null style="margin-top: -40px;" v-if="!linkData?.length" /> -->
         </div>
     </div>
 

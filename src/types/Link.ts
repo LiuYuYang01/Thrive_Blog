@@ -10,6 +10,8 @@ export interface Link {
 }
 
 export interface Cate {
-  title: string;
-  list: Link[];
+  [key: string]: {
+    type: string;
+    list: Link[];
+  };
 }
