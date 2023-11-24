@@ -1,40 +1,46 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import { getCommentListAPI } from '@/api/Comment'
+
+import svg from "@/util/LoadingIcon"
+
 // 引入时间插件
 import moment from 'moment';
 
 const props = defineProps<{ isPublish: boolean }>()
 const emit = defineEmits<{ (e: "setAid", id: number): void }>()
 
-
 // 监听是否发布完评论，发布完后就重新获取评论列表数据
 watch(() => props.isPublish, () => {
   getCommentData()
 })
 
+import Paginate from '@/util/Paginate'
+
+// 分页查询
+const paging = reactive({ page: 1, size: 5 })
+
+// 评论加载效果
 const loading = ref(false)
-const svg = `
-        <path class="path" d="
-          M 30 15
-          L 28 17
-          M 25.61 25.61
-          A 15 15, 0, 0, 1, 15 30
-          A 15 15, 0, 1, 1, 27.99 7.5
-          L 15 15
-        " style="stroke-width: 4px; fill: rgba(0, 0, 0, 0)"/>
-      `
 
 const route = useRoute()
 
+// 临时评论数据存放
+const tempCommentsList = ref<Comment[]>([])
 const CommentsList = ref<Comment[]>([])
-CommentsList.value = []
+tempCommentsList.value = []
+
+// 监听分页变化
+watch(paging, () => {
+  loading.value = true;
+  CommentsList.value = Paginate(tempCommentsList.value, paging.page, paging.size)
+  loading.value = false;
+})
 
 // 获取评论列表数据
 async function getCommentData() {
   loading.value = true;
 
-  let { data } = await getCommentListAPI()
+  let { data } = await getCommentListAPI(paging)
 
   // 筛选当前评论下的二级评论
   data.forEach(i => {
@@ -48,7 +54,9 @@ async function getCommentData() {
   })
 
   // 过滤出当前文章的评论
-  CommentsList.value = data.filter(item => item.aid + "" === route.params.id as string);
+  tempCommentsList.value = data.filter(item => item.aid + "" === route.params.id as string);
+
+  CommentsList.value = Paginate(tempCommentsList.value, paging.page, paging.size)
 
   loading.value = false;
 }
@@ -110,7 +118,7 @@ const reply = (id: number) => {
   </div>
 
   <!-- 当评论数量超过5个时才会显示分页 -->
-  <Pagination :size="5" :total="CommentsList.length" v-if="CommentsList.length >= 5"/>
+  <Pagination v-model="paging.page" :size="5" :total="tempCommentsList.length" v-if="tempCommentsList.length >= 5" />
 </template>
 
 <style scoped lang="scss">
