@@ -7,7 +7,7 @@ import svg from "@/util/LoadingIcon"
 import moment from 'moment';
 
 const props = defineProps<{ isPublish: boolean }>()
-const emit = defineEmits<{ (e: "setAid", id: number): void }>()
+const emit = defineEmits<{ (e: "reply", data: { id: number, name: string }): void }>()
 
 // 监听是否发布完评论，发布完后就重新获取评论列表数据
 watch(() => props.isPublish, () => {
@@ -64,12 +64,12 @@ async function getCommentData() {
 getCommentData()
 
 // 回复评论
-const reply = (id: number) => {
+const reply = (id: number, name: string) => {
   const content = document.querySelector(".frame .ipt") as HTMLDivElement;
   content.focus();
 
   // 给发布评论组件传递id，用于表示回复一级还是二级评论
-  emit("setAid", id)
+  emit("reply", { id, name })
 }
 </script>
 
@@ -89,7 +89,7 @@ const reply = (id: number) => {
       </div>
 
       <!-- 评论内容 -->
-      <div class="comment_main">{{ one.content }} <div class="reply" @click="reply(one.id as number)">回复</div>
+      <div class="comment_main">{{ one.content }} <div class="reply" @click="reply(one.id as number, one.name)">回复</div>
       </div>
 
       <!-- 二级评论 -->

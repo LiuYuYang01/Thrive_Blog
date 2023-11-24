@@ -2,6 +2,7 @@
 import { Form, Field, ErrorMessage } from 'vee-validate'
 import * as yup from 'yup'
 import { addCommentDataAPI } from '@/api/Comment'
+// @ts-ignore
 import type { Comment } from '@/types/Comment'
 
 // 表情框是否显示
@@ -15,7 +16,7 @@ const CommentSchema = yup.object({
     url: yup.string().url("请输入正确的网站地址"),
 })
 
-const id = useRoute().params.id;
+const id = useRoute().params.id
 
 // 收集评论框的内容
 const commentInfo = ref<Comment>({
@@ -47,9 +48,9 @@ const isPublish = ref<boolean>(false);
 const Commentid = ref<number>(0);
 
 // 修改回复文章ID
-const setAid = (id: number) => {
-    Commentid.value = id;
-    commentData.value = "回复评论~";
+const reply = (data: { id: number, name: string }) => {
+    Commentid.value = data.id;
+    commentData.value = `回复评论给：${data.name}`;
 }
 
 // 发布评论
@@ -66,7 +67,10 @@ const postComment = () => {
         if (Commentid.value) {
             commentInfo.value.aid = 0;
             commentInfo.value.rid = Commentid.value;
-        };
+        }else{
+            commentInfo.value.aid = +id
+            commentInfo.value.rid = 0;
+        }
 
         // 调用发布评论接口
         const { code, message } = await addCommentDataAPI(commentInfo.value);
@@ -85,7 +89,11 @@ const postComment = () => {
         isPublish.value = !isPublish.value;
 
         commentData.value = "来发一针见血的评论吧~";
+
+        Commentid.value = 0
     }).catch(error => {
+        console.log(error,333);
+        
         // 数据校验
         content.value.validate()
         form.value.validate()
@@ -158,11 +166,13 @@ onMounted(() => {
 
         <!-- 发布评论 -->
         <div class="post" @click="postComment">
-            <a href="javascript:;">Publish</a>
+            <a href="javascript:;">发表评论</a>
         </div>
+
+        {{ commentInfo }} |  {{ Commentid }}
     </div>
 
-    <List :isPublish="isPublish" @setAid="setAid" />
+    <List :isPublish="isPublish" @reply="reply" />
 </template>
 
 <style scoped lang="scss">
