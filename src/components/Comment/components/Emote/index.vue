@@ -6,7 +6,7 @@ import { Emote } from '@/types/Emote'
 const emit = defineEmits<{ (e: "addEmote", url: string): () => void }>()
 
 // 表情包存放的地址
-const url = "http://static.liuyuyang.net/emote"
+const url = "https://image.liuyuyang.net/emote"
 
 // 表情框是否显示
 const props = defineProps<{ isEmote: boolean }>()
@@ -21,6 +21,8 @@ const EmoteTab = ref<number>()
 // 获取表情包列表
 const getEmoteList = async () => {
     const { data } = await getEmoteListAPI()
+    console.log(data,888);
+    
 
     EmoteList.value = data
     EmoteTab.value = data[0].id

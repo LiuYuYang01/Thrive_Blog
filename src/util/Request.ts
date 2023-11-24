@@ -23,7 +23,6 @@ export default class Request {
         // 响应拦截器
         this.request.interceptors.response.use(
             // 成功响应
-            // (res: AxiosResponse) => {
             (res: AxiosResponse) => {
                 return res.data
             })

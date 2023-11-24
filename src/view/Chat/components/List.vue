@@ -17,17 +17,17 @@
     <!-- 聊天室列表 -->
     <div class="list">
       <div class="item">
-        <img src="http://static.liuyuyang.net/emote/Sticker/3d%E7%9C%BC%E9%95%9C.png" alt="" />
+        <img src="http://image.liuyuyang.net/emote/Sticker/3d%E7%9C%BC%E9%95%9C.png" alt="" />
         <a href="javascript:;">联系站长</a>
       </div>
 
       <div class="item">
-        <img src="http://static.liuyuyang.net/emote/Sticker/%E5%AE%B3%E7%BE%9E.png" alt="" />
+        <img src="http://image.liuyuyang.net/emote/Sticker/%E5%AE%B3%E7%BE%9E.png" alt="" />
         <a href="javascript:;">Blog交流群</a>
       </div>
 
       <div class="item">
-        <img src="http://static.liuyuyang.net/emote/Sticker/%E5%8A%A0%E7%8F%AD.png" alt="" />
+        <img src="http://image.liuyuyang.net/emote/Sticker/%E5%8A%A0%E7%8F%AD.png" alt="" />
         <a href="javascript:;">Bug反馈群</a>
       </div>
     </div>

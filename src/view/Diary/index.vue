@@ -97,6 +97,8 @@ const image = ref<string>('')
 }
 
 .diary {
+  position: relative;
+  z-index: 100;
   display: flex;
   height: 100vh;
   padding-top: 50px;
