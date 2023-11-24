@@ -42,13 +42,24 @@ async function getCommentData() {
 
   let { data } = await getCommentListAPI(paging)
 
-  // 筛选当前评论下的二级评论
-  data.forEach(i => {
-    i.children = [];
+  // 筛选当前文章下的三级评论
+  // 一级
+  data.forEach(one => {
+    one.children = [];
 
-    data.forEach(j => {
-      if (i.id === j.rid) {
-        i.children?.push(j)
+    // 二级
+    data.forEach(two => {
+      if (one.id === two.rid) {
+
+        // 三级
+        one.children?.push(two)
+        data.forEach(three => {
+          if (two.id === three.rid) {
+            console.log(three,789);
+            
+            two.children?.push(three)
+          }
+        })
       }
     })
   })
@@ -77,7 +88,7 @@ const reply = (id: number, name: string) => {
   <ul class="list" v-loading="loading" :element-loading-svg="svg" element-loading-svg-view-box="-10, -10, 50, 50"
     v-if="CommentsList.length">
     <li class="item" v-for="one in CommentsList" :key="one.id">
-      <!-- 评论者信息 -->
+      <!-- 一级评论 -->
       <div class="comment_user_one">
         <img :src="one.avatar" alt="" class="avatar">
 
@@ -86,11 +97,12 @@ const reply = (id: number, name: string) => {
           <a class="name" v-else>{{ one.name }}</a>
           <span class="time">{{ moment(one.date).format('YYYY-MM-DD') }}</span>
         </div>
+
+        <div class="reply" @click="reply(one.id as number, one.name)">回复</div>
       </div>
 
       <!-- 评论内容 -->
-      <div class="comment_main">{{ one.content }} <div class="reply" @click="reply(one.id as number, one.name)">回复</div>
-      </div>
+      <div class="comment_main">{{ one.content }}</div>
 
       <!-- 二级评论 -->
       <template v-if="one.children?.length">
@@ -101,12 +113,31 @@ const reply = (id: number, name: string) => {
             <a :href="two.url" class="name active" target="_blank" v-if="two.url">{{ two.name }}</a>
             <a class="name" v-else>{{ two.name }}</a>
             <span class="time">{{ moment(two.date).format('YYYY-MM-DD') }}</span>
+            <div class="reply" @click="reply(two.id as number, two.name)">回复</div>
           </div>
 
           <!-- 评论内容 -->
           <div class="comment_main">
-            <!-- <a href="javascript:;">@{{ one.name }}： </a> -->
+            <a href="javascript:;">@{{ one.name }}： </a>
             <span style="font-size:15px;color:#444">{{ two.content }}</span>
+          </div>
+
+          <!-- 三级评论 -->
+          <div class="comment_user_three" v-for="three in two.children" :key="two.id">
+            <!-- 评论者信息 -->
+            <div class="comment_user_three_info">
+              <img :src="three.avatar" class="avatar_three">
+              <a :href="three.url" class="name active" target="_blank" v-if="three.url">{{ three.name }}</a>
+              <a class="name" v-else>{{ three.name }}</a>
+              <span class="time">{{ moment(three.date).format('YYYY-MM-DD') }}</span>
+              <div class="reply" @click="reply(two.id as number, three.name)">回复</div>
+            </div>
+
+            <!-- 评论内容 -->
+            <div class="comment_main">
+              <a href="javascript:;">@{{ two.name }}： </a>
+              <span style="font-size:15px;color:#444">{{ three.content }}</span>
+            </div>
           </div>
         </div>
       </template>
@@ -140,26 +171,17 @@ const reply = (id: number, name: string) => {
 
     // 回复按钮布局
     .reply {
-      display: inline-block;
-      height: 20px;
-      line-height: 19px;
+      position: absolute;
+      right: 70px;
+      padding: 10px 20px;
       margin-left: 5px;
-      padding: 0 5px;
-      border: 1px solid $contentColor;
-      border-radius: $round;
       color: $contentColor;
-      opacity: 0;
       cursor: pointer;
       transition: all $move;
 
       &:hover {
         color: $color;
-        border: 1px solid $color;
       }
-    }
-
-    &:hover .reply {
-      opacity: 1;
     }
 
     // 评论者头像
@@ -217,6 +239,42 @@ const reply = (id: number, name: string) => {
         align-items: center;
 
         .avatar_two {
+          width: 25px;
+          height: 25px;
+          margin-right: 10px;
+          border-radius: 50%;
+        }
+
+        .name {
+          margin-right: 15px;
+          font-size: 15px;
+          color: #444;
+        }
+
+        .time {
+          color: #8599ab;
+          font-size: 12px;
+        }
+      }
+
+      .comment_main {
+        margin: 5px 0px 5px 40px;
+
+        a {
+          color: #007bff;
+        }
+      }
+    }
+
+    /* 二级评论 */
+    .comment_user_three {
+      margin: 10px 0 0 50px;
+
+      .comment_user_three_info {
+        display: flex;
+        align-items: center;
+
+        .avatar_three {
           width: 25px;
           height: 25px;
           margin-right: 10px;
