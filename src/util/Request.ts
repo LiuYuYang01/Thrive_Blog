@@ -1,6 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios'
 import type { AxiosInstance, AxiosResponse } from 'axios'
-import type { Response } from '@/types/Response'
 
 
 export default class Request {

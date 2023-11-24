@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { getEmoteListAPI } from '@/api/Emote'
-import { Emote } from '@/types/Emote'
 
 const emit = defineEmits<{ (e: "addEmote", url: string): () => void }>()
 
 // 表情包存放的地址
-const url = "https://image.liuyuyang.net/emote"
+const url = "http://image.liuyuyang.net/emote"
 
 // 表情框是否显示
 const props = defineProps<{ isEmote: boolean }>()

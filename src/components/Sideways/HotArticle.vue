@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { randomImage } from '@/util/randomImage'
 import { getArticleListAPI } from '@/api/Article'
-import { Article } from '@/types/Article';
 
 const loading = ref(false)
 const svg = `

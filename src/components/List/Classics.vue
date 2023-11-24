@@ -1,6 +1,4 @@
 <script setup lang='ts'>
-import { Article, Page } from '@/types/Article'
-
 // 引入时间插件
 import moment from 'moment';
 

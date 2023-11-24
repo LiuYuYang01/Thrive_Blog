@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ActivityCalendar } from 'vue-activity-calendar'
 import 'vue-activity-calendar/style.css'
-import type { Calendar, Active } from '@/types/Stats'
 import { getActiveAPI } from '@/api/Stats'
 
 // 动态活跃度数据

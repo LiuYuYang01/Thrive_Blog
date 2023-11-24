@@ -1,4 +1,4 @@
-export interface Emote {
+interface Emote {
     id: number,
     name: string,
     cove: string,

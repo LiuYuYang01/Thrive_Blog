@@ -1,6 +1,4 @@
 import Request from '@/util/Request'
-import type { http } from '@/types/Response'
-import type { Active } from '@/types/Stats'
 
 // 获取动态日历数据
 export function getActiveAPI(): http<Active> {

@@ -1,4 +1,4 @@
-export interface Link {
+interface Link {
   id?: number;
   title: string;
   description: string;
@@ -9,7 +9,7 @@ export interface Link {
   date?: string;
 }
 
-export interface Cate {
+interface Cate {
   [key: string]: {
     type: string;
     list: Link[];

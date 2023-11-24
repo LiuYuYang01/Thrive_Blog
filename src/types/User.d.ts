@@ -1,4 +1,4 @@
-export type UserInfo = {
+type UserInfo = {
     id?: number;
     avatar: string;
     introduce: string;
@@ -8,7 +8,7 @@ export type UserInfo = {
     role: string;
 };
 
-export type User = {
+type User = {
     id?: number;
     username: string;
     password: string;

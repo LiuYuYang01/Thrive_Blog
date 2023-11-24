@@ -2,8 +2,6 @@
 // 引入时间插件
 import moment from 'moment';
 
-import { Info } from '@/types/Article'
-
 const info = ref<Info>({
   cover: "",
   title: "",

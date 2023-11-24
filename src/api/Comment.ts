@@ -1,6 +1,4 @@
 import Request from '@/util/Request'
-import type { http } from '@/types/Response'
-import type { Comment } from '@/types/Comment'
 
 // 新增评论
 export function addCommentDataAPI(data: Comment): http<Comment> {

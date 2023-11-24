@@ -1,9 +1,6 @@
 <script setup lang='ts'>
 import { ref, watch } from 'vue'
 
-// 导入分类数据的类型
-import { Cate } from '@/types/Cate'
-
 // 导入相关API
 import { getCateListAPI } from '@/api/Cate'
 

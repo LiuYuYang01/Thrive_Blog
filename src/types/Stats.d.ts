@@ -1,9 +1,9 @@
-export interface Calendar {
+interface Calendar {
     date: string,
     count: number
 }
 
 
-export interface Active {
+interface Active {
     [year: string]: Calendar[]
 }

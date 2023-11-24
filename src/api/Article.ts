@@ -1,6 +1,4 @@
 import Request from "@/util/Request";
-import type { http } from "@/types/Response";
-import { Article, Page } from "@/types/Article";
 
 // 获取文章数据
 export const getArticleAPI = (id: number): http<Article> => {

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { Comment } from '@/types/Comment'
 import { getCommentListAPI } from '@/api/Comment'
 // 引入时间插件
 import moment from 'moment';
@@ -111,7 +110,7 @@ const reply = (id: number) => {
   </div>
 
   <!-- 当评论数量超过5个时才会显示分页 -->
-  <Pagination v-if="CommentsList.length >= 5" />
+  <Pagination :size="5" :total="CommentsList.length" v-if="CommentsList.length >= 5"/>
 </template>
 
 <style scoped lang="scss">
@@ -133,10 +132,10 @@ const reply = (id: number) => {
     // 回复按钮布局
     .reply {
       display: inline-block;
-      height: 25px;
-      line-height: 25px;
+      height: 20px;
+      line-height: 19px;
+      margin-left: 5px;
       padding: 0 5px;
-      margin-left: 10px;
       border: 1px solid $contentColor;
       border-radius: $round;
       color: $contentColor;

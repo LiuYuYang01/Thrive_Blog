@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { Cate } from '@/types/Link'
 import { getLinkListAPI } from '@/api/Link'
 
 // 网站列表数据
-const linkData = ref<Cate>({})
+const linkData = ref<Cate>()
 
 // 加载效果
 const loading = ref(false)
@@ -26,13 +25,13 @@ const getLinkList = async () => {
 
     // 将所有type类型做一个分类
     data.forEach(item => {
-        if (linkData.value[item.type]) {
+        if (linkData.value![item.type]) {
             // 如果有这个类型就添加数据
-            linkData.value[item.type].list.push(item)
-            linkData.value[item.type].type = item.type
+            linkData.value![item.type].list.push(item)
+            linkData.value![item.type].type = item.type
         } else {
             // 没有就设置为空数组
-            linkData.value[item.type] = { type: "", list: [] }
+            linkData.value![item.type] = { type: "", list: [] }
         }
     })
 

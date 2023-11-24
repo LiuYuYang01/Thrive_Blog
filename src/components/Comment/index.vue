@@ -2,7 +2,7 @@
 import { Form, Field, ErrorMessage } from 'vee-validate'
 import * as yup from 'yup'
 import { addCommentDataAPI } from '@/api/Comment'
-import { Comment } from '@/types/Comment'
+import type { Comment } from '@/types/Comment'
 
 // 表情框是否显示
 const isEmote = ref<boolean>(false)
@@ -30,8 +30,6 @@ const commentInfo = ref<Comment>({
 
 // 评论提示信息
 const commentData = ref<string>("来发一针见血的评论吧~");
-
-
 
 // 添加表情
 const addEmote = (url: string) => {

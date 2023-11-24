@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { getCommentListAPI } from '@/api/Comment'
-import { Comment } from '@/types/Comment'
 import moment from 'moment';
 
 const commentList = ref<Comment[]>()

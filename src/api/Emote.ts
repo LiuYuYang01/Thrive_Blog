@@ -1,6 +1,4 @@
 import Request from '@/util/Request'
-import type { http } from '@/types/Response'
-import { Emote } from '@/types/Emote'
 
 // 获取表情数据
 export const getEmoteAPI = (id: number): http<Emote> => {

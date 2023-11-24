@@ -4,12 +4,9 @@ import "@/util/createCopyright"
 
 // 引入文章API接口
 import { getArticleAPI } from "@/api/Article"
-import { Article } from '@/types/Article'
 
 // 随机预览图
 import { randomImage } from '@/util/randomImage'
-
-import { Info } from '@/types/Article'
 
 const emit = defineEmits<{ (e: "update:modelValue", value: Info): void }>()
 
@@ -142,7 +139,7 @@ function createDirectory() {
         }
 
         // 超链接
-        ::deep(p a) {
+        :deep(p a) {
             display: block;
             color: #539dfd !important;
             background-color: #539dfd !important;

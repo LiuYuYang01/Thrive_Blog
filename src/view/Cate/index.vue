@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { getCateListAPI } from '@/api/Cate';
 import { getArticleListAPI } from '@/api/Article';
-import { Cate } from '@/types/Cate';
-import { Article } from '@/types/Article';
 
 // 随机预览图
 import { randomImage } from '@/util/randomImage'
@@ -59,7 +57,7 @@ watch(r, async () => {
   <div class="main">
     <loading :loading="isLoading"/>
     
-    <Classics :data="ArticleData" />
+    <Classics :data="ArticleData" :total="ArticleData.length"/>
   </div>
 </template>
 

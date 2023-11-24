@@ -1,4 +1,4 @@
-export interface Info {
+interface Info {
     id?: number,
     cover: string, //封面
     title: string, //标题
@@ -8,11 +8,11 @@ export interface Info {
     date?: string, //创建时间
 }
 
-export interface Article extends Info {
+interface Article extends Info {
     sketch: string, //简述
     content: string, //文章内容
     tag: string, //标签
 }
 
 // 页码
-export type Page = { page: number; size: number };
+type Page = { page: number; size: number };

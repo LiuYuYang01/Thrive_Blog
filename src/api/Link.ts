@@ -1,6 +1,4 @@
 import Request from '@/util/Request'
-import type { http } from '@/types/Response'
-import type { Link } from '@/types/Link'
 
 // 新增网站
 export function addLinkListAPI(): http<Link[]> {

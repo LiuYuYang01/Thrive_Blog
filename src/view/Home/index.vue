@@ -1,5 +1,4 @@
 <script setup lang='ts'>
-import { Article, Page } from '@/types/Article'
 import { getArticleListAPI } from '@/api/Article'
 
 // 全屏加载效果

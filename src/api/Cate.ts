@@ -1,6 +1,4 @@
 import Request from '@/util/Request'
-import type { http } from '@/types/Response'
-import type { Cate } from '@/types/Cate'
 
 // 获取分类信息
 export function getCateDataAPI(id: string): http<Cate[]> {
