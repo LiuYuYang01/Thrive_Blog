@@ -2,7 +2,7 @@
 import { getLinkListAPI } from '@/api/Link'
 
 // 网站列表数据
-const linkData = ref<Cate>()
+const linkData = reactive<Link.Type>({})
 
 // 加载效果
 const loading = ref(false)
@@ -25,15 +25,17 @@ const getLinkList = async () => {
 
     // 将所有type类型做一个分类
     data.forEach(item => {
-        if (linkData.value![item.type]) {
+        if (linkData[item.type]) {
             // 如果有这个类型就添加数据
-            linkData.value![item.type].list.push(item)
-            linkData.value![item.type].type = item.type
+            linkData[item.type].list.push(item)
+            linkData[item.type].type = item.type
         } else {
+            // linkData.value = {}
             // 没有就设置为空数组
-            linkData.value![item.type] = { type: "", list: [] }
+            linkData[item.type] = { type: "", list: [] } as Link.Cate
         }
     })
+
 
     loading.value = false
 }
@@ -72,7 +74,7 @@ const linkForm = ref({
     <!-- 朋友圈 -->
     <div class="bg">
         <div class="Friend" v-loading="loading" :element-loading-svg="svg" element-loading-svg-view-box="-10, -10, 50, 50">
-            <div class="cate" v-for="{ type, list } in linkData" :key="type">
+            <div class="cate" v-for="{ type, list }, index in linkData" :key="index">
                 <div class="title">{{ type }}</div>
 
                 <div class="list">

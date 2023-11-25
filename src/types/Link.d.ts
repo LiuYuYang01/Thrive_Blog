@@ -1,17 +1,22 @@
-interface Link {
-  id?: number;
-  title: string;
-  description: string;
-  email: string;
-  image: string;
-  url: string;
-  type: string;
-  date?: string;
-}
+namespace Link {
+  interface Link {
+    id?: number;
+    title: string;
+    description: string;
+    email: string;
+    image: string;
+    url: string;
+    type: string;
+    date?: string;
+  }
 
-interface Cate {
-  [key: string]: {
+  export interface Cate{
     type: string;
     list: Link[];
-  };
+    [key: string]: any;
+  }
+
+  export interface Type {
+    [key: string]: Cate;
+  }
 }

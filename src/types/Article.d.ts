@@ -1,18 +1,17 @@
 interface Info {
-    id?: number,
-    cover: string, //封面
-    title: string, //标题
-    view: number, //浏览量
-    cate: string, //分类
-    comment: number, //评论数量
-    date?: string, //创建时间
+  id?: number;
+  cover: string; //封面
+  title: string; //标题
+  view: number; //浏览量
+  cate: string; //分类
+  comment: number; //评论数量
+  date?: string; //创建时间
 }
 
 interface Article extends Info {
-    sketch: string, //简述
-    content: string, //文章内容
-    tag: string, //标签
+  sketch: string; //简述
+  content: string; //文章内容
+  tag: string; //标签
 }
 
-// 页码
 type Page = { page: number; size: number };
