@@ -10,12 +10,15 @@ onMounted(() => {
 
 <template>
     <div class="Swiper" :style="{ backgroundImage: `url(${src})` }">
-        <!-- 引入打字机组件 -->
-        <Typewriter :data="data!" class="Typewriter">
-            <span id="typed"></span>
-        </Typewriter>
+        <!-- 遮罩层 -->
+        <div class="mark">
+            <!-- 引入打字机组件 -->
+            <Typewriter :data="data!">
+                <span id="typed"></span>
+            </Typewriter>
 
-        <slot></slot>
+            <slot></slot>
+        </div>
     </div>
 
     <!-- 波浪 -->
@@ -55,16 +58,26 @@ onMounted(() => {
         left: 0;
         background: linear-gradient(to top, $bgColor, transparent);
     }
-}
 
-// 定制打字机效果样式
-#typed {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%);
-    color: #fff;
-    font-size: 30px;
-    text-shadow: 0 0.1875rem 0.3125rem #1c1f21;
+    // 遮罩层
+    .mark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.15);
+    }
+
+    // 定制打字机效果样式
+    #typed {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%);
+        color: #fff;
+        font-size: 30px;
+        text-shadow: 0 0.1875rem 0.3125rem #1c1f21;
+    }
 }
 </style>
