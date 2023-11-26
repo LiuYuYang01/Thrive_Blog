@@ -30,9 +30,9 @@ const image = ref<string>('')
 
 <template>
   <div class="diary">
-    <!-- <div class="my">
+    <div class="my">
       <img :src="store.authorInfo.avatar" alt="">
-    </div> -->
+    </div>
 
     <!-- 日记列表 -->
     <div class="list">
@@ -100,8 +100,10 @@ const image = ref<string>('')
   position: relative;
   z-index: 100;
   display: flex;
+  justify-content: space-between;
+  padding: 200px 270px 150px;
+
   height: 100vh;
-  padding-top: 50px;
   margin: 0 auto;
   background: $subBackground;
   transition: background-color $move;
@@ -110,9 +112,6 @@ const image = ref<string>('')
     overflow: hidden;
     width: 400px;
     height: 400px;
-    position: fixed;
-    top: 25%;
-    margin-left: 200px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-radius: 50%;
 
@@ -138,11 +137,8 @@ const image = ref<string>('')
 
   .list {
     overflow: auto;
-    // position: relative;
-    // left: 230px;
-    width: 700px;
+    width: 590px;
     padding: 0 20px;
-    margin: 50px auto;
     background: #fff;
     border-radius: 10px;
     border: 1px solid #eee;
@@ -217,7 +213,7 @@ const image = ref<string>('')
       border-radius: 5px;
       transition: background-color $move;
 
-      &:hover{
+      &:hover {
         background-color: #fafafa;
       }
     }

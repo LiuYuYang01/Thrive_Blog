@@ -151,6 +151,9 @@ onMounted(() => {
   margin-top: 60px;
 
   .header {
+    position: relative;
+    z-index: 999;
+
     display: flex;
     justify-content: center;
     align-items: center;

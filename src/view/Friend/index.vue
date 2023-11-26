@@ -189,6 +189,7 @@ const linkForm = ref({
     top: -190px;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 9999;
     width: $w;
     padding: 30px;
     margin: 50px auto;
