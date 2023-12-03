@@ -88,7 +88,8 @@ const image = ref<string>('')
 // 滚动条轨道
 ::-webkit-scrollbar-track {
   border-radius: 5px;
-  background-color: #f5f5f5;
+  background-color: $bgColor;
+  transition: all $move;
 }
 
 // 进度条颜色
@@ -106,7 +107,7 @@ const image = ref<string>('')
   height: 100vh;
   margin: 0 auto;
   background: $subBackground;
-  transition: background-color $move;
+  transition: background $move;
 
   .my {
     overflow: hidden;
@@ -132,22 +133,30 @@ const image = ref<string>('')
     text-align: center;
     font-size: 30px;
     padding-bottom: 20px;
-    border-bottom: 1px solid #fafafa;
+    border-bottom: 1px solid $contentLight;
+    transition: border-bottom $move;
   }
 
   .list {
     overflow: auto;
     width: 590px;
     padding: 0 20px;
-    background: #fff;
+    background: $bgColor;
     border-radius: 10px;
-    border: 1px solid #eee;
+    border: 1px solid $borderColor;
     box-shadow: rgba(255, 255, 255, 0.2) 0px 8px 24px;
+    transition: all $move;
+
+    .title{
+      color: $textColor;
+    }
 
     .item {
       display: flex;
       padding: 30px;
-      border-bottom: 1px solid #f2f2f2;
+      border-bottom: 1px solid $borderColor;
+      background-color: $bgColor;
+      transition: all $move;
 
       &:last-of-type {
         border-bottom: none;
@@ -168,7 +177,7 @@ const image = ref<string>('')
 
       .content {
         margin: 10px 0;
-        color: #555;
+        color: $contentColor;
       }
 
       .cover {
@@ -209,12 +218,12 @@ const image = ref<string>('')
       padding: 10px 0;
       margin-bottom: 10px;
       text-align: center;
-      border: 1px solid #eee;
+      border: 1px solid $borderColor;
       border-radius: 5px;
-      transition: background-color $move;
+      color: $contentColor;
 
       &:hover {
-        background-color: #fafafa;
+        background-color: $bgColor;
       }
     }
   }
