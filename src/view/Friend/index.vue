@@ -181,7 +181,8 @@ const linkForm = ref({
 .bg {
     position: relative;
     padding: 50px 0;
-    background: linear-gradient(45deg, #fff1eb, #ace0f9);
+    background: $FriendBg;
+    transition: background $move;
 }
 
 .Friend {
@@ -189,34 +190,24 @@ const linkForm = ref({
     top: -190px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 9999;
+    z-index: 99;
     width: $w;
     padding: 30px;
     margin: 50px auto;
-    background-color: #fff;
+    background-color: $bgColor;
     @include container;
 
     .cate {
         position: relative;
         margin-bottom: 30px;
 
-        // &::after {
-        //     position: absolute;
-        //     top: 0px;
-        //     left: 4px;
-        //     content: "#";
-        //     padding-right: 5px;
-        //     font-size: 30px;
-        //     vertical-align: middle;
-        //     color: $color;
-        // }
-
         .title {
             font-size: 30px;
-            // padding-left: 30px;
             padding-bottom: 20px;
-            border-bottom: 1px dotted #eee;
+            color: $textColor;
+            border-bottom: 1px dotted $borderColor;
             text-align: center;
+            transition: border $move;
         }
 
         .list {
@@ -229,9 +220,9 @@ const linkForm = ref({
                 height: 100px;
                 margin-bottom: 20px;
                 margin-right: 19.5px;
-                border: 1px solid #eee;
+                border: 1px solid $borderColor;
                 border-radius: 5px;
-                transition: border, transform $move;
+                transition: all $move;
 
                 &:nth-child(4n) {
                     margin-right: 0;
@@ -262,12 +253,14 @@ const linkForm = ref({
 
                     .info {
                         .name {
+                            color: $textColor;
                             transition: color $move;
                         }
 
                         .description {
-                            color: #666;
+                            color: $contentColor;
                             margin-top: 5px;
+                            transition: color $move;
 
                             // 内容防止溢出
                             display: -webkit-box !important;

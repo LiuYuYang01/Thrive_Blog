@@ -50,6 +50,9 @@ const Theme = reactive({
         essayTitle: "#000",
         essayContent: "#333",
         contentLight: "#fafafa",
+        toolBarItem: "#fbfbfb",
+        toolBarItemBorder: "#f7f4f4",
+        FriendBg: "linear-gradient(45deg, #fff1eb, #ace0f9)",
     },
     Dark: {
         bgColor: "#232931",
@@ -65,6 +68,9 @@ const Theme = reactive({
         essayTitle: "#fff",
         essayContent: "#d9d9d9",
         contentLight: "#303846",
+        toolBarItem: "#4d4d4d",
+        toolBarItemBorder: "#4a4a4a",
+        FriendBg: "#242931",
     }
 })
 
@@ -87,6 +93,9 @@ watch(isEffect, n => {
         $css.setProperty("--essayTitle", Theme.Dark.essayTitle)
         $css.setProperty("--essayContent", Theme.Dark.essayContent)
         $css.setProperty("--contentLight", Theme.Dark.contentLight)
+        $css.setProperty("--toolBarItem", Theme.Dark.toolBarItem)
+        $css.setProperty("--toolBarItemBorder", Theme.Dark.toolBarItemBorder)
+        $css.setProperty("--FriendBg", Theme.Dark.FriendBg)
     } else {
         // 白天模式
         $css.setProperty("--bgColor", Theme.Light.bgColor)
@@ -102,6 +111,9 @@ watch(isEffect, n => {
         $css.setProperty("--essayTitle", Theme.Light.essayTitle)
         $css.setProperty("--essayContent", Theme.Light.essayContent)
         $css.setProperty("--contentLight", Theme.Light.contentLight)
+        $css.setProperty("--toolBarItem", Theme.Light.toolBarItem)
+        $css.setProperty("--toolBarItemBorder", Theme.Light.toolBarItemBorder)
+        $css.setProperty("--FriendBg", Theme.Light.FriendBg)
     }
 
     store.updateIsEffect(n)
@@ -218,12 +230,13 @@ const updateColor = () => {
     .item {
         padding: 10px;
         font-size: 30px;
-        border-bottom: 1px solid #f7f4f4;
-        transition: background-color $move;
+        border-radius: 5px;
+        border-bottom: 1px solid $borderColor;
+        transition: all $move;
         cursor: pointer;
 
         &:hover {
-            background-color: #fbfbfb;
+            background-color: $toolBarItem;
         }
 
         &:last-child {

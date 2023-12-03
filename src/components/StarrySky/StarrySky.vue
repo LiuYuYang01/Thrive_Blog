@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
 .Box_StarrySky {
     overflow: hidden;
     position: absolute;
-    z-index: 99;
+    z-index: 9;
 
     .Stars_StarrySky {
         transform: perspective(500px);
