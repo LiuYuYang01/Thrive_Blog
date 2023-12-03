@@ -8,9 +8,6 @@
     <StarrySky style="width: 100%; height: 700px;" />
   </div>
 
-  <!-- 进度条组件 -->
-  <Nprogress />
-
   <!-- 视图组件 -->
   <RouterView />
 

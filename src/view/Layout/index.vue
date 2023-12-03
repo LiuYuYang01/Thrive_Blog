@@ -13,6 +13,9 @@ onBeforeRouteUpdate(to => {
 </script>
 
 <template>
+  <!-- 进度条组件 -->
+  <Nprogress />
+  
   <Header />
   <RouterView />
   <Footer />
