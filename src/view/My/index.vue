@@ -152,7 +152,7 @@ onMounted(() => {
 
   .header {
     position: relative;
-    z-index: 999;
+    z-index: 99;
 
     display: flex;
     justify-content: center;
@@ -185,14 +185,17 @@ onMounted(() => {
         }
 
         .row1 {
+          color: $textColor;
           font-size: 40px;
           margin: 40px 0 30px;
+          transition: color $move;
         }
 
         .row2 {
-          color: #767676;
+          color: $contentColor;
           font-family: "黑体";
           line-height: 30px;
+          transition: color $move;
         }
       }
 
@@ -214,13 +217,16 @@ onMounted(() => {
   .technology {
     overflow: hidden;
     height: 200px;
-    background: #fff;
+    background-color: $bgColor;
+    transition: background-color $move;
 
     .title {
       text-align: center;
-      color: #666;
+      color: $textColor;
+      font-weight: 900;
       padding-top: 15px;
       font-family: kuaikan;
+      transition: color $move;
     }
 
     .list {
@@ -235,8 +241,9 @@ onMounted(() => {
         padding: 20px;
         margin: 0 20px;
         border-radius: 20px;
-        border: 1px solid #eee;
+        border: 1px solid $borderColor;
         box-shadow: 0 2px 16px -3px rgba(0, 0, 0, 0.15);
+        transition: border $move;
       }
     }
   }

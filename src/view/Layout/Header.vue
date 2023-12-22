@@ -239,7 +239,7 @@ const ExtendPage = {
           top: 50px;
           width: 100%;
           border-radius: $round;
-          background-color: #fff;
+          background-color: $bgColor;
           box-shadow: 0 12px 32px rgba(0, 0, 0, .1), 0 2px 6px rgba(0, 0, 0, .08);
 
           .two_item {
@@ -250,6 +250,7 @@ const ExtendPage = {
               padding: 10px;
               padding-left: 10px;
               font-size: 15px;
+              color: $contentColor;
               box-sizing: border-box;
               transition: all $move;
 
@@ -270,7 +271,7 @@ const ExtendPage = {
             // 鼠标经过二级导航的效果
             &:hover .two_item_nav {
               color: $color;
-              background-color: #f5f7fc;
+              // background-color: #f5f7fc;
               padding-left: 30px;
 
               &:hover::after {

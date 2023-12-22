@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <template>
     <div class="Box_StarrySky">
-        <!--背景层，不要删除，不然没有作用-->
+        <!--背景层，不要删除，否则没有作用-->
         <div class="Stars_StarrySky"></div>
     </div>
 </template>
