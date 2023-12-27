@@ -17,6 +17,7 @@ const getArticleData = async (params: Page) => {
   if (params) {
     // @ts-ignore
     const { data, paginate } = await getArticleListAPI(params)
+    
     total.value = paginate.total
 
     articleList.value = data

@@ -3,6 +3,7 @@ import pinia from '@/stores'
 
 import '@/styles/public.scss'
 import 'element-plus/dist/index.css'
+import '@/styles/reactive/index.scss'
 
 import App from './App.vue'
 import router from '@/router'
