@@ -311,7 +311,6 @@ const ExtendPage = {
       height: 60px;
 
       img {
-        width: 155px;
         height: 50px;
         transition: all $move;
       }

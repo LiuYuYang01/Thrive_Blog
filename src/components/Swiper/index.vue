@@ -9,10 +9,6 @@ onMounted(() => {
 </script>
 
 <template>
-    <div style="position: absolute; top: 0; overflow: hidden; width: 100%; height: 500px;">
-        <StarrySky style="width: 100%; height: 700px;" />
-    </div>
-
     <div class="Swiper" :style="{ backgroundImage: `url(${src})` }">
         <!-- 遮罩层 -->
         <div class="mark">

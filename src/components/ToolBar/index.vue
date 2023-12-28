@@ -170,7 +170,7 @@ const updateColor = () => {
         <img src="@/assets/svg/other/top.svg" alt="" class="item" />
 
         <!-- 返回顶部核心代码 -->
-        <el-backtop :right="85" :bottom="155" style="z-index: 999;">
+        <el-backtop class="backtop" :right="85" :bottom="155" style="z-index: 999;">
             <img src="@/assets/svg/other/top.svg" alt="" style="width: 30px;" />
         </el-backtop>
     </div>

@@ -42,7 +42,7 @@ watch(page, data => {
                     </div>
 
                     <div class="fun" style="text-align: start;" v-else>
-                        <span style="padding-left: 0;"><iconpark-icon name="alarm-clock" /> {{ item.date }}</span>
+                        <span style="padding-left: 0;"><iconpark-icon name="alarm-clock" /> {{ moment(item.date).format('YYYY-MM-DD') }}</span>
                         <span><iconpark-icon name="fire" /> {{ item.view }}</span>
                         <span><iconpark-icon name="tag-one" /> {{ item.cate }}</span>
                     </div>
@@ -82,7 +82,7 @@ watch(page, data => {
         // 文章封面
         .cover {
             position: relative;
-            width: 35%;
+            width: 45%;
             background: url("https://liuyuyang.net/usr/uploads/2023/04/1258239203.jpeg") no-repeat center;
             background-size: cover;
             transition: all $move;

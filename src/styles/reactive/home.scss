@@ -3,12 +3,28 @@
     .main {
         width: 1000px !important;
     }
+
+    .ToolBar {
+        right: 45px !important;
+
+        .backtop {
+            right: 50px !important;
+        }
+    }
 }
 
 @media screen and (max-width: 1010px) {
     .Header .w .one .one_item .one_item_nav {
         padding: 20px 10px !important;
         font-size: 13px !important;
+    }
+
+    .Swiper {
+        height: 450px !important;
+    }
+
+    .StarrySky {
+        height: 450px !important;
     }
 
     .main {
@@ -28,6 +44,10 @@
             background-size: 160% !important;
         }
     }
+
+    .Classics .item .info a .fun span{
+        padding-left: 12px !important;
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -39,6 +59,18 @@
         .one .one_item .one_item_nav {
             padding: 10px !important;
         }
+    }
+
+    .Swiper {
+        height: 280px !important;
+
+        #typed {
+            font-size: 20px !important;
+        }
+    }
+
+    .StarrySky {
+        height: 280px !important;
     }
 
     .main {
@@ -53,6 +85,10 @@
         }
     }
 
+    .Classics .item .info a .fun span {
+        padding-left: 20px !important;
+    }
+
     .footer {
         display: flex !important;
         justify-content: center;
@@ -61,6 +97,30 @@
         .info {
             padding: 0 !important;
         }
+    }
+
+    .ToolBar {
+        right: 20px !important;
+        width: 40px !important;
+
+        .item {
+            font-size: 20px !important;
+        }
+
+        .backtop {
+            width: 20px !important;
+            height: 20px !important;
+            right: 30px !important;
+            bottom: 160px !important;
+
+            img {
+                width: 20px !important;
+            }
+        }
+    }
+
+    .Classics .item .info a p{
+        line-height: normal !important;
     }
 }
 
@@ -74,10 +134,46 @@
             display: flex !important;
         }
     }
+
+    .Classics .item {
+        .info {
+            padding: 20px !important;
+            
+            a {
+                h3 {
+                    padding-top: 0 !important;
+                    padding-bottom: 5px !important;
+                    font-size: 20px !important;
+                }
+
+                p {
+                    min-height: 40px !important;
+                    line-height: 20px !important;
+                    -webkit-line-clamp: 2 !important;
+                }
+
+                .fun {
+                    padding-top: 5px !important;
+
+                    span {
+                        padding-left: 10px !important;
+
+                        &:first-child {
+                            padding-left: 0 !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
+    .Classics .item .info a .fun span:nth-child(2){
+        display: none !important;
+    }
 }
+
 @media screen and (max-width: 800px) {
 }
 @media screen and (max-width: 800px) {
