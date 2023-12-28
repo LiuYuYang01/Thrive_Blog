@@ -1,0 +1,60 @@
+@media screen and (max-width: 800px) {
+    .diary {
+        .header {
+            width: 550px !important;
+        }
+
+        .list {
+            width: 550px !important;
+        }
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .diary {
+        .header {
+            width: 450px !important;
+        }
+
+        .list {
+            width: 450px !important;
+            .item .info .img4 {
+                height: auto !important;
+
+                > div {
+                    background-position: center !important;
+                    background-size: cover !important;
+
+                    width: 100% !important;
+                    height: 180px !important;
+                    margin-bottom: 10px !important;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .diary {
+        .header {
+            width: 350px !important;
+        }
+
+        .list {
+            width: 350px !important;
+
+            .item {
+                padding: 30px 0;
+
+                .info .img4 {
+                    > div {
+                        width: 100% !important;
+                        height: 130px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 800px) {
+}

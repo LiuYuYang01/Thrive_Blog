@@ -69,7 +69,7 @@ const image = ref<string>('')
 
           <!-- 三图、四图 -->
           <template v-if="item.cover?.length === 3 || item.cover?.length === 4">
-            <div class="cover" style="height: 300px;flex-wrap: wrap;">
+            <div class="cover img4" style="height: 300px;flex-wrap: wrap;">
               <div style="width: 49%; height: 47%;" :style="{ backgroundImage: `url(${cover})` }"
                 v-for="cover in item.cover" :key="cover" @click="image = cover; viewImages = true"></div>
             </div>
@@ -236,45 +236,47 @@ const image = ref<string>('')
         border-radius: 20px;
       }
 
-      .name {
-        font-size: 20px;
-        color: #586c97;
-      }
+      .info {
+        width: 90%;
 
-      .content {
-        line-height: 30px;
-        margin: 10px 0;
-        color: $contentColor;
-      }
-
-      .cover {
-        overflow: hidden;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        width: 400px;
-        height: 300px;
-        margin: 20px 0;
-
-        img {
-          height: 100%;
-          border-radius: $round;
-          cursor: pointer;
+        .name {
+          font-size: 20px;
+          color: #586c97;
         }
 
-        >div {
-          border-radius: $round;
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: cover;
-          cursor: pointer;
+        .content {
+          line-height: 30px;
+          margin: 10px 0;
+          color: $contentColor;
         }
-      }
 
-      .date {
-        font-size: 12px;
-        color: #666;
+        .cover {
+          overflow: hidden;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          margin: 20px 0;
+
+          img {
+            width: 100%;
+            border-radius: $round;
+            cursor: pointer;
+          }
+
+          >div {
+            border-radius: $round;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            cursor: pointer;
+          }
+        }
+
+        .date {
+          font-size: 12px;
+          color: #666;
+        }
       }
     }
 
