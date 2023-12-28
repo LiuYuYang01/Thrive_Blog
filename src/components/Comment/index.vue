@@ -191,7 +191,7 @@ onMounted(() => {
 }
 
 .Comment {
-    margin-top: 100px;
+    margin-top: 70px;
 
     // 评论标题
     .title {
