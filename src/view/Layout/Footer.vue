@@ -20,7 +20,7 @@
   .info {
     width: 600px;
     line-height: 25px;
-    padding-left: 300px;
+    padding-left: 20%;
     color: $textColor;
     font-size: 14px;
     transition: color $move;

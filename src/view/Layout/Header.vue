@@ -149,6 +149,22 @@ const ExtendPage = {
           </ul>
         </li>
       </ul>
+
+      <!-- 宽度小于等于800显示 -->
+      <div class="top">
+        <!-- 图片LOGO模式 -->
+        <RouterLink to="/" class="one_item_nav" v-if="true">
+          <!-- 白天 -->
+          <template v-if="!store.isEffect">
+            <img :src="top > 100 || is ? logo_light : logo_dark" alt="">
+          </template>
+
+          <!-- 黑夜 -->
+          <template v-else>
+            <img :src="logo_dark" alt="">
+          </template>
+        </RouterLink>
+      </div>
     </div>
   </div>
 </template>
@@ -285,6 +301,28 @@ const ExtendPage = {
         &:hover .two {
           display: block;
         }
+      }
+    }
+
+    .top {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      height: 60px;
+
+      img {
+        width: 155px;
+        height: 50px;
+        transition: all $move;
+      }
+
+      &:hover img {
+        transition: transform $move;
+        transform: scale(0.9);
+      }
+
+      &:hover .one_item_nav {
+        color: $color !important;
       }
     }
   }

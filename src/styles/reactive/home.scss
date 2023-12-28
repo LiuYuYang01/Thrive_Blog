@@ -1,0 +1,73 @@
+// 首页适配
+@media screen and (max-width: 1260px) {
+    .main {
+        width: 1000px !important;
+    }
+}
+
+@media screen and (max-width: 1010px) {
+    .Header .w .one .one_item .one_item_nav {
+        padding: 20px 10px !important;
+        font-size: 13px !important;
+    }
+
+    .main {
+        width: 800px !important;
+
+        .Classics .item {
+            height: 180px !important;
+        }
+
+        .author .socializing .list a img {
+            width: 18px !important;
+            height: 18px !important;
+        }
+
+        .HotArticle .list .item {
+            height: 90px !important;
+            background-size: 160% !important;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .Header {
+        .w {
+            width: 100% !important;
+        }
+
+        .one .one_item .one_item_nav {
+            padding: 10px !important;
+        }
+    }
+    .main {
+        width: 100% !important;
+
+        .left {
+            width: 100% !important;
+        }
+
+        .right {
+            display: none !important;
+        }
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .Header .w {
+        .one {
+            display: none !important;
+        }
+
+        .top {
+            display: flex !important;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+}
+@media screen and (max-width: 800px) {
+}
+@media screen and (max-width: 800px) {
+}
