@@ -1,9 +1,5 @@
 @media screen and (max-width: 1010px) {
     .Article {
-        .Swiper {
-            height: 450px !important;
-        }
-
         .box .title {
             font-size: 30px !important;
             margin-bottom: 25px !important;
@@ -12,24 +8,6 @@
         .Comment .form {
             flex-wrap: wrap !important;
         }
-    }
-
-    .StarrySky {
-        height: 450px !important;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .Article .Swiper {
-        height: 280px !important;
-
-        #typed {
-            font-size: 20px !important;
-        }
-    }
-
-    .StarrySky {
-        height: 280px !important;
     }
 }
 
@@ -44,7 +22,7 @@
             .time{
                 display: none !important;
             }
-            
+
             .reply {
                 right: 10px !important;
             }

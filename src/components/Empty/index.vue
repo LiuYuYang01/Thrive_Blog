@@ -18,7 +18,7 @@ defineProps<{ info: string }>()
     .info {
         padding-top: 20px;
         text-align: center;
-        color: #333;
+        color: $essayContent;
     }
 }
 </style>

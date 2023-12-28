@@ -3,28 +3,12 @@
     .main {
         width: 1000px !important;
     }
-
-    .ToolBar {
-        right: 45px !important;
-
-        .backtop {
-            right: 50px !important;
-        }
-    }
 }
 
 @media screen and (max-width: 1010px) {
     .Header .w .one .one_item .one_item_nav {
         padding: 20px 10px !important;
         font-size: 13px !important;
-    }
-
-    .Swiper {
-        height: 450px !important;
-    }
-
-    .StarrySky {
-        height: 450px !important;
     }
 
     .main {
@@ -61,18 +45,6 @@
         }
     }
 
-    .Swiper {
-        height: 280px !important;
-
-        #typed {
-            font-size: 20px !important;
-        }
-    }
-
-    .StarrySky {
-        height: 280px !important;
-    }
-
     .main {
         width: 100% !important;
 
@@ -96,26 +68,6 @@
 
         .info {
             padding: 0 !important;
-        }
-    }
-
-    .ToolBar {
-        right: 20px !important;
-        width: 40px !important;
-
-        .item {
-            font-size: 20px !important;
-        }
-
-        .backtop {
-            width: 20px !important;
-            height: 20px !important;
-            right: 30px !important;
-            bottom: 160px !important;
-
-            img {
-                width: 20px !important;
-            }
         }
     }
 

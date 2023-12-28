@@ -1,0 +1,65 @@
+// 首页适配
+@media screen and (max-width: 1260px) {
+    .ToolBar {
+        right: 45px !important;
+
+        .backtop {
+            right: 50px !important;
+        }
+    }
+}
+
+@media screen and (max-width: 1010px) {
+    .Swiper {
+        height: 450px !important;
+    }
+
+    .StarrySky {
+        height: 450px !important;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .Swiper {
+        height: 280px !important;
+
+        #typed {
+            font-size: 20px !important;
+        }
+
+        .title {
+            font-size: 20px !important;
+            padding-bottom: 0 !important;
+        }
+    }
+
+    .StarrySky {
+        height: 280px !important;
+    }
+
+    .ToolBar {
+        right: 20px !important;
+        width: 40px !important;
+
+        .item {
+            font-size: 20px !important;
+        }
+
+        .backtop {
+            width: 20px !important;
+            height: 20px !important;
+            right: 30px !important;
+            bottom: 160px !important;
+
+            img {
+                width: 20px !important;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .Empty {
+        width: 150px !important;
+    }
+}

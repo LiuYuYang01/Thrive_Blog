@@ -8,19 +8,19 @@ const diarys = [
     id: 1,
     content: "追魂夺命流水线，暗无天日鬼车间",
     cover: ["https://liuyuyang.net/usr/uploads/2023/04/2401325320.jpeg", "https://liuyuyang.net/usr/uploads/2023/04/624381519.jpg", "https://liuyuyang.net/usr/uploads/2023/04/2555324373.jpeg"],
-    date: "2023-08-13"
+    date: "2023-08-13 8:21"
   },
   {
     id: 2,
     content: "互联网从不缺乏天才，而努力才是最终的入场券!",
     cover: ["https://liuyuyang.net/usr/uploads/2023/08/3843057387.jpg"],
-    date: "2023-08-13"
+    date: "2023-08-13 8:28"
   },
   {
     id: 3,
     content: "一天一夜没睡，登顶江苏最高峰！玉女峰",
     cover: ["http://liuyuyang.net/usr/uploads/2023/06/20230501163808.jpg"],
-    date: "2023-05-01"
+    date: "2023-05-01  23:47"
   }
 ]
 
@@ -30,16 +30,23 @@ const image = ref<string>('')
 
 <template>
   <div class="diary">
-    <div class="my">
-      <img :src="store.authorInfo.avatar" alt="">
+    <div class="header">
+      <div class="box">
+        <div class="my">
+          <img :src="store.authorInfo.avatar" alt="">
+        </div>
+
+        <h3>前途未必光明坦荡，但一定充满渴望!</h3>
+      </div>
     </div>
 
     <!-- 日记列表 -->
     <div class="list">
-      <div class="title">🏄‍♂️ 闪念</div>
+      <!-- <div class="title">🏄‍♂️ 闪念</div> -->
 
       <div class="item" v-for="item in diarys" :key="item.id">
         <img :src="store.authorInfo.avatar" alt="" class="avatar">
+        <!-- <img src="https://s11.ax1x.com/2023/12/28/piqsmb4.jpg" alt="" class="avatar"> -->
 
         <div class="info">
           <div class="name">{{ store.authorInfo.name }}</div>
@@ -97,49 +104,104 @@ const image = ref<string>('')
   background-color: #e4e4e4;
 }
 
+// 头像动画效果
+@keyframes miniShape {
+
+  0%,
+  100% {
+    border-radius: 42% 58% 70% 30%/45% 45% 55% 55%;
+    transform: translate3d(0, 0, 0) rotateZ(.01deg);
+  }
+
+  34% {
+    border-radius: 70% 30% 46% 54%/30% 29% 71% 70%;
+    transform: translate3d(0, 5px, 0) rotateZ(.01deg);
+  }
+
+  50% {
+    transform: translate3d(0, 0, 0) rotateZ(.01deg);
+  }
+
+  67% {
+    border-radius: 100% 60% 60% 100%/100% 100% 60% 60%;
+    transform: translate3d(0, -3px, 0) rotateZ(.01deg);
+  }
+}
+
 .diary {
   position: relative;
   z-index: 100;
   display: flex;
-  justify-content: space-between;
-  padding: 200px 270px 150px;
+  flex-direction: column;
+  align-items: center;
+  padding: 150px 0 150px;
 
-  height: 100vh;
   margin: 0 auto;
   background: $subBackground;
   transition: background $move;
 
-  .my {
-    overflow: hidden;
-    width: 400px;
-    height: 400px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    border-radius: 50%;
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 650px;
+    height: 180px;
+    padding: 20px;
+    margin-bottom: -20px;
+    border-radius: 10px;
+    border: 1px solid $borderColor;
+    background: url("https://bu.dusays.com/2023/11/10/654e2cf6055b0.jpg") center;
+    background-size: 100%;
+    transition: all $move;
 
-    >img {
-      width: 100%;
-      height: 100%;
-      transition: transform $move;
-    }
+    .box {
+      position: relative;
+      top: 75px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-    &:hover img {
-      transform: scale(1.1);
+      .my {
+        overflow: hidden;
+        width: 120px;
+        height: 120px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        border-radius: 50%;
+
+        >img {
+          width: 100%;
+          height: 100%;
+          transition: transform $move;
+          animation: 5s linear infinite miniShape;
+        }
+
+        &:hover img {
+          transform: scale(1.1);
+        }
+      }
+
+      h3 {
+        color: #606060ba;
+        font-size: 14px;
+        margin-top: 20px;
+      }
     }
   }
 
-  .title {
-    width: 400px;
-    margin: 20px auto 0px;
-    text-align: center;
-    font-size: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid $contentLight;
-    transition: border-bottom $move;
-  }
+  // .title {
+  //   width: 400px;
+  //   margin: 20px auto 0px;
+  //   text-align: center;
+  //   font-size: 30px;
+  //   padding-bottom: 20px;
+  //   border-bottom: 1px solid $contentLight;
+  //   transition: border-bottom $move;
+  // }
 
   .list {
     overflow: auto;
-    width: 590px;
+    width: 650px;
+    min-height: 500px;
     padding: 0 20px;
     background: $bgColor;
     border-radius: 10px;
@@ -147,7 +209,7 @@ const image = ref<string>('')
     box-shadow: rgba(255, 255, 255, 0.2) 0px 8px 24px;
     transition: all $move;
 
-    .title{
+    .title {
       color: $textColor;
     }
 
@@ -158,6 +220,10 @@ const image = ref<string>('')
       background-color: $bgColor;
       transition: all $move;
 
+      &:first-of-type {
+        margin-top: 90px;
+      }
+
       &:last-of-type {
         border-bottom: none;
       }
@@ -167,7 +233,7 @@ const image = ref<string>('')
         height: 50px;
         margin-right: 20px;
         border: 1px solid #eee;
-        border-radius: 10px;
+        border-radius: 20px;
       }
 
       .name {
@@ -176,6 +242,7 @@ const image = ref<string>('')
       }
 
       .content {
+        line-height: 30px;
         margin: 10px 0;
         color: $contentColor;
       }
