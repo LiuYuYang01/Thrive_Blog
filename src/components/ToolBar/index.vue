@@ -53,6 +53,7 @@ const Theme = reactive({
         toolBarItem: "#fbfbfb",
         toolBarItemBorder: "#f7f4f4",
         FriendBg: "linear-gradient(45deg, #fff1eb, #ace0f9)",
+        shallowColor: "#606060ba"
     },
     Dark: {
         bgColor: "#232931",
@@ -71,6 +72,7 @@ const Theme = reactive({
         toolBarItem: "#4d4d4d",
         toolBarItemBorder: "#4a4a4a",
         FriendBg: "#242931",
+        shallowColor: "#a2a2a2"
     }
 })
 
@@ -96,6 +98,7 @@ watch(isEffect, n => {
         $css.setProperty("--toolBarItem", Theme.Dark.toolBarItem)
         $css.setProperty("--toolBarItemBorder", Theme.Dark.toolBarItemBorder)
         $css.setProperty("--FriendBg", Theme.Dark.FriendBg)
+        $css.setProperty("--shallowColor", Theme.Dark.shallowColor)
     } else {
         // 白天模式
         $css.setProperty("--bgColor", Theme.Light.bgColor)
@@ -114,6 +117,7 @@ watch(isEffect, n => {
         $css.setProperty("--toolBarItem", Theme.Light.toolBarItem)
         $css.setProperty("--toolBarItemBorder", Theme.Light.toolBarItemBorder)
         $css.setProperty("--FriendBg", Theme.Light.FriendBg)
+        $css.setProperty("--shallowColor", Theme.Light.shallowColor)
     }
 
     store.updateIsEffect(n)

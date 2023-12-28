@@ -181,7 +181,7 @@ const image = ref<string>('')
       }
 
       h3 {
-        color: #606060ba;
+        color: $shallowColor;
         font-size: 14px;
         margin-top: 20px;
       }
