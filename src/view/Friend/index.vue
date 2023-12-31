@@ -67,7 +67,7 @@ const linkForm = ref({
     <div class="swiper">
         <Swiper src="https://bu.dusays.com/2023/11/05/65473848ed863.jpg" :Ripple="true">
             <div class="title">一个人的寂寞, 一群人的狂欢!</div>
-            <div class="application">申请友联</div>
+            <!-- <div class="application">申请友联</div> -->
         </Swiper>
     </div>
 

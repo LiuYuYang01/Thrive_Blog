@@ -7,15 +7,20 @@ import Footer from './Footer.vue'
 
 Fireworks()
 
+// @ts-ignore
+import updateTitle from '@/util/updateTitle'
+
 onBeforeRouteUpdate(to => {
   Fireworks()
+
+  document.title = "博客名称 - " + (to.meta.title as string)
 })
 </script>
 
 <template>
   <!-- 进度条组件 -->
   <Nprogress />
-  
+
   <Header />
   <RouterView />
   <Footer />

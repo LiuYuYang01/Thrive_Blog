@@ -5,7 +5,16 @@ import { getArticleListAPI } from '@/api/Article';
 // 随机预览图
 import { randomImage } from '@/util/randomImage'
 
-const r = useRoute()
+// @ts-ignore
+// import updateTitle from '@/util/updateTitle'
+const route = useRoute()
+
+onMounted(() => {
+  document.title = "博客名称 - " + (route.meta.title as string)
+})
+
+console.log(route.meta);
+
 
 // 全屏加载效果
 const isLoading = ref<boolean>(false)
@@ -15,9 +24,9 @@ const CateName = ref<string>("")
 // 当前分类下的文章
 const ArticleData = ref<Article[]>([])
 
-watch(r, async () => {
+watch(route, async () => {
   // 拿到当前分类别名
-  const mark = r.path.split("/")[r.path.split("/").length - 1]
+  const mark = route.path.split("/")[route.path.split("/").length - 1]
 
   isLoading.value = true
   const Cate = await getCateListAPI()

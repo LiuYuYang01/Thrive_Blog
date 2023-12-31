@@ -13,18 +13,21 @@ const router = createRouter({
                     // 首页
                     path: "",
                     name: "home",
-                    component: () => import('@/view/Home/index.vue')
+                    component: () => import('@/view/Home/index.vue'),
+                    meta: {title: "首页" }
                 },
                 {
                     // 文章页
                     path: "article/:id",
                     name: "article",
-                    component: () => import('@/view/Article/index.vue')
+                    component: () => import('@/view/Article/index.vue'),
+                    meta: { title: "文章" }
                 },
                 {
                     // 一级分类
                     path: "cate/:one",
                     component: () => import('@/view/Cate/index.vue'),
+                    meta: { title: "分类" },
                     children: [
                         {
                             // 二级分类
@@ -37,25 +40,29 @@ const router = createRouter({
                     // 闪念
                     path: "diary",
                     name: "diary",
-                    component: () => import('@/view/Diary/index.vue')
+                    component: () => import('@/view/Diary/index.vue'),
+                    meta: { title: "闪念" }
                 },
                 {
                     // 朋友圈
                     path: "friend",
                     name: "friend",
-                    component: () => import('@/view/Friend/index.vue')
+                    component: () => import('@/view/Friend/index.vue'),
+                    meta: { title: "朋友圈" }
                 },
                 {
                     // 统计页
                     path: "stats",
                     name: "stats",
-                    component: () => import('@/view/Stats/index.vue')
+                    component: () => import('@/view/Stats/index.vue'),
+                    meta: { title: "统计" }
                 },
                 {
                     // 我的页面
                     path: "my",
                     name: "my",
-                    component: () => import('@/view/My/index.vue')
+                    component: () => import('@/view/My/index.vue'),
+                    meta: { title: "个人主页" }
                 }
             ]
         },

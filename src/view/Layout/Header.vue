@@ -44,28 +44,36 @@ const ExtendPage = {
   icon: "💡",
   url: "",
   children: [
-    {
-      "id": 1,
-      "name": "个人主页",
-      "url": "/my",
-    },
-    {
-      "id": 2,
-      "name": "我的相册",
-      "url": "",
-    },
-    {
-      "id": 3,
-      "name": "数据统计",
-      "url": "/stats",
-    },
-    {
-      "id": 4,
-      "name": "在线聊天室",
-      "url": "/chat",
-    }
+
   ]
 }
+// const ExtendPage = {
+//   name: "扩展页面",
+//   icon: "💡",
+//   url: "",
+//   children: [
+//     {
+//       "id": 1,
+//       "name": "个人主页",
+//       "url": "/my",
+//     },
+//     {
+//       "id": 2,
+//       "name": "我的相册",
+//       "url": "",
+//     },
+//     {
+//       "id": 3,
+//       "name": "数据统计",
+//       "url": "/stats",
+//     },
+//     {
+//       "id": 4,
+//       "name": "在线聊天室",
+//       "url": "/chat",
+//     }
+//   ]
+// }
 </script>
 
 <template>
@@ -119,11 +127,11 @@ const ExtendPage = {
           </ul>
         </li>
 
-        <li class="one_item">
+        <!-- <li class="one_item">
           <RouterLink to="/diary" class="one_item_nav"
             :style="{ color: top > 100 || is ? 'var(--textColor, #333)' : '#fff' }">
             🏄‍♂️ 闪念</RouterLink>
-        </li>
+        </li> -->
 
         <li class="one_item">
           <RouterLink to="/friend" class="one_item_nav"

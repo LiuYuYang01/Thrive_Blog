@@ -13,18 +13,10 @@ const total = ref<number>(0)
 const getArticleData = async (params: Page) => {
   isLoading.value = true
 
-  // 有参数就是分页查询，没有参数就是查询全部
-  if (params) {
-    // @ts-ignore
-    const { data, paginate } = await getArticleListAPI(params)
-    
-    total.value = paginate.total
-
-    articleList.value = data
-  } else {
-    const { data } = await getArticleListAPI()
-    articleList.value = data
-  }
+  // @ts-ignore
+  const { data, paginate } = await getArticleListAPI(params)
+  total.value = paginate.total
+  articleList.value = data
 
   isLoading.value = false
 }
