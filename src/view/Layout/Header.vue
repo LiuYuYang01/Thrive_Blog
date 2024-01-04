@@ -111,7 +111,7 @@ const ExtendPage = {
 
         <!-- 导航列表 -->
         <li class="one_item" v-for="one in cateList" :key="one.id">
-          <RouterLink :to="`/cate/${one.mark}`" class="one_item_nav"
+          <RouterLink :to="{ path: `/cate/${one.mark}`, query: { name: one.name } }" class="one_item_nav"
             :style="{ color: top > 100 || is ? 'var(--textColor, #333)' : '#fff' }">
             {{ one.icon }} {{ one.name }}
 
@@ -122,7 +122,9 @@ const ExtendPage = {
           <!-- 二级导航 -->
           <ul class="two">
             <li class="two_item" v-for="two in one.children" :key="two.id">
-              <RouterLink :to="`/cate/${one.mark}/${two.mark}`" class="two_item_nav">{{ two.name }}</RouterLink>
+              <RouterLink :to="{ path: `/cate/${one.mark}/${two.mark}`, query: { name: two.name } }" class="two_item_nav">
+                {{
+                  two.name }}</RouterLink>
             </li>
           </ul>
         </li>

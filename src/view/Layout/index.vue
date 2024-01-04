@@ -7,8 +7,13 @@ import Footer from './Footer.vue'
 
 Fireworks()
 
-// @ts-ignore
-import updateTitle from '@/util/updateTitle'
+const route = useRoute()
+
+onMounted(() => {
+  if(route.query.name) return
+  
+  document.title = "博客名称 - " + (route.meta.title as string)
+})
 
 onBeforeRouteUpdate(to => {
   Fireworks()

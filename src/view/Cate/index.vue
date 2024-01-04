@@ -5,16 +5,16 @@ import { getArticleListAPI } from '@/api/Article';
 // 随机预览图
 import { randomImage } from '@/util/randomImage'
 
-// @ts-ignore
-// import updateTitle from '@/util/updateTitle'
 const route = useRoute()
 
+
 onMounted(() => {
-  document.title = "博客名称 - " + (route.meta.title as string)
+  document.title = "分类 - " + (route.query.name as string) + "下的文章"
 })
 
-console.log(route.meta);
-
+onBeforeRouteUpdate(to => {
+  document.title = "分类 - " + (to.query.name as string) + "下的文章"
+})
 
 // 全屏加载效果
 const isLoading = ref<boolean>(false)
@@ -64,9 +64,9 @@ watch(route, async () => {
   </Swiper>
 
   <div class="main">
-    <loading :loading="isLoading"/>
-    
-    <Classics :data="ArticleData" :total="ArticleData.length"/>
+    <loading :loading="isLoading" />
+
+    <Classics :data="ArticleData" :total="ArticleData.length" />
   </div>
 </template>
 
