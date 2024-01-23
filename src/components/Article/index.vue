@@ -1,31 +1,31 @@
 <script setup lang="ts">
 // 复制文本自动生成版权信息
-import "@/util/createCopyright"
+import "@/util/createCopyright";
 
 // 引入文章API接口
-import { getArticleAPI } from "@/api/Article"
+import { getArticleAPI } from "@/api/Article";
 
 // 随机预览图
-import { randomImage } from '@/util/randomImage'
+import { randomImage } from "@/util/randomImage";
 
-const emit = defineEmits<{ (e: "update:modelValue", value: Info): void }>()
+const emit = defineEmits<{ (e: "update:modelValue", value: Info): void }>();
 
-const route = useRoute()
+const route = useRoute();
 
 // 文章内容
 const articleData = ref<Article>({
-    title: "", //标题
-    sketch: "", //简述
-    content: "", //文章内容
-    view: 0, //浏览量
-    cate: "", //分类
-    comment: 0, //评论数量
-    tag: "", //标签
-    date: "", //创建时间
-    cover: "", //封面
-})
+  title: "", //标题
+  sketch: "", //简述
+  content: "", //文章内容
+  view: 0, //浏览量
+  cate: "", //分类
+  comment: 0, //评论数量
+  tag: "", //标签
+  date: "", //创建时间
+  cover: "", //封面
+});
 
-const loading = ref(true)
+const loading = ref(true);
 const svg = `
         <path class="path" d="
           M 30 15
@@ -35,49 +35,49 @@ const svg = `
           A 15 15, 0, 1, 1, 27.99 7.5
           L 15 15
         " style="stroke-width: 4px; fill: rgba(0, 0, 0, 0)"/>
-      `
+      `;
 
 // 获取文章的数据
-const getContentData = async () => {
-    const { data } = await getArticleAPI(+route.params.id)
-    articleData.value = data
+const getContentData = async() => {
+  const { data } = await getArticleAPI(+route.params.id);
+  articleData.value = data;
 
-    // 如果有文章封面就显示，没有就显示默认的
-    if (data.cover) {
-        emit("update:modelValue", { cover: data.cover, title: data.title, cate: data.cate, view: data.view, comment: data.comment, date: data.date })
-    } else {
-        emit("update:modelValue", { cover: randomImage(), title: data.title, cate: data.cate, view: data.view, comment: data.comment, date: data.date })
-    }
+  // 如果有文章封面就显示，没有就显示默认的
+  if (data.cover) {
+    emit("update:modelValue", { cover: data.cover, title: data.title, cate: data.cate, view: data.view, comment: data.comment, date: data.date });
+  } else {
+    emit("update:modelValue", { cover: randomImage(), title: data.title, cate: data.cate, view: data.view, comment: data.comment, date: data.date });
+  }
 
-    // 生成目录
-    nextTick(() => createDirectory())
-}
-getContentData()
+  // 生成目录
+  nextTick(() => createDirectory());
+};
+getContentData();
 
 // 生成文章目录
 function createDirectory() {
-    let index = 0;
+  let index = 0;
 
-    // 获取content下的所有标题
-    let doms: any = document.querySelectorAll(".content h2,.content h3")
+  // 获取content下的所有标题
+  let doms: any = document.querySelectorAll(".content h2,.content h3");
 
-    if (doms) {
-        // 转换为真数组
-        doms = Array.from(doms)
+  if (doms) {
+    // 转换为真数组
+    doms = Array.from(doms);
 
-        doms.forEach((item: HTMLElement) => {
-            // 给所有有内容的值设置自定义属性
-            // 如果是H2就设置一级目录的标识
-            if (item.innerHTML && item.tagName === "H2") {
-                item.setAttribute("id", String(++index))
-            }
+    doms.forEach((item: HTMLElement) => {
+      // 给所有有内容的值设置自定义属性
+      // 如果是H2就设置一级目录的标识
+      if (item.innerHTML && item.tagName === "H2") {
+        item.setAttribute("id", String(++index));
+      }
 
-            // 如果是H2就设置二级目录的标识
-            if (item.innerHTML && item.tagName === "H3") {
-                item.setAttribute("two", "yes")
-            }
-        });
-    }
+      // 如果是H2就设置二级目录的标识
+      if (item.innerHTML && item.tagName === "H3") {
+        item.setAttribute("two", "yes");
+      }
+    });
+  }
 }
 </script>
 

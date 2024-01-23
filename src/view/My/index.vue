@@ -1,16 +1,16 @@
 <script setup lang="ts">
 // 引入用户信息
-import useUserStore from '@/stores/Author'
+import useUserStore from "@/stores/Author";
 
-const Store = useUserStore()
-const { authorInfo } = storeToRefs(Store)
+const Store = useUserStore();
+const { authorInfo } = storeToRefs(Store);
 
-Store.getAuthor()
+Store.getAuthor();
 
 // 动态获取图片路径
 const getIcon = (icon: string) => {
-  return new URL(`../../assets/svg/technology/${icon}.svg`, import.meta.url).href
-}
+  return new URL(`../../assets/svg/technology/${icon}.svg`, import.meta.url).href;
+};
 
 // 技术栈列表
 const technology = [
@@ -94,27 +94,27 @@ const technology = [
     name: "Ae",
     background: "#20003f"
   }
-]
+];
 
 
 // 进入页面 动画效果
 onMounted(() => {
-  const introduce = document.querySelector(".introduce") as HTMLElement
-  const technology = document.querySelector(".technology .list") as HTMLElement
+  const introduce = document.querySelector(".introduce") as HTMLElement;
+  const technology = document.querySelector(".technology .list") as HTMLElement;
 
   setTimeout(() => {
     // 文字下移动画效果
-    introduce.style.marginTop = "0"
+    introduce.style.marginTop = "0";
 
     // 技术栈左右滚动效果
-    technology.style.marginLeft = "-1320px"
+    technology.style.marginLeft = "-1320px";
 
     // 监听过渡结束事件
     technology.addEventListener("transitionend", () => {
-      technology.style.marginLeft = "450px"
-    })
-  })
-})
+      technology.style.marginLeft = "450px";
+    });
+  });
+});
 </script>
 
 <template>
