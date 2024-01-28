@@ -5,7 +5,7 @@ import moment from "moment";
 const info = ref<Info>({
   cover: "",
   title: "",
-  cate: "",
+  cate: [],
   view: 0,
   comment: 0,
 });

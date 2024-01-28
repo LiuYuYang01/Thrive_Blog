@@ -8,8 +8,6 @@ const emit = defineEmits<{ (e: "getArticleData", params: Page): void }>()
 // 随机预览图
 import { randomImage } from '@/util/randomImage'
 
-// 但
-
 // 分页查询
 const page = ref<number>(1) // 第几页
 const size = ref<number>(6) // 每页显示多少
@@ -32,19 +30,19 @@ watch(page, data => {
                     <!-- 文章标题 -->
                     <h3>{{ item.title }}</h3>
 
-                    <!-- 文章内容 -->
-                    <p>{{ item.sketch }}</p>
+                    <!-- 文章摘要 -->
+                    <p>{{ item.description }}</p>
 
                     <div class="fun" v-if="index % 2 === 0">
-                        <span><iconpark-icon name="alarm-clock" /> {{ moment(item.date).format('YYYY-MM-DD') }}</span>
+                        <span><iconpark-icon name="alarm-clock" /> {{ moment(item.createtime).format('YYYY-MM-DD') }}</span>
                         <span><iconpark-icon name="fire" /> {{ item.view }}</span>
-                        <span><iconpark-icon name="tag-one" /> {{ item.cate }}</span>
+                        <span><iconpark-icon name="tag-one" /> {{ (item.cate![0] as Cate).name }}</span>
                     </div>
 
                     <div class="fun" style="text-align: start;" v-else>
-                        <span style="padding-left: 0;"><iconpark-icon name="alarm-clock" /> {{ moment(item.date).format('YYYY-MM-DD') }}</span>
+                        <span style="padding-left: 0;"><iconpark-icon name="alarm-clock" /> {{ moment(item.createtime).format('YYYY-MM-DD') }}</span>
                         <span><iconpark-icon name="fire" /> {{ item.view }}</span>
-                        <span><iconpark-icon name="tag-one" /> {{ item.cate }}</span>
+                        <span><iconpark-icon name="tag-one" /> {{ item.cate[0].name }}</span>
                     </div>
                 </RouterLink>
             </div>

@@ -3,7 +3,7 @@ interface Info {
   cover: string; //封面
   title: string; //标题
   view: number; //浏览量
-  cate: string; //分类
+  cate: Cate[]; //分类
   comment: number; //评论数量
   createtime?: string; //创建时间
 }

@@ -42,7 +42,7 @@ const getArticleData = async (params: Page) => {
     loading.value = false;
 };
 
-getArticleData({ page: 1, size: 5 });
+// getArticleData({ page: 1, size: 5 });
 </script>
 
 <template>
