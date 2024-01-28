@@ -10,17 +10,17 @@ const articleList = ref<Article[]>([])
 const total = ref<number>(0)
 
 // 获取文章列表
-const getArticleData = async (params: Page) => {
+const getArticleList = async (params: Page) => {
   isLoading.value = true
 
   // @ts-ignore
-  const { data, paginate } = await getArticleListAPI(params)
-  total.value = paginate.total
-  articleList.value = data
+  const { data } = await getArticleListAPI(params)
+  total.value = data.total
+  articleList.value = data.result
 
   isLoading.value = false
 }
-// getArticleData()
+// getArticleList()
 
 // 打字机文案
 const data = ['print(" 互联网从不缺乏天才, 而努力才是最终的入场券!")', 'console.log("路虽远, 行则将至, 事虽难, 做则必成!")']
@@ -33,7 +33,7 @@ const data = ['print(" 互联网从不缺乏天才, 而努力才是最终的入�
   <Frame :modules='["Author", "HotArticle", "RandomArticle", "NewComments"]'>
     <!-- <loading :loading="isLoading" /> -->
 
-    <Classics :data="articleList" @getArticleData="getArticleData" :total="total" />
+    <Classics :data="articleList" @getArticleData="getArticleList" :total="total" />
   </Frame>
 </template>
 

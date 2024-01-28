@@ -24,38 +24,38 @@ const CateName = ref<string>("")
 // 当前分类下的文章
 const ArticleData = ref<Article[]>([])
 
-watch(route, async () => {
-  // 拿到当前分类别名
-  const mark = route.path.split("/")[route.path.split("/").length - 1]
+// watch(route, async () => {
+//   // 拿到当前分类别名
+//   const mark = route.path.split("/")[route.path.split("/").length - 1]
 
-  isLoading.value = true
-  const Cate = await getCateListAPI()
-  isLoading.value = false
+//   isLoading.value = true
+//   const Cate = await getCateListAPI()
+//   isLoading.value = false
 
-  // 通过分类别名拿到分类名称
-  Cate.data.forEach((one: Cate) => {
-    if (one.mark === mark) {
-      CateName.value = one.name
-    } else {
-      one.children.forEach((two: Cate) => {
-        if (two.mark === mark) {
-          CateName.value = two.name
-        }
-      })
-    }
-  })
+//   // 通过分类别名拿到分类名称
+//   Cate.data.forEach((one: Cate) => {
+//     if (one.mark === mark) {
+//       CateName.value = one.name
+//     } else {
+//       one.children.forEach((two: Cate) => {
+//         if (two.mark === mark) {
+//           CateName.value = two.name
+//         }
+//       })
+//     }
+//   })
 
-  // 先清除之前的文章数据
-  ArticleData.value = []
+//   // 先清除之前的文章数据
+//   ArticleData.value = []
 
-  // 筛选当前分类下的文章
-  const Article = await getArticleListAPI()
-  Article.data.forEach(item => {
-    if (item.cate === CateName.value) {
-      ArticleData.value.push(item)
-    }
-  })
-}, { immediate: true, deep: true })
+//   // 筛选当前分类下的文章
+//   const { data } = await getArticleListAPI({ page: 1, size: 5 })
+//   Article.data.forEach(item => {
+//     if (item.cate === CateName.value) {
+//       ArticleData.value.push(item)
+//     }
+//   })
+// }, { immediate: true, deep: true })
 </script>
 
 <template>

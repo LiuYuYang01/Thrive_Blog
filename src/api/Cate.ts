@@ -9,7 +9,7 @@ export function getCateDataAPI(id: string): http<Cate[]> {
 }
 
 // 获取分类列表
-export function getCateListAPI(): http<Cate[]> {
+export function getCateListAPI(): http<Paginate<Cate[]>> {
     return Request.instance.request({
         url: "/api/cate"
     })

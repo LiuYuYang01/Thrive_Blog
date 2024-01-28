@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { randomImage } from '@/util/randomImage'
-import { getArticleListAPI } from '@/api/Article'
+import { randomImage } from "@/util/randomImage";
+import { getArticleListAPI } from "@/api/Article";
 
-const loading = ref(false)
+const loading = ref(false);
 const svg = `
         <path class="path" d="
           M 30 15
@@ -12,14 +12,14 @@ const svg = `
           A 15 15, 0, 1, 1, 27.99 7.5
           L 15 15
         " style="stroke-width: 4px; fill: rgba(0, 0, 0, 0)"/>
-      `
+      `;
 
 const ArticleList = ref<Article[]>([]);
 
-const getArticleData = async () => {
+const getArticleData = async (params: Page) => {
     loading.value = true;
 
-    const { data } = await getArticleListAPI();
+    const { data } = await getArticleListAPI(params);
     const generatedNumbers: number[] = [];
 
     // 随机生成不重复的数
@@ -42,7 +42,7 @@ const getArticleData = async () => {
     loading.value = false;
 };
 
-getArticleData();
+getArticleData({ page: 1, size: 5 });
 </script>
 
 <template>

@@ -5,17 +5,17 @@ import moment from 'moment';
 const commentList = ref<Comment[]>()
 
 const getCommentData = async () => {
-    const { data } = await getCommentListAPI()
+    // const { data } = await getCommentListAPI()
 
-    // 根据评论时间进行排序并且只保留5个数据
-    const list = data && data.sort((a, b) => {
-        const timeA = new Date(a.date!).getTime();
-        const timeB = new Date(b.date!).getTime();
+    // // 根据评论时间进行排序并且只保留5个数据
+    // const list = data && data.sort((a, b) => {
+    //     const timeA = new Date(a.date!).getTime();
+    //     const timeB = new Date(b.date!).getTime();
 
-        return timeB - timeA;
-    }).slice(0, 5);
+    //     return timeB - timeA;
+    // }).slice(0, 5);
 
-    commentList.value = list;
+    // commentList.value = list;
 }
 getCommentData()
 </script>
@@ -36,7 +36,7 @@ getCommentData()
                     <!-- 评论信息 -->
                     <div class="info">{{ item.content }}</div>
                     <!-- 评论时间 -->
-                    <div class="time">{{ moment(item.date).format('YYYY-MM-DD') }}</div>
+                    <div class="time">{{ moment(item.createtime).format('YYYY-MM-DD') }}</div>
                 </div>
             </a>
         </div>

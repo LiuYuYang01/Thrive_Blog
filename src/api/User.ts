@@ -1,7 +1,7 @@
 import Request from '@/util/Request'
 
 // 获取作者信息
-export function getAuthorAPI(id: number): http<User> {
+export function getAuthorAPI(id: number): http<UserInfo> {
     return Request.instance.request({
         url: `/api/user/${id}`
     })

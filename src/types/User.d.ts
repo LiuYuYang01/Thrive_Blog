@@ -1,11 +1,11 @@
 type UserInfo = {
     id?: number;
     avatar: string;
-    introduce: string;
+    info: string;
     name: string;
-    qq: number;
-    background: string;
+    email: string;
     role: string;
+    createtime?: Date
 };
 
 type User = {

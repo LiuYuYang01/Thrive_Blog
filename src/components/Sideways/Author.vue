@@ -1,49 +1,47 @@
 <script setup lang='ts'>
-import useUserStore from '@/stores/Author'
+import useUserStore from "@/stores/Author";
 
-const Store = useUserStore()
-Store.getAuthor()
+const store = useUserStore();
+store.getAuthor();
 
 // 获取作者信息
-const { authorInfo } = storeToRefs(Store)
+const { authorInfo } = storeToRefs(store);
 
-// 有背景就显示自己的背景，否则显示默认背景
-import avatar_bg from '@/assets/img/avatar_bg.jpg'
-const backgroundImage = `url(${authorInfo.value.background ? authorInfo.value.background : avatar_bg})`
+// 作者背景
+import avatar_bg from "@/assets/img/avatar_bg.jpg";
 
 // 社交账号
 const socializing = [
-    {
-        name: "GitHub",
-        url: "https://github.com/LiuYuYang01?tab=overview&from=2023-04-01&to=2023-04-26"
-    },
-    {
-        name: "Gitee",
-        url: "https://gitee.com/liu_yu_yang666"
-    },
-    {
-        name: "Juejin",
-        url: "https://juejin.cn/user/3083456627092078/posts"
-    },
-    {
-        name: "CSDN",
-        url: "https://blog.csdn.net/haodian666?type=blog"
-    },
-    {
-        name: "QQ",
-        url: "http://wpa.qq.com/msgrd?v=3&uin=3311118881&site=qq&menu=yes"
-    }
-]
+  {
+    name: "GitHub",
+    url: "https://github.com/LiuYuYang01?tab=overview&from=2023-04-01&to=2023-04-26"
+  },
+  {
+    name: "Gitee",
+    url: "https://gitee.com/liu_yu_yang666"
+  },
+  {
+    name: "Juejin",
+    url: "https://juejin.cn/user/3083456627092078/posts"
+  },
+  {
+    name: "CSDN",
+    url: "https://blog.csdn.net/haodian666?type=blog"
+  },
+  {
+    name: "QQ",
+    url: "http://wpa.qq.com/msgrd?v=3&uin=3311118881&site=qq&menu=yes"
+  }
+];
 
 // 动态获取图片路径
 const getIcon = (src: string) => {
-    return new URL(`../../assets/svg/socializing/${src}.svg`, import.meta.url).href
-}
+  return new URL(`../../assets/svg/socializing/${src}.svg`, import.meta.url).href;
+};
 </script>
 
 <template>
-    <!-- <div class="author" :style="{ backgroundImage }"> -->
-    <div class="author" :style="backgroundImage">
+    <div class="author" :style="avatar_bg">
         <!-- 作者头像 -->
         <div class="avatar">
             <img :src="authorInfo.avatar" alt="">
@@ -52,7 +50,7 @@ const getIcon = (src: string) => {
         <!-- 作者介绍 -->
         <div class="info">
             <h3>{{ authorInfo.name }}</h3>
-            <p>{{ authorInfo.introduce }}</p>
+            <p>{{ authorInfo.info }}</p>
         </div>
 
         <!-- 社交账号 -->
