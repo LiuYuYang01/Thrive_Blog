@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // 引入时间插件
-import moment from 'moment';
+import moment from "moment";
 
 const info = ref<Info>({
   cover: "",
@@ -8,7 +8,7 @@ const info = ref<Info>({
   cate: "",
   view: 0,
   comment: 0,
-})
+});
 </script>
 
 <template>
@@ -23,7 +23,7 @@ const info = ref<Info>({
         <div class="info">
           <!-- 文章创建时间 -->
           <span>
-            <iconpark-icon name="alarm-clock" /> {{ moment(info.date).format('YYYY-MM-DD') }}
+            <iconpark-icon name="alarm-clock" /> {{ moment(info.createtime).format('YYYY-MM-DD') }}
           </span>
 
           <!-- 文章浏览量 -->

@@ -14,8 +14,10 @@ let cateList = ref<Cate[]>()
 // 获取分类导航信息
 const getCateList = async () => {
   const { data } = await getCateListAPI()
+  console.log(data,333);
+  
 
-  cateList.value = data
+  cateList.value = data.result
 }
 
 getCateList()
@@ -39,13 +41,13 @@ import { useConfigStore } from '@/stores'
 const store = useConfigStore()
 
 // 扩展页面
-const ExtendPage = {
+const ExtendPage: Cate = {
   name: "扩展页面",
   icon: "💡",
   url: "",
-  children: [
-
-  ]
+  mark: "",
+  level: 0,
+  children: []
 }
 // const ExtendPage = {
 //   name: "扩展页面",
@@ -116,12 +118,12 @@ const ExtendPage = {
             {{ one.icon }} {{ one.name }}
 
             <!-- 判断有没有二级分类，有就显示下拉箭头 -->
-            <iconpark-icon name="down" v-if="one.children.length"></iconpark-icon>
+            <iconpark-icon name="down" v-if="one.children?.length"></iconpark-icon>
           </RouterLink>
 
           <!-- 二级导航 -->
           <ul class="two">
-            <li class="two_item" v-for="two in one.children" :key="two.id">
+            <li class="two_item" v-for="two in one?.children" :key="two.id">
               <RouterLink :to="{ path: `/cate/${one.mark}/${two.mark}`, query: { name: two.name } }" class="two_item_nav">
                 {{
                   two.name }}</RouterLink>

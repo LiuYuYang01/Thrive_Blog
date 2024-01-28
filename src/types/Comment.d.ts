@@ -7,6 +7,6 @@ interface Comment {
     url?: string,
     aid: number,
     rid?: number,
-    date?: string,
+    createtime?: string,
     children?: Omit<Comment, "children">[]
 }

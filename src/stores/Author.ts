@@ -16,10 +16,9 @@ const Store = defineStore<"Author", State, Getter, Actions>("Author", {
         // 作者信息
         authorInfo: {
             avatar: "",
-            introduce: "",
+            info: "",
             name: "",
-            qq: 0,
-            background: "",
+            email: "",
             role: ""
         }
     }),
@@ -28,7 +27,7 @@ const Store = defineStore<"Author", State, Getter, Actions>("Author", {
         async getAuthor() {
             const { data } = await getAuthorAPI(1)
 
-            this.authorInfo = data.userInfo
+            this.authorInfo = data
         }
     },
     // pinia状态是否持久化到本地存储

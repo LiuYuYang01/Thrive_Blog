@@ -15,13 +15,13 @@ const route = useRoute();
 // 文章内容
 const articleData = ref<Article>({
   title: "", //标题
-  sketch: "", //简述
+  description: "", //简述
   content: "", //文章内容
   view: 0, //浏览量
   cate: "", //分类
   comment: 0, //评论数量
   tag: "", //标签
-  date: "", //创建时间
+  createtime: "", //创建时间
   cover: "", //封面
 });
 
@@ -44,9 +44,9 @@ const getContentData = async() => {
 
   // 如果有文章封面就显示，没有就显示默认的
   if (data.cover) {
-    emit("update:modelValue", { cover: data.cover, title: data.title, cate: data.cate, view: data.view, comment: data.comment, date: data.date });
+    emit("update:modelValue", { cover: data.cover, title: data.title, cate: data.cate, view: data.view, comment: data.comment, createtime: data.createtime });
   } else {
-    emit("update:modelValue", { cover: randomImage(), title: data.title, cate: data.cate, view: data.view, comment: data.comment, date: data.date });
+    emit("update:modelValue", { cover: randomImage(), title: data.title, cate: data.cate, view: data.view, comment: data.comment, createtime: data.createtime });
   }
 
   // 生成目录
