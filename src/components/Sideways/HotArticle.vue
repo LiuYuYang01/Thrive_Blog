@@ -33,16 +33,17 @@ const getArticleData = async (params: Page) => {
         generatedNumbers.push(randomNum);
         return randomNum;
     }
+    
 
     for (let i = 1; i <= 4; i++) {
-        const randomIndex = getRandom(0, data.length - 1);
-        ArticleList.value?.push(data[randomIndex]);
+        const randomIndex = getRandom(0, data.result.length - 1);
+        ArticleList.value?.push(data.result[randomIndex]);
     }
 
     loading.value = false;
 };
 
-// getArticleData({ page: 1, size: 5 });
+getArticleData({ page: 1, size: 5 });
 </script>
 
 <template>

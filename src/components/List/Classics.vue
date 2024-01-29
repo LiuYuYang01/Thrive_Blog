@@ -1,25 +1,23 @@
 <script setup lang='ts'>
 // 引入时间插件
 import moment from 'moment';
-
-const props = defineProps<{ data: Article[], total: number }>()
-const emit = defineEmits<{ (e: "getArticleData", params: Page): void }>()
-
 // 随机预览图
 import { randomImage } from '@/util/randomImage'
 
-// 分页查询
-const page = ref<number>(1) // 第几页
-const size = ref<number>(6) // 每页显示多少
-watch(page, data => {
-    emit("getArticleData", { page: data, size: size.value })
+const props = defineProps<{ data: Paginate<Article[]> }>()
+const emit = defineEmits<{ (e: "get", params: Page): void }>()
+
+const paginate = ref<Page>(props.data)
+
+watch(paginate, p => {
+    if (props.data) emit("get", { page: p.page, size: p.size })
 }, { immediate: true })
 </script>
 
 <template>
-    <div class="Classics">
+    <div class="Classics" v-if="data">
         <!-- 文章列表 -->
-        <div class="item" v-for="item, index in data">
+        <div class="item" v-for="item, index in data.result">
             <!-- 文章封面 -->
             <div class="cover" :style="{ backgroundImage: `url(${item.cover || randomImage()})` }" v-if="index % 2 === 0">
             </div>
@@ -40,7 +38,8 @@ watch(page, data => {
                     </div>
 
                     <div class="fun" style="text-align: start;" v-else>
-                        <span style="padding-left: 0;"><iconpark-icon name="alarm-clock" /> {{ moment(item.createtime).format('YYYY-MM-DD') }}</span>
+                        <span style="padding-left: 0;"><iconpark-icon name="alarm-clock" /> {{
+                            moment(item.createtime).format('YYYY-MM-DD') }}</span>
                         <span><iconpark-icon name="fire" /> {{ item.view }}</span>
                         <span><iconpark-icon name="tag-one" /> {{ item.cate[0].name }}</span>
                     </div>
@@ -54,11 +53,11 @@ watch(page, data => {
         </div>
 
         <!-- 空状态 -->
-        <Empty info="暂无文章" v-if="!data.length"></Empty>
+        <Empty info="暂无文章" v-if="!data.total"></Empty>
     </div>
 
     <!-- 当文章数量超过5个时才会显示分页 -->
-    <Pagination v-if="total >= 5" v-model="page" :size="size" :total="total" />
+    <Pagination v-model="paginate" :paginate="data" v-if="data && data.total >= 5" />
 </template>
 
 <style scoped lang="scss">

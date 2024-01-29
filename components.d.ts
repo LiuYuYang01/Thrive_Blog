@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
     Author: typeof import('./src/components/Sideways/Author.vue')['default']
     Classics: typeof import('./src/components/List/Classics.vue')['default']
     Comment: typeof import('./src/components/Comment/index.vue')['default']
+    copy: typeof import('./src/components/Loading copy/index.vue')['default']
     Copyright: typeof import('./src/components/Article/components/Copyright.vue')['default']
     Directory: typeof import('./src/components/Sideways/Directory.vue')['default']
     Editor: typeof import('./src/components/Editor/index.vue')['default']

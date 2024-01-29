@@ -2,24 +2,20 @@
 import { getArticleListAPI } from '@/api/Article'
 
 // 全屏加载效果
-const isLoading = ref<boolean>(false)
+const loading = ref<boolean>(false)
 
-// 文章列表
-const list = ref<Article[]>([])
-
-// 文章总数
-const total = ref<number>(0)
+// 分页查询
+const paginate = ref<Paginate<Article[]>>()
 
 // 获取文章列表
 const getArticleList = async (params: Page) => {
-  isLoading.value = true
+  loading.value = true
 
   // @ts-ignore
   const { data } = await getArticleListAPI(params)
-  total.value = data.total
-  list.value = data.result
+  paginate.value = data
 
-  isLoading.value = false
+  loading.value = false
 }
 getArticleList({ page: 1, size: 5 })
 
@@ -31,7 +27,8 @@ const data = ['print(" 互联网从不缺乏天才, 而努力才是最终的入�
   <Swiper :data="data" src="https://liuyuyang.net/img/20ac414805e3491098df678d3d9f100f_KJCPUs.jpg"></Swiper>
 
   <Frame :modules='["Author", "HotArticle", "RandomArticle", "NewComments"]'>
-    <Classics :data="list" @getArticleData="getArticleList" :total="total" />
+    <Classics :data="paginate!" @get="getArticleList" />
+    <Loading v-model="loading"></Loading>
   </Frame>
 </template>
 
