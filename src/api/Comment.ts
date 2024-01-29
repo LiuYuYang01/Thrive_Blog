@@ -18,7 +18,7 @@ export function getCommentDataAPI(id: string): http<Comment[]> {
 }
 
 // 获取评论列表
-export const getCommentListAPI = (params?: Page): http<Comment[]> => {
+export const getCommentListAPI = (params?: Page): http<Paginate<Comment[]>> => {
   // 如果有参数就是分页查询，没有参数就是查询全部
   if (params) {
     return Request.instance.request({

@@ -5,7 +5,7 @@ import { getArticleListAPI } from '@/api/Article'
 const loading = ref<boolean>(false)
 
 // 分页查询
-const paginate = ref<Paginate<Article[]>>()
+const article = ref<Paginate<Article[]>>()
 
 // 获取文章列表
 const getArticleList = async (params: Page) => {
@@ -13,7 +13,7 @@ const getArticleList = async (params: Page) => {
 
   // @ts-ignore
   const { data } = await getArticleListAPI(params)
-  paginate.value = data
+  article.value = data
 
   loading.value = false
 }
@@ -27,7 +27,7 @@ const data = ['print(" 互联网从不缺乏天才, 而努力才是最终的入�
   <Swiper :data="data" src="https://liuyuyang.net/img/20ac414805e3491098df678d3d9f100f_KJCPUs.jpg"></Swiper>
 
   <Frame :modules='["Author", "HotArticle", "RandomArticle", "NewComments"]'>
-    <Classics :data="paginate!" @get="getArticleList" />
+    <Classics :data="article!" @get="getArticleList" />
     <Loading v-model="loading"></Loading>
   </Frame>
 </template>

@@ -2,12 +2,12 @@
 import { getCommentListAPI } from '@/api/Comment'
 import moment from 'moment';
 
-const commentList = ref<Comment[]>()
+const list = ref<Comment[]>()
 
 const getCommentData = async () => {
-    // const { data } = await getCommentListAPI()
+    const { data } = await getCommentListAPI()
 
-    // // 根据评论时间进行排序并且只保留5个数据
+    // 根据评论时间进行排序并且只保留5个数据
     // const list = data && data.sort((a, b) => {
     //     const timeA = new Date(a.date!).getTime();
     //     const timeB = new Date(b.date!).getTime();
@@ -16,6 +16,7 @@ const getCommentData = async () => {
     // }).slice(0, 5);
 
     // commentList.value = list;
+    list.value = data.result;
 }
 getCommentData()
 </script>
@@ -28,7 +29,7 @@ getCommentData()
 
         <!-- 评论列表 -->
         <div class="list">
-            <a href="javascript:;" class="item" v-for="item in commentList" :key="item.id">
+            <a href="javascript:;" class="item" v-for="item in list" :key="item.id">
                 <!-- 头像 -->
                 <img :src="item.avatar" alt="" class="avatar">
                 <!-- 内容 -->

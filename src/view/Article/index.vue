@@ -53,12 +53,8 @@ const info = ref<Info>({
 </template>
 
 <style scoped lang="scss">
-// .main {
-//   margin-top: -250px;
-// }
-
 .Article {
-  :deep .Directory {
+  :deep(.Directory) {
     margin-top: 0;
   }
 

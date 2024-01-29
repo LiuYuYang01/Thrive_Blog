@@ -35,21 +35,21 @@ const Diarys = [
     width: 450px;
     margin: 50px auto 0;
 
-    :deep .el-timeline-item {
+    :deep(.el-timeline-item) {
         padding: 30px 10px;
     }
 
-    :deep .el-timeline-item__tail {
+    :deep(.el-timeline-item__tail) {
         left: 6px;
         border-left: 4px solid var(--el-timeline-node-color);
     }
 
-    :deep .el-timeline-item__node--large {
+    :deep(.el-timeline-item__node--large) {
         width: 20px;
         height: 20px;
     }
 
-    :deep .el-timeline-item__wrapper {
+    :deep(.el-timeline-item__wrapper) {
         padding-left: 38px;
     }
 }

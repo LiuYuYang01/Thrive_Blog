@@ -4,7 +4,6 @@ const props = defineProps<{ modelValue: boolean }>()
 
 <template>
     <div class="th_mask" v-if="modelValue">
-        {{ modelValue }}
         <div class="th_loading">
             <div></div>
             <div></div>

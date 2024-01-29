@@ -7,7 +7,6 @@ import { randomImage } from '@/util/randomImage'
 
 const route = useRoute()
 
-
 onMounted(() => {
   document.title = "分类 - " + (route.query.name as string) + "下的文章"
 })
@@ -22,51 +21,17 @@ const isLoading = ref<boolean>(false)
 // 当前分类
 const CateName = ref<string>("")
 // 当前分类下的文章
-const ArticleData = ref<Article[]>([])
+const article = ref<Paginate<Article[]>>()
 
-// watch(route, async () => {
-//   // 拿到当前分类别名
-//   const mark = route.path.split("/")[route.path.split("/").length - 1]
-
-//   isLoading.value = true
-//   const Cate = await getCateListAPI()
-//   isLoading.value = false
-
-//   // 通过分类别名拿到分类名称
-//   Cate.data.forEach((one: Cate) => {
-//     if (one.mark === mark) {
-//       CateName.value = one.name
-//     } else {
-//       one.children.forEach((two: Cate) => {
-//         if (two.mark === mark) {
-//           CateName.value = two.name
-//         }
-//       })
-//     }
-//   })
-
-//   // 先清除之前的文章数据
-//   ArticleData.value = []
-
-//   // 筛选当前分类下的文章
-//   const { data } = await getArticleListAPI({ page: 1, size: 5 })
-//   Article.data.forEach(item => {
-//     if (item.cate === CateName.value) {
-//       ArticleData.value.push(item)
-//     }
-//   })
-// }, { immediate: true, deep: true })
 </script>
 
 <template>
   <Swiper :src="randomImage()">
-    <div class="title">{{ CateName }} ~ 共 {{ ArticleData.length }} 篇文章</div>
+    <div class="title">{{ CateName }} ~ 共 {{ article!.result.length }} 篇文章</div>
   </Swiper>
 
   <div class="main">
-    <loading :loading="isLoading" />
-
-    <Classics :data="ArticleData" :total="ArticleData.length" />
+    <Classics :data="article!" :total="article!.result.length" />
   </div>
 </template>
 

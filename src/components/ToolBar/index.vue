@@ -272,7 +272,7 @@ const updateColor = () => {
 }
 
 // 自定义颜色的宽度
-:deep .el-color-picker__trigger {
+:deep(.el-color-picker__trigger) {
     width: 330px;
 }
 </style>

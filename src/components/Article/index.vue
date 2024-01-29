@@ -120,7 +120,7 @@ function createDirectory() {
         color: $essayContent;
         transition: color $move;
 
-        :deep .github-markdown-body {
+        :deep(.github-markdown-body) {
             padding: 0;
         }
 

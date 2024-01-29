@@ -136,7 +136,7 @@ const linkForm = ref({
 .swiper {
     position: relative;
 
-    :deep .Swiper {
+    :deep(.Swiper) {
         background-position: center top;
 
         &::after {
