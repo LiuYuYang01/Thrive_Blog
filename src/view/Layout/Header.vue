@@ -14,8 +14,6 @@ let cateList = ref<Cate[]>()
 // 获取分类导航信息
 const getCateList = async () => {
   const { data } = await getCateListAPI()
-  console.log(data,333);
-  
 
   cateList.value = data.result
 }

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { getCateListAPI } from '@/api/Cate';
-import { getArticleListAPI } from '@/api/Article';
+// import { getCateListAPI } from '@/api/Cate';
+import { getArticleCateListAPI, getArticleListAPI } from '@/api/Article';
 
 // 随机预览图
 import { randomImage } from '@/util/randomImage'
@@ -16,22 +16,33 @@ onBeforeRouteUpdate(to => {
 })
 
 // 全屏加载效果
-const isLoading = ref<boolean>(false)
+const loading = ref<boolean>(false)
 
 // 当前分类
-const CateName = ref<string>("")
+const cateName = ref<string>("")
 // 当前分类下的文章
 const article = ref<Paginate<Article[]>>()
 
+// 获取指定分类下的所有文章
+const getArticleCateList = async (mark: string) => {
+  const { data } = await getArticleCateListAPI(mark)
+  article.value = data
+}
+
+watch(() => route.params, r => {
+  cateName.value = route.query.name as string
+  
+  !r.two ? getArticleCateList(r.one as string) : getArticleCateList(r.two as string)
+}, { immediate: true })
 </script>
 
 <template>
   <Swiper :src="randomImage()">
-    <div class="title">{{ CateName }} ~ 共 {{ article!.result.length }} 篇文章</div>
+    <div class="title" v-if="article?.result">{{ cateName }} ~ 共 {{ article!.result.length }} 篇文章</div>
   </Swiper>
 
   <div class="main">
-    <Classics :data="article!" :total="article!.result.length" />
+    <Classics :data="article!" v-if="article?.result" />
   </div>
 </template>
 
