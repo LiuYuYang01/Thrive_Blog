@@ -18,3 +18,9 @@ export interface Cate {
 export interface Type {
   [key: string]: Cate;
 }
+
+// 网站类型
+interface LinkType {
+  id: number,
+  name: string
+}
