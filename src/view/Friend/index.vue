@@ -1,22 +1,13 @@
 <script setup lang="ts">
 import { getLinkListAPI } from '@/api/Link'
 import { Type, Cate } from '@/types/Link'
+import { svg } from '@/util'
 
 // 网站列表数据
 const linkData = reactive<Type>({})
 
 // 加载效果
 const loading = ref(false)
-const svg = `
-        <path class="path" d="
-          M 30 15
-          L 28 17
-          M 25.61 25.61
-          A 15 15, 0, 0, 1, 15 30
-          A 15 15, 0, 1, 1, 27.99 7.5
-          L 15 15
-        " style="stroke-width: 4px; fill: rgba(0, 0, 0, 0)"/>
-      `
 
 // 获取网站列表数据
 const getLinkList = async () => {
@@ -25,7 +16,7 @@ const getLinkList = async () => {
     const { data } = await getLinkListAPI()
 
     // 将所有type类型做一个分类
-    data.forEach(item => {
+    data.result.forEach(item => {
         if (linkData[item.type]) {
             // 如果有这个类型就添加数据
             linkData[item.type].list.push(item)
@@ -36,7 +27,6 @@ const getLinkList = async () => {
             linkData[item.type] = { type: "", list: [] } as Cate
         }
     })
-
 
     loading.value = false
 }
@@ -68,7 +58,7 @@ const linkForm = ref({
     <div class="swiper">
         <Swiper src="https://bu.dusays.com/2023/11/05/65473848ed863.jpg" :Ripple="true">
             <div class="title">一个人的寂寞, 一群人的狂欢!</div>
-            <!-- <div class="application">申请友联</div> -->
+            <div class="application">申请友联</div>
         </Swiper>
     </div>
 
@@ -171,7 +161,7 @@ const linkForm = ref({
         text-align: center;
         color: #fff;
         cursor: pointer;
-        z-index: 999;
+        z-index: 2;
 
         &:active {
             background-color: #3c9a6d;

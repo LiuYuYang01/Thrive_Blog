@@ -1,7 +1,4 @@
 <script setup lang='ts'>
-// 引入五彩纸屑
-// import confetti from 'canvas-confetti';
-
 // 默认显示所有侧边栏模块，可以指定选择哪些显示
 const { modules = [] } = defineProps<{ modules?: string[] }>()
 

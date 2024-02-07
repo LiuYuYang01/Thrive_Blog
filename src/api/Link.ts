@@ -1,5 +1,5 @@
 import Request from '@/util/Request'
-import { Link } from '@/types/Link'
+import { Link,Cate } from '@/types/Link'
 
 // 新增网站
 export function addLinkListAPI(): http<Link[]> {
@@ -17,7 +17,7 @@ export function getLinkDataAPI(id: string): http<Link[]> {
 }
 
 // 获取网站列表
-export function getLinkListAPI(): http<Link[]> {
+export function getLinkListAPI(): http<Paginate<Link[]>> {
     return Request.instance.request({
         url: "/api/link"
     })
