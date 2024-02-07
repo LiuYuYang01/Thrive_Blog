@@ -5,7 +5,7 @@ import { ref, watch } from 'vue'
 import { getCateListAPI } from '@/api/Cate'
 
 // 获取页面滚动的距离
-import useScroll from '@/util/useScroll';
+import { useScroll } from '@/util';
 const top = useScroll()
 
 

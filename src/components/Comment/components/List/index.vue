@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { getCommentListAPI } from '@/api/Comment'
 
-import svg from "@/util/LoadingIcon"
+import { svg } from "@/util"
 
 // 引入时间插件
 import moment from 'moment';
@@ -13,8 +13,6 @@ const emit = defineEmits<{ (e: "reply", data: { id: number, name: string }): voi
 watch(() => props.isPublish, () => {
   getCommentData()
 })
-
-import Paginate from '@/util/Paginate'
 
 // 分页查询
 const paging = reactive({ page: 1, size: 5 })
@@ -55,8 +53,8 @@ async function getCommentData() {
         one.children?.push(two)
         data.forEach(three => {
           if (two.id === three.rid) {
-            console.log(three,789);
-            
+            console.log(three, 789);
+
             two.children?.push(three)
           }
         })
@@ -72,7 +70,7 @@ async function getCommentData() {
 
   loading.value = false;
 }
-getCommentData()
+// getCommentData()
 
 // 回复评论
 const reply = (id: number, name: string) => {
@@ -150,7 +148,7 @@ const reply = (id: number, name: string) => {
   </div>
 
   <!-- 当评论数量超过5个时才会显示分页 -->
-  <Pagination v-model="paging.page" :size="5" :total="tempCommentsList.length" v-if="tempCommentsList.length >= 5" />
+  <!-- <Pagination v-model="paging.page" :size="5" :total="tempCommentsList.length" v-if="tempCommentsList.length >= 5" /> -->
 </template>
 
 <style scoped lang="scss">

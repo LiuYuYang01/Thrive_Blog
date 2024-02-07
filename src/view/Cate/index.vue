@@ -3,7 +3,7 @@
 import { getArticleCateListAPI, getArticleListAPI } from '@/api/Article';
 
 // 随机预览图
-import { randomImage } from '@/util/randomImage'
+import { randomImage } from '@/util/RandomImage'
 
 const route = useRoute()
 

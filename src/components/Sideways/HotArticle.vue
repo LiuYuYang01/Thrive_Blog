@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { randomImage } from "@/util/randomImage";
+import { randomImage } from "@/util/RandomImage";
 import { getArticleListAPI } from "@/api/Article";
 
 const loading = ref(false);

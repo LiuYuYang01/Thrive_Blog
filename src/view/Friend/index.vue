@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { getLinkListAPI } from '@/api/Link'
+import { Type, Cate } from '@/types/Link'
 
 // 网站列表数据
-const linkData = reactive<Link.Type>({})
+const linkData = reactive<Type>({})
 
 // 加载效果
 const loading = ref(false)
@@ -32,7 +33,7 @@ const getLinkList = async () => {
         } else {
             // linkData.value = {}
             // 没有就设置为空数组
-            linkData[item.type] = { type: "", list: [] } as Link.Cate
+            linkData[item.type] = { type: "", list: [] } as Cate
         }
     })
 

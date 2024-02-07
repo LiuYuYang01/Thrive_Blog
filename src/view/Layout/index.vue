@@ -26,20 +26,30 @@ const getWebData = async () => {
   webConfig.value = data
 }
 
+// 动态更改标题
+const updateTitle = () => {
+  // 如果是首页就显示副标题
+  if (route.path === "/") {
+    document.title = `${webConfig.value.title} - ${webConfig.value.subhead}`
+  } else {
+    document.title = `${webConfig.value.title} - ` + (route.meta.title as string)
+  }
+}
+
 // 默认加载页面时获取页面title
 onMounted(async () => {
   if (route.query.name) return
 
   await getWebData()
 
-  document.title = `${webConfig.value.title} - ` + (route.meta.title as string)
+  updateTitle()
 })
 
 // 每次切换页面时重新获取页面title
 onBeforeRouteUpdate(to => {
   Fireworks()
 
-  document.title = `${webConfig.value.title} - ` + (to.meta.title as string)
+  updateTitle()
 })
 </script>
 

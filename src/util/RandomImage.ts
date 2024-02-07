@@ -1,5 +1,6 @@
-import { getRandom } from "./random";
+import { getRandom } from "./index";
 
+// 所有文章预览图
 const cover: string[] = [
   "https://liuyuyang.net/img/20ac414805e3491098df678d3d9f100f_KJCPUs.jpg",
   "https://liuyuyang.net/img/247838fba5a54c2994ad0866359d86f5_K5buF6.jpg",

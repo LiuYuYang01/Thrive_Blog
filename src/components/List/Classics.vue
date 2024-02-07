@@ -2,7 +2,7 @@
 // 引入时间插件
 import moment from 'moment';
 // 随机预览图
-import { randomImage } from '@/util/randomImage'
+import { randomImage } from '@/util/RandomImage'
 
 const props = defineProps<{ data: Paginate<Article[]> }>()
 const emit = defineEmits<{ (e: "get", params: Page): void }>()

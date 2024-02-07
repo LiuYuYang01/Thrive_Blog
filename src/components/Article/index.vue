@@ -1,13 +1,13 @@
 <script setup lang="ts">
 // 复制文本自动生成版权信息
-import "@/util/createCopyright";
-import svg from '@/util/LoadingIcon'
+import "@/util/CreateCopyright";
+import {svg} from '@/util'
 
 // 引入文章API接口
 import { getArticleAPI } from "@/api/Article";
 
 // 随机预览图
-import { randomImage } from "@/util/randomImage";
+import { randomImage } from "@/util/RandomImage";
 
 const emit = defineEmits<{ (e: "update:modelValue", value: Info): void }>();
 
