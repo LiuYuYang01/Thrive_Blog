@@ -70,8 +70,8 @@
         }
     }
 
-    .classics{
-        .item{
+    .classics {
+        .item {
             background-color: #333;
         }
     }
@@ -99,6 +99,19 @@
 
     .pagination .el-pager li {
         color: $textColor;
+    }
+
+    .toolBar {
+        background-color: $boxColor;
+        border: 1px solid $borderColor;
+
+        .item {
+            border-bottom: 1px solid $borderColor;
+
+            &:hover {
+                background-color: $toolBarItem !important;
+            }
+        }
     }
 
     .footer {
@@ -176,8 +189,8 @@
         }
     }
 
-    .classics{
-        .item{
+    .classics {
+        .item {
             background-color: #2b333e;
         }
     }
@@ -211,6 +224,19 @@
 
     .pagination .el-pager li {
         color: $textColor;
+    }
+
+    .toolBar {
+        background-color: $boxColor;
+        border: 1px solid $borderColor;
+
+        .item {
+            border-bottom: 1px solid $borderColor;
+
+            &:hover {
+                background-color: $toolBarItem !important;
+            }
+        }
     }
 
     .footer {

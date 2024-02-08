@@ -139,7 +139,7 @@ const updateColor = () => {
 </script>
 
 <template>
-    <div class="ToolBar">
+    <div class="toolBar">
         <!-- 文章目录 -->
         <img src="@/assets/svg/other/directory.svg" alt="" class="item" @click="isDirectory" />
 
@@ -202,14 +202,13 @@ const updateColor = () => {
 <style scoped lang="scss">
 @import "@/styles/public.scss";
 
-.ToolBar {
+.toolBar {
     display: flex;
     flex-direction: column;
     position: fixed;
     right: 80px;
     bottom: 150px;
     width: 50px;
-    background-color: $boxColor;
     user-select: none;
     z-index: 999;
     @include container;
@@ -218,7 +217,6 @@ const updateColor = () => {
         padding: 10px;
         font-size: 30px;
         border-radius: 5px;
-        border-bottom: 1px solid $borderColor;
         transition: all $move;
         cursor: pointer;
 
