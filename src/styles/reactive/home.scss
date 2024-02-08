@@ -14,7 +14,7 @@
     .main {
         width: 800px !important;
 
-        .Classics .item {
+        .classics .item {
             height: 180px !important;
         }
 
@@ -29,7 +29,7 @@
         }
     }
 
-    .Classics .item .info a .fun span{
+    .classics .item .info a .fun span{
         padding-left: 12px !important;
     }
 }
@@ -57,7 +57,7 @@
         }
     }
 
-    .Classics .item .info a .fun span {
+    .classics .item .info a .fun span {
         padding-left: 20px !important;
     }
 
@@ -71,7 +71,7 @@
         }
     }
 
-    .Classics .item .info a p{
+    .classics .item .info a p{
         line-height: normal !important;
     }
 }
@@ -87,7 +87,7 @@
         }
     }
 
-    .Classics .item {
+    .classics .item {
         .info {
             padding: 20px !important;
             
@@ -121,7 +121,7 @@
 }
 
 @media screen and (max-width: 600px) {
-    .Classics .item .info a .fun span:nth-child(2){
+    .classics .item .info a .fun span:nth-child(2){
         display: none !important;
     }
 }

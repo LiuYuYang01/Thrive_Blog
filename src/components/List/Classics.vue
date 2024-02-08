@@ -15,7 +15,7 @@ watch(paginate, p => {
 </script>
 
 <template>
-    <div class="Classics" v-if="data">
+    <div class="classics" v-if="data">
         <!-- 文章列表 -->
         <div class="item" v-for="item, index in data.result">
             <!-- 文章封面 -->
@@ -63,7 +63,7 @@ watch(paginate, p => {
 <style scoped lang="scss">
 @import "@/styles/public.scss";
 
-.Classics {
+.classics {
 
     // 文章列表
     .item {
@@ -72,7 +72,7 @@ watch(paginate, p => {
         display: flex;
         height: 230px;
         margin-bottom: 15px;
-        background-color: #333;
+        // background-color: #333;
         @include container;
 
         // 文章封面

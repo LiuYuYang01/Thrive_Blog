@@ -70,6 +70,12 @@
         }
     }
 
+    .classics{
+        .item{
+            background-color: #333;
+        }
+    }
+
     .author {
         background-color: $boxColor !important;
 
@@ -167,6 +173,12 @@
     .ripple {
         .parallax > use {
             fill: $waveColor;
+        }
+    }
+
+    .classics{
+        .item{
+            background-color: #2b333e;
         }
     }
 
