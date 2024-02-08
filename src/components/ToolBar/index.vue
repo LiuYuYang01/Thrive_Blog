@@ -35,93 +35,99 @@ const $css = document.documentElement.style
 const isEffect = ref<boolean>(false)
 
 // 双色主题效果
-const Theme = reactive({
-    Light: {
-        bgColor: "#f9f9f9",
-        bgColor2: "#fff",
-        subBackground: "linear-gradient(90deg,rgba(247,149,51,.1),rgba(243,112,85,.1) 15%,rgba(239,78,123,.1) 30%,rgba(161,102,171,.1) 44%,rgba(80,115,184,.1) 58%,rgba(16,152,173,.1) 72%,rgba(7,179,155,.1) 86%,rgba(109,186,130,.1)),white",
-        boxColor: "#fff",
-        boxColorTransparent: "rgba(255,255,255,.9)",
-        textColor: "#333",
-        contentColor: "#666",
-        borderColor: "#eee",
-        waveColor: "rgba(249, 249, 249, 0.7)",
-        shadeColor: "0 2px 8px rgba(186, 186, 186, 0.15)",
-        underBorderColor: "#eee",
-        essayTitle: "#000",
-        essayContent: "#333",
-        contentLight: "#fafafa",
-        toolBarItem: "#fbfbfb",
-        toolBarItemBorder: "#f7f4f4",
-        FriendBg: "linear-gradient(45deg, #fff1eb, #ace0f9)",
-        shallowColor: "#606060ba"
-    },
-    Dark: {
-        bgColor: "#232931",
-        bgColor2: "#232931",
-        subBackground: "#2b333e",
-        boxColor: "#2b333e",
-        boxColorTransparent: "rgba(44, 51, 62, 0.9)",
-        textColor: "#fff",
-        contentColor: "#bbb",
-        borderColor: "#2b333e",
-        waveColor: "rgba(35, 41, 49, 0.7)",
-        shadeColor: "0 0px 20px -2px rgb(144 146 148 / 50%)",
-        underBorderColor: "#464646",
-        essayTitle: "#fff",
-        essayContent: "#d9d9d9",
-        contentLight: "#303846",
-        toolBarItem: "#4d4d4d",
-        toolBarItemBorder: "#4a4a4a",
-        FriendBg: "#242931",
-        shallowColor: "#a2a2a2"
-    }
-})
+// const Theme = reactive({
+//     Light: {
+//         bgColor: "#f9f9f9",
+//         bgColor2: "#fff",
+//         subBackground: "linear-gradient(90deg,rgba(247,149,51,.1),rgba(243,112,85,.1) 15%,rgba(239,78,123,.1) 30%,rgba(161,102,171,.1) 44%,rgba(80,115,184,.1) 58%,rgba(16,152,173,.1) 72%,rgba(7,179,155,.1) 86%,rgba(109,186,130,.1)),white",
+//         boxColor: "#fff",
+//         boxColorTransparent: "rgba(255,255,255,.9)",
+//         textColor: "#333",
+//         contentColor: "#666",
+//         borderColor: "#eee",
+//         waveColor: "rgba(249, 249, 249, 0.7)",
+//         shadeColor: "0 2px 8px rgba(186, 186, 186, 0.15)",
+//         underBorderColor: "#eee",
+//         essayTitle: "#000",
+//         essayContent: "#333",
+//         contentLight: "#fafafa",
+//         toolBarItem: "#fbfbfb",
+//         toolBarItemBorder: "#f7f4f4",
+//         FriendBg: "linear-gradient(45deg, #fff1eb, #ace0f9)",
+//         shallowColor: "#606060ba"
+//     },
+//     Dark: {
+//         bgColor: "#232931",
+//         bgColor2: "#232931",
+//         subBackground: "#2b333e",
+//         boxColor: "#2b333e",
+//         boxColorTransparent: "rgba(44, 51, 62, 0.9)",
+//         textColor: "#fff",
+//         contentColor: "#bbb",
+//         borderColor: "#2b333e",
+//         waveColor: "rgba(35, 41, 49, 0.7)",
+//         shadeColor: "0 0px 20px -2px rgb(144 146 148 / 50%)",
+//         underBorderColor: "#464646",
+//         essayTitle: "#fff",
+//         essayContent: "#d9d9d9",
+//         contentLight: "#303846",
+//         toolBarItem: "#4d4d4d",
+//         toolBarItemBorder: "#4a4a4a",
+//         FriendBg: "#242931",
+//         shallowColor: "#a2a2a2"
+//     }
+// })
 
 import { useConfigStore } from '@/stores'
 const store = useConfigStore()
 
 watch(isEffect, n => {
+    const root: HTMLHtmlElement = document.querySelector("html")!
+
     if (n) {
+        root.className = "dark"
+
         // 黑夜模式
-        $css.setProperty("--bgColor", Theme.Dark.bgColor)
-        $css.setProperty("--bgColor2", Theme.Dark.bgColor2)
-        $css.setProperty("--subBackground", Theme.Dark.subBackground)
-        $css.setProperty("--boxColor", Theme.Dark.boxColor)
-        $css.setProperty("--boxColorTransparent", Theme.Dark.boxColorTransparent)
-        $css.setProperty("--textColor", Theme.Dark.textColor)
-        $css.setProperty("--contentColor", Theme.Dark.contentColor)
-        $css.setProperty("--borderColor", Theme.Dark.borderColor)
-        $css.setProperty("--waveColor", Theme.Dark.waveColor)
-        $css.setProperty("--shadeColor", Theme.Dark.shadeColor)
-        $css.setProperty("--underBorderColor", Theme.Dark.underBorderColor)
-        $css.setProperty("--essayTitle", Theme.Dark.essayTitle)
-        $css.setProperty("--essayContent", Theme.Dark.essayContent)
-        $css.setProperty("--contentLight", Theme.Dark.contentLight)
-        $css.setProperty("--toolBarItem", Theme.Dark.toolBarItem)
-        $css.setProperty("--toolBarItemBorder", Theme.Dark.toolBarItemBorder)
-        $css.setProperty("--FriendBg", Theme.Dark.FriendBg)
-        $css.setProperty("--shallowColor", Theme.Dark.shallowColor)
+        // $css.setProperty("--bgColor", Theme.Dark.bgColor)
+        // $css.setProperty("--bgColor2", Theme.Dark.bgColor2)
+        // $css.setProperty("--subBackground", Theme.Dark.subBackground)
+        // $css.setProperty("--boxColor", Theme.Dark.boxColor)
+        // $css.setProperty("--boxColorTransparent", Theme.Dark.boxColorTransparent)
+        // $css.setProperty("--textColor", Theme.Dark.textColor)
+        // $css.setProperty("--contentColor", Theme.Dark.contentColor)
+        // $css.setProperty("--borderColor", Theme.Dark.borderColor)
+        // $css.setProperty("--waveColor", Theme.Dark.waveColor)
+        // $css.setProperty("--shadeColor", Theme.Dark.shadeColor)
+        // $css.setProperty("--underBorderColor", Theme.Dark.underBorderColor)
+        // $css.setProperty("--essayTitle", Theme.Dark.essayTitle)
+        // $css.setProperty("--essayContent", Theme.Dark.essayContent)
+        // $css.setProperty("--contentLight", Theme.Dark.contentLight)
+        // $css.setProperty("--toolBarItem", Theme.Dark.toolBarItem)
+        // $css.setProperty("--toolBarItemBorder", Theme.Dark.toolBarItemBorder)
+        // $css.setProperty("--FriendBg", Theme.Dark.FriendBg)
+        // $css.setProperty("--shallowColor", Theme.Dark.shallowColor)
     } else {
+        root.className = "light"
+
         // 白天模式
-        $css.setProperty("--bgColor", Theme.Light.bgColor)
-        $css.setProperty("--bgColor2", Theme.Light.bgColor2)
-        $css.setProperty("--subBackground", Theme.Light.subBackground)
-        $css.setProperty("--boxColor", Theme.Light.boxColor)
-        $css.setProperty("--boxColorTransparent", Theme.Light.boxColorTransparent)
-        $css.setProperty("--textColor", Theme.Light.textColor)
-        $css.setProperty("--contentColor", Theme.Light.contentColor)
-        $css.setProperty("--borderColor", Theme.Light.borderColor)
-        $css.setProperty("--waveColor", Theme.Light.waveColor)
-        $css.setProperty("--shadeColor", Theme.Light.shadeColor)
-        $css.setProperty("--underBorderColor", Theme.Light.underBorderColor)
-        $css.setProperty("--essayTitle", Theme.Light.essayTitle)
-        $css.setProperty("--essayContent", Theme.Light.essayContent)
-        $css.setProperty("--contentLight", Theme.Light.contentLight)
-        $css.setProperty("--toolBarItem", Theme.Light.toolBarItem)
-        $css.setProperty("--toolBarItemBorder", Theme.Light.toolBarItemBorder)
-        $css.setProperty("--FriendBg", Theme.Light.FriendBg)
-        $css.setProperty("--shallowColor", Theme.Light.shallowColor)
+        // $css.setProperty("--bgColor", Theme.Light.bgColor)
+        // $css.setProperty("--bgColor2", Theme.Light.bgColor2)
+        // $css.setProperty("--subBackground", Theme.Light.subBackground)
+        // $css.setProperty("--boxColor", Theme.Light.boxColor)
+        // $css.setProperty("--boxColorTransparent", Theme.Light.boxColorTransparent)
+        // $css.setProperty("--textColor", Theme.Light.textColor)
+        // $css.setProperty("--contentColor", Theme.Light.contentColor)
+        // $css.setProperty("--borderColor", Theme.Light.borderColor)
+        // $css.setProperty("--waveColor", Theme.Light.waveColor)
+        // $css.setProperty("--shadeColor", Theme.Light.shadeColor)
+        // $css.setProperty("--underBorderColor", Theme.Light.underBorderColor)
+        // $css.setProperty("--essayTitle", Theme.Light.essayTitle)
+        // $css.setProperty("--essayContent", Theme.Light.essayContent)
+        // $css.setProperty("--contentLight", Theme.Light.contentLight)
+        // $css.setProperty("--toolBarItem", Theme.Light.toolBarItem)
+        // $css.setProperty("--toolBarItemBorder", Theme.Light.toolBarItemBorder)
+        // $css.setProperty("--FriendBg", Theme.Light.FriendBg)
+        // $css.setProperty("--shallowColor", Theme.Light.shallowColor)
     }
 
     store.updateIsEffect(n)
