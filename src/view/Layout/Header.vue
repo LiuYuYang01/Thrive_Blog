@@ -196,7 +196,6 @@ const ExtendPage: Cate = {
     display: block;
     width: 100%;
     height: 0;
-    background: linear-gradient($boxColor, transparent 70%);
     transition: background $move;
   }
 
@@ -235,7 +234,7 @@ const ExtendPage: Cate = {
         .one_item_nav {
           display: inline-block;
           padding: 20px;
-          color: #fff;
+          // color: #fff;
           font-size: 15px;
           transition: color $move;
 
@@ -265,7 +264,6 @@ const ExtendPage: Cate = {
           top: 50px;
           width: 100%;
           border-radius: $round;
-          background-color: $bgColor;
           box-shadow: 0 12px 32px rgba(0, 0, 0, .1), 0 2px 6px rgba(0, 0, 0, .08);
 
           .two_item {
@@ -276,7 +274,6 @@ const ExtendPage: Cate = {
               padding: 10px;
               padding-left: 10px;
               font-size: 15px;
-              color: $contentColor;
               box-sizing: border-box;
               transition: all $move;
 
@@ -339,9 +336,6 @@ const ExtendPage: Cate = {
 
 // 下边框
 .borderColor {
-  border-bottom: 1px solid $borderColor;
-  // background-color: $boxColor;
-  background-color: $boxColorTransparent;
   transition: all $move;
 }
 

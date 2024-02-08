@@ -1,7 +1,124 @@
+// 光亮主题
 .light {
+    $bgColor: #f9f9f9;
+    $bgColor2: #fff;
+    $boxColor: #fff;
+    $boxColorTransparent: rgba(255, 255, 255, 0.9);
+    $textColor: #333;
+    $contentColor: #666;
+    $borderColor: #eee;
+    $waveColor: rgba(249, 249, 249, 0.7);
+    $shadeColor: 0 2px 8px rgba(186, 186, 186, 0.15);
+    $underBorderColor: #eee;
+    $essayTitle: #000;
+    $essayContent: #333;
+    $contentLight: #fafafa;
+    $toolBarItem: #fbfbfb;
+    $toolBarItemBorder: #f7f4f4;
+    $FriendBg: linear-gradient(45deg, #fff1eb, #ace0f9);
+    $shallowColor: #606060ba;
+    $subBackground: linear-gradient(
+            90deg,
+            rgba(247, 149, 51, 0.1),
+            rgba(243, 112, 85, 0.1) 15%,
+            rgba(239, 78, 123, 0.1) 30%,
+            rgba(161, 102, 171, 0.1) 44%,
+            rgba(80, 115, 184, 0.1) 58%,
+            rgba(16, 152, 173, 0.1) 72%,
+            rgba(7, 179, 155, 0.1) 86%,
+            rgba(109, 186, 130, 0.1)
+        ),
+        white;
 
+    .Header {
+        &::after {
+            background: linear-gradient($boxColor, transparent 70%);
+        }
+
+        .one {
+            .one_item_nav {
+                color: $textColor;
+            }
+
+            .two {
+                background-color: $bgColor;
+
+                .two_item_nav {
+                    color: $contentColor;
+                }
+            }
+        }
+    }
+
+    .borderColor {
+        border-bottom: 1px solid $borderColor;
+        background-color: $boxColorTransparent;
+    }
+
+    .Swiper {
+        &::after {
+            background: linear-gradient(to top, $bgColor, transparent);
+        }
+    }
+
+    .Friend {
+        background-color: $bgColor2;
+    }
 }
 
+// 暗黑主题
 .dark {
-    
+    $bgColor: #232931;
+    $bgColor2: #232931;
+    $boxColor: #2b333e;
+    $boxColorTransparent: rgba(44, 51, 62, 0.9);
+    $textColor: #fff;
+    $contentColor: #bbb;
+    $borderColor: #2b333e;
+    $waveColor: rgba(35, 41, 49, 0.7);
+    $shadeColor: 0 0px 20px -2px rgb(144 146 148 / 50%);
+    $underBorderColor: #464646;
+    $essayTitle: #fff;
+    $essayContent: #d9d9d9;
+    $contentLight: #303846;
+    $toolBarItem: #4d4d4d;
+    $toolBarItemBorder: #4a4a4a;
+    $FriendBg: #242931;
+    $shallowColor: #a2a2a2;
+    $subBackground: #2b333e;
+
+    .Header {
+        &::after {
+            background: linear-gradient($boxColor, transparent 70%);
+        }
+
+        .one {
+            .one_item_nav{
+                color: $textColor !important;
+            }
+
+            .two {
+                background-color: $bgColor;
+
+                .two_item_nav {
+                    color: $contentColor;
+                }
+            }
+        }
+    }
+
+    .borderColor {
+        border-bottom: 1px solid $borderColor;
+        background-color: $boxColorTransparent;
+    }
+
+    .Swiper {
+        &::after {
+            background: linear-gradient(to top, $bgColor, transparent);
+        }
+    }
+
+    .Friend {
+        background-color: $bgColor2;
+    }
 }

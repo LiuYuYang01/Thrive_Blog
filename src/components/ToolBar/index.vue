@@ -81,56 +81,19 @@ const isEffect = ref<boolean>(false)
 import { useConfigStore } from '@/stores'
 const store = useConfigStore()
 
-watch(isEffect, n => {
+watch(isEffect, is => {
     const root: HTMLHtmlElement = document.querySelector("html")!
 
-    if (n) {
+    // 主题切换
+    if (is) {
+        // 暗黑主题
         root.className = "dark"
-
-        // 黑夜模式
-        // $css.setProperty("--bgColor", Theme.Dark.bgColor)
-        // $css.setProperty("--bgColor2", Theme.Dark.bgColor2)
-        // $css.setProperty("--subBackground", Theme.Dark.subBackground)
-        // $css.setProperty("--boxColor", Theme.Dark.boxColor)
-        // $css.setProperty("--boxColorTransparent", Theme.Dark.boxColorTransparent)
-        // $css.setProperty("--textColor", Theme.Dark.textColor)
-        // $css.setProperty("--contentColor", Theme.Dark.contentColor)
-        // $css.setProperty("--borderColor", Theme.Dark.borderColor)
-        // $css.setProperty("--waveColor", Theme.Dark.waveColor)
-        // $css.setProperty("--shadeColor", Theme.Dark.shadeColor)
-        // $css.setProperty("--underBorderColor", Theme.Dark.underBorderColor)
-        // $css.setProperty("--essayTitle", Theme.Dark.essayTitle)
-        // $css.setProperty("--essayContent", Theme.Dark.essayContent)
-        // $css.setProperty("--contentLight", Theme.Dark.contentLight)
-        // $css.setProperty("--toolBarItem", Theme.Dark.toolBarItem)
-        // $css.setProperty("--toolBarItemBorder", Theme.Dark.toolBarItemBorder)
-        // $css.setProperty("--FriendBg", Theme.Dark.FriendBg)
-        // $css.setProperty("--shallowColor", Theme.Dark.shallowColor)
     } else {
+        // 光亮主题
         root.className = "light"
-
-        // 白天模式
-        // $css.setProperty("--bgColor", Theme.Light.bgColor)
-        // $css.setProperty("--bgColor2", Theme.Light.bgColor2)
-        // $css.setProperty("--subBackground", Theme.Light.subBackground)
-        // $css.setProperty("--boxColor", Theme.Light.boxColor)
-        // $css.setProperty("--boxColorTransparent", Theme.Light.boxColorTransparent)
-        // $css.setProperty("--textColor", Theme.Light.textColor)
-        // $css.setProperty("--contentColor", Theme.Light.contentColor)
-        // $css.setProperty("--borderColor", Theme.Light.borderColor)
-        // $css.setProperty("--waveColor", Theme.Light.waveColor)
-        // $css.setProperty("--shadeColor", Theme.Light.shadeColor)
-        // $css.setProperty("--underBorderColor", Theme.Light.underBorderColor)
-        // $css.setProperty("--essayTitle", Theme.Light.essayTitle)
-        // $css.setProperty("--essayContent", Theme.Light.essayContent)
-        // $css.setProperty("--contentLight", Theme.Light.contentLight)
-        // $css.setProperty("--toolBarItem", Theme.Light.toolBarItem)
-        // $css.setProperty("--toolBarItemBorder", Theme.Light.toolBarItemBorder)
-        // $css.setProperty("--FriendBg", Theme.Light.FriendBg)
-        // $css.setProperty("--shallowColor", Theme.Light.shallowColor)
     }
 
-    store.updateIsEffect(n)
+    store.updateIsEffect(is)
 })
 
 

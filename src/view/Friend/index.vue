@@ -260,7 +260,6 @@ const submit = () => {
     width: $w;
     padding: 30px;
     margin: 50px auto;
-    background-color: $bgColor2;
     @include container;
 
     .cate {
