@@ -74,7 +74,6 @@ watch(paginate, p => {
         margin-bottom: 15px;
         background-color: #333;
         @include container;
-        font-family: aaa;
 
         // 文章封面
         .cover {

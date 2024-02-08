@@ -20,8 +20,12 @@ const change = (page: number) => emit("update:modelValue", { page, size: props.p
         li {
             padding: 15px;
             border-radius: 10px;
-            color: $textColor;
             background-color: transparent;
+            transition: color $move;
+
+            &:hover {
+                color: $color;
+            }
         }
     }
 

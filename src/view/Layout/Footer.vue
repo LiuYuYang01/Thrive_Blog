@@ -12,9 +12,6 @@
 .footer {
   display: flex;
   align-items: center;
-  // height: 120px;
-  border-top: 1px solid $borderColor;
-  background-color: $boxColor;
   transition: all $move;
 
   .info {
@@ -22,7 +19,6 @@
     line-height: 25px;
     padding: 40px;
     padding-left: 20%;
-    color: $textColor;
     font-size: 14px;
     transition: color $move;
   }

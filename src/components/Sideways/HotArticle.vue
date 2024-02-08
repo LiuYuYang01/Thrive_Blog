@@ -73,7 +73,6 @@ getArticleData({ page: 1, size: 5 });
 .HotArticle {
     padding: 15px;
     margin-top: 20px;
-    background-color: $boxColor;
     @include container;
 
     // 文章模块标题

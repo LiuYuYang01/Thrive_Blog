@@ -50,7 +50,6 @@ getCommentData()
 .NewComments {
     padding: 15px;
     margin-top: 20px;
-    background-color: $boxColor;
     @include container;
 
     // 文章模块标题

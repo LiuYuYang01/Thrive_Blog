@@ -30,6 +30,10 @@
         ),
         white;
 
+    body {
+        background-color: $bgColor;
+    }
+
     .Header {
         &::after {
             background: linear-gradient($boxColor, transparent 70%);
@@ -60,6 +64,45 @@
             background: linear-gradient(to top, $bgColor, transparent);
         }
     }
+    .ripple {
+        .parallax > use {
+            fill: $waveColor;
+        }
+    }
+
+    .author {
+        background-color: $boxColor !important;
+
+        .info h3 {
+            color: $textColor;
+        }
+
+        .socializing .title::after {
+            color: $contentColor;
+            background-color: $boxColor;
+        }
+    }
+
+    .NewComments {
+        background-color: $boxColor;
+    }
+
+    .HotArticle {
+        background-color: $boxColor;
+    }
+
+    .pagination .el-pager li {
+        color: $textColor;
+    }
+
+    .footer {
+        border-top: 1px solid $borderColor;
+        background-color: $boxColor;
+
+        .info {
+            color: $textColor;
+        }
+    }
 
     .Friend {
         background-color: $bgColor2;
@@ -87,13 +130,17 @@
     $shallowColor: #a2a2a2;
     $subBackground: #2b333e;
 
+    body {
+        background-color: $bgColor;
+    }
+
     .Header {
         &::after {
             background: linear-gradient($boxColor, transparent 70%);
         }
 
         .one {
-            .one_item_nav{
+            .one_item_nav {
                 color: $textColor !important;
             }
 
@@ -115,6 +162,51 @@
     .Swiper {
         &::after {
             background: linear-gradient(to top, $bgColor, transparent);
+        }
+    }
+    .ripple {
+        .parallax > use {
+            fill: $waveColor;
+        }
+    }
+
+    .author {
+        background-color: $boxColor !important;
+
+        .info {
+            h3 {
+                color: $textColor;
+            }
+
+            p {
+                color: $contentColor;
+            }
+        }
+
+        .socializing .title::after {
+            color: $contentColor;
+            background-color: $boxColor;
+        }
+    }
+
+    .NewComments {
+        background-color: $boxColor;
+    }
+
+    .HotArticle {
+        background-color: $boxColor;
+    }
+
+    .pagination .el-pager li {
+        color: $textColor;
+    }
+
+    .footer {
+        border-top: 1px solid $borderColor;
+        background-color: $boxColor;
+
+        .info {
+            color: $textColor;
         }
     }
 

@@ -79,7 +79,6 @@ const getIcon = (src: string) => {
     background-size: 100% 35%;
     width: 100%;
     height: 325px;
-    background-color: $boxColor;
     @include container;
 
     // 作者头像
@@ -95,7 +94,6 @@ const getIcon = (src: string) => {
         box-shadow: 0 2px 8px rgba(100, 100, 100, 0.15);
 
         &:hover img {
-            // transform: rotate();
             transform: scale(1.2);
         }
 
@@ -111,13 +109,11 @@ const getIcon = (src: string) => {
     .info {
         h3 {
             margin: 15px;
-            color: $textColor;
             text-align: center;
             transition: color $move;
         }
 
         p {
-            color: $contentColor;
             transition: color $move;
         }
     }
@@ -133,7 +129,8 @@ const getIcon = (src: string) => {
             left: 0;
             width: 100%;
             height: 1px;
-            background-color: #eee;
+            background-color: $underBorderColor;
+            transition: background-color $move;
 
             &::after {
                 content: "社交账号";
@@ -142,8 +139,6 @@ const getIcon = (src: string) => {
                 left: 50%;
                 transform: translateX(-50%);
                 width: 110px;
-                color: $contentColor;
-                background-color: $boxColor;
                 text-align: center;
                 font-size: 14px;
                 transition: all $move;

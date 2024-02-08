@@ -88,9 +88,19 @@ watch(isEffect, is => {
     if (is) {
         // 暗黑主题
         root.className = "dark"
+
+        $css.setProperty("--borderColor", "#2b333e")
+        $css.setProperty("--shadeColor", "0 0px 20px -2px rgb(144 146 148 / 50%)")
+        $css.setProperty("--underBorderColor", "#464646")
+        $css.setProperty("--textColor", "#fff")
     } else {
         // 光亮主题
         root.className = "light"
+
+        $css.setProperty("--borderColor", "#eee")
+        $css.setProperty("--shadeColor", "0 2px 8px rgba(186, 186, 186, 0.15)")
+        $css.setProperty("--underBorderColor", "#eee")
+        $css.setProperty("--textColor", "#333")
     }
 
     store.updateIsEffect(is)
