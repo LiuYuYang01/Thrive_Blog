@@ -20,6 +20,7 @@ const change = (page: number) => emit("update:modelValue", { page, size: props.p
         li {
             padding: 15px;
             border-radius: 10px;
+            color: #333;
             background-color: transparent;
             transition: color $move;
 

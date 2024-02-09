@@ -209,6 +209,8 @@ const updateColor = () => {
     right: 80px;
     bottom: 150px;
     width: 50px;
+    border: 1px solid #eee;
+    background-color: #fff;
     user-select: none;
     z-index: 999;
     @include container;
@@ -217,6 +219,7 @@ const updateColor = () => {
         padding: 10px;
         font-size: 30px;
         border-radius: 5px;
+        border-bottom: 1px solid #eee;
         transition: all $move;
         cursor: pointer;
 

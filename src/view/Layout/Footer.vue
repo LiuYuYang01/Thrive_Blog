@@ -12,6 +12,8 @@
 .footer {
   display: flex;
   align-items: center;
+  border-top: 1px solid #eee;
+  background-color: #fff;
   transition: all $move;
 
   .info {
@@ -20,6 +22,7 @@
     padding: 40px;
     padding-left: 20%;
     font-size: 14px;
+    color: #333;
     transition: color $move;
   }
 }

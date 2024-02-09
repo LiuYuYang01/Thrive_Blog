@@ -12,31 +12,31 @@ import avatar_bg from "@/assets/img/avatar_bg.jpg";
 
 // 社交账号
 const socializing = [
-  {
-    name: "GitHub",
-    url: "https://github.com/LiuYuYang01?tab=overview&from=2023-04-01&to=2023-04-26"
-  },
-  {
-    name: "Gitee",
-    url: "https://gitee.com/liu_yu_yang666"
-  },
-  {
-    name: "Juejin",
-    url: "https://juejin.cn/user/3083456627092078/posts"
-  },
-  {
-    name: "CSDN",
-    url: "https://blog.csdn.net/haodian666?type=blog"
-  },
-  {
-    name: "QQ",
-    url: "http://wpa.qq.com/msgrd?v=3&uin=3311118881&site=qq&menu=yes"
-  }
+    {
+        name: "GitHub",
+        url: "https://github.com/LiuYuYang01?tab=overview&from=2023-04-01&to=2023-04-26"
+    },
+    {
+        name: "Gitee",
+        url: "https://gitee.com/liu_yu_yang666"
+    },
+    {
+        name: "Juejin",
+        url: "https://juejin.cn/user/3083456627092078/posts"
+    },
+    {
+        name: "CSDN",
+        url: "https://blog.csdn.net/haodian666?type=blog"
+    },
+    {
+        name: "QQ",
+        url: "http://wpa.qq.com/msgrd?v=3&uin=3311118881&site=qq&menu=yes"
+    }
 ];
 
 // 动态获取图片路径
 const getIcon = (src: string) => {
-  return new URL(`../../assets/svg/socializing/${src}.svg`, import.meta.url).href;
+    return new URL(`../../assets/svg/socializing/${src}.svg`, import.meta.url).href;
 };
 </script>
 
@@ -77,6 +77,7 @@ const getIcon = (src: string) => {
     padding-top: 60px;
     background: url("@/assets/img/avatar_bg.jpg") no-repeat;
     background-size: 100% 35%;
+    background-color: #fff;
     width: 100%;
     height: 325px;
     @include container;
@@ -109,6 +110,7 @@ const getIcon = (src: string) => {
     .info {
         h3 {
             margin: 15px;
+            color: #333;
             text-align: center;
             transition: color $move;
         }
@@ -139,6 +141,8 @@ const getIcon = (src: string) => {
                 left: 50%;
                 transform: translateX(-50%);
                 width: 110px;
+                color: #666;
+                background-color: #fff;
                 text-align: center;
                 font-size: 14px;
                 transition: all $move;

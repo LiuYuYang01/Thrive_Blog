@@ -131,7 +131,7 @@ const submit = () => {
 
     <!-- 朋友圈 -->
     <div class="bg">
-        <div class="Friend" v-loading="loading" :element-loading-svg="svg" element-loading-svg-view-box="-10, -10, 50, 50">
+        <div class="friend" v-loading="loading" :element-loading-svg="svg" element-loading-svg-view-box="-10, -10, 50, 50">
             <div class="cate" v-for="item, index in list" :key="index">
                 <div class="title">{{ item.type }}</div>
 
@@ -251,7 +251,7 @@ const submit = () => {
     transition: background $move;
 }
 
-.Friend {
+.friend {
     position: absolute;
     top: -190px;
     left: 50%;
@@ -260,6 +260,7 @@ const submit = () => {
     width: $w;
     padding: 30px;
     margin: 50px auto;
+    background-color: #fff;
     @include container;
 
     .cate {

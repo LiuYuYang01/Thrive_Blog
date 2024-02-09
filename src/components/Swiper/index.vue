@@ -56,7 +56,7 @@ onMounted(() => {
         position: absolute;
         bottom: 0;
         left: 0;
-        // background: linear-gradient(to top, $bgColor, transparent);
+        background: linear-gradient(to top, #fff, transparent);
     }
 
     // 遮罩层
