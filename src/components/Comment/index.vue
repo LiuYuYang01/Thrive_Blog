@@ -201,6 +201,7 @@ onMounted(() => {
         width: 100%;
         height: 1px;
         background-color: #f7f7f7;
+        transition: background-color $move;
 
         &::after {
             content: "一针见血 🎉";
@@ -212,6 +213,7 @@ onMounted(() => {
             background-color: #fff;
             text-align: center;
             font-size: 24px;
+            transition: all $move;
         }
     }
 

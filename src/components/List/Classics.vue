@@ -72,7 +72,7 @@ watch(paginate, p => {
         display: flex;
         height: 230px;
         margin-bottom: 15px;
-        // background-color: #333;
+        background-color: #333;
         @include container;
 
         // 文章封面
@@ -173,7 +173,7 @@ watch(paginate, p => {
         }
 
         // 背景虚化
-        .bg {
+        .friend_bg {
             position: absolute;
             width: 100%;
             height: 250px;

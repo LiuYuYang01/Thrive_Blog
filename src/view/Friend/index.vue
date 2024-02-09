@@ -48,8 +48,8 @@ onMounted(async () => {
     await getLinkList()
 
     // 获取朋友圈的高度
-    const bgHeight: CSSStyleDeclaration = (document.querySelector(".bg") as HTMLElement).style;
-    const FriendHeight: number = (document.querySelector(".bg .Friend") as HTMLElement).offsetHeight;
+    const bgHeight: CSSStyleDeclaration = (document.querySelector(".friend_bg") as HTMLElement).style;
+    const FriendHeight: number = (document.querySelector(".friend_bg .container") as HTMLElement).offsetHeight;
 
     bgHeight.height = (FriendHeight - 50) + "px";
 })
@@ -130,8 +130,8 @@ const submit = () => {
     </div>
 
     <!-- 朋友圈 -->
-    <div class="bg">
-        <div class="friend" v-loading="loading" :element-loading-svg="svg" element-loading-svg-view-box="-10, -10, 50, 50">
+    <div class="friend_bg">
+        <div class="container" v-loading="loading" :element-loading-svg="svg" element-loading-svg-view-box="-10, -10, 50, 50">
             <div class="cate" v-for="item, index in list" :key="index">
                 <div class="title">{{ item.type }}</div>
 
@@ -244,14 +244,14 @@ const submit = () => {
     }
 }
 
-.bg {
+.friend_bg {
     position: relative;
     padding: 50px 0;
-    background: $FriendBg;
+    background: linear-gradient(45deg, #fff1eb, #ace0f9);
     transition: background $move;
 }
 
-.friend {
+.container {
     position: absolute;
     top: -190px;
     left: 50%;

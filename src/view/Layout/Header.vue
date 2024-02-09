@@ -296,8 +296,8 @@ const ExtendPage: Cate = {
 
             // 鼠标经过二级导航的效果
             &:hover .two_item_nav {
-              color: $color;
-              // background-color: #f5f7fc;
+              color: $color !important;
+              background-color: #f2f2f2;
               padding-left: 30px;
 
               &:hover::after {

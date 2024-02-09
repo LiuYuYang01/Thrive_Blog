@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="UpAndDown">
+    <div class="upAndDown">
         <a href="javascript:;">
             <p>上一篇</p>
             <p>20个你从未想过的 ChatGPT 有趣用途</p>
@@ -17,7 +17,7 @@
 </template>
 
 <style scoped lang="scss">
-.UpAndDown {
+.upAndDown {
     display: flex;
     justify-content: space-between;
     margin-top: 30px;

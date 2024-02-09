@@ -19,30 +19,34 @@
 
                 .two_item_nav {
                     color: #bbb !important;
+
+                    &:hover {
+                        background-color: #2d333d !important;
+                    }
                 }
             }
         }
     }
 
     .borderColor {
-        border-bottom: 1px solid #2b333e;
-        background-color: rgba(44, 51, 62, 0.9);
+        border-bottom: 1px solid #2b333e !important;
+        background-color: rgba(44, 51, 62, 0.9) !important;
     }
 
     .Swiper {
         &::after {
-            background: linear-gradient(to top, #232931, transparent);
+            background: linear-gradient(to top, #232931, transparent) !important;
         }
     }
     .ripple {
         .parallax > use {
-            fill: rgba(35, 41, 49, 0.7);
+            fill: rgba(35, 41, 49, 0.7) !important;
         }
     }
 
     .classics {
         .item {
-            background-color: #2b333e;
+            background-color: #2b333e !important;
         }
     }
 
@@ -51,17 +55,17 @@
 
         .info {
             h3 {
-                color: #fff;
+                color: #fff !important;
             }
 
             p {
-                color: #bbb;
+                color: #bbb !important;
             }
         }
 
         .socializing .title::after {
-            color: #bbb;
-            background-color: #2b333e;
+            color: #bbb !important;
+            background-color: #2b333e !important;
         }
     }
 
@@ -74,7 +78,7 @@
     }
 
     .HotArticle {
-        background-color: #2b333e;
+        background-color: #2b333e !important;
     }
 
     .pagination .el-pager li {
@@ -82,11 +86,11 @@
     }
 
     .toolBar {
-        background-color: #2b333e;
-        border: 1px solid #2b333e;
+        background-color: #2b333e !important;
+        border: 1px solid #2b333e !important;
 
         .item {
-            border-bottom: 1px solid #2b333e;
+            border-bottom: 1px solid #2b333e !important;
 
             &:hover {
                 background-color: #404a57 !important;
@@ -95,10 +99,10 @@
     }
 
     .article {
-        background-color: #2b333e;
+        background-color: #2b333e !important;
 
         .content {
-            color: #d9d9d9;
+            color: #d9d9d9 !important;
 
             // 设置标题样式
             h1,
@@ -107,7 +111,7 @@
             h4,
             h5,
             h6 {
-                color: #fff;
+                color: #fff !important;
             }
 
             p {
@@ -118,37 +122,52 @@
         }
     }
 
-    .UpAndDown {
+    .upAndDown {
         a {
-            border: 1px solid transparent;
+            border: 1px solid transparent !important;
 
             &:hover {
-                border: 1px solid #484848;
+                border: 1px solid #484848 !important;
                 background-color: transparent !important;
             }
 
             p {
                 &:first-child {
-                    color: #fff;
+                    color: #fff !important;
                 }
 
                 &:last-child {
-                    color: #fff;
+                    color: #fff !important;
                 }
             }
         }
     }
 
-    .footer {
-        border-top: 1px solid #2b333e;
-        background-color: #2b333e;
-
-        .info {
-            color: #fff;
+    .Comment {
+        .title {
+            background-color: #474747;
+            
+            &::after {
+                color: #fff !important;
+                background-color: #2d333d !important;
+            }
         }
     }
 
-    .friend {
-        background-color: #232931;
+    .footer {
+        border-top: 1px solid #2b333e !important;
+        background-color: #2b333e !important;
+
+        .info {
+            color: #fff !important;
+        }
+    }
+
+    .friend_bg {
+        background: #232931 !important;
+
+        .container {
+            background-color: #232931 !important;
+        }
     }
 }

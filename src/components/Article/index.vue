@@ -104,6 +104,7 @@ function createDirectory() {
     padding: 30px;
     padding-top: 0;
     line-height: 2.3;
+    background-color: #fff;
     @include container;
 
     // 加载效果
