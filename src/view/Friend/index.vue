@@ -324,7 +324,7 @@ const submit = () => {
                         }
 
                         .description {
-                            color: $contentColor;
+                            color: #666;
                             margin-top: 5px;
                             transition: color $move;
 

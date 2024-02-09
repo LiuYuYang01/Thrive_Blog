@@ -1,47 +1,173 @@
-// 页面背景
-$bgColor: var(--bgColor, #f9f9f9);
-$bgColor2: var(--bgColor2, #fff);
-$subBackground: var(
-    --subBackground,
-    linear-gradient(
-        90deg,
-        rgba(247, 149, 51, 0.1),
-        rgba(243, 112, 85, 0.1) 15%,
-        rgba(239, 78, 123, 0.1) 30%,
-        rgba(161, 102, 171, 0.1) 44%,
-        rgba(80, 115, 184, 0.1) 58%,
-        rgba(16, 152, 173, 0.1) 72%,
-        rgba(7, 179, 155, 0.1) 86%,
-        rgba(109, 186, 130, 0.1)
-    ),
-    white
-);
-// 模块背景
-$boxColor: var(--boxColor, #fff);
-// 模块背景 毛玻璃
-$boxColorTransparent: var(--boxColorTransparent, rgba(255, 255, 255, 0.9));
-// 文本标题
-$textColor: var(--textColor, #333);
-// 文本内容
-$contentColor: var(--contentColor, #666);
-// 边框
-$borderColor: var(--borderColor, #eee);
-// 下边框
-$underBorderColor: var(--underBorderColor, #eee);
-// 波浪
-$waveColor: var(--waveColor, rgba(249, 249, 249, 0.7));
-// 阴影
-$shadeColor: var(--shadeColor, 0 2px 8px rgba(186, 186, 186, 0.15));
-// 文章标题
-$essayTitle: var(--essayTitle, #000);
-// 文章内容
-$essayContent: var(--essayContent, #333);
-// 内容高亮
-$contentLight: var(--contentLight, #fafafa);
+// 暗黑主题
+.dark {
+    body {
+        background-color: #232931 !important;
+    }
 
-$toolBarItem: var(--toolBarItem, #f7f4f4);
-$toolBarItemBorder: var(--toolBarItemBorder, #f7f4f4);
-$FriendBg: var(--FriendBg, linear-gradient(45deg, #fff1eb, #ace0f9));
+    .header {
+        &::after {
+            background: linear-gradient(#2b333e, transparent 70%) !important;
+        }
 
-// 浅色
-$shallowColor: var(--shallowColor, #606060ba);
+        .one {
+            .one_item_nav {
+                color: #fff !important;
+            }
+
+            .two {
+                background-color: #232931 !important;
+
+                .two_item_nav {
+                    color: #bbb !important;
+
+                    &:hover {
+                        background-color: #2d333d !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .borderColor {
+        border-bottom: 1px solid #2b333e !important;
+        background-color: rgba(44, 51, 62, 0.9) !important;
+    }
+
+    .Swiper {
+        &::after {
+            background: linear-gradient(to top, #232931, transparent) !important;
+        }
+    }
+    .ripple {
+        .parallax > use {
+            fill: rgba(35, 41, 49, 0.7) !important;
+        }
+    }
+
+    .classics {
+        .item {
+            background-color: #2b333e !important;
+        }
+    }
+
+    .author {
+        background-color: #2b333e !important;
+
+        .info {
+            h3 {
+                color: #fff !important;
+            }
+
+            p {
+                color: #bbb !important;
+            }
+        }
+
+        .socializing .title::after {
+            color: #bbb !important;
+            background-color: #2b333e !important;
+        }
+    }
+
+    .NewComments {
+        background-color: #2b333e !important;
+
+        .list .item .content .time {
+            color: #bbb !important;
+        }
+    }
+
+    .HotArticle {
+        background-color: #2b333e !important;
+    }
+
+    .pagination .el-pager li {
+        color: #fff;
+    }
+
+    .toolBar {
+        background-color: #2b333e !important;
+        border: 1px solid #2b333e !important;
+
+        .item {
+            border-bottom: 1px solid #2b333e !important;
+
+            &:hover {
+                background-color: #404a57 !important;
+            }
+        }
+    }
+
+    .article {
+        background-color: #2b333e !important;
+
+        .content {
+            color: #d9d9d9 !important;
+
+            // 设置标题样式
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                color: #fff !important;
+            }
+
+            p {
+                code {
+                    background-color: #4f4f4f !important;
+                }
+            }
+        }
+    }
+
+    .upAndDown {
+        a {
+            border: 1px solid transparent !important;
+
+            &:hover {
+                border: 1px solid #484848 !important;
+                background-color: transparent !important;
+            }
+
+            p {
+                &:first-child {
+                    color: #fff !important;
+                }
+
+                &:last-child {
+                    color: #fff !important;
+                }
+            }
+        }
+    }
+
+    .Comment {
+        .title {
+            background-color: #474747;
+
+            &::after {
+                color: #fff !important;
+                background-color: #2d333d !important;
+            }
+        }
+    }
+
+    .footer {
+        border-top: 1px solid #2b333e !important;
+        background-color: #2b333e !important;
+
+        .info {
+            color: #fff !important;
+        }
+    }
+
+    .friend_bg {
+        background: #232931 !important;
+
+        .container {
+            background-color: #232931 !important;
+        }
+    }
+}

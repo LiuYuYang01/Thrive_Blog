@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="RandomArticle">
+    <div class="randomArticle">
         <div class="title">
             <img src="@/assets/svg/other/article.svg" alt="">
             <span> 随机文章</span>
@@ -52,10 +52,10 @@
 <style scoped lang="scss">
 @import "@/styles/public.scss";
 
-.RandomArticle {
+.randomArticle {
     padding: 15px;
     margin-top: 20px;
-    background-color: $boxColor;
+    background-color: #fff;
     @include container;
     // 文章模块标题
     @include titleRight;
@@ -81,7 +81,7 @@
                 display: flex;
                 align-items: center;
                 padding: 10px 0;
-                color: $contentColor;
+                color: #666;
                 font-size: 14px;
                 transition: all $move;
 

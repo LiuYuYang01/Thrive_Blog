@@ -173,7 +173,7 @@ const reply = (id: number, name: string) => {
       right: 70px;
       padding: 10px 20px;
       margin-left: 5px;
-      color: $contentColor;
+      color: #666;
       cursor: pointer;
       transition: all $move;
 

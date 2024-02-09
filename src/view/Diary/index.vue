@@ -95,7 +95,7 @@ const image = ref<string>('')
 // 滚动条轨道
 ::-webkit-scrollbar-track {
   border-radius: 5px;
-  background-color: $bgColor;
+  background-color: #f9f9f9;
   transition: all $move;
 }
 
@@ -203,7 +203,7 @@ const image = ref<string>('')
     width: 650px;
     min-height: 500px;
     padding: 0 20px;
-    background: $bgColor;
+    background: #f9f9f9;
     border-radius: 10px;
     border: 1px solid $borderColor;
     box-shadow: rgba(255, 255, 255, 0.2) 0px 8px 24px;
@@ -217,7 +217,7 @@ const image = ref<string>('')
       display: flex;
       padding: 30px;
       border-bottom: 1px solid $borderColor;
-      background-color: $bgColor;
+      background-color: #f9f9f9;
       transition: all $move;
 
       &:first-of-type {
@@ -247,7 +247,7 @@ const image = ref<string>('')
         .content {
           line-height: 30px;
           margin: 10px 0;
-          color: $contentColor;
+          color: #666;
         }
 
         .cover {
@@ -289,10 +289,10 @@ const image = ref<string>('')
       text-align: center;
       border: 1px solid $borderColor;
       border-radius: 5px;
-      color: $contentColor;
+      color: #666;
 
       &:hover {
-        background-color: $bgColor;
+        background-color: #f9f9f9;
       }
     }
   }

@@ -34,49 +34,6 @@ const $css = document.documentElement.style
 // 白天黑夜切换
 const isEffect = ref<boolean>(false)
 
-// 双色主题效果
-// const Theme = reactive({
-//     Light: {
-//         bgColor: "#f9f9f9",
-//         bgColor2: "#fff",
-//         subBackground: "linear-gradient(90deg,rgba(247,149,51,.1),rgba(243,112,85,.1) 15%,rgba(239,78,123,.1) 30%,rgba(161,102,171,.1) 44%,rgba(80,115,184,.1) 58%,rgba(16,152,173,.1) 72%,rgba(7,179,155,.1) 86%,rgba(109,186,130,.1)),white",
-//         boxColor: "#fff",
-//         boxColorTransparent: "rgba(255,255,255,.9)",
-//         textColor: "#333",
-//         contentColor: "#666",
-//         borderColor: "#eee",
-//         waveColor: "rgba(249, 249, 249, 0.7)",
-//         shadeColor: "0 2px 8px rgba(186, 186, 186, 0.15)",
-//         underBorderColor: "#eee",
-//         essayTitle: "#000",
-//         essayContent: "#333",
-//         contentLight: "#fafafa",
-//         toolBarItem: "#fbfbfb",
-//         toolBarItemBorder: "#f7f4f4",
-//         FriendBg: "linear-gradient(45deg, #fff1eb, #ace0f9)",
-//         shallowColor: "#606060ba"
-//     },
-//     Dark: {
-//         bgColor: "#232931",
-//         bgColor2: "#232931",
-//         subBackground: "#2b333e",
-//         boxColor: "#2b333e",
-//         boxColorTransparent: "rgba(44, 51, 62, 0.9)",
-//         textColor: "#fff",
-//         contentColor: "#bbb",
-//         borderColor: "#2b333e",
-//         waveColor: "rgba(35, 41, 49, 0.7)",
-//         shadeColor: "0 0px 20px -2px rgb(144 146 148 / 50%)",
-//         underBorderColor: "#464646",
-//         essayTitle: "#fff",
-//         essayContent: "#d9d9d9",
-//         contentLight: "#303846",
-//         toolBarItem: "#4d4d4d",
-//         toolBarItemBorder: "#4a4a4a",
-//         FriendBg: "#242931",
-//         shallowColor: "#a2a2a2"
-//     }
-// })
 
 import { useConfigStore } from '@/stores'
 const store = useConfigStore()

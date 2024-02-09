@@ -7,7 +7,7 @@ import '@/styles/public.scss'
 // 页面自适应
 import '@/styles/reactive/index.scss'
 // 主题切换
-import '@/styles/theme1.scss'
+import '@/styles/theme.scss'
 
 import App from './App.vue'
 import router from '@/router'

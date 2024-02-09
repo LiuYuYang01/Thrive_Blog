@@ -52,7 +52,7 @@ const send = () => {
     line-height: 80px;
     padding-left: 40px;
     border-bottom: 1px solid #eee;
-    background-color: $boxColor;
+    background-color: #fff;
     font-weight: 900;
     font-size: 18px;
   }

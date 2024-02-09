@@ -192,7 +192,7 @@ onMounted(() => {
         }
 
         .row2 {
-          color: $contentColor;
+          color: #666;
           font-family: "黑体";
           line-height: 30px;
           transition: color $move;
@@ -217,7 +217,7 @@ onMounted(() => {
   .technology {
     overflow: hidden;
     height: 200px;
-    background-color: $bgColor;
+    background-color: #f9f9f9;
     transition: background-color $move;
 
     .title {
