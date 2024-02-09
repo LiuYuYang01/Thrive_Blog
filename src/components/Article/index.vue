@@ -73,7 +73,7 @@ function createDirectory() {
 </script>
 
 <template>
-    <div class="Article">
+    <div class="article">
         <!-- 文章加载效果 -->
         <div v-loading="loading" :element-loading-svg="svg" element-loading-svg-view-box="-10, -10, 50, 50" class="loading"
             v-if="!articleData.content"></div>
@@ -98,13 +98,12 @@ function createDirectory() {
 <style scoped lang="scss">
 @import "@/styles/public.scss";
 
-.Article {
+.article {
     overflow: hidden;
     position: relative;
     padding: 30px;
     padding-top: 0;
     line-height: 2.3;
-    background-color: $boxColor;
     @include container;
 
     // 加载效果
@@ -117,7 +116,6 @@ function createDirectory() {
     // 文章内容
     .content {
         font-size: 15px;
-        color: $essayContent;
         transition: color $move;
 
         :deep(.github-markdown-body) {
@@ -168,7 +166,6 @@ function createDirectory() {
         :deep(h6) {
             // a标签锚点跳转距离顶部的距离
             scroll-margin-top: 80px;
-            color: $essayTitle;
             transition: color $move;
         }
 

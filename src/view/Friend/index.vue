@@ -366,9 +366,5 @@ const submit = () => {
             margin-bottom: 5px;
         }
     }
-
-    .el-select-dropdown__item{
-        padding: 0 32px 0 20px !important;
-    }
 }
 </style>

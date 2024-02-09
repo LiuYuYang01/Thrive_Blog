@@ -77,7 +77,7 @@ const ExtendPage: Cate = {
 </script>
 
 <template>
-  <div :class="top > 100 || is ? 'Header borderColor gradient' : 'Header'">
+  <div :class="top > 100 || is ? 'header borderColor gradient' : 'header'">
     <div class="w" style="width: 1500px;">
       <!-- 一级导航 -->
       <ul class="one">
@@ -182,7 +182,7 @@ const ExtendPage: Cate = {
 <style scoped lang="scss">
 @import '@/styles/global.scss';
 
-.Header {
+.header {
   position: fixed;
   top: 0;
   width: 100%;
@@ -196,6 +196,7 @@ const ExtendPage: Cate = {
     display: block;
     width: 100%;
     height: 0;
+    background: linear-gradient(#fff, transparent 70%);
     transition: background $move;
   }
 
@@ -234,7 +235,7 @@ const ExtendPage: Cate = {
         .one_item_nav {
           display: inline-block;
           padding: 20px;
-          // color: #fff;
+          color: #333;
           font-size: 15px;
           transition: color $move;
 
@@ -264,6 +265,7 @@ const ExtendPage: Cate = {
           top: 50px;
           width: 100%;
           border-radius: $round;
+          background-color: #f9f9f9;
           box-shadow: 0 12px 32px rgba(0, 0, 0, .1), 0 2px 6px rgba(0, 0, 0, .08);
 
           .two_item {
@@ -275,6 +277,7 @@ const ExtendPage: Cate = {
               padding-left: 10px;
               font-size: 15px;
               box-sizing: border-box;
+              color: #666;
               transition: all $move;
 
               // 鼠标经过的小横线

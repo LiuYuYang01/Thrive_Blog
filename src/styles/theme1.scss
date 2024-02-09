@@ -34,26 +34,6 @@
         background-color: $bgColor;
     }
 
-    .Header {
-        &::after {
-            background: linear-gradient($boxColor, transparent 70%);
-        }
-
-        .one {
-            .one_item_nav {
-                color: $textColor;
-            }
-
-            .two {
-                background-color: $bgColor;
-
-                .two_item_nav {
-                    color: $contentColor;
-                }
-            }
-        }
-    }
-
     .borderColor {
         border-bottom: 1px solid $borderColor;
         background-color: $boxColorTransparent;
@@ -89,10 +69,6 @@
         }
     }
 
-    .NewComments {
-        background-color: $boxColor;
-    }
-
     .HotArticle {
         background-color: $boxColor;
     }
@@ -112,6 +88,10 @@
                 background-color: $toolBarItem !important;
             }
         }
+    }
+
+    .article {
+        background-color: $boxColor;
     }
 
     .footer {
@@ -153,9 +133,9 @@
         background-color: $bgColor;
     }
 
-    .Header {
+    .header {
         &::after {
-            background: linear-gradient($boxColor, transparent 70%);
+            background: linear-gradient($boxColor, transparent 70%) !important;
         }
 
         .one {
@@ -164,10 +144,10 @@
             }
 
             .two {
-                background-color: $bgColor;
+                background-color: $bgColor !important;
 
                 .two_item_nav {
-                    color: $contentColor;
+                    color: $contentColor !important;
                 }
             }
         }
@@ -215,7 +195,11 @@
     }
 
     .NewComments {
-        background-color: $boxColor;
+        background-color: $boxColor !important;
+
+        .list .item .content .time {
+            color: $contentColor !important;
+        }
     }
 
     .HotArticle {
@@ -234,7 +218,52 @@
             border-bottom: 1px solid $borderColor;
 
             &:hover {
-                background-color: $toolBarItem !important;
+                background-color: #404a57 !important;
+            }
+        }
+    }
+
+    .article {
+        background-color: $boxColor;
+
+        .content {
+            color: $essayContent;
+
+            // 设置标题样式
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                color: $essayTitle;
+            }
+
+            p {
+                code {
+                    background-color: #4f4f4f !important;
+                }
+            }
+        }
+    }
+
+    .UpAndDown {
+        a {
+            border: 1px solid transparent;
+
+            &:hover {
+                border: 1px solid #484848;
+                background-color: transparent !important;
+            }
+
+            p {
+                &:first-child {
+                    color: $textColor;
+                }
+
+                &:last-child {
+                    color: $textColor;
+                }
             }
         }
     }

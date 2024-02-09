@@ -221,7 +221,7 @@ const updateColor = () => {
         cursor: pointer;
 
         &:hover {
-            background-color: $toolBarItem;
+            background-color: #f7f4f4;
         }
 
         &:last-child {

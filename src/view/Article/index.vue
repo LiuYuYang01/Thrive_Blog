@@ -33,7 +33,7 @@ const info = ref<Info>({
 
           <!-- 文章所在的分类 -->
           <span>
-            <iconpark-icon name="tag-one" /> {{ info.cate[0].name }}
+            <iconpark-icon name="tag-one" /> {{ info.cate[0]?.name }}
           </span>
 
           <!-- 文章评论数量 -->

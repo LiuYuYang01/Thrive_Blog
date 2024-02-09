@@ -50,6 +50,7 @@ getCommentData()
 .NewComments {
     padding: 15px;
     margin-top: 20px;
+    background-color: #fff;
     @include container;
 
     // 文章模块标题
@@ -111,7 +112,7 @@ getCommentData()
                 .time {
                     padding-top: 10px;
                     font-size: 13px;
-                    color: $contentColor;
+                    color: #666;
                     transition: color $move;
                 }
             }
