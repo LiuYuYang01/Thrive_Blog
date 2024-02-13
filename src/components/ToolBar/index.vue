@@ -47,7 +47,7 @@ watch(isEffect, is => {
         root.className = "dark"
 
         $css.setProperty("--borderColor", "#2b333e")
-        $css.setProperty("--shadeColor", "0 0px 20px -2px rgb(144 146 148 / 50%)")
+        $css.setProperty("--shadeColor", "0px 4px 15px 0px rgba(255,255,255,0.05)")
         $css.setProperty("--underBorderColor", "#464646")
         $css.setProperty("--textColor", "#fff")
     } else {

@@ -22,7 +22,7 @@ getCommentData()
 </script>
 
 <template>
-    <div class="NewComments">
+    <div class="newComments">
         <div class="title">
             <img src="@/assets/svg/other/comments.svg" alt=""> 最新评论
         </div>
@@ -37,7 +37,7 @@ getCommentData()
                     <!-- 评论信息 -->
                     <div class="info">{{ item.content }}</div>
                     <!-- 评论时间 -->
-                    <div class="time">{{ moment(item.createtime).format('YYYY-MM-DD') }}</div>
+                    <div class="time">{{ moment(item.createtime).format('YYYY-MM-DD HH:mm') }}</div>
                 </div>
             </a>
         </div>
@@ -47,7 +47,7 @@ getCommentData()
 <style scoped lang="scss">
 @import "@/styles/public.scss";
 
-.NewComments {
+.newComments {
     padding: 15px;
     margin-top: 20px;
     background-color: #fff;

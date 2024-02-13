@@ -194,7 +194,7 @@ const image = ref<string>('')
   //   text-align: center;
   //   font-size: 30px;
   //   padding-bottom: 20px;
-  //   border-bottom: 1px solid $contentLight;
+  //   border-bottom: 1px solid #fafafa;
   //   transition: border-bottom $move;
   // }
 

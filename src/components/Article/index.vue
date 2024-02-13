@@ -149,7 +149,7 @@ function createDirectory() {
             border-radius: 3px;
             color: $color;
             font-family: "Consolas";
-            background-color: $contentLight;
+            background-color: #fafafa;
             transition: background-color $move;
         }
 
@@ -233,12 +233,12 @@ function createDirectory() {
         :deep(blockquote) {
             padding: 20px;
             border-radius: $round;
-            background-color: $contentLight;
+            background-color: #fafafa;
             transition: background-color $move;
         }
 
         :deep(strong) {
-            color: $essayTitle;
+            color: #333;
         }
     }
 }

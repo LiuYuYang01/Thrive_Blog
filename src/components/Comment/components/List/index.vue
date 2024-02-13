@@ -93,7 +93,7 @@ const reply = (id: number, name: string) => {
         <div class="comment_user_one_info">
           <a :href="one.url" class="name active" target="_blank" v-if="one.url">{{ one.name }}</a>
           <a class="name" v-else>{{ one.name }}</a>
-          <span class="time">{{ moment(one.date).format('YYYY-MM-DD') }}</span>
+          <span class="time">{{ moment(one.date).format('YYYY-MM-DD HH:mm') }}</span>
         </div>
 
         <div class="reply" @click="reply(one.id as number, one.name)">回复</div>
@@ -110,7 +110,7 @@ const reply = (id: number, name: string) => {
             <img :src="two.avatar" class="avatar_two">
             <a :href="two.url" class="name active" target="_blank" v-if="two.url">{{ two.name }}</a>
             <a class="name" v-else>{{ two.name }}</a>
-            <span class="time">{{ moment(two.date).format('YYYY-MM-DD') }}</span>
+            <span class="time">{{ moment(two.date).format('YYYY-MM-DD HH:mm') }}</span>
             <div class="reply" @click="reply(two.id as number, two.name)">回复</div>
           </div>
 
@@ -127,7 +127,7 @@ const reply = (id: number, name: string) => {
               <img :src="three.avatar" class="avatar_three">
               <a :href="three.url" class="name active" target="_blank" v-if="three.url">{{ three.name }}</a>
               <a class="name" v-else>{{ three.name }}</a>
-              <span class="time">{{ moment(three.date).format('YYYY-MM-DD') }}</span>
+              <span class="time">{{ moment(three.date).format('YYYY-MM-DD HH:mm') }}</span>
               <div class="reply" @click="reply(two.id as number, three.name)">回复</div>
             </div>
 

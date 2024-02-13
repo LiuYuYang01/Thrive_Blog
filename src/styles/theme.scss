@@ -38,7 +38,7 @@
             background: linear-gradient(to top, #232931, transparent) !important;
         }
     }
-    
+
     .ripple {
         .parallax > use {
             fill: rgba(35, 41, 49, 0.7) !important;
@@ -70,7 +70,7 @@
         }
     }
 
-    .NewComments {
+    .newComments {
         background-color: #2b333e !important;
 
         .list .item .content .time {
@@ -123,13 +123,30 @@
         }
     }
 
-    .upAndDown {
+    .Directory {
+        background-color: #2b333e !important;
+
         a {
-            border: 1px solid transparent !important;
+            color: #a4a4a4 !important;
 
             &:hover {
-                border: 1px solid #484848 !important;
+                color: #fff !important;
+                background-color: #303741 !important;
+            }
+        }
+    }
+
+    .upAndDown {
+        a {
+            border: 1px solid #484848 !important;
+
+            &:hover {
+                border: 1px solid $color !important;
                 background-color: transparent !important;
+
+                p:last-child {
+                    color: $color !important;
+                }
             }
 
             p {
@@ -138,7 +155,7 @@
                 }
 
                 &:last-child {
-                    color: #fff !important;
+                    color: #9e9e9e !important;
                 }
             }
         }
@@ -146,12 +163,18 @@
 
     .comment {
         .title {
-            background-color: #474747;
+            background-color: #304051 !important;
 
             &::after {
                 color: #fff !important;
                 background-color: #2d333d !important;
             }
+        }
+
+        .ipt {
+            color: #fff;
+            border: 1px solid #242e39 !important;
+            background-color: #242e39;
         }
     }
 
