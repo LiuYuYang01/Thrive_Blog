@@ -96,8 +96,6 @@ function createDirectory() {
 </template>
 
 <style scoped lang="scss">
-@import "@/styles/public.scss";
-
 .article {
     overflow: hidden;
     position: relative;

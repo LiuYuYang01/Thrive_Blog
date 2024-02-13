@@ -68,8 +68,6 @@ getArticleData({ page: 1, size: 5 });
 </template>
 
 <style scoped lang="scss">
-@import "@/styles/public.scss";
-
 .HotArticle {
     padding: 15px;
     margin-top: 20px;

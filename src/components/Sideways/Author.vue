@@ -67,8 +67,6 @@ const getIcon = (src: string) => {
 </template>
 
 <style scoped lang="scss">
-@import "@/styles/public.scss";
-
 .author {
     overflow: hidden;
     display: flex;

@@ -7,8 +7,6 @@
 </template>
 
 <style scoped lang='scss'>
-@import "@/styles/public.scss";
-
 .LoadMore {
     width: 340px;
     height: 50px;
