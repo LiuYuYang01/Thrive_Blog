@@ -157,8 +157,6 @@ const updateColor = () => {
 </template>
 
 <style scoped lang="scss">
-@import "@/styles/public.scss";
-
 .toolBar {
     display: flex;
     flex-direction: column;

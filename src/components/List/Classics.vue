@@ -61,8 +61,6 @@ watch(paginate, p => {
 </template>
 
 <style scoped lang="scss">
-@import "@/styles/public.scss";
-
 .classics {
 
     // 文章列表

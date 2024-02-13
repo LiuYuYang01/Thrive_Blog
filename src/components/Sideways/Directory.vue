@@ -51,8 +51,6 @@ getContent()
 </template>
 
 <style scoped lang="scss">
-@import "@/styles/public.scss";
-
 .directory {
     padding: 20px 0;
     margin-top: 20px;

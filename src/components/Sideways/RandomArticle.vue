@@ -50,8 +50,6 @@
 </template>
 
 <style scoped lang="scss">
-@import "@/styles/public.scss";
-
 .randomArticle {
     padding: 15px;
     margin-top: 20px;

@@ -45,8 +45,6 @@ getCommentData()
 </template>
 
 <style scoped lang="scss">
-@import "@/styles/public.scss";
-
 .newComments {
     padding: 15px;
     margin-top: 20px;

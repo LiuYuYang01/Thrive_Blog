@@ -56,7 +56,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         additionalData: `
-            @use "@/styles/global.scss" as *;
+            @use "@/styles/public.scss" as *;
         `,
       }
     }
