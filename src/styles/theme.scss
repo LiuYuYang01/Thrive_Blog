@@ -214,9 +214,49 @@
         }
     }
 
+    // 闪念
     .diary {
+        background: #232931 !important;
+
+        .header {
+            border: 1px solid #232931 !important;
+
+            .box h3 {
+                color: #9e9e9e !important;
+            }
+        }
+
         .list {
-            background-color: red !important;
+            border: 1px solid #232931 !important;
+            background-color: #2b333e !important;
+
+            .item {
+                border-bottom: 1px solid #404b5a !important;
+                background-color: #2b333e !important;
+
+                .info {
+                    .name {
+                        color: $color !important;
+                    }
+
+                    .content {
+                        color: #f0f0f0 !important;
+                    }
+
+                    .date{
+                        color: #c0c0c0 !important;
+                    }
+                }
+            }
+
+            .loadMore {
+                color: #c2c2c2 !important;
+                border: 1px solid #404b5a !important;
+                
+                &:hover {
+                    background-color: #343f4f !important;
+                }
+            }
         }
     }
 

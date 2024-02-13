@@ -106,6 +106,7 @@ const image = ref<string>('')
 
 // 头像动画效果
 @keyframes miniShape {
+
   0%,
   100% {
     border-radius: 42% 58% 70% 30%/45% 45% 55% 55%;
@@ -160,6 +161,7 @@ const image = ref<string>('')
     background: url("https://bu.dusays.com/2023/11/10/654e2cf6055b0.jpg") center;
     background-size: 100%;
     transition: all $move;
+    box-shadow: $shadeColor;
 
     .box {
       position: relative;
@@ -203,8 +205,8 @@ const image = ref<string>('')
     background: #fff;
     border-radius: 10px;
     border: 1px solid #eee;
-    box-shadow: rgba(255, 255, 255, 0.2) 0px 8px 24px;
     transition: all $move;
+    box-shadow: $shadeColor;
 
     .title {
       color: #333;
@@ -239,12 +241,14 @@ const image = ref<string>('')
         .name {
           font-size: 20px;
           color: #586c97;
+          transition: color $move;
         }
 
         .content {
           line-height: 30px;
           margin: 10px 0;
           color: #666;
+          transition: color $move;
         }
 
         .cover {
@@ -273,6 +277,7 @@ const image = ref<string>('')
         .date {
           font-size: 12px;
           color: #666;
+          transition: color $move;
         }
       }
     }
@@ -287,7 +292,7 @@ const image = ref<string>('')
       border: 1px solid #eee;
       border-radius: 5px;
       color: #666;
-      transition: background-color $move;
+      transition: all $move;
 
       &:hover {
         background-color: #f9f9f9;
