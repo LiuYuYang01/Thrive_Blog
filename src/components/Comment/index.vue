@@ -117,7 +117,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="Comment">
+    <div class="comment">
         <div class="title"></div>
 
         <!-- 评论框 -->
@@ -190,7 +190,7 @@ onMounted(() => {
     }
 }
 
-.Comment {
+.comment {
     margin-top: 70px;
 
     // 评论标题

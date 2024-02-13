@@ -27,6 +27,10 @@ const change = (page: number) => emit("update:modelValue", { page, size: props.p
             &:hover {
                 color: $color;
             }
+
+            &.is-active {
+                color: #fff !important;
+            }
         }
     }
 
