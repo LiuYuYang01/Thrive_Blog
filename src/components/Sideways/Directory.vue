@@ -1,19 +1,10 @@
 <script setup lang="ts">
+import { svg } from '@/util'
 import { getArticleAPI } from '@/api/Article';
 
 const router = useRouter()
 
 const loading = ref(true)
-const svg = `
-        <path class="path" d="
-          M 30 15
-          L 28 17
-          M 25.61 25.61
-          A 15 15, 0, 0, 1, 15 30
-          A 15 15, 0, 1, 1, 27.99 7.5
-          L 15 15
-        " style="stroke-width: 4px; fill: rgba(0, 0, 0, 0)"/>
-      `
 
 const doms = ref<any>([]);
 
@@ -36,7 +27,7 @@ getContent()
 </script>
 
 <template>
-    <div class="Directory" style="display: none;">
+    <div class="directory" style="display: none;">
         <div class="title">
             <img src="@/assets/svg/other/directory.svg" alt="">
 
@@ -62,7 +53,7 @@ getContent()
 <style scoped lang="scss">
 @import "@/styles/public.scss";
 
-.Directory {
+.directory {
     padding: 20px 0;
     margin-top: 20px;
     background-color: #fff;

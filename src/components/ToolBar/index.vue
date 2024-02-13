@@ -5,7 +5,7 @@ import { ElNotification } from 'element-plus';
 const isDirectory = () => {
     const main = document.querySelector(".main") as HTMLElement
     const essay = document.querySelector(".main .left") as HTMLElement
-    const directory = document.querySelector(".main .Directory") as HTMLElement
+    const directory = document.querySelector(".main .directory") as HTMLElement
 
     let essayWidth = essay.style.width
 

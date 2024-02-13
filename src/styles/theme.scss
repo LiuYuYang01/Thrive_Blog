@@ -4,6 +4,7 @@
         background-color: #232931 !important;
     }
 
+    // 顶部导航
     .header {
         &::after {
             background: linear-gradient(#2b333e, transparent 70%) !important;
@@ -28,11 +29,13 @@
         }
     }
 
+    // 导航栏下方渐变背景
     .borderColor {
         border-bottom: 1px solid #2b333e !important;
         background-color: rgba(44, 51, 62, 0.9) !important;
     }
 
+    // 轮播图
     .Swiper {
         &::after {
             background: linear-gradient(to top, #232931, transparent) !important;
@@ -45,12 +48,14 @@
         }
     }
 
+    // 文章列表
     .classics {
         .item {
             background-color: #2b333e !important;
         }
     }
 
+    // 右侧功能栏
     .author {
         background-color: #2b333e !important;
 
@@ -70,6 +75,7 @@
         }
     }
 
+    // 最新文章
     .newComments {
         background-color: #2b333e !important;
 
@@ -78,14 +84,17 @@
         }
     }
 
+    // 文章热门推荐
     .HotArticle {
         background-color: #2b333e !important;
     }
 
+    // 分页
     .pagination .el-pager li {
         color: #fff;
     }
 
+    // 右侧工具栏
     .toolBar {
         background-color: #2b333e !important;
         border: 1px solid #2b333e !important;
@@ -99,6 +108,7 @@
         }
     }
 
+    // 文章页
     .article {
         background-color: #2b333e !important;
 
@@ -123,7 +133,8 @@
         }
     }
 
-    .Directory {
+    // 文章目录
+    .directory {
         background-color: #2b333e !important;
 
         a {
@@ -136,6 +147,7 @@
         }
     }
 
+    // 文章页上下页选择框
     .upAndDown {
         a {
             border: 1px solid #484848 !important;
@@ -161,6 +173,7 @@
         }
     }
 
+    // 评论区
     .comment {
         .title {
             background-color: #304051 !important;
@@ -178,20 +191,42 @@
         }
     }
 
+    // 友联
+    .friend_bg {
+        background: #232931 !important;
+
+        .container {
+            background-color: #2b333e !important;
+
+            .cate {
+                .title {
+                    border-bottom: 1px solid #414141 !important;
+                }
+
+                .list .item {
+                    border: 1px solid #3b4757 !important;
+
+                    .box .info .description {
+                        color: #a2a2a2 !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .diary {
+        .list {
+            background-color: red !important;
+        }
+    }
+
+    // 底部
     .footer {
         border-top: 1px solid #2b333e !important;
         background-color: #2b333e !important;
 
         .info {
             color: #fff !important;
-        }
-    }
-
-    .friend_bg {
-        background: #232931 !important;
-
-        .container {
-            background-color: #232931 !important;
         }
     }
 }

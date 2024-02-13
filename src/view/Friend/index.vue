@@ -271,7 +271,7 @@ const submit = () => {
             font-size: 30px;
             padding-bottom: 20px;
             color: $textColor;
-            border-bottom: 1px dotted $borderColor;
+            border-bottom: 1px dotted #eee;
             text-align: center;
             transition: border $move;
         }
@@ -286,7 +286,7 @@ const submit = () => {
                 height: 100px;
                 margin-bottom: 20px;
                 margin-right: 19.5px;
-                border: 1px solid $borderColor;
+                border: 1px solid #eee;
                 border-radius: 5px;
                 transition: all $move;
 

@@ -106,7 +106,6 @@ const image = ref<string>('')
 
 // 头像动画效果
 @keyframes miniShape {
-
   0%,
   100% {
     border-radius: 42% 58% 70% 30%/45% 45% 55% 55%;
@@ -135,9 +134,17 @@ const image = ref<string>('')
   flex-direction: column;
   align-items: center;
   padding: 150px 0 150px;
-
   margin: 0 auto;
-  background: $subBackground;
+  background: linear-gradient(90deg,
+      rgba(247, 149, 51, 0.1),
+      rgba(243, 112, 85, 0.1) 15%,
+      rgba(239, 78, 123, 0.1) 30%,
+      rgba(161, 102, 171, 0.1) 44%,
+      rgba(80, 115, 184, 0.1) 58%,
+      rgba(16, 152, 173, 0.1) 72%,
+      rgba(7, 179, 155, 0.1) 86%,
+      rgba(109, 186, 130, 0.1)),
+    white;
   transition: background $move;
 
   .header {
@@ -149,7 +156,7 @@ const image = ref<string>('')
     padding: 20px;
     margin-bottom: -20px;
     border-radius: 10px;
-    border: 1px solid $borderColor;
+    border: 1px solid #eee;
     background: url("https://bu.dusays.com/2023/11/10/654e2cf6055b0.jpg") center;
     background-size: 100%;
     transition: all $move;
@@ -181,43 +188,33 @@ const image = ref<string>('')
       }
 
       h3 {
-        color: $shallowColor;
+        color: #606060ba;
         font-size: 14px;
         margin-top: 20px;
       }
     }
   }
 
-  // .title {
-  //   width: 400px;
-  //   margin: 20px auto 0px;
-  //   text-align: center;
-  //   font-size: 30px;
-  //   padding-bottom: 20px;
-  //   border-bottom: 1px solid #fafafa;
-  //   transition: border-bottom $move;
-  // }
-
   .list {
     overflow: auto;
     width: 650px;
     min-height: 500px;
     padding: 0 20px;
-    background: #f9f9f9;
+    background: #fff;
     border-radius: 10px;
-    border: 1px solid $borderColor;
+    border: 1px solid #eee;
     box-shadow: rgba(255, 255, 255, 0.2) 0px 8px 24px;
     transition: all $move;
 
     .title {
-      color: $textColor;
+      color: #333;
     }
 
     .item {
       display: flex;
       padding: 30px;
-      border-bottom: 1px solid $borderColor;
-      background-color: #f9f9f9;
+      border-bottom: 1px solid #eee;
+      background-color: #fff;
       transition: all $move;
 
       &:first-of-type {
@@ -287,9 +284,10 @@ const image = ref<string>('')
       padding: 10px 0;
       margin-bottom: 10px;
       text-align: center;
-      border: 1px solid $borderColor;
+      border: 1px solid #eee;
       border-radius: 5px;
       color: #666;
+      transition: background-color $move;
 
       &:hover {
         background-color: #f9f9f9;

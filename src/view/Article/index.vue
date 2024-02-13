@@ -54,7 +54,7 @@ const info = ref<Info>({
 
 <style scoped lang="scss">
 .Article {
-  :deep(.Directory) {
+  :deep(.directory) {
     margin-top: 0;
   }
 
