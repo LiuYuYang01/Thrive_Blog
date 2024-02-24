@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Article: typeof import('./src/components/Article/index.vue')['default']
     Author: typeof import('./src/components/Sideways/Author.vue')['default']
+    Card: typeof import('./src/components/List/Card.vue')['default']
     Classics: typeof import('./src/components/List/Classics.vue')['default']
     Comment: typeof import('./src/components/Comment/index.vue')['default']
     Copyright: typeof import('./src/components/Article/components/Copyright.vue')['default']

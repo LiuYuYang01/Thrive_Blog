@@ -243,7 +243,7 @@
                         color: #f0f0f0 !important;
                     }
 
-                    .date{
+                    .date {
                         color: #c0c0c0 !important;
                     }
                 }
@@ -252,11 +252,24 @@
             .loadMore {
                 color: #c2c2c2 !important;
                 border: 1px solid #404b5a !important;
-                
+
                 &:hover {
                     background-color: #343f4f !important;
                 }
             }
+        }
+    }
+
+    // 个人介绍
+    .resume {
+        background-color: #2b333e !important;
+
+        .technology {
+            background-color: #2b333e !important;
+        }
+
+        .header .info .introduce .row2{
+            color: #d6d6d6 !important;
         }
     }
 

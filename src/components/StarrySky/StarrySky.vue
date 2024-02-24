@@ -2,17 +2,17 @@
 document.addEventListener("DOMContentLoaded", function () {
     /*星星的密集程度，数字越大越多*/
     var stars = 800;
-    var starsContainer = document.querySelector(".Stars_StarrySky");
+    var starsContainer = document.querySelector(".stars_starrySky");
 
     /*星星的看起来的距离,值越大越远,可自行调制到自己满意的样子*/
     var r = 800;
     for (var i = 0; i < stars; i++) {
         var star = document.createElement("div");
-        star.classList.add("Star_StarrySky");
+        star.classList.add("star_starrySky");
         starsContainer!.appendChild(star);
     }
 
-    var starElements = document.querySelectorAll(".Star_StarrySky");
+    var starElements = document.querySelectorAll(".star_starrySky");
     starElements.forEach(function (starElement) {
         var s = 0.2 + (Math.random() * 1);
         var curR = r + (Math.random() * 300);
@@ -23,9 +23,9 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 <template>
-    <div class="Box_StarrySky">
+    <div class="box_starrySky">
         <!--背景层，不要删除，否则没有作用-->
-        <div class="Stars_StarrySky"></div>
+        <div class="stars_starrySky"></div>
     </div>
 </template>
 
@@ -40,12 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 }
 
-.Box_StarrySky {
+.box_starrySky {
     overflow: hidden;
     position: absolute;
     z-index: 1;
 
-    .Stars_StarrySky {
+    .stars_starrySky {
         transform: perspective(500px);
         transform-style: preserve-3d;
         position: absolute;
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
         animation: Rotate_StarrySky 90s infinite linear;
     }
 
-    .Star_StarrySky {
+    .star_starrySky {
         width: 2px;
         height: 2px;
         background: #F7F7B6;

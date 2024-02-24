@@ -109,16 +109,16 @@ onMounted(() => {
     // 技术栈左右滚动效果
     technology.style.marginLeft = "-1320px";
 
-    // 监听过渡结束事件
-    technology.addEventListener("transitionend", () => {
-      technology.style.marginLeft = "450px";
-    });
+    // // 监听过渡结束事件
+    // technology.addEventListener("transitionend", () => {
+    //   technology.style.marginLeft = "450px";
+    // });
   });
 });
 </script>
 
 <template>
-  <div class="my">
+  <div class="resume">
     <div class="header">
       <div class="info">
         <!-- 介绍 -->
@@ -147,13 +147,13 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
-.my {
+.resume {
   margin-top: 60px;
+  background-color: #fff;
+  transition: background-color $move;
 
   .header {
     position: relative;
-    z-index: 99;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -161,6 +161,7 @@ onMounted(() => {
     height: 600px;
     background: url("@/assets/img/bg.png") no-repeat center;
     background-size: 100%;
+    z-index: 99;
 
     .info {
       width: $w;
@@ -217,7 +218,7 @@ onMounted(() => {
   .technology {
     overflow: hidden;
     height: 200px;
-    background-color: #f9f9f9;
+    background-color: #fff;
     transition: background-color $move;
 
     .title {
