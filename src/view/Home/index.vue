@@ -4,7 +4,7 @@ import { getArticleListAPI } from '@/api/Article'
 import { useConfigStore } from '@/stores/Config'
 const store = useConfigStore()
 const isArticleLayout = store.isArticleLayout
-const rightSidebarList = store.rightSidebarList
+const rightSidebar = store.rightSidebar
 const swiperImage = store.swiperImage
 const swiperText = store.swiperText
 
@@ -30,7 +30,7 @@ getArticleList({ page: 1, size: 5 })
 <template>
   <Swiper :data="swiperText" :src="swiperImage"></Swiper>
 
-  <Frame :modules='rightSidebarList'>
+  <Frame :modules='rightSidebar'>
     <Classics :data="article!" @get="getArticleList" v-if="isArticleLayout === 'classics'" />
     <Card :data="article!" @get="getArticleList" v-if="isArticleLayout === 'card'" />
 
