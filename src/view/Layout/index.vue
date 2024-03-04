@@ -58,7 +58,15 @@ onBeforeRouteUpdate(to => {
   <Nprogress />
 
   <Header />
-  <RouterView />
+
+  <!-- <RouterView /> -->
+
+  <RouterView v-slot="{ Component }">
+    <KeepAlive>
+      <component :is="Component" />
+    </KeepAlive>
+  </RouterView>
+
   <Footer />
 </template>
 
