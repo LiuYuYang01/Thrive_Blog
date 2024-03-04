@@ -17,7 +17,8 @@ const isSidebar = ref<boolean>(modules.length ? true : false)
             <slot />
         </div>
 
-        <div class="right" v-if="path !== '/' && !isSidebar">
+        <!-- 有侧边栏就显示，没有就不显示 -->
+        <div class="right" v-if="path !== '/' && !isSidebar || path === '/' && isSidebar">
             <div class="sticky">
                 <!-- 作者信息 -->
                 <Author v-if="modules.includes('Author')" />
