@@ -59,13 +59,13 @@ onBeforeRouteUpdate(to => {
 
   <Header />
 
-  <!-- <RouterView /> -->
+  <RouterView />
 
-  <RouterView v-slot="{ Component }">
+  <!-- <RouterView v-slot="{ Component }">
     <KeepAlive>
       <component :is="Component" />
     </KeepAlive>
-  </RouterView>
+  </RouterView> -->
 
   <Footer />
 </template>

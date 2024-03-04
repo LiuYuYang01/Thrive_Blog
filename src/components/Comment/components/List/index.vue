@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { getCommentListAPI } from '@/api/Comment'
 
-import { svg } from "@/util"
+import { svg } from "@/utils"
 
 // 引入时间插件
 import moment from 'moment';
