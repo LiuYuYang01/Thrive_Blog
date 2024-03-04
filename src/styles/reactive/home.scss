@@ -16,7 +16,7 @@
 
         .classics .item {
             background-color: #333;
-            height: 180px !important;
+            height: 200px !important;
         }
 
         .author .socializing .list a img {
@@ -122,7 +122,11 @@
 }
 
 @media screen and (max-width: 600px) {
-    .classics .item .info a .fun span:nth-child(2){
-        display: none !important;
+    .main .classics .item {
+        height: 160px !important;
+
+        .info a .fun span:nth-child(2){
+            display: none !important;
+        }
     }
 }
