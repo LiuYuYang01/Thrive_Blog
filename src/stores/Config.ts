@@ -1,18 +1,24 @@
 import { defineStore } from 'pinia'
 
 export const useConfigStore = defineStore('config', () => {
-    // 暗黑还是白天?
-    const isEffect = ref<boolean>(false)
-    // 文章列表布局方式?
+    // 暗黑还是光亮
+    const isTheme = ref<boolean>(false)
+    // 文章列表布局方式
     const isArticleLayout = ref<string>("classics")
+    // 右侧信息栏显示哪些模块
+    const rightSidebarList = ref<string[]>(["Author", "HotArticle", "RandomArticle", "NewComments"])
 
-    const updateIsEffect = (data: boolean) => {
-        isEffect.value = data
+    const updateIsTheme = (data: boolean) => {
+        isTheme.value = data
     }
 
     const updateIsArticleLayout = (data: string) => {
         isArticleLayout.value = data
     }
 
-    return { isEffect, isArticleLayout, updateIsEffect, updateIsArticleLayout }
+    const updateRightSidebarList = (data: string[]) => {
+        rightSidebarList.value = data
+    }
+
+    return { isTheme, isArticleLayout, rightSidebarList, updateIsTheme, updateIsArticleLayout, updateRightSidebarList }
 })

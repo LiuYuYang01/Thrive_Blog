@@ -33,7 +33,7 @@ const getArticleData = async (params: Page) => {
         generatedNumbers.push(randomNum);
         return randomNum;
     }
-    
+
 
     for (let i = 1; i <= 4; i++) {
         const randomIndex = getRandom(0, data.result.length - 1);
@@ -70,7 +70,7 @@ getArticleData({ page: 1, size: 5 });
 <style scoped lang="scss">
 .HotArticle {
     padding: 15px;
-    margin-top: 20px;
+    margin-bottom: 20px;
     background-color: #fff;
     @include container;
 

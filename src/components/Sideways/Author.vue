@@ -78,6 +78,7 @@ const getIcon = (src: string) => {
     background-color: #fff;
     width: 100%;
     height: 325px;
+    margin-bottom: 20px;
     @include container;
 
     // 作者头像

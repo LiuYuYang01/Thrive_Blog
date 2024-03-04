@@ -32,13 +32,13 @@ const isDirectory = () => {
 const $css = document.documentElement.style
 
 // 白天黑夜切换
-const isEffect = ref<boolean>(false)
+const isTheme = ref<boolean>(false)
 
 
 import { useConfigStore } from '@/stores'
 const store = useConfigStore()
 
-watch(isEffect, is => {
+watch(isTheme, is => {
     const root: HTMLHtmlElement = document.querySelector("html")!
 
     // 主题切换
@@ -60,7 +60,7 @@ watch(isEffect, is => {
         $css.setProperty("--textColor", "#333")
     }
 
-    store.updateIsEffect(is)
+    store.updateIsTheme(is)
 })
 
 
@@ -101,10 +101,10 @@ const updateColor = () => {
         <img src="@/assets/svg/other/directory.svg" alt="" class="item" @click="isDirectory" />
 
         <!-- 黑夜 -->
-        <iconpark-icon name="sun" class="item" style="color: #f5a630;" @click="isEffect = !isEffect" v-if="isEffect" />
+        <iconpark-icon name="sun" class="item" style="color: #f5a630;" @click="isTheme = !isTheme" v-if="isTheme" />
 
         <!-- 白天 -->
-        <iconpark-icon name="dark-mode-9dj2acj3" class="item" style="color: #62acf9;" @click="isEffect = !isEffect"
+        <iconpark-icon name="dark-mode-9dj2acj3" class="item" style="color: #62acf9;" @click="isTheme = !isTheme"
             v-else />
 
         <!-- 个性化 -->

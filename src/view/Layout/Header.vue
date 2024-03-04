@@ -87,7 +87,7 @@ const ExtendPage = {
           <!-- 图片LOGO模式 -->
           <RouterLink to="/" class="one_item_nav" v-if="true">
             <!-- 白天 -->
-            <template v-if="!store.isEffect">
+            <template v-if="!store.isTheme">
               <img :src="top > 100 || is ? logo_light : logo_dark" alt="">
             </template>
 
@@ -166,7 +166,7 @@ const ExtendPage = {
         <!-- 图片LOGO模式 -->
         <RouterLink to="/" class="one_item_nav" v-if="true">
           <!-- 白天 -->
-          <template v-if="!store.isEffect">
+          <template v-if="!store.isTheme">
             <img :src="top > 100 || is ? logo_light : logo_dark" alt="">
           </template>
 

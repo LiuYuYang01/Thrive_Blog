@@ -47,7 +47,7 @@ getCommentData()
 <style scoped lang="scss">
 .newComments {
     padding: 15px;
-    margin-top: 20px;
+    margin-bottom: 20px;
     background-color: #fff;
     @include container;
 

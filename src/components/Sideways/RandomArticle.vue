@@ -52,7 +52,7 @@
 <style scoped lang="scss">
 .randomArticle {
     padding: 15px;
-    margin-top: 20px;
+    margin-bottom: 20px;
     background-color: #fff;
     @include container;
     // 文章模块标题
