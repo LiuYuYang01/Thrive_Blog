@@ -1,15 +1,14 @@
 import axios from "axios";
 import type { AxiosInstance, AxiosResponse } from "axios";
 
-
 export default class Request {
     // private static 表示该属性是私有的，只能在当前类中使用并且是静态属性，类型为 Request 的实例对象
     private static _singletonInstance: Request;
     // Axios 实例对象
     readonly request: AxiosInstance;
     // API URL 前缀
-    private static readonly baseURL: string = "http://127.0.0.1:5000/";
-    //   private static readonly baseURL: string = "http://139.196.43.147:5000/";
+    // private static readonly baseURL: string = "http://127.0.0.1:5000/";
+      private static readonly baseURL: string = "http://114.115.174.207:5000/";
 
     // 获取store对象
     static interface: Request;

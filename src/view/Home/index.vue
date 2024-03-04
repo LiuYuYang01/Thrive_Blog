@@ -27,7 +27,8 @@ const data = ['print(" 互联网从不缺乏天才, 而努力才是最终的入�
   <Swiper :data="data" src="https://liuyuyang.net/img/20ac414805e3491098df678d3d9f100f_KJCPUs.jpg"></Swiper>
 
   <Frame :modules='["Author", "HotArticle", "RandomArticle", "NewComments"]'>
-    <Classics :data="article!" @get="getArticleList" />
+    <!-- <Classics :data="article!" @get="getArticleList" /> -->
+    <Card :data="article!" @get="getArticleList" />
     <Loading v-model="loading"></Loading>
   </Frame>
 </template>
