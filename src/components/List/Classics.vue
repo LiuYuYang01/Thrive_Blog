@@ -79,7 +79,7 @@ watch(paginate, p => {
         .cover {
             position: relative;
             width: 45%;
-            background: url("https://liuyuyang.net/usr/uploads/2023/04/1258239203.jpeg") no-repeat center;
+            background: url("") no-repeat center;
             background-size: cover;
             transition: all $move;
             transform: scale(1);

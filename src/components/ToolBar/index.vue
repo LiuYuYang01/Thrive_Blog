@@ -20,7 +20,7 @@ const isDirectory = () => {
     let mainWidth = main.style.width
 
     if (mainWidth === "950px") {
-        main.style.width = "1200PX"
+        main.style.width = "1200px"
     } else {
         main.style.width = "950px"
     }

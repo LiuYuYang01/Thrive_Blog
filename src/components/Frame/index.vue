@@ -17,21 +17,16 @@ watch(route, r => {
         mainWidth.value = "1200px"
     }
 }, { immediate: true, deep: true })
-
-// 判断是否没有侧边栏
-const isSidebar = ref<boolean>(modules.length ? true : false)
 </script>
 
 <template>
     <div class="main" :style="{ width: mainWidth }">
-        <!-- 如果是首页并且没有侧边栏就 -->
-        <div class="left" :style="{ width: path === '/' && isSidebar ? '75%' : '85%' }">
+        <div class="left" :style="{ width: path === '/' ? '75%' : '100%' }">
             <!-- 文章列表经典风格 -->
             <slot />
         </div>
 
-        <!-- 如果有侧边栏就让他显示，否则就隐藏 -->
-        <div class="right" :style="{ display: isSidebar ? 'block' : 'none' }">
+        <div class="right">
             <div class="sticky">
                 <!-- 作者信息 -->
                 <Author v-if="modules.includes('Author')" />
@@ -59,7 +54,6 @@ const isSidebar = ref<boolean>(modules.length ? true : false)
     margin: 0 auto;
 
     .left {
-        margin: 0 auto;
         transition: width $move;
     }
 

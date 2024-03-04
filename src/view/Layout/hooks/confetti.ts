@@ -2,7 +2,7 @@
 import confetti from 'canvas-confetti';
 
 // 引入五彩纸屑：Fireworks 效果
-export const Fireworks = () => {
+export default () => {
     var duration = 3 * 1000;
     var animationEnd = Date.now() + duration;
     var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };

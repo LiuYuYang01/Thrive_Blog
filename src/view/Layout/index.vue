@@ -2,7 +2,7 @@
 import { getWebDataAPI } from '@/api/Project';
 
 // 引入五彩纸屑
-import { Fireworks } from './confetti'
+import Fireworks from './hooks/confetti'
 
 import Header from './Header.vue'
 import Footer from './Footer.vue'
@@ -70,4 +70,4 @@ onBeforeRouteUpdate(to => {
   <Footer />
 </template>
 
-<style scoped></style>
+<style scoped></style>./hooks/confetti

@@ -45,7 +45,7 @@ watch(
     height: 240px;
     margin-bottom: 30px;
     border-radius: 10px;
-    background: url("https://liuyuyang.net/img/20ac414805e3491098df678d3d9f100f_KJCPUs.jpg") center no-repeat;
+    background: url("") center no-repeat;
     background-size: cover;
     cursor: pointer;
     transition: transform $move;
