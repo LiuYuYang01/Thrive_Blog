@@ -2,7 +2,7 @@
 // 引入时间插件
 import moment from 'moment';
 // 随机预览图
-import { randomImage } from '@/util/RandomImage'
+import { randomImage } from '@/utils/RandomImage'
 
 const props = defineProps<{ data: Paginate<Article[]> }>()
 const emit = defineEmits<{ (e: "get", params: Page): void }>()
@@ -189,4 +189,4 @@ watch(paginate, p => {
         margin-bottom: 0;
     }
 }
-</style>
+</style>@/utils/RandomImage

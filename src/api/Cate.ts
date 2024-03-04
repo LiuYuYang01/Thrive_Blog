@@ -1,4 +1,4 @@
-import Request from '@/util/Request'
+import Request from '@/utils/Request'
 
 // 获取分类信息
 export function getCateDataAPI(id: string): http<Cate[]> {

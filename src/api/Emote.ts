@@ -1,4 +1,4 @@
-import Request from '@/util/Request'
+import Request from '@/utils/Request'
 
 // 获取表情数据
 export const getEmoteAPI = (id: number): http<Emote> => {

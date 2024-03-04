@@ -3,7 +3,7 @@
 import { getArticleCateListAPI, getArticleListAPI } from '@/api/Article';
 
 // 随机预览图
-import { randomImage } from '@/util/RandomImage'
+import { randomImage } from '@/utils/RandomImage'
 
 const route = useRoute()
 
@@ -66,3 +66,4 @@ watch(() => route.params, r => {
   margin-bottom: 15px;
 }
 </style>
+@/utils/RandomImage

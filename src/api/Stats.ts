@@ -1,4 +1,4 @@
-import Request from '@/util/Request'
+import Request from '@/utils/Request'
 
 // 获取动态日历数据
 export function getActiveAPI(): http<Active> {

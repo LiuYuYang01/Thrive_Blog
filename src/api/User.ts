@@ -1,4 +1,4 @@
-import Request from '@/util/Request'
+import Request from '@/utils/Request'
 
 // 获取作者信息
 export function getAuthorAPI(id: number): http<UserInfo> {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { svg } from '@/util'
+import { svg } from '@/utils'
 import { getArticleAPI } from '@/api/Article';
 
 const router = useRouter()

@@ -1,13 +1,13 @@
 <script setup lang="ts">
 // 复制文本自动生成版权信息
-import "@/util/CreateCopyright";
-import {svg} from '@/util'
+import "@/utils/CreateCopyright";
+import {svg} from '@/utils'
 
 // 引入文章API接口
 import { getArticleAPI } from "@/api/Article";
 
 // 随机预览图
-import { randomImage } from "@/util/RandomImage";
+import { randomImage } from "@/utils/RandomImage";
 
 const emit = defineEmits<{ (e: "update:modelValue", value: Info): void }>();
 
@@ -240,4 +240,4 @@ function createDirectory() {
         }
     }
 }
-</style>
+</style>@/utils/CreateCopyright@/utils/RandomImage

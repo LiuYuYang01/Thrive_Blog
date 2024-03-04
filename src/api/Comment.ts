@@ -1,4 +1,4 @@
-import Request from "@/util/Request";
+import Request from "@/utils/Request";
 
 // 新增评论
 export function addCommentDataAPI(data: Comment): http<Comment> {

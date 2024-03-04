@@ -1,4 +1,4 @@
-import Request from '@/util/Request'
+import Request from '@/utils/Request'
 import { Link, Cate, LinkType } from '@/types/Link'
 
 // 新增网站

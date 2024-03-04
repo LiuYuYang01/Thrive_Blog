@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { addLinkDataAPI, getLinkListAPI, getLinkTypeListAPI } from '@/api/Link'
 import { Type, Cate, Link, LinkType } from '@/types/Link'
-import { svg } from '@/util'
+import { svg } from '@/utils'
 import { FormInstance } from 'element-plus';
 
 // 加载效果

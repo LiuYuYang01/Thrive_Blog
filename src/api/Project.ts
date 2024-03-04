@@ -1,4 +1,4 @@
-import Request from '@/util/Request'
+import Request from '@/utils/Request'
 
 // 获取网站配置
 export function getWebDataAPI(): http<WebConfig> {
