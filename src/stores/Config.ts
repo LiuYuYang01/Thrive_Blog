@@ -1,12 +1,14 @@
 import { defineStore } from 'pinia'
 
+// 网站配置
 export const useConfigStore = defineStore('config', () => {
     // 暗黑还是光亮
     const isTheme = ref<boolean>(false)
     // 文章列表布局方式
-    const isArticleLayout = ref<string>("classics")
+    const isArticleLayout = ref<ArticleLayout>("card")
     // 右侧信息栏显示哪些模块
-    const rightSidebarList = ref<string[]>(["Author", "HotArticle", "RandomArticle", "NewComments"])
+    // const rightSidebar = ref<RightSidebar[]>(["Author", "HotArticle", "RandomArticle", "NewComments"])
+    const rightSidebar = ref<RightSidebar[]>([])
     // 首页轮播图
     const swiperImage = ref<string>("https://liuyuyang.net/img/20ac414805e3491098df678d3d9f100f_KJCPUs.jpg")
     // 首页轮播图打字机文本
@@ -16,12 +18,12 @@ export const useConfigStore = defineStore('config', () => {
         isTheme.value = data
     }
 
-    const updateIsArticleLayout = (data: string) => {
+    const updateIsArticleLayout = (data: ArticleLayout) => {
         isArticleLayout.value = data
     }
 
-    const updateRightSidebarList = (data: string[]) => {
-        rightSidebarList.value = data
+    const updateRightSidebarList = (data: RightSidebar[]) => {
+        rightSidebar.value = data
     }
 
     const updateSwiperImage = (data: string) => {
@@ -29,8 +31,8 @@ export const useConfigStore = defineStore('config', () => {
     }
 
     const updateSwiperText = (data: string[]) => {
-        rightSidebarList.value = data
+        rightSidebar.value = data
     }
 
-    return { isTheme, isArticleLayout, rightSidebarList, swiperImage, swiperText, updateIsTheme, updateIsArticleLayout, updateRightSidebarList, updateSwiperText, updateSwiperImage }
+    return { isTheme, isArticleLayout, rightSidebar, swiperImage, swiperText, updateIsTheme, updateIsArticleLayout, updateRightSidebarList, updateSwiperText, updateSwiperImage }
 })
