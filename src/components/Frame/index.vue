@@ -2,31 +2,22 @@
 // 默认显示所有侧边栏模块，可以指定选择哪些显示
 const { modules = [] } = defineProps<{ modules?: string[] }>()
 
-const mainWidth = ref<string>("1200px")
-
 const route = useRoute()
 const path = route.path
 
-// 根据是文章页还是首页来决定main模块的宽度
-watch(route, r => {
-    const c = "/" + r.fullPath.split("/")[1]
-
-    if (c === '/article') {
-        mainWidth.value = "950px"
-    } else {
-        mainWidth.value = "1200px"
-    }
-}, { immediate: true, deep: true })
+// 判断是否没有侧边栏
+const isSidebar = ref<boolean>(modules.length ? true : false)
 </script>
 
 <template>
-    <div class="main" :style="{ width: mainWidth }">
-        <div class="left" :style="{ width: path === '/' ? '75%' : '100%' }">
+    {{ isSidebar }}
+    <div class="main" style="width: 1200px">
+        <div class="left" :style="{ width: path === '/' ? '73%' : '100%' }">
             <!-- 文章列表经典风格 -->
             <slot />
         </div>
 
-        <div class="right">
+        <div class="right" v-if="path !== '/' && !isSidebar">
             <div class="sticky">
                 <!-- 作者信息 -->
                 <Author v-if="modules.includes('Author')" />
@@ -54,11 +45,12 @@ watch(route, r => {
     margin: 0 auto;
 
     .left {
+        margin: 0 auto;
         transition: width $move;
     }
 
     .right {
-        width: 23%;
+        width: 24%;
         border-radius: $round;
         transition: width $move;
 

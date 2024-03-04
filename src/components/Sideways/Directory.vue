@@ -3,9 +3,7 @@ import { svg } from '@/utils'
 import { getArticleAPI } from '@/api/Article';
 
 const router = useRouter()
-
 const loading = ref(true)
-
 const doms = ref<any>([]);
 
 // 获取文章的数据
@@ -23,7 +21,7 @@ const getContent = async () => {
     loading.value = false
 }
 
-getContent()
+onMounted(() => getContent())
 </script>
 
 <template>
@@ -40,7 +38,7 @@ getContent()
                 <li v-for="item in doms" :key="item">
                     <!-- 查看有没有item.getAttribute('two')，有就是二级目录，没有就是一级目录 -->
                     <a :href="`#${item.id}`" :style="{ paddingLeft: item.getAttribute('two') ? '30px' : '' }">{{
-                        item.innerHTML }}</a>
+                    item.innerHTML }}</a>
                 </li>
             </ul>
 
@@ -52,6 +50,9 @@ getContent()
 
 <style scoped lang="scss">
 .directory {
+    position: static;
+    top: 100px;
+    width: 300px;
     padding: 20px 0;
     margin-top: 20px;
     background-color: #fff;
