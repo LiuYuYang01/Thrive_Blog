@@ -3,6 +3,7 @@
 import moment from 'moment';
 // 随机预览图
 import { randomImage } from '@/utils/RandomImage'
+import { CircleCheck, Loading } from '@element-plus/icons-vue'
 
 const props = defineProps<{ data: Paginate<Article[]> }>()
 const emit = defineEmits<{ (e: "get", params: Page): void }>()
@@ -35,11 +36,23 @@ const load = () => {
                         <!-- 文章摘要 -->
                         <p>{{ item.description }}</p>
 
-                        <span>🏷️ {{ item.cate[0].name }}</span>
+                        <span>⏰ {{ moment(item.createtime).format("YYYY-MM-DD") }} 🏷️ {{ item.cate[0].name }}</span>
                     </div>
                 </RouterLink>
             </div>
         </masonry>
+
+        <div class="finish" v-if="data.page >= data.pages">
+            <el-icon style="margin-right: 5px;">
+                <CircleCheck color="#b7b7b7" />
+            </el-icon> 数据已加载完毕!
+        </div>
+
+        <div class="finish" style="color: #539dfd;" v-else>
+            <el-icon style="margin-right: 5px;">
+                <Loading color="#539dfd" />
+            </el-icon> 数据加载中~
+        </div>
     </div>
 </template>
 
@@ -98,14 +111,25 @@ const load = () => {
             }
 
             span {
-                display: inline-block;
-                width: 100%;
-                text-align: end;
+                display: flex;
+                justify-content: end;
                 color: #666;
                 font-size: 12px;
                 padding-bottom: 10px;
             }
         }
+    }
+
+    .finish {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 240px;
+        padding: 15px 0;
+        margin: 0 auto;
+        color: #b7b7b7;
+        background-color: #fff;
+        @include container;
     }
 }
 </style>
