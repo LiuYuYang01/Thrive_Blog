@@ -22,7 +22,7 @@ getCateList()
 
 const route = useRoute()
 // 在这个数组中的路由导航栏默认高亮效果, 否则默认透明效果
-const pages = ["/stats", "/chat", "/my", "/diary"]
+const pages = ["/stats", "/chat", "/my", "/diary", "/photo"]
 const is = ref<boolean>(false)
 // 监听整个route对象的变化
 watch(() => route, r => {
@@ -61,7 +61,7 @@ const ExtendPage = {
     {
       "id": 2,
       "name": "我的相册",
-      "url": "",
+      "url": "/photo",
     },
     {
       "id": 3,
@@ -92,21 +92,23 @@ const ExtendPage = {
             </template>
 
             <!-- 黑夜 -->
+
             <template v-else>
               <img :src="logo_dark" alt="">
             </template>
           </RouterLink>
 
           <!-- 文字LOGO模式 -->
-          <RouterLink to="/" class="one_item_nav" :style="{ color: top > 100 || is ? 'var(--textColor, #333)' : '#fff' }"
-            v-else>
+          <RouterLink to="/" class="one_item_nav"
+            :style="{ color: top > 100 || is ? 'var(--textColor, #333)' : '#fff' }" v-else>
             <b>Thrive</b>
           </RouterLink>
         </li>
 
         <!-- 首页 -->
         <li class="one_item">
-          <RouterLink to="/" class="one_item_nav" :style="{ color: top > 100 || is ? 'var(--textColor, #333)' : '#fff' }">
+          <RouterLink to="/" class="one_item_nav"
+            :style="{ color: top > 100 || is ? 'var(--textColor, #333)' : '#fff' }">
             💎 首页</RouterLink>
         </li>
 
@@ -123,9 +125,10 @@ const ExtendPage = {
           <!-- 二级导航 -->
           <ul class="two">
             <li class="two_item" v-for="two in one?.children" :key="two.id">
-              <RouterLink :to="{ path: `/cate/${one.mark}/${two.mark}`, query: { name: two.name } }" class="two_item_nav">
+              <RouterLink :to="{ path: `/cate/${one.mark}/${two.mark}`, query: { name: two.name } }"
+                class="two_item_nav">
                 {{
-                  two.name }}</RouterLink>
+    two.name }}</RouterLink>
             </li>
           </ul>
         </li>
@@ -166,11 +169,13 @@ const ExtendPage = {
         <!-- 图片LOGO模式 -->
         <RouterLink to="/" class="one_item_nav" v-if="true">
           <!-- 白天 -->
+
           <template v-if="!store.isTheme">
             <img :src="top > 100 || is ? logo_light : logo_dark" alt="">
           </template>
 
           <!-- 黑夜 -->
+
           <template v-else>
             <img :src="logo_dark" alt="">
           </template>

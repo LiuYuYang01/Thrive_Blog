@@ -44,6 +44,13 @@ const router = createRouter({
                     meta: { title: "闪念" }
                 },
                 {
+                    // 相册
+                    path: "photo",
+                    name: "photo",
+                    component: () => import('@/view/Photo/index.vue'),
+                    meta: { title: "相册" }
+                },
+                {
                     // 朋友圈
                     path: "friend",
                     name: "friend",
