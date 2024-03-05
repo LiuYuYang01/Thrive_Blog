@@ -5,7 +5,7 @@ export const useConfigStore = defineStore('config', () => {
     // 暗黑还是光亮
     const isTheme = ref<boolean>(false)
     // 文章列表布局方式
-    const isArticleLayout = ref<ArticleLayout>("classics")
+    const isArticleLayout = ref<ArticleLayout>("waterfall")
     // 右侧信息栏显示哪些模块
     // const rightSidebar = ref<RightSidebar[]>(["Author", "HotArticle", "RandomArticle", "NewComments"])
     const rightSidebar = ref<RightSidebar[]>([])

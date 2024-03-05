@@ -20,21 +20,31 @@ const getArticleList = async (params: Page) => {
 
   // @ts-ignore
   const { data } = await getArticleListAPI(params)
-  article.value = data
+
+  console.log(data.page, data.pages, data.page >= data.pages, 987);
+
+  if (article.value) {
+    if (data.page > data.pages) return
+    article.value.result = article.value.result.concat(data.result)
+  } else {
+    article.value = data
+  }
 
   loading.value = false
 }
-getArticleList({ page: 1, size: 5 })
+
+isArticleLayout !== 'waterfall' ? getArticleList({ page: 1, size: 5 }) : getArticleList({ page: 1, size: 4 })
 </script>
 
 <template>
   <Swiper :data="swiperText" :src="swiperImage"></Swiper>
 
   <Frame :modules='rightSidebar'>
-    <Classics :data="article!" @get="getArticleList" v-if="isArticleLayout === 'classics'" />
-    <Card :data="article!" @get="getArticleList" v-if="isArticleLayout === 'card'" />
+    <!-- <Classics :data="article!" @get="getArticleList" v-if="isArticleLayout === 'classics'" />
+    <Card :data="article!" @get="getArticleList" v-if="isArticleLayout === 'card'" /> -->
+    <Waterfall :data="article!" @get="getArticleList" v-if="isArticleLayout === 'waterfall'" />
 
-    <Loading v-model="loading"></Loading>
+    <!-- <Loading v-model="loading"></Loading> -->
   </Frame>
 </template>
 
