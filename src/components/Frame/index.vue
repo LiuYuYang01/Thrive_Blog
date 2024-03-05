@@ -28,7 +28,7 @@ const isSidebar = ref<boolean>(modules.length ? true : false)
                 <!-- 最新评论 -->
                 <NewComments v-if="modules.includes('NewComments')" />
                 <!-- 文章目录 -->
-                <Directory />
+                <Directory v-if="path !== '/' && !isSidebar" />
             </div>
         </div>
     </div>

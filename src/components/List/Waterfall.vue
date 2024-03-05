@@ -21,7 +21,8 @@ const load = () => {
 
 <template>
     <div class="waterfall" v-if="data" v-infinite-scroll="load" :infinite-scroll-delay="1000">
-        <masonry :cols="4" :gutter="30">
+        <!-- https://github.com/paulcollett/vue-masonry-css -->
+        <masonry :cols="{ default: 4, 1260: 3, 1020: 2, 530: 1 }" :gutter="10">
             <div class="item" v-for="item, index in data.result">
                 <RouterLink :to="`/article/${item.id}`">
                     <div class="cover">
@@ -60,7 +61,9 @@ const load = () => {
 .waterfall {
     .item {
         overflow: hidden;
-        width: 230px;
+        // width: 230px;
+        width: 100%;
+        margin: 0 auto;
         margin-bottom: 10px;
         background-color: #fff;
         border-radius: 10px;

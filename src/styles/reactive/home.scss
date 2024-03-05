@@ -14,6 +14,10 @@
     .main {
         width: 800px !important;
 
+        .card .item {
+            height: 200px !important;
+        }
+
         .classics .item {
             background-color: #333;
             height: 200px !important;
@@ -30,7 +34,7 @@
         }
     }
 
-    .classics .item .info a .fun span{
+    .classics .item .info a .fun span {
         padding-left: 12px !important;
     }
 }
@@ -72,7 +76,7 @@
         }
     }
 
-    .classics .item .info a p{
+    .classics .item .info a p {
         line-height: normal !important;
     }
 }
@@ -91,7 +95,7 @@
     .classics .item {
         .info {
             padding: 20px !important;
-            
+
             a {
                 h3 {
                     padding-top: 0 !important;
@@ -125,7 +129,7 @@
     .main .classics .item {
         height: 160px !important;
 
-        .info a .fun span:nth-child(2){
+        .info a .fun span:nth-child(2) {
             display: none !important;
         }
     }

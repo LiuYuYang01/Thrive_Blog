@@ -5,10 +5,10 @@ export const useConfigStore = defineStore('config', () => {
     // 暗黑还是光亮
     const isTheme = ref<boolean>(false)
     // 文章列表布局方式
-    const isArticleLayout = ref<ArticleLayout>("waterfall")
+    const isArticleLayout = ref<ArticleLayout>("card")
     // 右侧信息栏显示哪些模块
-    // const rightSidebar = ref<RightSidebar[]>(["Author", "HotArticle", "RandomArticle", "NewComments"])
-    const rightSidebar = ref<RightSidebar[]>([])
+    const rightSidebar = ref<RightSidebar[]>(["Author", "HotArticle", "RandomArticle", "NewComments"])
+    // const rightSidebar = ref<RightSidebar[]>([])
     // 首页轮播图
     const swiperImage = ref<string>("https://liuyuyang.net/img/20ac414805e3491098df678d3d9f100f_KJCPUs.jpg")
     // 首页轮播图打字机文本

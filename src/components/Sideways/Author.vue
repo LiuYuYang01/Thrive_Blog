@@ -77,7 +77,7 @@ const getIcon = (src: string) => {
     background-size: 100% 35%;
     background-color: #fff;
     width: 100%;
-    height: 325px;
+    height: 350px;
     margin-bottom: 20px;
     @include container;
 
@@ -115,6 +115,9 @@ const getIcon = (src: string) => {
         }
 
         p {
+            width: 90%;
+            margin: 0 auto;
+            color: #686868;
             transition: color $move;
         }
     }
