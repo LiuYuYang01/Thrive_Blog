@@ -25,7 +25,7 @@ onMounted(() => getContent())
 </script>
 
 <template>
-    <div class="directory" style="display: none;">
+    <div class="directory">
         <div class="title">
             <img src="@/assets/svg/other/directory.svg" alt="">
 

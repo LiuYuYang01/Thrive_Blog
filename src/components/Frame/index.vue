@@ -10,9 +10,8 @@ const isSidebar = ref<boolean>(modules.length ? true : false)
 </script>
 
 <template>
-    {{ isSidebar }}
     <div class="main" style="width: 1200px">
-        <div class="left" :style="{ width: path === '/' ? '73%' : '100%' }">
+        <div class="left" :style="{ width: path !== '/' && !isSidebar || path === '/' && isSidebar ? '73%' : '80%' }">
             <!-- 文章列表经典风格 -->
             <slot />
         </div>
