@@ -20,7 +20,6 @@
     "compass": "^0.1.1",
     "echarts": "^5.4.2",
     "element-plus": "^2.3.5",
-    "gsap": "^3.12.5",
     "highlight.js": "^11.8.0",
     "moment": "^2.29.4",
     "nprogress": "^0.2.0",
@@ -34,6 +33,7 @@
     "vee-validate": "^4.9.4",
     "vue": "^3.2.45",
     "vue-activity-calendar": "^1.2.2",
+    "vue-next-masonry": "^1.1.3",
     "vue-router": "^4.1.6",
     "yup": "^1.1.1"
   },

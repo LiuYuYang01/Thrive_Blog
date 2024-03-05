@@ -47,8 +47,10 @@ declare module '@vue/runtime-core' {
     ToolBar: typeof import('./src/components/ToolBar/index.vue')['default']
     Typewriter: typeof import('./src/components/Typewriter/index.vue')['default']
     UpAndDown: typeof import('./src/components/Article/components/UpAndDown.vue')['default']
+    Waterfall: typeof import('./src/components/List/Waterfall.vue')['default']
   }
   export interface ComponentCustomProperties {
+    vInfiniteScroll: typeof import('element-plus/es')['ElInfiniteScroll']
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }
