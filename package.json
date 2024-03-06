@@ -43,6 +43,7 @@
     "@typescript-eslint/parser": "^6.18.0",
     "@vitejs/plugin-vue": "^4.0.0",
     "eslint-plugin-vue": "^9.19.2",
+    "rollup-plugin-visualizer": "^5.12.0",
     "typescript": "^4.9.3",
     "unplugin-auto-import": "^0.16.2",
     "unplugin-vue-components": "^0.22.12",

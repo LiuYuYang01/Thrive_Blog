@@ -5,6 +5,8 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
+import { visualizer } from "rollup-plugin-visualizer";
+
 // 配置@路径别名
 import { resolve } from "path";
 
@@ -44,6 +46,13 @@ export default defineConfig({
       // 配置自动导入组件的文件生成的位置
       dts: "components.d.ts",
     }),
+    visualizer({
+      gzipSize: true,
+      brotliSize: true,
+      emitFile: false,
+      filename: "test.html", //分析图生成的文件名
+      open: true //如果存在本地服务端口，将在打包后自动展示
+    })
   ],
   // ↓解析配置
   resolve: {
