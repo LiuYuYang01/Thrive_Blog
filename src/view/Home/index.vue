@@ -21,8 +21,6 @@ const getArticleList = async (params: Page) => {
   // @ts-ignore
   const { data } = await getArticleListAPI(params)
 
-  console.log(data.page, data.pages, data.page >= data.pages, 987);
-
   if (article.value) {
     if (data.page > data.pages) return
     article.value.result = article.value.result.concat(data.result)

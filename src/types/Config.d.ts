@@ -1,2 +1,2 @@
 type ArticleLayout = "classics" | "card" | "waterfall"
-type RightSidebar = "Author" | "HotArticle" | "RandomArticle" | "NewComments"
+type RightSidebar = "author" | "hotArticle" | "randomArticle" | "newComments"

@@ -26,7 +26,7 @@ const Store = defineStore<"Author", State, Getter, Actions>("Author", {
         // 获取作者信息
         async getAuthor() {
             const { data } = await getAuthorAPI(1)
-
+            
             this.authorInfo = data
         }
     },

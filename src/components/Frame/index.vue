@@ -20,13 +20,13 @@ const isSidebar = ref<boolean>(modules.length ? true : false)
         <div class="right" v-if="path !== '/' && !isSidebar || path === '/' && isSidebar">
             <div class="sticky">
                 <!-- 作者信息 -->
-                <Author v-if="modules.includes('Author')" />
+                <Author v-if="modules.includes('author')" />
                 <!-- 推荐文章 -->
-                <HotArticle v-if="modules.includes('HotArticle')" />
+                <HotArticle v-if="modules.includes('hotArticle')" />
                 <!-- 随机文章 -->
-                <!-- <RandomArticle v-if="modules.includes('RandomArticle')" /> -->
+                <RandomArticle v-if="modules.includes('randomArticle')" />
                 <!-- 最新评论 -->
-                <NewComments v-if="modules.includes('NewComments')" />
+                <NewComments v-if="modules.includes('newComments')" />
                 <!-- 文章目录 -->
                 <Directory v-if="path !== '/' && !isSidebar" />
             </div>
