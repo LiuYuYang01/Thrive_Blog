@@ -70,14 +70,14 @@ const router = createRouter({
                     name: "my",
                     component: () => import('@/view/My/index.vue'),
                     meta: { title: "个人主页" }
+                },
+                {
+                    // 在线聊天室
+                    path: "/chat",
+                    name: "chat",
+                    component: () => import('@/view/Chat/index.vue')
                 }
             ]
-        },
-        {
-            // 在线聊天室
-            path: "/chat",
-            name: "chat",
-            component: () => import('@/view/Chat/index.vue')
         }
     ],
 })
