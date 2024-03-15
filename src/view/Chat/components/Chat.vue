@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import io from 'socket.io-client';
+import { FormInstance } from 'element-plus';
 
 // 登记框
-const model = ref<boolean>(true)
+const model = ref<boolean>(false)
+
+const form = ref<FormInstance>()
 
 // 用户信息
 const userInfo = reactive({
   name: "",
-  avatar: "Smokey"
+  avatar: "Ginger"
 })
 
 // 头像列表
@@ -23,6 +26,22 @@ const rules = reactive({
   ]
 })
 
+const submit = async () => {
+  if (!form.value) return
+  await form.value.validate((valid, fields) => {
+    if (valid) {
+      model.value = false
+
+      ElMessage({
+        message: '🎉 选择成功~',
+        type: 'success',
+      })
+    } else {
+      console.log('error submit!', fields)
+    }
+  })
+}
+
 const socket = io('http://localhost:5000'); // 替换为你的 Flask-SocketIO 服务器地址
 
 socket.on('connect', () => {
@@ -35,7 +54,6 @@ socket.on('message', (message) => {
 
 socket.emit('message', 'Hello from client');
 
-// const aaa = 
 const content = ref<string>("")
 
 const list = ref(
@@ -49,13 +67,32 @@ const list = ref(
   ]
 )
 
-const send = () => {
+// 发送消息
+const sendMsg = () => {
+  // 没有选择身份，不允许发送消息
+  if (!(userInfo.name && userInfo.avatar)) {
+    model.value = true
+
+    return
+  }
+
+  // 不允许发送空消息
+  if (!(content.value.trim() && content.value.length)) {
+    return ElMessage({
+      message: '请输入内容~',
+      type: 'error',
+    })
+  }
+
+  // 发送消息
   list.value.push({
     avatar: avatarFilter("Smokey"),
     name: "刘宇阳",
     content: content.value,
     date: "2023-05-25"
   })
+
+  content.value = ""
 }
 
 // 聊天页不让他显示星空颗粒背景
@@ -81,13 +118,13 @@ onMounted(() => {
     <div class="reply">
       <textarea placeholder="你想说些什么？" v-model="content"></textarea>
 
-      <div class="send" @click="send">
+      <div class="send" @click="sendMsg">
         <el-button type="primary" plain>发送 Ctrl + Enter</el-button>
       </div>
     </div>
 
-    <el-dialog v-model="model" title="信息登记" width="500">
-      <el-form :model="userInfo" :rules="rules">
+    <el-dialog v-model="model" title="选择一个身份" width="500">
+      <el-form ref="form" :model="userInfo" :rules="rules">
         <el-form-item label="名称" prop="name">
           <el-input v-model="userInfo.name" autocomplete="off" style="width: 300px;" />
         </el-form-item>
@@ -98,8 +135,10 @@ onMounted(() => {
               <img :src="avatarFilter(item)" alt="">
             </el-radio>
           </el-radio-group>
+        </el-form-item>
 
-          <!-- <img :src="avatarFilter(item)" alt="" v-for="(item, index) in avatars" :key="index"> -->
+        <el-form-item>
+          <el-button type="primary" size="large" style="width: 100%;" @click="submit">选择</el-button>
         </el-form-item>
       </el-form>
     </el-dialog>
@@ -185,6 +224,14 @@ onMounted(() => {
         height: 50px;
         border-radius: 15px;
       }
+    }
+  }
+}
+
+.el-form {
+  .el-form-item {
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }
