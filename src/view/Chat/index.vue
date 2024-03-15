@@ -4,21 +4,21 @@ import Chat from './components/Chat.vue'
 </script>
 
 <template>
-  <div class="ChatBox">
+  <div class="chatbox">
     <List />
     <Chat />
   </div>
 </template>
 
 <style scoped lang="scss">
-.ChatBox {
+.chatbox {
   overflow: hidden;
   display: flex;
   justify-content: space-between;
   width: 60%;
   height: 700px;
   margin: 100px auto;
-  border-radius: 5px;
+  border-radius: 40px;
   border: 1px solid #eee;
   background-color: #fff;
   transition: all $move;

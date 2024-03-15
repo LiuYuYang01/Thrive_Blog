@@ -5,12 +5,12 @@
 <template>
   <div class="Left">
     <!-- 用户信息 -->
-    <div class="userInfo">
+    <div class="user">
       <img src="http://q.qlogo.cn/headimg_dl?dst_uin=3311118881&spec=640&img_type=jpg" alt="" />
 
-      <div>
-        <p style="font-size: 15px;">方法总比困难多</p>
-        <p style="font-size: 12px;color: #666;padding-top: 5px;">ID: 3311118881</p>
+      <div class="info">
+        <p class="name">方法总比困难多</p>
+        <p class="id">ID: 3311118881</p>
       </div>
     </div>
 
@@ -18,12 +18,17 @@
     <div class="list">
       <div class="item">
         <img src="http://image.liuyuyang.net/emote/Sticker/3d%E7%9C%BC%E9%95%9C.png" alt="" />
-        <a href="javascript:;">联系站长</a>
+        <a href="javascript:;">滴滴作者</a>
       </div>
 
       <div class="item">
         <img src="http://image.liuyuyang.net/emote/Sticker/%E5%AE%B3%E7%BE%9E.png" alt="" />
         <a href="javascript:;">Blog交流群</a>
+      </div>
+
+      <div class="item">
+        <img src="http://image.liuyuyang.net/emote/Sticker/%E5%8A%A0%E7%8F%AD.png" alt="" />
+        <a href="javascript:;">需求墙</a>
       </div>
 
       <div class="item">
@@ -38,25 +43,47 @@
 .Left {
   width: 260px;
   border-right: 1px solid #eee;
+  background-color: #2b333e;
 
   // 用户信息
-  .userInfo {
+  .user {
     display: flex;
     align-items: center;
     height: 80px;
     padding: 20px;
-    border-bottom: 1px solid #eee;
-    transition: color $move;
+    color: #fff;
+    border-bottom: 1px solid #454e5a;
     cursor: pointer;
 
-    &:hover {
-      color: $color;
+    .info {
+      padding-left: 20px;
+
+      .name {
+        color: #fff;
+        font-size: 15px;
+        transition: color $move;
+
+        &:hover {
+          color: $color;
+        }
+      }
+
+      .id {
+        font-size: 12px;
+        color: #b0b0b0;
+        padding-top: 5px;
+        transition: color $move;
+
+        &:hover {
+          color: #fff;
+        }
+      }
     }
 
     img {
       width: 50px;
       height: 50px;
-      padding-right: 20px;
+      border-radius: 15px;
     }
   }
 
@@ -66,16 +93,17 @@
       display: flex;
       align-items: center;
       height: 70px;
-      border-bottom: 1px solid #fbfbfb;
+      border-bottom: 1px solid #313c4d;
       transition: background-color $move;
       cursor: pointer;
 
       a {
+        color: #acacac;
         transition: color $move;
       }
 
       &:hover {
-        background-color: #fafcff;
+        background-color: #242c3a;
 
         a {
           color: $color;
