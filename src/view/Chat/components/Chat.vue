@@ -1,6 +1,19 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+import io from 'socket.io-client';
+const socket = io('http://localhost:5000'); // 替换为你的 Flask-SocketIO 服务器地址
+
+socket.on('connect', () => {
+  console.log('connected to server');
+});
+
+socket.on('message', (message) => {
+  console.log('received message:', message);
+});
+
+socket.emit('message', 'Hello from client');
+
 const content = ref<string>("")
 
 const chatList = ref(
@@ -20,6 +33,12 @@ const send = () => {
     date: "2023-05-25"
   })
 }
+
+// 聊天页不显示星空颗粒背景
+onMounted(() => {
+  const StarrySky: HTMLStyleElement = document.querySelector(".StarrySky")!
+  useRoute().path === "/chat" ? StarrySky.style.display = "none" : StarrySky.style.display = "block"
+})
 </script>
 
 <template>
@@ -35,7 +54,9 @@ const send = () => {
     <div class="chatSend">
       <textarea placeholder="你想说些什么？" v-model="content"></textarea>
 
-      <div class="send" @click="send"><n-button type="info" style="width: 100%;">发送</n-button></div>
+      <div class="send" @click="send">
+        <el-button type="primary" plain>发送 Ctrl + Enter</el-button>
+      </div>
     </div>
   </div>
 </template>
@@ -81,7 +102,7 @@ const send = () => {
     .send {
       position: absolute;
       bottom: 20px;
-      right: 20px;
+      right: 60px;
       width: 100px;
     }
   }
