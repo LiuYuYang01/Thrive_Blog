@@ -1,60 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+// 登记用户信息核心逻辑
+import { store, submit, model, avatarFilter, chatUserInfo, avatars, close, rules } from '../hooks/Register'
 import io from 'socket.io-client';
-import { FormInstance } from 'element-plus';
-import { useChatStore } from '@/stores';
-
-const store = useChatStore()
-
-// 登记框
-const model = ref<boolean>(false)
-
-const form = ref<FormInstance>()
-
-// 用户信息
-const chatUserInfo = reactive<ChatUserInfo>({
-  name: "",
-  avatar: "Ginger"
-})
-
-// 头像列表
-const avatars = ["Ginger", "Patches", "Sadie", "Casper", "Molly", "Smokey", "Lilly"]
-const avatarFilter = (v: string) => `https://api.dicebear.com/7.x/fun-emoji/svg?seed=${v}`
-
-// 名称校验规则
-const rules = reactive({
-  name: [
-    { required: true, message: '名称不能为空', trigger: 'blur' },
-    { min: 1, max: 10, message: '名称长度限制为 1 ~ 10个字符', trigger: 'blur' },
-  ]
-})
-
-// 关闭弹框触发
-const close = () => {
-  // form.value?.resetFields()
-
-  // chatUserInfo.name = ""
-  // chatUserInfo.avatar = "Ginger"
-}
-
-// 提交表单触发
-const submit = async () => {
-  if (!form.value) return
-  await form.value.validate((valid, fields) => {
-    if (valid) {
-      store.updateChatUserInfo(chatUserInfo)
-
-      model.value = false
-
-      ElMessage({
-        message: '🎉 选择成功~',
-        type: 'success',
-      })
-    } else {
-      console.log('error submit!', fields)
-    }
-  })
-}
 
 const socket = io('http://localhost:5000'); // 替换为你的 Flask-SocketIO 服务器地址
 
@@ -253,7 +201,7 @@ onMounted(() => {
       box-sizing: border-box;
       font-size: 26px;
       font-weight: 900;
-      font-family: "黑体";
+      font-family: "LXGWWenKai";
       transition: all $move;
       outline: none;
       resize: none;
