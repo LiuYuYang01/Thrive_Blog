@@ -11,3 +11,4 @@ pinia.use(piniaPluginPersistedState)
 export default pinia
 
 export * from './Config'
+export * from './Chat'

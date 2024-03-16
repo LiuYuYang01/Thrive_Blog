@@ -110,8 +110,13 @@ onMounted(() => {
     <!-- 聊天框 -->
     <div class="list">
       <div v-for="item in list" class="msg">
-        <img :src="item.avatar" class="avatar">
-        <p class="content">{{ item.content }}</p>
+        <p class="name">{{ item.name }}</p>
+
+        <div class="info">
+          <img :src="item.avatar" class="avatar">
+
+          <p class="content">{{ item.content }}</p>
+        </div>
       </div>
     </div>
 
@@ -166,9 +171,18 @@ onMounted(() => {
     padding: 20px;
 
     .msg {
-      display: flex;
-      align-items: center;
       margin-bottom: 10px;
+
+      .name {
+        font-size: 14px;
+        margin-bottom: 5px;
+        color: #606060;
+      }
+
+      .info {
+        display: flex;
+        align-items: center;
+      }
     }
 
     .avatar {
