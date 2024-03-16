@@ -109,12 +109,8 @@ const sendMsg = () => {
 }
 
 // 监听Ctrl+Enter组合事件
-const handleKeyDown = (e) => {
-  if (e.ctrlKey && e.key === "Enter") {
-    // 如果按下的是Ctrl+Enter组合键
-    // 这里可以执行你想要的操作
-    console.log("Ctrl+Enter pressed");
-  }
+const handleKeyDown = (e: KeyboardEvent) => {
+  if (e.ctrlKey && e.key === "Enter") sendMsg()
 }
 
 // 聊天页不让他显示星空颗粒背景
