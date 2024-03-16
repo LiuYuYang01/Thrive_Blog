@@ -2,6 +2,9 @@
 import { ref } from 'vue';
 import io from 'socket.io-client';
 import { FormInstance } from 'element-plus';
+import { useChatStore } from '@/stores';
+
+const store = useChatStore()
 
 // 登记框
 const model = ref<boolean>(false)
@@ -9,7 +12,7 @@ const model = ref<boolean>(false)
 const form = ref<FormInstance>()
 
 // 用户信息
-const userInfo = reactive({
+const chatUserInfo = reactive<ChatUserInfo>({
   name: "",
   avatar: "Ginger"
 })
@@ -26,10 +29,21 @@ const rules = reactive({
   ]
 })
 
+// 关闭弹框触发
+const close = () => {
+  // form.value?.resetFields()
+
+  // chatUserInfo.name = ""
+  // chatUserInfo.avatar = "Ginger"
+}
+
+// 提交表单触发
 const submit = async () => {
   if (!form.value) return
   await form.value.validate((valid, fields) => {
     if (valid) {
+      store.updateChatUserInfo(chatUserInfo)
+
       model.value = false
 
       ElMessage({
@@ -70,9 +84,8 @@ const list = ref(
 // 发送消息
 const sendMsg = () => {
   // 没有选择身份，不允许发送消息
-  if (!(userInfo.name && userInfo.avatar)) {
+  if (store.isNull()) {
     model.value = true
-
     return
   }
 
@@ -86,13 +99,22 @@ const sendMsg = () => {
 
   // 发送消息
   list.value.push({
-    avatar: avatarFilter("Smokey"),
-    name: "刘宇阳",
+    avatar: avatarFilter(store.chatUserInfo?.avatar as string),
+    name: store.chatUserInfo?.name as string,
     content: content.value,
     date: "2023-05-25"
   })
 
   content.value = ""
+}
+
+// 监听Ctrl+Enter组合事件
+const handleKeyDown = (e) => {
+  if (e.ctrlKey && e.key === "Enter") {
+    // 如果按下的是Ctrl+Enter组合键
+    // 这里可以执行你想要的操作
+    console.log("Ctrl+Enter pressed");
+  }
 }
 
 // 聊天页不让他显示星空颗粒背景
@@ -109,33 +131,35 @@ onMounted(() => {
 
     <!-- 聊天框 -->
     <div class="list">
-      <div v-for="item in list" class="msg">
-        <p class="name">{{ item.name }}</p>
+      <div v-for="(item, index) in list" :key="index" class="msg">
+        <div :class="item.name === store.chatUserInfo?.name ? 'self' : ''">
+          <p class="name">{{ item.name }}</p>
 
-        <div class="info">
-          <img :src="item.avatar" class="avatar">
+          <div class="info">
+            <img :src="item.avatar" class="avatar">
 
-          <p class="content">{{ item.content }}</p>
+            <p class="content">{{ item.content }}</p>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="reply">
-      <textarea placeholder="你想说些什么？" v-model="content"></textarea>
+      <textarea placeholder="你想说些什么？" v-model="content" @keydown="handleKeyDown"></textarea>
 
       <div class="send" @click="sendMsg">
         <el-button type="primary" plain>发送 Ctrl + Enter</el-button>
       </div>
     </div>
 
-    <el-dialog v-model="model" title="选择一个身份" width="500">
-      <el-form ref="form" :model="userInfo" :rules="rules">
+    <el-dialog v-model="model" title="选择一个身份" width="500" @close="close">
+      <el-form ref="form" :model="chatUserInfo" :rules="rules">
         <el-form-item label="名称" prop="name">
-          <el-input v-model="userInfo.name" autocomplete="off" style="width: 300px;" />
+          <el-input v-model="chatUserInfo.name" autocomplete="off" style="width: 300px;" />
         </el-form-item>
 
         <el-form-item label="头像">
-          <el-radio-group v-model="userInfo.avatar" class="ml-4">
+          <el-radio-group v-model="chatUserInfo.avatar" class="ml-4">
             <el-radio :label="item" size="large" v-for="(item, index) in avatars" :key="index">
               <img :src="avatarFilter(item)" alt="">
             </el-radio>
@@ -183,6 +207,23 @@ onMounted(() => {
         display: flex;
         align-items: center;
       }
+
+      .self {
+        .name {
+          text-align: end;
+        }
+
+        .info {
+          flex-direction: row-reverse;
+
+          .content {
+            margin-left: 0;
+            margin-right: 10px;
+            color: #fff;
+            background-color: #539dfd;
+          }
+        }
+      }
     }
 
     .avatar {
@@ -214,6 +255,9 @@ onMounted(() => {
       padding: 20px;
       border-radius: 5px;
       box-sizing: border-box;
+      font-size: 26px;
+      font-weight: 900;
+      font-family: "黑体";
       transition: all $move;
       outline: none;
       resize: none;
