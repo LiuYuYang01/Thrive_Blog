@@ -1,15 +1,19 @@
 <script setup lang="ts">
+import { useChatStore } from '@/stores';
 
+const store = useChatStore()
+
+const avatarFilter = (v: string) => `https://api.dicebear.com/7.x/fun-emoji/svg?seed=${v}`
 </script>
 
 <template>
   <div class="Left">
     <!-- 用户信息 -->
     <div class="user">
-      <img src="http://q.qlogo.cn/headimg_dl?dst_uin=3311118881&spec=640&img_type=jpg" alt="" />
+      <img :src="avatarFilter(store.chatUserInfo?.avatar as string)" alt="" />
 
       <div class="info">
-        <p class="name">方法总比困难多</p>
+        <p class="name">{{ store.chatUserInfo?.name || '神秘人'}}</p>
         <p class="id">ID: 3311118881</p>
       </div>
     </div>
