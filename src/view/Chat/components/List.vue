@@ -3,41 +3,58 @@ import { useChatStore } from '@/stores';
 
 const store = useChatStore()
 
+const room = ref<number>(10001)
+
+// 监听房间号变化
+watch(room, (v) => {
+  store.updateRoom(v)
+}, { immediate: true })
+
 const avatarFilter = (v: string) => `https://api.dicebear.com/7.x/fun-emoji/svg?seed=${v}`
+
+const list = ref([
+  {
+    id: 10001,
+    title: "滴滴作者",
+    image: "http://image.liuyuyang.net/emote/Sticker/3d%E7%9C%BC%E9%95%9C.png"
+  },
+  {
+    id: 10002,
+    title: "Blog交流群",
+    image: "http://image.liuyuyang.net/emote/Sticker/%E5%AE%B3%E7%BE%9E.png"
+  },
+  {
+    id: 10003,
+    title: "需求墙",
+    image: "http://image.liuyuyang.net/emote/Sticker/%E5%8A%A0%E7%8F%AD.png"
+  },
+  {
+    id: 10004,
+    title: "Bug反馈群",
+    image: "http://image.liuyuyang.net/emote/Sticker/%E5%8A%A0%E7%8F%AD.png"
+  }
+])
 </script>
 
 <template>
+  {{ store.room }}
   <div class="Left">
     <!-- 用户信息 -->
     <div class="user">
       <img :src="avatarFilter(store.chatUserInfo?.avatar as string)" alt="" />
 
       <div class="info">
-        <p class="name">{{ store.chatUserInfo?.name || '神秘人'}}</p>
+        <p class="name">{{ store.chatUserInfo?.name || '神秘人' }}</p>
         <p class="id">ID: 3311118881</p>
       </div>
     </div>
 
     <!-- 聊天室列表 -->
     <div class="list">
-      <div class="item">
-        <img src="http://image.liuyuyang.net/emote/Sticker/3d%E7%9C%BC%E9%95%9C.png" alt="" />
-        <a href="javascript:;">滴滴作者</a>
-      </div>
-
-      <div class="item">
-        <img src="http://image.liuyuyang.net/emote/Sticker/%E5%AE%B3%E7%BE%9E.png" alt="" />
-        <a href="javascript:;">Blog交流群</a>
-      </div>
-
-      <div class="item">
-        <img src="http://image.liuyuyang.net/emote/Sticker/%E5%8A%A0%E7%8F%AD.png" alt="" />
-        <a href="javascript:;">需求墙</a>
-      </div>
-
-      <div class="item">
-        <img src="http://image.liuyuyang.net/emote/Sticker/%E5%8A%A0%E7%8F%AD.png" alt="" />
-        <a href="javascript:;">Bug反馈群</a>
+      <div :class="['item', room === item.id ? 'active' : '']" v-for="(item, index) in list" :key="item.id"
+        @click="room = item.id">
+        <img :src="item.image" alt="" />
+        <a href="javascript:;">{{ item.title }}</a>
       </div>
     </div>
   </div>
@@ -93,6 +110,14 @@ const avatarFilter = (v: string) => `https://api.dicebear.com/7.x/fun-emoji/svg?
 
   // 聊天室列表
   .list {
+    .active {
+      background-color: #242c3a;
+
+      a {
+        color: $color !important;
+      }
+    }
+
     .item {
       display: flex;
       align-items: center;

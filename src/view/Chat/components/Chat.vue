@@ -66,11 +66,13 @@ const submit = async () => {
 
 const socket = io('http://localhost:5000'); // 替换为你的 Flask-SocketIO 服务器地址
 
+// socket.emit('msg', {}, store.room);
+
 socket.on('msg', (v) => {
   console.log(v, 111);
 
   // 发送消息
-  list.value.push(v)
+  roomChatList[store.room as number].value.push(v)
 
   // 发送成功后清空输入框
   content.value = ""
@@ -82,48 +84,25 @@ socket.on('msg', (v) => {
 
 // socket.emit('message', 'Hello from client');
 
+// 监听房间号变化
+watch(() => store.room, (room) => {
+  // store.updateRoom(v)
+  console.log(room, 555);
+})
+
 const content = ref<string>("")
 
-const list = ref(
-  [
+// 房间聊天内容
+const roomChatList = reactive<{ [room: number]: any }>({
+  10001: [
     {
       avatar: avatarFilter("Sammy"),
-      name: "尤雨溪",
-      content: "Hello",
-      date: "2023-05-25"
-    },
-    {
-      avatar: avatarFilter("Sammy"),
-      name: "尤雨溪",
-      content: "Hello",
-      date: "2023-05-25"
-    },
-    {
-      avatar: avatarFilter("Sammy"),
-      name: "尤雨溪",
-      content: "Hello",
-      date: "2023-05-25"
-    },
-    {
-      avatar: avatarFilter("Sammy"),
-      name: "尤雨溪",
-      content: "Hello",
-      date: "2023-05-25"
-    },
-    {
-      avatar: avatarFilter("Sammy"),
-      name: "尤雨溪",
-      content: "Hello",
-      date: "2023-05-25"
-    },
-    {
-      avatar: avatarFilter("Sammy"),
-      name: "尤雨溪",
-      content: "Hello",
+      name: "宇阳",
+      content: "Hello! 有什么要对我说的吗?",
       date: "2023-05-25"
     }
   ]
-)
+})
 
 // 发送消息
 const sendMsg = () => {
@@ -140,6 +119,8 @@ const sendMsg = () => {
       type: 'error',
     })
   }
+
+  console.log(store.room, 7899);
 
   socket.emit('msg', {
     avatar: avatarFilter(store.chatUserInfo?.avatar as string),
@@ -164,11 +145,11 @@ onMounted(() => {
 <template>
   <div class="Chat">
     <!-- 对话用户信息 -->
-    <div class="header">作者</div>
+    <div class="header">宇阳</div>
 
     <!-- 聊天框 -->
     <div class="list">
-      <div v-for="(item, index) in list" :key="index" class="msg">
+      <div v-for="(item, index) in roomChatList[store.room as number]" :key="index" class="msg">
         <div :class="item.name === store.chatUserInfo?.name ? 'self' : ''">
           <p class="name">{{ item.name }}</p>
 
@@ -182,7 +163,7 @@ onMounted(() => {
     </div>
 
     <div class="reply">
-      <textarea placeholder="你想说些什么？" v-model="content" @keydown="handleKeyDown"></textarea>
+      <textarea v-model="content" @keydown="handleKeyDown"></textarea>
 
       <div class="send" @click="sendMsg">
         <el-button type="primary" plain>发送 Ctrl + Enter</el-button>
@@ -239,6 +220,7 @@ onMounted(() => {
       .name {
         font-size: 14px;
         margin-bottom: 5px;
+        margin-left: 5px;
         color: #606060;
       }
 
@@ -250,6 +232,8 @@ onMounted(() => {
       .self {
         .name {
           text-align: end;
+          margin-left: 0;
+          margin-right: 5px;
         }
 
         .info {
