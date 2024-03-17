@@ -37,7 +37,6 @@ const list = ref([
 </script>
 
 <template>
-  {{ store.room }}
   <div class="Left">
     <!-- 用户信息 -->
     <div class="user">

@@ -3,6 +3,13 @@ import { ref } from 'vue';
 import io from 'socket.io-client';
 import { useChatStore } from '@/stores';
 import { FormInstance } from 'element-plus';
+import { getChatDataAPI } from '@/api/Chat';
+
+// 聊天页不显示星空颗粒背景
+onMounted(() => {
+  const StarrySky: HTMLStyleElement = document.querySelector(".StarrySky")!
+  useRoute().path === "/chat" ? StarrySky.style.display = "none" : StarrySky.style.display = "block"
+})
 
 const store = useChatStore()
 
@@ -39,13 +46,9 @@ const close = () => {
 
 // 提交表单触发
 const submit = async () => {
-  console.log(form.value, 444);
-
   if (!form.value) return
   await form.value.validate((valid, fields) => {
     if (valid) {
-      console.log(chatUserInfo, 666);
-
       store.updateChatUserInfo(chatUserInfo)
 
       model.value = false
@@ -64,35 +67,10 @@ const submit = async () => {
 
 
 
-const socket = io('http://localhost:5000'); // 替换为你的 Flask-SocketIO 服务器地址
-
-// socket.emit('msg', {}, store.room);
-
-socket.on('msg', (v) => {
-  console.log(v, 111);
-
-  // 发送消息
-  roomChatList[store.room as number].value.push(v)
-
-  // 发送成功后清空输入框
-  content.value = ""
-});
-
-// socket.on('message', (message) => {
-//   console.log('received message:', message);
-// });
-
-// socket.emit('message', 'Hello from client');
-
-// 监听房间号变化
-watch(() => store.room, (room) => {
-  // store.updateRoom(v)
-  console.log(room, 555);
-})
-
+// 输入的内容
 const content = ref<string>("")
 
-// 房间聊天内容
+// 记录房间聊天内容
 const roomChatList = reactive<{ [room: number]: any }>({
   10001: [
     {
@@ -103,6 +81,43 @@ const roomChatList = reactive<{ [room: number]: any }>({
     }
   ]
 })
+
+// 从数据库读取聊天记录
+const getChatList = async (room: number) => {
+  const { data } = await getChatDataAPI(room, { page: 1, size: 5 })
+
+  data.result.forEach(item => {
+    if (roomChatList[store.room as number]) {
+      roomChatList[store.room as number].push(item.data)
+    } else {
+      roomChatList[store.room as number] = []
+      roomChatList[store.room as number].push(item.data)
+    }
+  })
+}
+
+// 即时通讯核心代码
+const socket = io('http://localhost:5000'); // 替换为你的 Flask-SocketIO 服务器地址
+
+// 选择 | 加入房间
+watch(() => store.room, (room) => {
+  socket.emit('joinRoom', room)
+
+  getChatList(store.room as number)
+}, { immediate: true })
+
+// 接收该房间的消息
+socket.on('roomMsg', (data) => {
+  if (roomChatList[store.room as number]) {
+    roomChatList[store.room as number].push(data)
+  } else {
+    roomChatList[store.room as number] = []
+    roomChatList[store.room as number].push(data)
+  }
+
+  // 发送成功后清空输入框
+  content.value = ""
+});
 
 // 发送消息
 const sendMsg = () => {
@@ -120,9 +135,11 @@ const sendMsg = () => {
     })
   }
 
-  console.log(store.room, 7899);
+  // 加入房间
+  socket.emit('joinRoom', store.room)
 
-  socket.emit('msg', {
+  // 在这个房间中发送消息
+  socket.emit('roomMsg', {
     avatar: avatarFilter(store.chatUserInfo?.avatar as string),
     name: store.chatUserInfo?.name as string,
     content: content.value,
@@ -134,12 +151,6 @@ const sendMsg = () => {
 const handleKeyDown = (e: KeyboardEvent) => {
   if (e.ctrlKey && e.key === "Enter") sendMsg()
 }
-
-// 聊天页不让他显示星空颗粒背景
-onMounted(() => {
-  const StarrySky: HTMLStyleElement = document.querySelector(".StarrySky")!
-  useRoute().path === "/chat" ? StarrySky.style.display = "none" : StarrySky.style.display = "block"
-})
 </script>
 
 <template>
