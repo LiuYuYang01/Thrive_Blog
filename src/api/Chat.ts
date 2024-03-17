@@ -11,6 +11,6 @@ export function getChatDataAPI(room: number, params?: Page): http<Paginate<Chat[
 // 获取全部聊天记录
 export function getChatListAPI(room: number): http<Chat[]> {
     return Request.instance.request({
-        url: `/api/list/chat/${room}`
+        url: `/api/chat/${room}`
     })
 }

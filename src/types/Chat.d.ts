@@ -1,7 +1,7 @@
 interface Chat {
     id: number,
     room: number,
-    data: ChatUserInfo[]
+    data: ChatInfo
 }
 
 interface ChatInfo {

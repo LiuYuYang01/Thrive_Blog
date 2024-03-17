@@ -71,29 +71,32 @@ const submit = async () => {
 const content = ref<string>("")
 
 // 记录房间聊天内容
-const roomChatList = reactive<{ [room: number]: any }>({
+const roomChatList = reactive<{ [room: number]: ChatInfo[] }>({
   10001: [
     {
       avatar: avatarFilter("Sammy"),
       name: "宇阳",
       content: "Hello! 有什么要对我说的吗?",
-      date: "2023-05-25"
+      date: new Date()
     }
   ]
 })
+
+// 新增聊天记录时做一些处理
+const addChat = (data: ChatInfo) => {
+  if (roomChatList[store.room as number]) {
+    roomChatList[store.room as number].push(data)
+  } else {
+    roomChatList[store.room as number] = []
+    roomChatList[store.room as number].push(data)
+  }
+}
 
 // 从数据库读取聊天记录
 const getChatList = async (room: number) => {
   const { data } = await getChatDataAPI(room, { page: 1, size: 5 })
 
-  data.result.forEach(item => {
-    if (roomChatList[store.room as number]) {
-      roomChatList[store.room as number].push(item.data)
-    } else {
-      roomChatList[store.room as number] = []
-      roomChatList[store.room as number].push(item.data)
-    }
-  })
+  data.result.forEach(item => addChat(item.data))
 }
 
 // 即时通讯核心代码
@@ -107,13 +110,15 @@ watch(() => store.room, (room) => {
 }, { immediate: true })
 
 // 接收该房间的消息
-socket.on('roomMsg', (data) => {
-  if (roomChatList[store.room as number]) {
-    roomChatList[store.room as number].push(data)
-  } else {
-    roomChatList[store.room as number] = []
-    roomChatList[store.room as number].push(data)
-  }
+socket.on('roomMsg', (data: ChatInfo) => {
+  addChat(data)
+
+  // if (roomChatList[store.room as number]) {
+  //   roomChatList[store.room as number].push(data)
+  // } else {
+  //   roomChatList[store.room as number] = []
+  //   roomChatList[store.room as number].push(data)
+  // }
 
   // 发送成功后清空输入框
   content.value = ""
