@@ -75,7 +75,8 @@ const router = createRouter({
                     // 在线聊天室
                     path: "/chat",
                     name: "chat",
-                    component: () => import('@/view/Chat/index.vue')
+                    component: () => import('@/view/Chat/index.vue'),
+                    meta: { title: "在线聊天室" }
                 }
             ]
         }

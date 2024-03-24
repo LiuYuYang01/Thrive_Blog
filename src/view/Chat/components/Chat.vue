@@ -54,7 +54,7 @@ const submit = async () => {
       model.value = false
 
       ElMessage({
-        message: '🎉 选择成功~',
+        message: '🎉选择成功~',
         type: 'success',
       })
     } else {
@@ -72,14 +72,14 @@ const content = ref<string>("")
 
 // 记录房间聊天内容
 const roomChatList = reactive<{ [room: number]: ChatInfo[] }>({
-  10001: [
-    {
-      avatar: avatarFilter("Sammy"),
-      name: "宇阳",
-      content: "Hello! 有什么要对我说的吗?",
-      date: new Date()
-    }
-  ]
+  // 10001: [
+  //   {
+  //     avatar: avatarFilter("Sammy"),
+  //     name: "宇阳",
+  //     content: "Hello! 有什么要对我说的吗?",
+  //     date: new Date()
+  //   }
+  // ]
 })
 
 // 新增聊天记录时做一些处理
@@ -100,12 +100,13 @@ const getChatList = async (room: number) => {
 }
 
 // 即时通讯核心代码
-// const socket = io('http://localhost:5000'); // 替换为你的 Flask-SocketIO 服务器地址
-const socket = io('http://192.168.95.199:5000'); // 替换为你的 Flask-SocketIO 服务器地址
+const socket = io('http://localhost:5000'); // 替换为你的 Flask-SocketIO 服务器地址
 
 // 选择 | 加入房间
 watch(() => store.room, (room) => {
   socket.emit('joinRoom', room)
+
+  roomChatList[store.room as number] = []
 
   getChatList(store.room as number)
 }, { immediate: true })
@@ -113,13 +114,6 @@ watch(() => store.room, (room) => {
 // 接收该房间的消息
 socket.on('roomMsg', (data: ChatInfo) => {
   addChat(data)
-
-  // if (roomChatList[store.room as number]) {
-  //   roomChatList[store.room as number].push(data)
-  // } else {
-  //   roomChatList[store.room as number] = []
-  //   roomChatList[store.room as number].push(data)
-  // }
 
   // 发送成功后清空输入框
   content.value = ""
@@ -155,7 +149,7 @@ const sendMsg = () => {
 
 // 监听Ctrl+Enter组合事件
 const handleKeyDown = (e: KeyboardEvent) => {
-  if (e.ctrlKey && e.key === "Enter") sendMsg()
+  if (e.key === "Enter") sendMsg()
 }
 </script>
 
