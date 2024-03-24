@@ -71,16 +71,7 @@ const submit = async () => {
 const content = ref<string>("")
 
 // 记录房间聊天内容
-const roomChatList = reactive<{ [room: number]: ChatInfo[] }>({
-  // 10001: [
-  //   {
-  //     avatar: avatarFilter("Sammy"),
-  //     name: "宇阳",
-  //     content: "Hello! 有什么要对我说的吗?",
-  //     date: new Date()
-  //   }
-  // ]
-})
+const roomChatList = reactive<{ [room: number]: ChatInfo[] }>({})
 
 // 新增聊天记录时做一些处理
 const addChat = (data: ChatInfo) => {

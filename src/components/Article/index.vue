@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // 复制文本自动生成版权信息
 import "@/utils/CreateCopyright";
-import {svg} from '@/utils'
+import { svg } from '@/utils'
 
 // 引入文章API接口
 import { getArticleAPI } from "@/api/Article";
@@ -100,7 +100,7 @@ function createDirectory() {
     overflow: hidden;
     position: relative;
     padding: 30px;
-    padding-top: 0;
+    // padding-top: 0;
     line-height: 2.3;
     background-color: #fff;
     @include container;
@@ -123,7 +123,10 @@ function createDirectory() {
 
         // 图片
         :deep(img) {
-            width: 100%;
+            display: block;
+            width: 50%;
+            margin: 0 auto;
+            border-radius: $round;
         }
 
         // 超链接
@@ -169,8 +172,10 @@ function createDirectory() {
         }
 
         :deep(h1) {
-            padding: 20px 0;
-            margin: 30px 0;
+            // padding: 20px 0;
+            padding-bottom: 20px;
+            // margin: 30px 0;
+            // margin: 30px 0 20px;
             border-bottom: 1px dashed $underBorderColor;
             font-weight: 700;
             text-align: center;
