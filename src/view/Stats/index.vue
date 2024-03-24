@@ -5,6 +5,8 @@ import Radar from './components/Radar.vue'
 import Line from './components/Line.vue'
 import Pie from './components/Pie.vue'
 import Bar from './components/Bar.vue'
+
+const centerDialogVisible = ref(true)
 </script>
 
 <template>
@@ -32,19 +34,29 @@ import Bar from './components/Bar.vue'
       </div>
     </Layout>
   </div>
+
+  <el-dialog v-model="centerDialogVisible" title="提示" width="30%" center>
+    <span style="font-size: 30px;">等待开发，敬请期待！</span>
+
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button type="primary" @click="centerDialogVisible = false">好的</el-button>
+      </span>
+    </template>
+  </el-dialog>
 </template>
 
 <style scoped lang="scss">
 .container {
   margin-top: 100px;
-  
-  .stats{
+
+  .stats {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     padding: 30px;
 
-    div{
+    div {
       width: 50% !important;
     }
   }

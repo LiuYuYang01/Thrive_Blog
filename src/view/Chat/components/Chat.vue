@@ -100,7 +100,8 @@ const getChatList = async (room: number) => {
 }
 
 // 即时通讯核心代码
-const socket = io('http://localhost:5000'); // 替换为你的 Flask-SocketIO 服务器地址
+// const socket = io('http://localhost:5000'); // 替换为你的 Flask-SocketIO 服务器地址
+const socket = io('http://192.168.95.199:5000'); // 替换为你的 Flask-SocketIO 服务器地址
 
 // 选择 | 加入房间
 watch(() => store.room, (room) => {

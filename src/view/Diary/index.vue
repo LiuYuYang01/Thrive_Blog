@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import useAuthorStore from '@/stores/Author'
+
+const centerDialogVisible = ref(true)
+
 const store = useAuthorStore()
 store.getAuthor()
 
@@ -42,8 +45,6 @@ const image = ref<string>('')
 
     <!-- 日记列表 -->
     <div class="list">
-      <!-- <div class="title">🏄‍♂️ 闪念</div> -->
-
       <div class="item" v-for="item in diarys" :key="item.id">
         <img :src="store.authorInfo.avatar" alt="" class="avatar">
         <!-- <img src="https://s11.ax1x.com/2023/12/28/piqsmb4.jpg" alt="" class="avatar"> -->
@@ -86,6 +87,16 @@ const image = ref<string>('')
 
   <el-dialog v-model="viewImages" title="查看图片">
     <img :src="image" style="width: 100%;">
+  </el-dialog>
+
+  <el-dialog v-model="centerDialogVisible" title="提示" width="30%" center>
+    <span style="font-size: 30px;">等待开发，敬请期待！</span>
+
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button type="primary" @click="centerDialogVisible = false">好的</el-button>
+      </span>
+    </template>
   </el-dialog>
 </template>
 
