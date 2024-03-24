@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import useAuthorStore from '@/stores/Author'
 
-const centerDialogVisible = ref(true)
+const centerDialogVisible = ref(false)
 
 const store = useAuthorStore()
 store.getAuthor()
@@ -23,9 +23,33 @@ const diarys = [
     id: 3,
     content: "一天一夜没睡，登顶江苏最高峰！玉女峰",
     cover: ["http://liuyuyang.net/usr/uploads/2023/06/20230501163808.jpg"],
-    date: "2023-05-01  23:47"
-  }
+    date: "2023-05-01 23:47"
+  },
+  {
+    id: 4,
+    content: "因为热爱，所以执着",
+    cover: ["https://liuyuyang.net/usr/uploads/2024/03/185320588.png"],
+    date: "2024-3-19 20:27"
+  },
+  {
+    id: 5,
+    content: "近期的规划",
+    cover: ["https://liuyuyang.net/usr/uploads/2024/03/3519038626.jpg"],
+    date: "2024-3-23 11:08"
+  },
+  {
+    id: 6,
+    content: "转眼间已经在IT这条道路上摸爬滚打5年之久",
+    cover: ["https://liuyuyang.net/usr/uploads/2024/02/2887721393.jpg", "https://liuyuyang.net/usr/uploads/2024/02/1630367476.jpg"],
+    date: "2024-3-24 17:32"
+  },
 ]
+
+diarys.sort((a, b) => {
+  const timeA = new Date(a.date).getTime();
+  const timeB = new Date(b.date).getTime();
+  return timeB - timeA;
+});
 
 const viewImages = ref(false)
 const image = ref<string>('')
