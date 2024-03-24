@@ -6,3 +6,10 @@ export function getWebDataAPI(): http<WebConfig> {
         url: `/api/project/web`
     })
 }
+
+// 获取布局配置
+export function getLayoutDataAPI(): http<Layout> {
+    return Request.instance.request({
+        url: "/api/project/layout"
+    })
+}

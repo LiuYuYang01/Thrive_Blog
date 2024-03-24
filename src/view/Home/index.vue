@@ -3,10 +3,12 @@ import { getArticleListAPI } from '@/api/Article'
 
 import { useConfigStore } from '@/stores/Config'
 const store = useConfigStore()
-const isArticleLayout = store.isArticleLayout
-const rightSidebar = store.rightSidebar
-const swiperImage = store.swiperImage
-const swiperText = store.swiperText
+store.getLayoutData()
+
+const { layout } = storeToRefs(store)
+
+const swiperText = ref<string[]>([])
+watch(() => store.layout.swiperText, data => swiperText.value = data)
 
 // 全屏加载效果
 const loading = ref<boolean>(false)
@@ -18,7 +20,6 @@ const article = ref<Paginate<Article[]>>()
 const getArticleList = async (params: Page) => {
   loading.value = true
 
-  // @ts-ignore
   const { data } = await getArticleListAPI(params)
 
   if (article.value) {
@@ -31,16 +32,16 @@ const getArticleList = async (params: Page) => {
   loading.value = false
 }
 
-isArticleLayout !== 'waterfall' ? getArticleList({ page: 1, size: 5 }) : getArticleList({ page: 1, size: 4 })
+layout.value.isArticleLayout !== 'waterfall' ? getArticleList({ page: 1, size: 5 }) : getArticleList({ page: 1, size: 4 })
 </script>
 
 <template>
-  <Swiper :data="swiperText" :src="swiperImage"></Swiper>
+  <Swiper :data="swiperText" :src="layout.swiperImage" v-if="swiperText.length"></Swiper>
 
-  <Frame :modules='rightSidebar'>
-    <Classics :data="article!" @get="getArticleList" v-if="isArticleLayout === 'classics'" />
-    <Card :data="article!" @get="getArticleList" v-if="isArticleLayout === 'card'" />
-    <Waterfall :data="article!" @get="getArticleList" v-if="isArticleLayout === 'waterfall'" />
+  <Frame :modules='layout.rightSidebar'>
+    <Classics :data="article!" @get="getArticleList" v-if="layout.isArticleLayout === 'classics'" />
+    <Card :data="article!" @get="getArticleList" v-if="layout.isArticleLayout === 'card'" />
+    <Waterfall :data="article!" @get="getArticleList" v-if="layout.isArticleLayout === 'waterfall'" />
   </Frame>
 </template>
 
