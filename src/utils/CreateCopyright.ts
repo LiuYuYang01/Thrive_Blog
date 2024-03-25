@@ -2,10 +2,10 @@
 import useUserStore from '@/stores/Author'
 import { storeToRefs } from 'pinia';
 
-const Store = useUserStore()
-const { authorInfo } = storeToRefs(Store)
+const store = useUserStore()
+const { authorInfo } = storeToRefs(store)
 
-Store.getAuthor()
+store.getAuthor()
 
 // 复制文本自动生成版权信息
 document.addEventListener('copy', function (event) {
@@ -20,6 +20,6 @@ document.addEventListener('copy', function (event) {
         // 阻止默认行为
         event.preventDefault();
         // 生成版权信息
-        clipboardData.setData('text/plain', text + `\n\n作者：金刀大菜牙\n原文链接：https://juejin.cn/post/7229193250903507004\n来源：${authorInfo.value.author}\n版权：著作权归作者所有，商业转载请联系作者获得授权，非商业转载请注明出处`);
+        clipboardData.setData('text/plain', `${text}\n\n作者：${authorInfo.value.name}\n原文链接：${this.location.href}\n著作权归作者所有，商业转载请联系作者获得授权，非商业转载请注明出处`);
     }
 });
