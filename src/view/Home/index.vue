@@ -21,12 +21,14 @@ const getArticleList = async (params: Page) => {
   loading.value = true
 
   const { data } = await getArticleListAPI(params)
-  article.value = data
 
-  // if (store.layout.isArticleLayout === "waterfall") {
-  //   article.value.result = article.value.result.concat(data.result)
-  //   // if (data.page > data.pages) return article.value.result = article.value.result.concat(data.result)
-  // }
+  if (article.value && store.layout.isArticleLayout === "waterfall") {
+    if (article.value && article.value.page > article.value.pages) return
+
+    article.value.result = [...article.value.result, ...data.result]
+  } else {
+    article.value = data
+  }
 
   loading.value = false
 }

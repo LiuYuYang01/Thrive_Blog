@@ -26,10 +26,6 @@ export const useConfigStore = defineStore('config', () => {
     const getLayoutData = async () => {
         const { data } = await getLayoutDataAPI()
         layout.value = data;
-
-        // console.log((data.swiperText as string).split(","),111);
-        
-        console.log(data, 2222);
     }
 
     return { isTheme, updateIsTheme, layout, getLayoutData }
