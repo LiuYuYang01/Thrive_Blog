@@ -35,13 +35,10 @@ const getContentData = async () => {
 
     // 如果有文章封面就显示，没有就显示默认的
     if (data.cover) {
-        emit("update:modelValue", { cover: data.cover, title: data.title, cate: data.cate, view: data.view, comment: data.comment, createtime: data.createtime });
+        emit("update:modelValue", data);
     } else {
-        emit("update:modelValue", { cover: randomImage(), title: data.title, cate: data.cate, view: data.view, comment: data.comment, createtime: data.createtime });
+        emit("update:modelValue", { ...data, cover: randomImage() });
     }
-
-    // 生成目录
-    nextTick(() => createDirectory());
 };
 getContentData();
 
@@ -70,6 +67,11 @@ function createDirectory() {
         });
     }
 }
+
+// 生成文章目录
+onMounted(() => {
+    createDirectory()
+})
 </script>
 
 <template>
@@ -124,7 +126,7 @@ function createDirectory() {
         // 图片
         :deep(img) {
             display: block;
-            width: 50%;
+            width: 65%;
             margin: 0 auto;
             border-radius: $round;
         }
@@ -172,14 +174,15 @@ function createDirectory() {
         }
 
         :deep(h1) {
-            // padding: 20px 0;
             padding-bottom: 20px;
-            // margin: 30px 0;
-            // margin: 30px 0 20px;
             border-bottom: 1px dashed $underBorderColor;
             font-weight: 700;
             text-align: center;
             transition: border-bottom $move;
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         :deep(h2) {

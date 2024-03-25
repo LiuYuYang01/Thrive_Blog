@@ -136,7 +136,7 @@ onMounted(() => {
         </Form>
 
         <!-- 表情框 -->
-        <Emote :isEmote="isEmote" @addEmote="addEmote" />
+        <!-- <Emote :isEmote="isEmote" @addEmote="addEmote" /> -->
 
         <Form :validation-schema="CommentSchema" as="div" ref="form" class="form">
             <!-- 表单项 -->

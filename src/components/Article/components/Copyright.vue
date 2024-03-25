@@ -2,10 +2,10 @@
 // 引入用户信息
 import useUserStore from '@/stores/Author'
 
-const Store = useUserStore()
-const { authorInfo } = storeToRefs(Store)
+const store = useUserStore()
+const { authorInfo } = storeToRefs(store)
 
-Store.getAuthor()
+store.getAuthor()
 </script>
 
 <template>

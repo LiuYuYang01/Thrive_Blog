@@ -55,6 +55,12 @@
 
         .left {
             width: 100% !important;
+
+            .article .content {
+                img {
+                    width: 100% !important;
+                }
+            }
         }
 
         .right {
@@ -126,11 +132,21 @@
 }
 
 @media screen and (max-width: 600px) {
-    .main .classics .item {
-        height: 160px !important;
+    .main {
+        .left {
+            .article .content {
+                img {
+                    width: 100% !important;
+                }
+            }
 
-        .info a .fun span:nth-child(2) {
-            display: none !important;
+            .classics .item {
+                height: 160px !important;
+
+                .info a .fun span:nth-child(2) {
+                    display: none !important;
+                }
+            }
         }
     }
 }

@@ -1,4 +1,6 @@
 <script setup lang='ts'>
+import { svg } from "@/utils"
+
 import { getArticleListAPI } from '@/api/Article'
 
 import { useConfigStore } from '@/stores/Config'
@@ -22,6 +24,7 @@ const getArticleList = async (params: Page) => {
 
   const { data } = await getArticleListAPI(params)
 
+  // 如果是瀑布流布局就设置为懒加载模式，否则为分页模式
   if (article.value && store.layout.isArticleLayout === "waterfall") {
     if (article.value && article.value.page > article.value.pages) return
 
@@ -29,6 +32,8 @@ const getArticleList = async (params: Page) => {
   } else {
     article.value = data
   }
+
+  window.scrollTo(0, 0);
 
   loading.value = false
 }
@@ -39,7 +44,8 @@ layout.value.isArticleLayout !== 'waterfall' ? getArticleList({ page: 1, size: 5
 <template>
   <Swiper :data="swiperText" :src="layout.swiperImage" v-if="swiperText.length"></Swiper>
 
-  <Frame :modules='layout.rightSidebar'>
+  <Frame :modules='layout.rightSidebar' v-loading="loading" :element-loading-svg="svg"
+    element-loading-svg-view-box="-10, -10, 50, 50">
     <Classics :data="article!" @get="getArticleList" v-if="layout.isArticleLayout === 'classics'" />
     <Card :data="article!" @get="getArticleList" v-if="layout.isArticleLayout === 'card'" />
     <Waterfall :data="article!" @get="getArticleList" v-if="layout.isArticleLayout === 'waterfall'" />

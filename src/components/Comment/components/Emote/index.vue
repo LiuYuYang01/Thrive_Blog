@@ -20,8 +20,6 @@ const EmoteTab = ref<number>()
 // 获取表情包列表
 const getEmoteList = async () => {
     const { data } = await getEmoteListAPI()
-    console.log(data,888);
-    
 
     EmoteList.value = data
     EmoteTab.value = data[0].id

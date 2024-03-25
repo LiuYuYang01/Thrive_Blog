@@ -1,3 +1,15 @@
+@media screen and (max-width: 1150px) {
+    .main {
+        .right {
+            // width: 0% !important;
+
+            // .directory {
+            //     display: none !important;
+            // }
+        }
+    }
+}
+
 @media screen and (max-width: 1010px) {
     .Article {
         .box .title {
@@ -19,7 +31,7 @@
         }
 
         .list .item {
-            .time{
+            .time {
                 display: none !important;
             }
 
