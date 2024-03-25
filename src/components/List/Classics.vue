@@ -19,8 +19,7 @@ watch(paginate, p => {
         <!-- 文章列表 -->
         <div class="item" v-for="item, index in data.result">
             <!-- 文章封面 -->
-            <div class="cover" :style="{ backgroundImage: `url(${item.cover || randomImage()})` }"
-                v-if="index % 2 === 0">
+            <div class="cover" :style="{ backgroundImage: `url(${item.cover || randomImage()})` }" v-if="index % 2 === 0">
             </div>
 
             <!-- 文章信息 -->
@@ -30,18 +29,18 @@ watch(paginate, p => {
                     <h3>{{ item.title }}</h3>
 
                     <!-- 文章摘要 -->
-                    <p>{{ item.description }}</p>
+                    <p>{{ item.description }} {{ item.createTime }}</p>
 
                     <div class="fun" v-if="index % 2 === 0">
-                        <span><iconpark-icon name="alarm-clock" /> {{ moment(item.createtime).format('YYYY-MM-DD')
-                            }}</span>
+                        <span><iconpark-icon name="alarm-clock" /> {{ moment(item.createTime).format('YYYY-MM-DD')
+                        }}</span>
                         <span><iconpark-icon name="fire" /> {{ item.view }}</span>
                         <span><iconpark-icon name="tag-one" /> {{ (item.cate![0] as Cate).name }}</span>
                     </div>
 
                     <div class="fun" style="text-align: start;" v-else>
                         <span style="padding-left: 0;"><iconpark-icon name="alarm-clock" /> {{
-        moment(item.createtime).format('YYYY-MM-DD') }}</span>
+                            moment(item.createTime).format('YYYY-MM-DD') }}</span>
                         <span><iconpark-icon name="fire" /> {{ item.view }}</span>
                         <span><iconpark-icon name="tag-one" /> {{ item.cate[0].name }}</span>
                     </div>

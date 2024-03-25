@@ -1,6 +1,5 @@
 <script setup lang="ts">
-// import { getCateListAPI } from '@/api/Cate';
-import { getArticleCateListAPI, getArticleListAPI } from '@/api/Article';
+import { getArticleCateListAPI } from '@/api/Article';
 
 // 随机预览图
 import { randomImage } from '@/utils/RandomImage'

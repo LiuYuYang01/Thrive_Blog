@@ -33,6 +33,7 @@ const getArticleList = async (params: Page) => {
     article.value = data
   }
 
+  // 跳转到顶部
   window.scrollTo(0, 0);
 
   loading.value = false
