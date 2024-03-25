@@ -7,7 +7,11 @@ import Fireworks from './hooks/confetti'
 import Header from './Header.vue'
 import Footer from './Footer.vue'
 
+// 礼花弹出效果
 Fireworks()
+
+// 设置不显示星空颗粒背景的页面
+const StarrySkyList = ["/chat", "/diary"]
 
 const route = useRoute()
 
@@ -38,6 +42,10 @@ const updateTitle = () => {
 
 // 默认加载页面时获取页面title
 onMounted(async () => {
+  // 判断是否显示星空颗粒背景
+  const StarrySky: HTMLStyleElement = document.querySelector(".StarrySky")!
+  StarrySkyList.includes(route.path) ? StarrySky.style.display = "none" : StarrySky.style.display = "block"
+
   if (route.query.name) return
 
   await getWebData()
@@ -50,6 +58,10 @@ onBeforeRouteUpdate(to => {
   Fireworks()
 
   updateTitle()
+
+  // 判断是否显示星空颗粒背景
+  const StarrySky: HTMLStyleElement = document.querySelector(".StarrySky")!
+  StarrySkyList.includes(to.path) ? StarrySky.style.display = "none" : StarrySky.style.display = "block"
 })
 </script>
 

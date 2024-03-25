@@ -5,12 +5,6 @@ import { useChatStore } from '@/stores';
 import { FormInstance } from 'element-plus';
 import { getChatDataAPI } from '@/api/Chat';
 
-// 聊天页不显示星空颗粒背景
-onMounted(() => {
-  const StarrySky: HTMLStyleElement = document.querySelector(".StarrySky")!
-  useRoute().path === "/chat" ? StarrySky.style.display = "none" : StarrySky.style.display = "block"
-})
-
 const store = useChatStore()
 
 // 登记框
