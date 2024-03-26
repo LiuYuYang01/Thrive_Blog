@@ -23,14 +23,14 @@ const loading = ref(false)
 const route = useRoute()
 
 // 临时评论数据存放
-const tempCommentsList = ref<Comment[]>([])
-const CommentsList = ref<Comment[]>([])
-tempCommentsList.value = []
+const thisArticleCommentsList = ref<Discuss[]>([])
+const CommentsList = ref<Discuss[]>([])
+thisArticleCommentsList.value = []
 
 // 监听分页变化
 watch(paging, () => {
   loading.value = true;
-  CommentsList.value = Paginate(tempCommentsList.value, paging.page, paging.size)
+  // CommentsList.value = Paginate(tempCommentsList.value, paging.page, paging.size)
   loading.value = false;
 })
 
@@ -41,20 +41,20 @@ async function getCommentData() {
   let { data } = await getCommentListAPI(paging)
 
   // 筛选当前文章下的三级评论
+  const list = []
+
   // 一级
-  data.forEach(one => {
+  data.result.forEach(one => {
     one.children = [];
 
     // 二级
-    data.forEach(two => {
+    data.result.forEach(two => {
       if (one.id === two.rid) {
 
         // 三级
         one.children?.push(two)
-        data.forEach(three => {
+        data.result.forEach(three => {
           if (two.id === three.rid) {
-            console.log(three, 789);
-
             two.children?.push(three)
           }
         })
@@ -63,14 +63,16 @@ async function getCommentData() {
   })
 
   // 过滤出当前文章的评论
-  tempCommentsList.value = data.filter(item => item.aid + "" === route.params.id as string);
+  thisArticleCommentsList.value = data.result.filter(item => item.aid != 0 && item.audit === 1 && item.aid === +route.params.id);
+  console.log(thisArticleCommentsList.value, 888);
+
 
   // 评论分页显示
-  CommentsList.value = Paginate(tempCommentsList.value, paging.page, paging.size)
+  // CommentsList.value = Paginate(tempCommentsList.value, paging.page, paging.size)
 
   loading.value = false;
 }
-// getCommentData()
+getCommentData()
 
 // 回复评论
 const reply = (id: number, name: string) => {
@@ -84,8 +86,9 @@ const reply = (id: number, name: string) => {
 
 <template>
   <ul class="list" v-loading="loading" :element-loading-svg="svg" element-loading-svg-view-box="-10, -10, 50, 50"
-    v-if="CommentsList.length">
-    <li class="item" v-for="one in CommentsList" :key="one.id">
+    v-if="thisArticleCommentsList.length">
+
+    <li class="item" v-for="one in thisArticleCommentsList" :key="one.id">
       <!-- 一级评论 -->
       <div class="comment_user_one">
         <img :src="one.avatar" alt="" class="avatar">
@@ -93,7 +96,7 @@ const reply = (id: number, name: string) => {
         <div class="comment_user_one_info">
           <a :href="one.url" class="name active" target="_blank" v-if="one.url">{{ one.name }}</a>
           <a class="name" v-else>{{ one.name }}</a>
-          <span class="time">{{ moment(one.date).format('YYYY-MM-DD HH:mm') }}</span>
+          <span class="time">{{ moment(one.createtime).format('YYYY-MM-DD HH:mm') }}</span>
         </div>
 
         <div class="reply" @click="reply(one.id as number, one.name)">回复</div>
@@ -110,7 +113,7 @@ const reply = (id: number, name: string) => {
             <img :src="two.avatar" class="avatar_two">
             <a :href="two.url" class="name active" target="_blank" v-if="two.url">{{ two.name }}</a>
             <a class="name" v-else>{{ two.name }}</a>
-            <span class="time">{{ moment(two.date).format('YYYY-MM-DD HH:mm') }}</span>
+            <span class="time">{{ moment(two.createtime).format('YYYY-MM-DD HH:mm') }}</span>
             <div class="reply" @click="reply(two.id as number, two.name)">回复</div>
           </div>
 
@@ -127,7 +130,7 @@ const reply = (id: number, name: string) => {
               <img :src="three.avatar" class="avatar_three">
               <a :href="three.url" class="name active" target="_blank" v-if="three.url">{{ three.name }}</a>
               <a class="name" v-else>{{ three.name }}</a>
-              <span class="time">{{ moment(three.date).format('YYYY-MM-DD HH:mm') }}</span>
+              <span class="time">{{ moment(three.createtime).format('YYYY-MM-DD HH:mm') }}</span>
               <div class="reply" @click="reply(two.id as number, three.name)">回复</div>
             </div>
 

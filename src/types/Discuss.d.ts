@@ -1,4 +1,4 @@
-interface Comment {
+interface Discuss {
     id?: number,
     avatar: string,
     name: string,
@@ -7,6 +7,7 @@ interface Comment {
     url?: string,
     aid: number,
     rid?: number,
+    audit: number,
     createtime?: string,
-    children?: Omit<Comment, "children">[]
+    children?: Discuss[]
 }

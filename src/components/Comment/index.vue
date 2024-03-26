@@ -14,17 +14,29 @@ const commentSchema = yup.object({
     url: yup.string().url("请输入正确的网站地址"),
 })
 
+// 当前文章ID
 const id = useRoute().params.id
 
 // 收集评论框的内容
+// const commentInfo = ref<Discuss>({
+//     content: "",
+//     name: "",
+//     email: "",
+//     url: "",
+//     avatar: '',
+//     aid: +id,
+//     rid: 0,
+//     audit: 0
+// })
 const commentInfo = ref<Discuss>({
-    content: "",
-    name: "",
-    email: "",
+    content: "123",
+    name: "神秘人",
+    email: "3311118881@qq.com",
     url: "",
-    avatar: '',
+    avatar: 'http://192.168.95.199:5173/src/assets/svg/other/emote.svg',
     aid: +id,
-    rid: 0
+    rid: 0,
+    audit: 0
 })
 
 // 评论提示信息
