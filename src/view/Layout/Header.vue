@@ -38,16 +38,6 @@ import logo_light from '@/assets/img/logo_light.png'
 import { useConfigStore } from '@/stores'
 const store = useConfigStore()
 
-// 扩展页面
-// const ExtendPage: Cate = {
-//   name: "扩展页面",
-//   icon: "💡",
-//   url: "",
-//   mark: "",
-//   level: 0,
-//   children: []
-// }
-
 const ExtendPage = {
   name: "扩展页面",
   icon: "💡",

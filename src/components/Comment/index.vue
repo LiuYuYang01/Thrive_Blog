@@ -2,14 +2,12 @@
 import { Form, Field, ErrorMessage } from 'vee-validate'
 import * as yup from 'yup'
 import { addCommentDataAPI } from '@/api/Comment'
-// @ts-ignore
-import type { Comment } from '@/types/Comment'
 
 // 表情框是否显示
 const isEmote = ref<boolean>(false)
 
 // 评论区表单校验
-const CommentSchema = yup.object({
+const commentSchema = yup.object({
     content: yup.string().required("评论内容不能为空").max(150, "评论内容不能超过150个字符"),
     name: yup.string().required("名称不能为空"),
     email: yup.string().required("邮箱不能为空").email("请输入正确的邮箱"),
@@ -19,7 +17,7 @@ const CommentSchema = yup.object({
 const id = useRoute().params.id
 
 // 收集评论框的内容
-const commentInfo = ref<Comment>({
+const commentInfo = ref<Discuss>({
     content: "",
     name: "",
     email: "",
@@ -56,7 +54,7 @@ const reply = (data: { id: number, name: string }) => {
 // 发布评论
 const postComment = () => {
     // 发布评论之前先校验一下
-    CommentSchema.validate(commentInfo.value, { abortEarly: false }).then(async value => {
+    commentSchema.validate(commentInfo.value, { abortEarly: false }).then(async value => {
         // 通过QQ邮箱生成头像
         commentInfo.value.avatar = `https://q1.qlogo.cn/g?b=qq&nk=${commentInfo.value.email.split("@")[0]}&s=640`;
 
@@ -67,7 +65,7 @@ const postComment = () => {
         if (Commentid.value) {
             commentInfo.value.aid = 0;
             commentInfo.value.rid = Commentid.value;
-        }else{
+        } else {
             commentInfo.value.aid = +id
             commentInfo.value.rid = 0;
         }
@@ -92,8 +90,8 @@ const postComment = () => {
 
         Commentid.value = 0
     }).catch(error => {
-        console.log(error,333);
-        
+        console.log(error, 333);
+
         // 数据校验
         content.value.validate()
         form.value.validate()
@@ -121,7 +119,7 @@ onMounted(() => {
         <div class="title"></div>
 
         <!-- 评论框 -->
-        <Form :validation-schema="CommentSchema" as="div" ref="content" class="frame">
+        <Form :validation-schema="commentSchema" as="div" ref="content" class="frame">
             <div style="position: relative;">
                 <Field type="textarea" as="textarea" name="content" :placeholder="commentData" class="ipt"
                     style="height: 150px;" v-model="commentInfo.content" />
@@ -138,7 +136,7 @@ onMounted(() => {
         <!-- 表情框 -->
         <!-- <Emote :isEmote="isEmote" @addEmote="addEmote" /> -->
 
-        <Form :validation-schema="CommentSchema" as="div" ref="form" class="form">
+        <Form :validation-schema="commentSchema" as="div" ref="form" class="form">
             <!-- 表单项 -->
             <div>
                 <Field type="text" name="name" class="ipt" style="width: 200px;" placeholder="显示名称 *"
@@ -169,7 +167,7 @@ onMounted(() => {
             <a href="javascript:;">发表评论</a>
         </div>
 
-        {{ commentInfo }} |  {{ Commentid }}
+        {{ commentInfo }} | {{ Commentid }}
     </div>
 
     <List :isPublish="isPublish" @reply="reply" />

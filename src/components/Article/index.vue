@@ -23,7 +23,7 @@ const articleData = ref<Article>({
     comment: 0, //评论数量
     tag: "", //标签
     cover: "", //封面
-    createtime: "", //创建时间
+    createTime: "", //创建时间
 });
 
 const loading = ref(true);
