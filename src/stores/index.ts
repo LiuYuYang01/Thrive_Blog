@@ -12,3 +12,4 @@ export default pinia
 
 export * from './Config'
 export * from './Chat'
+export * from './Web'

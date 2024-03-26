@@ -38,7 +38,6 @@ const info = ref<Info>({
 
           <!-- 文章评论数量 -->
           <span>
-
             <iconpark-icon name="comment" /> 评论：{{ info.comment }}
           </span>
         </div>
