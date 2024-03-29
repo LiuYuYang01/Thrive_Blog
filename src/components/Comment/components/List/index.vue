@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getCommentListAPI } from '@/api/Comment'
+import { getArticleCommentListAPI, getCommentListAPI } from '@/api/Comment'
 
 import { svg } from "@/utils"
 
@@ -22,53 +22,21 @@ const loading = ref(false)
 
 const route = useRoute()
 
-// 临时评论数据存放
-const thisArticleCommentsList = ref<Discuss[]>([])
-const CommentsList = ref<Discuss[]>([])
-thisArticleCommentsList.value = []
+// 当前文章下的所有评论
+const list = ref<Discuss[]>([])
 
 // 监听分页变化
 watch(paging, () => {
   loading.value = true;
-  // CommentsList.value = Paginate(tempCommentsList.value, paging.page, paging.size)
   loading.value = false;
 })
 
 // 获取评论列表数据
-async function getCommentData() {
+const getCommentData = async () => {
   loading.value = true;
 
-  let { data } = await getCommentListAPI(paging)
-
-  // 筛选当前文章下的三级评论
-  const list = []
-
-  // 一级
-  data.result.forEach(one => {
-    one.children = [];
-
-    // 二级
-    data.result.forEach(two => {
-      if (one.id === two.rid) {
-
-        // 三级
-        one.children?.push(two)
-        data.result.forEach(three => {
-          if (two.id === three.rid) {
-            two.children?.push(three)
-          }
-        })
-      }
-    })
-  })
-
-  // 过滤出当前文章的评论
-  thisArticleCommentsList.value = data.result.filter(item => item.aid != 0 && item.audit === 1 && item.aid === +route.params.id);
-  console.log(thisArticleCommentsList.value, 888);
-
-
-  // 评论分页显示
-  // CommentsList.value = Paginate(tempCommentsList.value, paging.page, paging.size)
+  const { data } = await getArticleCommentListAPI(+route.params.id)
+  list.value = data
 
   loading.value = false;
 }
@@ -86,13 +54,13 @@ const reply = (id: number, name: string) => {
 
 <template>
   <ul class="list" v-loading="loading" :element-loading-svg="svg" element-loading-svg-view-box="-10, -10, 50, 50"
-    v-if="thisArticleCommentsList.length">
+    v-if="list.length">
 
-    <li class="item" v-for="one in thisArticleCommentsList" :key="one.id">
+    <li class="item" v-for="one in list" :key="one.id">
       <!-- 一级评论 -->
       <div class="comment_user_one">
         <img :src="one.avatar" alt="" class="avatar">
-
+        
         <div class="comment_user_one_info">
           <a :href="one.url" class="name active" target="_blank" v-if="one.url">{{ one.name }}</a>
           <a class="name" v-else>{{ one.name }}</a>
@@ -166,9 +134,14 @@ const reply = (id: number, name: string) => {
     flex-direction: column;
     justify-content: center;
     min-height: 105px;
-    padding: 10px 0;
+    padding: 10px;
     border-bottom: 1px dashed #eee;
     transition: all 0.3s;
+
+    &:hover {
+      border-radius: $round;
+      background-color: #f3f8fe;
+    }
 
     // 回复按钮布局
     .reply {

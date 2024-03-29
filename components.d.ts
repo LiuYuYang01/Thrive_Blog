@@ -28,8 +28,6 @@ declare module '@vue/runtime-core' {
     ElRadio: typeof import('element-plus/es')['ElRadio']
     ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
     ElSelect: typeof import('element-plus/es')['ElSelect']
-    ElTable: typeof import('element-plus/es')['ElTable']
-    ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     Emote: typeof import('./src/components/Comment/components/Emote/index.vue')['default']
     Empty: typeof import('./src/components/Empty/index.vue')['default']
     Frame: typeof import('./src/components/Frame/index.vue')['default']
