@@ -1,5 +1,14 @@
 <script setup lang="ts">
+import { getRandomArticleAPI } from '@/api/Article';
 
+const list = ref<Article[]>([])
+
+// 随机五篇文章
+const getRandomArticleList = async () => {
+    const { data } = await getRandomArticleAPI()
+    list.value = data
+}
+getRandomArticleList()
 </script>
 
 <template>
@@ -11,38 +20,10 @@
 
         <!-- 文章列表 -->
         <div class="list">
-            <div class="item">
-                <RouterLink to="">
+            <div class="item" v-for="item in list" :key="item.id">
+                <RouterLink :to="`/article/${item.id}`">
                     <iconpark-icon name="right" />
-                    2022年的 React 生态
-                </RouterLink>
-            </div>
-
-            <div class="item">
-                <RouterLink to="">
-                    <iconpark-icon name="right" />
-                    2022年的 React 生态
-                </RouterLink>
-            </div>
-
-            <div class="item">
-                <RouterLink to="">
-                    <iconpark-icon name="right" />
-                    2022年的 React 生态
-                </RouterLink>
-            </div>
-
-            <div class="item">
-                <RouterLink to="">
-                    <iconpark-icon name="right" />
-                    2022年的 React 生态
-                </RouterLink>
-            </div>
-
-            <div class="item">
-                <RouterLink to="">
-                    <iconpark-icon name="right" />
-                    2022年的 React 生态
+                    {{ item.title }}
                 </RouterLink>
             </div>
         </div>
@@ -89,13 +70,13 @@
                 }
             }
 
-            &:hover a{
+            &:hover a {
                 color: $color;
                 padding-left: 10px;
                 transition: all $move;
             }
 
-            &:hover iconpark-icon{
+            &:hover iconpark-icon {
                 padding-right: 5px;
             }
         }

@@ -22,7 +22,7 @@ export const getArticleListAPI = (params?: Page): http<Paginate<Article[]>> => {
 };
 
 // 随机五篇文章
-export const getRandomArticleAPI = (): http<Article> => {
+export const getRandomArticleAPI = (): http<Article[]> => {
   return Request.instance.request({
     url: `/api/article/random`,
   });
