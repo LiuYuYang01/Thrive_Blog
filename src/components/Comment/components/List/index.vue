@@ -54,13 +54,13 @@ const reply = (id: number, name: string) => {
 
 <template>
   <ul class="list" v-loading="loading" :element-loading-svg="svg" element-loading-svg-view-box="-10, -10, 50, 50"
-    v-if="list.length">
+    v-if="list?.length">
 
     <li class="item" v-for="one in list" :key="one.id">
       <!-- 一级评论 -->
       <div class="comment_user_one">
         <img :src="one.avatar" alt="" class="avatar">
-        
+
         <div class="comment_user_one_info">
           <a :href="one.url" class="name active" target="_blank" v-if="one.url">{{ one.name }}</a>
           <a class="name" v-else>{{ one.name }}</a>
@@ -198,6 +198,7 @@ const reply = (id: number, name: string) => {
 
     /* 评论的内容 */
     .comment_main {
+      color: #666;
       margin: 5px 0px 5px 50px;
       font-size: 15px;
       transition: all 0.3s;

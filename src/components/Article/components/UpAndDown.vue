@@ -1,18 +1,20 @@
 <script setup lang="ts">
+const props = defineProps<{ prev: Article, next: Article }>()
 
+const route = useRoute()
 </script>
 
 <template>
     <div class="upAndDown">
-        <a href="javascript:;">
+        <RouterLink :to="`/article/${prev ? props.prev?.id : route.params.id}`">
             <p>上一篇</p>
-            <p>20个你从未想过的 ChatGPT 有趣用途</p>
-        </a>
+            <p>{{ prev ? prev?.title : '没有上一篇文章了~' }}</p>
+        </RouterLink>
 
-        <a href="javascript:;">
+        <RouterLink :to="`/article/${next ? props.next?.id : route.params.id}`">
             <p>下一篇</p>
-            <p>如何查看 Python 项目中所依赖的包</p>
-        </a>
+            <p>{{ next ? next?.title : '没有下一篇文章了~' }}</p>
+        </RouterLink>
     </div>
 </template>
 

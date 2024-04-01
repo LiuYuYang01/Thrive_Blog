@@ -24,12 +24,16 @@ const articleData = ref<Article>({
     tag: "", //标签
     cover: "", //封面
     createTime: "", //创建时间
+    prev: null,
+    next: null
 });
 
 const loading = ref(true);
 
 // 获取文章的数据
 const getContentData = async () => {
+    console.log(route.params.id,777);
+    
     const { data } = await getArticleAPI(+route.params.id);
     articleData.value = data;
 
@@ -69,9 +73,14 @@ function createDirectory() {
 }
 
 // 生成文章目录
-onMounted(() => {
-    createDirectory()
-})
+// onMounted(() => createDirectory())
+
+watch(() => route.params, async () => {
+    await getContentData()
+    await createDirectory()
+    console.log(articleData.value,222);
+    
+}, { immediate: true })
 </script>
 
 <template>
@@ -90,7 +99,7 @@ onMounted(() => {
         <Copyright />
 
         <!-- 上下篇 -->
-        <UpAndDown />
+        <UpAndDown :prev="articleData.prev!" :next="articleData.next!" />
 
         <!-- 评论框 -->
         <Comment />
