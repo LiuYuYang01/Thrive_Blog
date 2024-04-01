@@ -346,7 +346,7 @@ onMounted(() => {
         }
 
         &:active {
-            background-color: #2682fb;
+            background-color: #2682fb !important;
         }
     }
 }

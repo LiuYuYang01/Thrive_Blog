@@ -131,6 +131,28 @@
                 }
             }
         }
+
+        .list .item {
+            border-bottom: 1px dashed #47494d !important;
+
+            .comment_user_one .comment_user_one_info {
+                .name {
+                    color: #fff !important;
+                }
+
+                .active {
+                    color: $color !important;
+                }
+            }
+
+            .comment_main {
+                color: #a2a2a2 !important;
+            }
+
+            &:hover {
+                background-color: #38414b !important;
+            }
+        }
     }
 
     // 文章目录
@@ -268,7 +290,7 @@
             background-color: #2b333e !important;
         }
 
-        .header .info .introduce .row2{
+        .header .info .introduce .row2 {
             color: #d6d6d6 !important;
         }
     }
