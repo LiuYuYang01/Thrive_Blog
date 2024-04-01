@@ -21,6 +21,13 @@ export const getArticleListAPI = (params?: Page): http<Paginate<Article[]>> => {
   }
 };
 
+// 随机五篇文章
+export const getRandomArticleAPI = (): http<Article> => {
+  return Request.instance.request({
+    url: `/api/article/random`,
+  });
+};
+
 // 获取指定分类下的所有文章
 export const getArticleCateListAPI = (mark: string, params?: Page): http<Paginate<Article[]>> => {
   // 如果有参数就是分页查询，没有参数就是查询全部

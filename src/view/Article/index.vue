@@ -23,7 +23,7 @@ const info = ref<Info>({
         <div class="info">
           <!-- 文章创建时间 -->
           <span>
-            <iconpark-icon name="alarm-clock" /> {{ moment(info.createTime).format('YYYY-MM-DD HH:mm') }}
+            <iconpark-icon name="alarm-clock" /> {{ moment(info.createtime).format('YYYY-MM-DD HH:mm') }}
           </span>
 
           <!-- 文章浏览量 -->

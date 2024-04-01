@@ -5,7 +5,7 @@ interface Info {
   view: number; // 浏览量
   cate: Cate[]; // 分类
   comment: number; // 评论数量
-  createTime?: string; // 创建时间
+  createtime?: string; // 创建时间
 }
 
 interface Article extends Info {
