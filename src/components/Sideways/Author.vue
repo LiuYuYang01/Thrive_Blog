@@ -44,7 +44,7 @@ const getIcon = (src: string) => {
     <div class="author" :style="avatar_bg">
         <!-- 作者头像 -->
         <div class="avatar">
-            <img :src="authorInfo.avatar" v-image alt="">
+            <img :src="authorInfo.avatar" v-avatar alt="">
         </div>
 
         <!-- 作者介绍 -->
@@ -59,7 +59,7 @@ const getIcon = (src: string) => {
 
             <div class="list">
                 <a :href="item.url" target="_blank" v-for="item, index in socializing" :key="index">
-                    <img :src="getIcon(item.name)" v-image :title="item.name">
+                    <img :src="getIcon(item.name)" v-avatar :title="item.name">
                 </a>
             </div>
         </div>

@@ -13,6 +13,10 @@ import masonry from 'vue-next-masonry';
 
 const app = createApp(App)
 
+// 自定义事件
+import Directive from '@/utils/Directive'
+Directive(app)
+
 app.use(pinia)
 app.use(router)
 app.use(editor);
