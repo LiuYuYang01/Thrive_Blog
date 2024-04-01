@@ -88,7 +88,7 @@ const reply = (id: number, name: string) => {
           <!-- 评论内容 -->
           <div class="comment_main">
             <a href="javascript:;">@{{ one.name }}： </a>
-            <span style="font-size:15px;color:#444">{{ two.content }}</span>
+            <span>{{ two.content }}</span>
           </div>
 
           <!-- 三级评论 -->
@@ -105,7 +105,7 @@ const reply = (id: number, name: string) => {
             <!-- 评论内容 -->
             <div class="comment_main">
               <a href="javascript:;">@{{ two.name }}： </a>
-              <span style="font-size:15px;color:#444">{{ three.content }}</span>
+              <span>{{ three.content }}</span>
             </div>
           </div>
         </div>
@@ -179,8 +179,8 @@ const reply = (id: number, name: string) => {
         /* 评论者昵称 */
         .name {
           color: #333;
-          transition: all 0.3s;
           font-size: 16px;
+          transition: color $move;
         }
 
         .active {
@@ -201,7 +201,7 @@ const reply = (id: number, name: string) => {
       color: #666;
       margin: 5px 0px 5px 50px;
       font-size: 15px;
-      transition: all 0.3s;
+      transition: all $move;
       word-break: break-word;
     }
 
@@ -224,6 +224,7 @@ const reply = (id: number, name: string) => {
           margin-right: 15px;
           font-size: 15px;
           color: #444;
+          transition: color $move;
         }
 
         .time {
@@ -241,7 +242,7 @@ const reply = (id: number, name: string) => {
       }
     }
 
-    /* 二级评论 */
+    /* 三级评论 */
     .comment_user_three {
       margin: 10px 0 0 50px;
 
@@ -260,6 +261,7 @@ const reply = (id: number, name: string) => {
           margin-right: 15px;
           font-size: 15px;
           color: #444;
+          transition: color $move;
         }
 
         .time {
