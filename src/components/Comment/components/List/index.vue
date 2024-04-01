@@ -59,7 +59,7 @@ const reply = (id: number, name: string) => {
     <li class="item" v-for="one in list" :key="one.id">
       <!-- 一级评论 -->
       <div class="comment_user_one">
-        <img :src="one.avatar" alt="" class="avatar">
+        <img :src="one.avatar" alt="" v-image class="avatar">
 
         <div class="comment_user_one_info">
           <a :href="one.url" class="name active" target="_blank" v-if="one.url">{{ one.name }}</a>
@@ -78,7 +78,7 @@ const reply = (id: number, name: string) => {
         <div class="comment_user_two" v-for="two in one.children" :key="two.id">
           <!-- 评论者信息 -->
           <div class="comment_user_two_info">
-            <img :src="two.avatar" class="avatar_two">
+            <img :src="two.avatar" v-image class="avatar_two">
             <a :href="two.url" class="name active" target="_blank" v-if="two.url">{{ two.name }}</a>
             <a class="name" v-else>{{ two.name }}</a>
             <span class="time">{{ moment(two.createtime).format('YYYY-MM-DD HH:mm') }}</span>
@@ -95,7 +95,7 @@ const reply = (id: number, name: string) => {
           <div class="comment_user_three" v-for="three in two.children" :key="two.id">
             <!-- 评论者信息 -->
             <div class="comment_user_three_info">
-              <img :src="three.avatar" class="avatar_three">
+              <img :src="three.avatar" v-image class="avatar_three">
               <a :href="three.url" class="name active" target="_blank" v-if="three.url">{{ three.name }}</a>
               <a class="name" v-else>{{ three.name }}</a>
               <span class="time">{{ moment(three.createtime).format('YYYY-MM-DD HH:mm') }}</span>

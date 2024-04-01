@@ -1,3 +1,6 @@
+// 默认头像
+export const getDefaultAvatar = () => new URL(`../assets/img/default_avatar.png`, import.meta.url).href;
+
 // 加载效果
 export const svg = `
         <path class="path" d="

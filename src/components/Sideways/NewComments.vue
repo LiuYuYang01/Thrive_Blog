@@ -31,7 +31,7 @@ getCommentData()
         <div class="list">
             <a href="javascript:;" class="item" v-for="item in list" :key="item.id">
                 <!-- 头像 -->
-                <img :src="item.avatar" alt="" class="avatar">
+                <img :src="item.avatar" v-image class="avatar">
                 <!-- 内容 -->
                 <div class="content">
                     <!-- 评论信息 -->

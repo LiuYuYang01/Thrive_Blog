@@ -150,7 +150,7 @@ const handleKeyDown = (e: KeyboardEvent) => {
           <p class="name">{{ item.name }}</p>
 
           <div class="info">
-            <img :src="item.avatar" class="avatar">
+            <img :src="item.avatar" v-image class="avatar">
 
             <p class="content">{{ item.content }}</p>
           </div>
@@ -175,7 +175,7 @@ const handleKeyDown = (e: KeyboardEvent) => {
         <el-form-item label="头像">
           <el-radio-group v-model="chatUserInfo.avatar" class="ml-4">
             <el-radio :label="item" size="large" v-for="(item, index) in avatars" :key="index">
-              <img :src="avatarFilter(item)" alt="">
+              <img :src="avatarFilter(item)" v-image alt="">
             </el-radio>
           </el-radio-group>
         </el-form-item>
