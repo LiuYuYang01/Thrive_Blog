@@ -32,8 +32,6 @@ const loading = ref(true);
 
 // 获取文章的数据
 const getContentData = async () => {
-    console.log(route.params.id,777);
-    
     const { data } = await getArticleAPI(+route.params.id);
     articleData.value = data;
 
@@ -78,8 +76,6 @@ function createDirectory() {
 watch(() => route.params, async () => {
     await getContentData()
     await createDirectory()
-    console.log(articleData.value,222);
-    
 }, { immediate: true })
 </script>
 

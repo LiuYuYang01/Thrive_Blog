@@ -15,7 +15,6 @@ export const useWebStore = defineStore('web', () => {
     const getWebData = async () => {
         const { data } = await getWebDataAPI()
         webConfig.value = data
-        console.log(data, 111);
     }
 
     return { webConfig, getWebData }

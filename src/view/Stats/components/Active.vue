@@ -36,7 +36,7 @@ const colorsList: string[] = ["#f5f5f5", "#b0cff9", "#7cb4fd", "#539dfd"]
 // 合并两个类型Calendar += { index: number }
 const activeEvent = (e: Calendar & { index: number }) => {
     // 点击哪个单元格就获取哪个的时间
-    console.log(e);
+    // console.log(e);
 }
 </script>
 
