@@ -75,6 +75,19 @@
         }
     }
 
+    // 随机文章
+    .randomArticle {
+        background-color: #2b333e !important;
+
+        .list .item a {
+            color: #bcbcbc !important;
+            
+            &:hover {
+                color: $color !important;
+            }
+        }
+    }
+
     // 最新文章
     .newComments {
         background-color: #2b333e !important;
