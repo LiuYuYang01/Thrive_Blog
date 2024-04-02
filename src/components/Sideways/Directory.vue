@@ -2,30 +2,49 @@
 import { svg } from '@/utils'
 import { getArticleAPI } from '@/api/Article';
 
-const router = useRouter()
+const route = useRoute()
 const loading = ref(true)
 const doms = ref<any>([]);
+const directory = ref<HTMLElement>()
 
 // 获取文章的数据
 const getContent = async () => {
-    if (!+router.currentRoute.value.params.id as boolean) return
+    if (!+route.params.id as boolean) return
 
     loading.value = true
-    await getArticleAPI(+router.currentRoute.value.params.id as number)
+
+    await getArticleAPI(+route.params.id as number)
 
     // 转换为真数组
     doms.value = Array.from(document.querySelectorAll(".content h1,.content h2,.content h3"))
 
     // 去除为空的标题
     doms.value = doms.value.filter((item: HTMLElement) => { if (item.innerHTML) return item })
+
+    const left: HTMLElement = document.querySelector(".main .left")!
+
+    // 如果没有目录，就不让他显示
+    if (!doms.value.length) {
+        console.log(directory.value, 111);
+
+        left.style.width = "100%"
+
+        directory.value!.style.display = "none"
+    }else{
+        left.style.width = "73%"
+        directory.value!.style.display = "block"
+    }
+
     loading.value = false
 }
 
-onMounted(() => getContent())
+watch(() => route.params, r => {
+    getContent()
+}, { immediate: true })
 </script>
 
 <template>
-    <div class="directory">
+    <div class="directory" ref="directory">
         <div class="title">
             <img src="@/assets/svg/other/directory.svg" alt="">
 
@@ -38,7 +57,7 @@ onMounted(() => getContent())
                 <li v-for="item in doms" :key="item">
                     <!-- 查看有没有item.getAttribute('two')，有就是二级目录，没有就是一级目录 -->
                     <a :href="`#${item.id}`" :style="{ paddingLeft: item.getAttribute('two') ? '30px' : '' }">{{
-                    item.innerHTML }}</a>
+                        item.innerHTML }}</a>
                 </li>
             </ul>
 
