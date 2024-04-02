@@ -29,7 +29,7 @@ watch(paginate, p => {
                     <h3>{{ item.title }}</h3>
 
                     <!-- 文章摘要 -->
-                    <p>{{ item.description }} {{ item.createtime }}</p>
+                    <p>{{ item.description }}</p>
 
                     <div class="fun" v-if="index % 2 === 0">
                         <span><iconpark-icon name="alarm-clock" /> {{ moment(item.createtime).format('YYYY-MM-DD')
@@ -97,7 +97,6 @@ watch(paginate, p => {
             width: 65%;
             padding: 20px 40px;
             z-index: 2;
-            font-family: LXGWWenKai !important;
 
             a {
                 display: flex;
