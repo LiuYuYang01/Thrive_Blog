@@ -1,6 +1,9 @@
 <script setup lang="ts">
 // 引入时间插件
 import moment from "moment";
+import { editArticleViewAPI } from "@/api/Article";
+
+const route = useRoute()
 
 const info = ref<Info>({
   cover: "",
@@ -9,6 +12,10 @@ const info = ref<Info>({
   view: 0,
   comment: 0,
 });
+
+// 增加文章访问量
+const editArticleViewData = async () => editArticleViewAPI(+route.params.id)
+editArticleViewData()
 </script>
 
 <template>

@@ -28,6 +28,14 @@ export const getRandomArticleAPI = (): http<Article[]> => {
   });
 };
 
+// 递增文章浏览量
+export const editArticleViewAPI = (id: number): http<any> => {
+  return Request.instance.request({
+    method: "PATCH",
+    url: `/api/article/view/${id}`
+  });
+};
+
 // 获取指定分类下的所有文章
 export const getArticleCateListAPI = (mark: string, params?: Page): http<Paginate<Article[]>> => {
   // 如果有参数就是分页查询，没有参数就是查询全部

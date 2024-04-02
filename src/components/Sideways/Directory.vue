@@ -25,10 +25,7 @@ const getContent = async () => {
 
     // 如果没有目录，就不让他显示
     if (!doms.value.length) {
-        console.log(directory.value, 111);
-
         left.style.width = "100%"
-
         directory.value!.style.display = "none"
     }else{
         left.style.width = "73%"
