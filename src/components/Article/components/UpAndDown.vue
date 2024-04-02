@@ -6,14 +6,14 @@ const route = useRoute()
 
 <template>
     <div class="upAndDown">
-        <RouterLink :to="`/article/${prev ? props.prev?.id : route.params.id}`">
+        <RouterLink :to="`/article/${next ? props.next?.id : route.params.id}`">
             <p>上一篇</p>
-            <p>{{ prev ? prev?.title : '没有上一篇文章了~' }}</p>
+            <p>{{ next ? next?.title : '没有下一篇文章了~' }}</p>
         </RouterLink>
 
-        <RouterLink :to="`/article/${next ? props.next?.id : route.params.id}`">
+        <RouterLink :to="`/article/${prev ? props.prev?.id : route.params.id}`">
             <p>下一篇</p>
-            <p>{{ next ? next?.title : '没有下一篇文章了~' }}</p>
+            <p>{{ prev ? prev?.title : '没有上一篇文章了~' }}</p>
         </RouterLink>
     </div>
 </template>
