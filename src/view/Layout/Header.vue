@@ -31,8 +31,6 @@ watch(() => route, r => {
   pages.includes(c) ? is.value = true : is.value = false
 }, { immediate: true, deep: true })
 
-// import dark_logo from '@/assets/img/dark_logo.png'
-// import light_logo from '@/assets/img/light_logo.png'
 
 import { useConfigStore } from '@/stores'
 const store = useConfigStore()

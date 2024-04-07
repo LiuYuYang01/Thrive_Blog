@@ -4,6 +4,8 @@ import useUserStore from "@/stores/Author";
 const store = useUserStore();
 store.getAuthor();
 
+import { useConfigStore } from '@/stores'
+
 // 获取作者信息
 const { authorInfo } = storeToRefs(store);
 
@@ -11,28 +13,7 @@ const { authorInfo } = storeToRefs(store);
 import avatar_bg from "@/assets/img/avatar_bg.jpg";
 
 // 社交账号
-const socializing = [
-    {
-        name: "GitHub",
-        url: "https://github.com/LiuYuYang01?tab=overview&from=2023-04-01&to=2023-04-26"
-    },
-    {
-        name: "Gitee",
-        url: "https://gitee.com/liu_yu_yang666"
-    },
-    {
-        name: "Juejin",
-        url: "https://juejin.cn/user/3083456627092078/posts"
-    },
-    {
-        name: "CSDN",
-        url: "https://blog.csdn.net/haodian666?type=blog"
-    },
-    {
-        name: "QQ",
-        url: "http://wpa.qq.com/msgrd?v=3&uin=3311118881&site=qq&menu=yes"
-    }
-];
+const socializing = useConfigStore().web.social;
 
 // 动态获取图片路径
 const getIcon = (src: string) => {
