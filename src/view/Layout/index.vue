@@ -1,13 +1,13 @@
 <script setup lang='ts'>
-import { useWebStore } from '@/stores'
-import { getWebDataAPI } from '@/api/Project';
-
 // 引入五彩纸屑
 import Fireworks from './hooks/confetti'
 
 import Header from './Header.vue'
 import Footer from './Footer.vue'
 
+import { useWebStore, useConfigStore } from '@/stores'
+
+const store1 = useConfigStore()
 const store = useWebStore()
 const { webConfig } = storeToRefs(store)
 
@@ -35,6 +35,10 @@ const updateTitle = (r: any) => {
 
 // 默认加载页面时获取页面title
 onMounted(async () => {
+  // 动态设置ico
+  const link = document.querySelector("link")!
+  link.href = store1.web.favicon
+
   // 判断是否显示星空颗粒背景
   const StarrySky: HTMLStyleElement = document.querySelector(".StarrySky")!
   StarrySkyList.includes(route.path) ? StarrySky.style.display = "none" : StarrySky.style.display = "block"
@@ -75,4 +79,4 @@ onBeforeRouteUpdate(to => {
   <Footer />
 </template>
 
-<style scoped></style>./hooks/confetti
+<style scoped></style>
