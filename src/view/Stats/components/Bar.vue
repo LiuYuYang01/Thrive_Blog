@@ -6,7 +6,7 @@ const bar = ref()
 function init() {
     var myChart = echarts.init(bar.value);
 
-    var lableNormal = {};
+    var lableNormal: { [key: string]: any } = {};
     lableNormal.offset = [-5, 0];
     lableNormal.show = true;
     lableNormal.formatter = '{a}';
@@ -150,7 +150,6 @@ function init() {
 onMounted(() => {
     init()
 })
-
 </script>
 
 <template>

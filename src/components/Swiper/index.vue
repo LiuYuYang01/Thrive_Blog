@@ -45,7 +45,7 @@ onMounted(() => {
 .Swiper {
     position: relative;
     height: 500px;
-    background: url("@/assets/img/t01d6f5fd3610da0a08.jpg") center;
+    background: url("") center;
     background-size: cover;
 
     // 背景渐变
