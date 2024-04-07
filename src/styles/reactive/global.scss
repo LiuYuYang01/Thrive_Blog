@@ -65,14 +65,22 @@
 }
 
 @media screen and (max-width: 500px) {
-    .classics .item {
-        .info {
-            width: 100% !important;
-            padding: 20px 40px !important;
-        }
+    .main {
+        padding: 20px 10px !important;
 
-        .cover {
-            display: none !important;
+        .classics .item {
+            .info {
+                width: 100% !important;
+                padding: 20px 40px !important;
+            }
+
+            .cover {
+                display: none !important;
+            }
         }
+    }
+
+    .article {
+        padding: 30px 20px !important;
     }
 }

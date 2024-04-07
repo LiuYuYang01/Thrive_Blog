@@ -16,7 +16,8 @@ const getContent = async () => {
     await getArticleAPI(+route.params.id as number)
 
     // 转换为真数组
-    doms.value = Array.from(document.querySelectorAll(".content h1,.content h2,.content h3"))
+    // doms.value = Array.from(document.querySelectorAll(".content h1,.content h2,.content h3"))
+    doms.value = Array.from(document.querySelectorAll(".content h2,.content h3"))
 
     // 去除为空的标题
     doms.value = doms.value.filter((item: HTMLElement) => { if (item.innerHTML) return item })

@@ -290,6 +290,10 @@ onMounted(() => {
                     background-color: #f0f6fd;
                 }
             }
+
+            &:last-of-type {
+                border: none !important;
+            }
         }
 
         // 表情包分组

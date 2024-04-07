@@ -281,7 +281,7 @@ const reply = (id: number, name: string) => {
 
     /* 最后一个取消下边框 */
     &:last-of-type {
-      border-bottom: 0;
+      border: none;
     }
   }
 }
