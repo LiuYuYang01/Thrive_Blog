@@ -63,3 +63,16 @@
         width: 150px !important;
     }
 }
+
+@media screen and (max-width: 500px) {
+    .classics .item {
+        .info {
+            width: 100% !important;
+            padding: 20px 40px !important;
+        }
+
+        .cover {
+            display: none !important;
+        }
+    }
+}

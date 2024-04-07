@@ -75,6 +75,8 @@ onMounted(() => {
         top: 40%;
         left: 50%;
         transform: translate(-50%);
+        width: 80%;
+        text-align: center;
         color: #fff;
         font-size: 30px;
         text-shadow: 0 0.1875rem 0.3125rem #1c1f21;
