@@ -17,7 +17,6 @@ const getCateList = async () => {
 
   cateList.value = data.result
 }
-
 getCateList()
 
 const route = useRoute()
@@ -32,11 +31,14 @@ watch(() => route, r => {
   pages.includes(c) ? is.value = true : is.value = false
 }, { immediate: true, deep: true })
 
-import logo_dark from '@/assets/img/logo_dark.png'
-import logo_light from '@/assets/img/logo_light.png'
+// import dark_logo from '@/assets/img/dark_logo.png'
+// import light_logo from '@/assets/img/light_logo.png'
 
 import { useConfigStore } from '@/stores'
 const store = useConfigStore()
+
+const light_logo = ref<string>(store.web.light_logo)
+const dark_logo = ref<string>(store.web.dark_logo)
 
 const ExtendPage = {
   name: "扩展页面",
@@ -78,13 +80,13 @@ const ExtendPage = {
           <RouterLink to="/" class="one_item_nav" v-if="true">
             <!-- 白天 -->
             <template v-if="!store.isTheme">
-              <img :src="top > 100 || is ? logo_light : logo_dark" alt="">
+              <img :src="top > 100 || is ? light_logo : dark_logo" alt="">
             </template>
 
             <!-- 黑夜 -->
 
             <template v-else>
-              <img :src="logo_dark" alt="">
+              <img :src="dark_logo" alt="">
             </template>
           </RouterLink>
 
@@ -159,15 +161,13 @@ const ExtendPage = {
         <!-- 图片LOGO模式 -->
         <RouterLink to="/" class="one_item_nav" v-if="true">
           <!-- 白天 -->
-
           <template v-if="!store.isTheme">
-            <img :src="top > 100 || is ? logo_light : logo_dark" alt="">
+            <img :src="top > 100 || is ? light_logo : dark_logo" alt="">
           </template>
 
           <!-- 黑夜 -->
-
           <template v-else>
-            <img :src="logo_dark" alt="">
+            <img :src="dark_logo" alt="">
           </template>
         </RouterLink>
       </div>

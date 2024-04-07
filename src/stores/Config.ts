@@ -1,4 +1,4 @@
-import { getLayoutDataAPI } from '@/api/Project'
+import { getLayoutDataAPI, getWebDataAPI } from '@/api/Project'
 import { defineStore } from 'pinia'
 
 // 网站配置
@@ -18,6 +18,21 @@ export const useConfigStore = defineStore('config', () => {
         swiperText: ['这是一段文本', '这是第二段文本']
     })
 
+    const web = ref<WebConfig>({
+        url: "",
+        favicon: "https://liuyuyang.net/favicon.ico",
+        title: "Thrive",
+        subhead: "花有重开日, 人无再少年",
+        light_logo: "https://liuyuyang.net/avatar.jpg",
+        dark_logo: "https://liuyuyang.net/avatar.jpg",
+        description: "记录前端、Python、Java点点滴滴",
+        keyword: "",
+        footer: "",
+        covers: [],
+        font: '',
+        social: ''
+    })
+
     const updateIsTheme = (data: boolean) => {
         isTheme.value = data
     }
@@ -28,5 +43,12 @@ export const useConfigStore = defineStore('config', () => {
         layout.value = data;
     }
 
-    return { isTheme, updateIsTheme, layout, getLayoutData }
+    // 获取网站配置
+    const getWebData = async () => {
+        const { data } = await getWebDataAPI()
+        web.value = data;
+    }
+    getWebData()
+
+    return { isTheme, updateIsTheme, layout, getLayoutData, web, getWebData }
 })

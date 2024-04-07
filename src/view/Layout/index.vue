@@ -72,7 +72,7 @@ onBeforeRouteUpdate(to => {
     </KeepAlive>
   </RouterView> -->
 
-  <!-- <Footer /> -->
+  <Footer />
 </template>
 
 <style scoped></style>./hooks/confetti
