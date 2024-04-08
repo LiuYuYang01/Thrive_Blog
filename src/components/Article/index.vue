@@ -138,9 +138,16 @@ watch(() => route.params, async () => {
 
         // 超链接
         :deep(p a) {
-            display: block;
-            color: #539dfd !important;
-            background-color: #539dfd !important;
+            display: inline-block;
+            border-radius: 5px;
+            padding: 0 5px;
+            color: $color;
+            transition: all $move;
+
+            &:hover {
+                color: #fff;
+                background-color: $color;
+            }
         }
 
         // 设置代码框样式
