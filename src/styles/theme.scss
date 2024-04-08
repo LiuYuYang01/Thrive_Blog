@@ -81,7 +81,7 @@
 
         .list .item a {
             color: #bcbcbc !important;
-            
+
             &:hover {
                 color: $color !important;
             }
@@ -143,6 +143,10 @@
                     background-color: #4f4f4f !important;
                 }
             }
+
+            strong {
+                color: #d5d5d5 !important;
+            }
         }
 
         .list .item {
@@ -178,7 +182,7 @@
                 background-color: #38414b !important;
             }
 
-            &:last-of-type{
+            &:last-of-type {
                 border: none !important;
             }
         }

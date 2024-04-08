@@ -11,7 +11,7 @@
 }
 
 @media screen and (max-width: 1010px) {
-    .Article {
+    .page_ {
         .box .title {
             font-size: 30px !important;
             margin-bottom: 25px !important;
@@ -23,10 +23,19 @@
     }
 }
 
-@media screen and (max-width: 600px) {
-    .Article {
+@media screen and (max-width: 800px) {
+    .page_ {
         .box .title {
+            width: 80% !important;
             font-size: 25px !important;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .page_ {
+        .box .title {
+            font-size: 20px !important;
             margin-bottom: 15px !important;
         }
 
@@ -38,6 +47,46 @@
             .reply {
                 right: 10px !important;
             }
+        }
+
+        .article {
+            .content {
+                h1 {
+                    font-size: 25px !important;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .box .info {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+
+    .article {
+        .content {
+            h1 {
+                font-size: 20px !important;
+            }
+        }
+
+        .upAndDown {
+            margin-top: 20px !important;
+
+            p {
+                font-size: 13px !important;
+
+                &:first-child {
+                    font-size: 17px !important;
+                }
+            }
+        }
+
+        .comment {
+            margin-top: 50px !important;
         }
     }
 }

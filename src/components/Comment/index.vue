@@ -170,8 +170,6 @@ onMounted(() => {
         <div class="post" @click="postComment">
             <a href="javascript:;">发表评论</a>
         </div>
-
-        {{ data }} | {{ cid }}
     </div>
 
     <List :isPublish="isPublish" @reply="reply" />

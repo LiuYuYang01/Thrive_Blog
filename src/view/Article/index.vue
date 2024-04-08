@@ -19,7 +19,7 @@ editArticleViewData()
 </script>
 
 <template>
-  <div class="Article">
+  <div class="page_">
     <!-- 取消波浪、打字机效果 -->
     <Swiper :src="info.cover" :Ripple="true">
       <div class="box">
@@ -59,7 +59,7 @@ editArticleViewData()
 </template>
 
 <style scoped lang="scss">
-.Article {
+.page_ {
   :deep(.directory) {
     margin-top: 0;
   }
