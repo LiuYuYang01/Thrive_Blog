@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { svg } from '@/utils'
 import { getArticleAPI } from '@/api/Article';
-// 
+
 const route = useRoute()
 const loading = ref(true)
 const doms = ref<any>([]);
