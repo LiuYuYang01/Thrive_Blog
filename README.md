@@ -58,6 +58,38 @@
 
 
 
+🌈 **项目运行：**
+
+前端 or 控制端
+
+环境：Nodejs16、18
+
+```
+npm i
+npm run dev
+```
+
+
+
+后端
+
+Python3.9、10
+
+```python
+# 创建虚拟环境
+virtualenv venv
+
+# 进入虚拟环境
+venv/Scripts/activate
+
+# 在虚拟环境中安装对应的依赖
+pip3 install -r requirements.txt
+
+# 在虚拟环境中运行项目，python app.py的相对路径
+python C:\Thrive\Thrive_API-2.0\app.py
+```
+
+
 🏷️ **开源地址：**
 
 前端：[LiuYuYang01/Thrive_Blog (github.com)](https://github.com/LiuYuYang01/Thrive_Blog)
