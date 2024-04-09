@@ -45,16 +45,15 @@
 
 🔥 **项目演示：**
 
-![image-20240408093322586](https://thrive.oss-cn-beijing.aliyuncs.com/image/image-20240408093322586.png)
+![image-20240408093322586](https://bu.dusays.com/2024/04/09/66148fc49640a.png)
 
-![image-20240408093347003](https://thrive.oss-cn-beijing.aliyuncs.com/image/image-20240408093347003.png
-)
+![image-20240408093347003](https://bu.dusays.com/2024/04/09/66148edf0fad9.png)
 
 
 
 🏹 **未来计划：**
 
-![image-20240408103633402](https://thrive.oss-cn-beijing.aliyuncs.com/image/image-20240408103633402.png)
+![image-20240408103633402](https://bu.dusays.com/2024/04/09/66148ecb66a39.png)
 
 
 
