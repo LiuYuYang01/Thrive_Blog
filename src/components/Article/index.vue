@@ -132,8 +132,9 @@ watch(() => route.params, async () => {
         :deep(img) {
             display: block;
             width: 65%;
-            margin: 0 auto;
+            margin: 15px auto;
             border-radius: $round;
+            cursor: pointer;
         }
 
         // 超链接
