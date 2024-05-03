@@ -13,7 +13,12 @@ const { authorInfo } = storeToRefs(store);
 import avatar_bg from "@/assets/img/avatar_bg.jpg";
 
 // 社交账号
-const socializing = useConfigStore().web.social;
+const socializing = ref<Social[]>([]);
+
+onMounted(async ()=>{
+    await useConfigStore().getLayoutData()
+    socializing.value = useConfigStore().web.social
+})
 
 // 动态获取图片路径
 const getIcon = (src: string) => {

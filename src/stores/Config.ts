@@ -29,7 +29,8 @@ export const useConfigStore = defineStore('config', () => {
         keyword: "",
         footer: "",
         font: '',
-        social: ''
+        covers: [],
+        social: []
     })
 
     const updateIsTheme = (data: boolean) => {

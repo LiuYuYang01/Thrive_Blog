@@ -76,6 +76,7 @@ editArticleViewData()
       color: #fff;
       font-size: 40px;
       margin-bottom: 40px;
+      text-align: center;
     }
 
     .info {

@@ -1,3 +1,5 @@
+interface Social { name: string, url: string }
+
 interface WebConfig {
     url: string,
     title: string,
@@ -9,5 +11,6 @@ interface WebConfig {
     keyword: string,
     footer: string,
     font: string,
-    social: string,
+    covers: string[],
+    social: Social[],
 }
