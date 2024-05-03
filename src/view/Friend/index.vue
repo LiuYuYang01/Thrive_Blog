@@ -157,7 +157,6 @@ const submit = () => {
     <!-- 申请友联表单 -->
     <div class="link">
         <el-dialog v-model="model" title="申请友情链接" width="30%">
-            {{ link }}
             <el-form ref="form" label-position="top" label-width="100px" :rules="rules" :model="link" size="large"
                 style="max-width: 460px">
                 <el-form-item label="标题" prop="title">
@@ -173,11 +172,11 @@ const submit = () => {
                 </el-form-item>
 
                 <el-form-item label="头像" prop="image">
-                    <el-input v-model="link.image" placeholder="https://liuyuyang.net/logo.png" />
+                    <el-input v-model="link.image" placeholder="https://blog.liuyuyang.net/logo.png" />
                 </el-form-item>
 
                 <el-form-item label="链接" prop="url">
-                    <el-input v-model="link.url" placeholder="https://liuyuyang.net/" />
+                    <el-input v-model="link.url" placeholder="https://blog.liuyuyang.net/" />
                 </el-form-item>
 
                 <el-form-item label="类型" prop="type">

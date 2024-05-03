@@ -20,11 +20,11 @@ export const useConfigStore = defineStore('config', () => {
 
     const web = ref<WebConfig>({
         url: "",
-        favicon: "https://liuyuyang.net/favicon.ico",
+        favicon: "https://blog.liuyuyang.net/favicon.ico",
         title: "Thrive",
         subhead: "花有重开日, 人无再少年",
-        light_logo: "https://liuyuyang.net/avatar.jpg",
-        dark_logo: "https://liuyuyang.net/avatar.jpg",
+        light_logo: "https://bu.dusays.com/2024/05/03/663481106e2a4.png",
+        dark_logo: "https://bu.dusays.com/2024/05/03/663481106dcfd.png",
         description: "记录前端、Python、Java点点滴滴",
         keyword: "",
         footer: "",
