@@ -28,7 +28,6 @@ export const useConfigStore = defineStore('config', () => {
         description: "记录前端、Python、Java点点滴滴",
         keyword: "",
         footer: "",
-        covers: [],
         font: '',
         social: ''
     })

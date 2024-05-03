@@ -10,5 +10,4 @@ interface WebConfig {
     footer: string,
     font: string,
     social: string,
-    covers: string[]
 }
