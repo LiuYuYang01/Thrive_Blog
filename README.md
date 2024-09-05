@@ -46,10 +46,8 @@
 
 
 🔥 **项目演示：**
-
-![image-20240408093322586](https://bu.dusays.com/2024/04/09/66148fc49640a.png)
-
-![image-20240408093347003](https://bu.dusays.com/2024/04/09/66148edf0fad9.png)
+![image-20240408093322586](https://liuyuyang.net/usr/uploads/2024/04/2753555887.png)
+![image-20240408093347003](https://liuyuyang.net/usr/uploads/2024/04/3620445579.png)
 
 
 
