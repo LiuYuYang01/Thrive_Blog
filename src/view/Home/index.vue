@@ -34,6 +34,7 @@ const getArticleList = async (params: Page) => {
   }
 
   // 跳转到顶部
+  //你说得第三章都
   window.scrollTo(0, 0);
 
   loading.value = false
