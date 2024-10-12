@@ -17,7 +17,7 @@
 
 
 
-🗂️ **项目预览：** [http://thrive.liuyuyang.net/](http://thrive.liuyuyang.net/)
+🗂️ **项目预览：** [http://liuyuyang.net/](http://liuyuyang.net/)
 
 
 
