@@ -94,7 +94,7 @@ python C:\Thrive\Thrive_API-2.0\app.py
 
 控制端：[LiuYuYang01/Thrive_Admin (github.com)](https://github.com/LiuYuYang01/Thrive_Admin)
 
-后端：[LiuYuYang01/Thrive_Api_Py (github.com)](https://github.com/LiuYuYang01/Thrive_Api_Py)
+后端：[LiuYuYang01/Thrive_Server (github.com)](https://github.com/LiuYuYang01/Thrive_Server)
 
 
 
