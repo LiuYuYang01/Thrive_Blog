@@ -1,5 +1,12 @@
 **特别强调：** 此项目不允许任何商业行为，如果使用该项目进行二次开发，不允许收取任何费用，弘扬开源精神，从你我做起！
 
+# 最新版已发布
+前端：[LiuYuYang01/ThriveX_Blog (github.com)](https://github.com/LiuYuYang01/ThriveX_Blog)
+
+控制端：[LiuYuYang01/ThriveX_Admin (github.com)](https://github.com/LiuYuYang01/ThriveX_Admin)
+
+后端：[LiuYuYang01/ThriveX_Server (github.com)](https://github.com/LiuYuYang01/ThriveX_Server)
+
 
 # 🎉 Thrive 现代化博客管理系统
 
