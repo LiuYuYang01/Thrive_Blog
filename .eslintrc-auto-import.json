@@ -287,5 +287,6 @@
     "whenever": true,
     "ElMessage": true,
     "ElNotification": true
+    
   }
 }
