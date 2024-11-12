@@ -1,11 +1,11 @@
 **特别强调：** 此项目不允许任何商业行为，如果使用该项目进行二次开发，不允许收取任何费用，弘扬开源精神，从你我做起！
 
 # 最新版已发布
-前端：[LiuYuYang01/ThriveX_Blog (github.com)](https://github.com/LiuYuYang01/ThriveX_Blog)
+前端：[LiuYuYang01/ThriveX-Blog (github.com)](https://github.com/LiuYuYang01/ThriveX-Blog)
 
-控制端：[LiuYuYang01/ThriveX_Admin (github.com)](https://github.com/LiuYuYang01/ThriveX_Admin)
+控制端：[LiuYuYang01/ThriveX-Admin (github.com)](https://github.com/LiuYuYang01/ThriveX-Admin)
 
-后端：[LiuYuYang01/ThriveX_Server (github.com)](https://github.com/LiuYuYang01/ThriveX_Server)
+后端：[LiuYuYang01/ThriveX-Server (github.com)](https://github.com/LiuYuYang01/ThriveX-Server)
 
 
 # 🎉 Thrive 现代化博客管理系统
@@ -98,11 +98,11 @@ python C:\Thrive\Thrive_API-2.0\app.py
 
 🏷️ **开源地址：**
 
-前端：[LiuYuYang01/Thrive_Blog (github.com)](https://github.com/LiuYuYang01/Thrive_Blog)
+前端：[LiuYuYang01/Thrive-Blog (github.com)](https://github.com/LiuYuYang01/Thrive-Blog)
 
-控制端：[LiuYuYang01/Thrive_Admin (github.com)](https://github.com/LiuYuYang01/Thrive_Admin)
+控制端：[LiuYuYang01/Thrive-Admin (github.com)](https://github.com/LiuYuYang01/Thrive-Admin)
 
-后端：[LiuYuYang01/Thrive_Server (github.com)](https://github.com/LiuYuYang01/Thrive_Server)
+后端：[LiuYuYang01/Thrive-Server (github.com)](https://github.com/LiuYuYang01/Thrive-Server)
 
 
 
